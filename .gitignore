@@ -5,6 +5,8 @@ _targets
 */in/*
 */tmp/*
 */out/*
+!*/out/CONUS_1951_2020/
+*/out/CONUS_1951_2020/*
 
 # Allow the `.empty` files to be committed
 !*/in/.empty
