@@ -1,3 +1,16 @@
+# Targets files
+_targets
+
+# Ignore intermediate pipeline files
+*/in/*
+*/tmp/*
+*/out/*
+
+# Allow the `.empty` files to be committed
+!*/in/.empty
+!*/tmp/.empty
+!*/out/.empty
+
 # History files
 .Rhistory
 .Rapp.history
@@ -7,6 +20,7 @@
 
 # User-specific files
 .Ruserdata
+.Rprofile
 
 # Example code in package build process
 *-Ex.R
@@ -19,6 +33,7 @@
 
 # RStudio files
 .Rproj.user/
+*.Rproj
 
 # produced vignettes
 vignettes/*.html
@@ -37,3 +52,17 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+###### DO NOT EDIT BELOW THIS LINE ######
+
+# This section should not be edited without careful consideration
+# and peer review. It is ensuring that files containing encrypted
+# passwords and secrets information are not being committed to our
+# repository and remain local for the individual pipeline user.
+# Include vault dirs by default but ignore any of the secrets files.
+
+sb.vault/secrets/*
+!sb.vault/secrets/README
+sb.vault/users/*
+!sb.vault/users/README
+
