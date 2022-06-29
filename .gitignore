@@ -10,6 +10,7 @@ _targets
 !*/in/.empty
 !*/tmp/.empty
 !*/out/.empty
+!*/out/CONUS_1951_2020/.empty
 
 # History files
 .Rhistory
