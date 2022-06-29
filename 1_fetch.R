@@ -142,7 +142,6 @@ p1_targets <- list(
     file.path('1_fetch/out/CONUS_1951_2020/streamflow_percentiles', 
               utils::unzip(zipfile = p1_1951_2020_streamflow_perc_zip, list = T)
               %>% pull(Name) %>% basename())
-    
   },
   format = 'file'),
   
