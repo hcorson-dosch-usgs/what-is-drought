@@ -144,5 +144,12 @@ p1_targets <- list(
               %>% pull(Name) %>% basename())
     
   },
-  format = 'file')
+  format = 'file'),
+  
+  tar_target(p1_1951_2020_streamflow_perc_csvs_tibble,
+             tibble(
+               flow_perc_fl = p1_1951_2020_streamflow_perc_csvs,
+               flow_perc_fl_hash = tools::md5sum(flow_perc_fl),
+               StaID = tools::file_path_sans_ext(basename(flow_perc_fl))
+             ))
 )
