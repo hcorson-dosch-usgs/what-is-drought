@@ -132,6 +132,8 @@ p1_targets <- list(
   # },
   # format = 'file'),
   # USE MANUALLY DOWNLOADED ZIP FOR NOW
+  # https://www.sciencebase.gov/catalog/item/627974ccd34e8d45aa6e3c81
+  # 'Streamflow_percentiles_national_1951.zip'
   tar_target(p1_1951_2020_streamflow_perc_zip,
              '1_fetch/in/Streamflow_percentiles_national_1951.zip',
              format = 'file'),
