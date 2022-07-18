@@ -1,4 +1,4 @@
-# source('2_process/src/')
+ource('2_process/src/prep_stripswarm.R')
 
 p2_targets <- list(
   ##### General metadata #####
