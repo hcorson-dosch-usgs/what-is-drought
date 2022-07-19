@@ -72,9 +72,6 @@ horiz_swarm_plot <- function(swarm_data){
   
   # piece together plot elements
   p_legend <- get_legend(p) # the legned
-  logo <- magick::image_read('../logo/usgs_logo_white.png') %>%
-    magick::image_resize('x100') %>%
-    magick::image_colorize(100, "black")
 
   ggdraw(xlim = c(0, 0.97), ylim = c(-0.05, 1)) +
     draw_plot(p+theme(legend.position = "none"), 
@@ -87,15 +84,7 @@ horiz_swarm_plot <- function(swarm_data){
                hjust = 0, 
                fontfamily = font_fam,
                lineheight = 1.1) +
-    draw_label("Scott Hamshaw, USGS\nData: NWIS", 
-               x = 0.95, y = -0.025, 
-               fontface = "italic", 
-               size = 14, 
-               hjust = 1, vjust = 0,
-               fontfamily = font_fam,
-               lineheight = 1.1) +
-    draw_plot(p_legend, x = 0.06, y = 0.73, width = 0.2, height = 0.1, hjust = 0) +
-    draw_image(logo, x = 0.015, y = -0.025, width = 0.08, hjust = 0, vjust = 0, halign = 0, valign = 0)
+    draw_plot(p_legend, x = 0.06, y = 0.73, width = 0.2, height = 0.1, hjust = 0)
   
   
 }
@@ -140,30 +129,12 @@ event_swarm_plot <- function(swarm_data){
   
   # piece together plot elements
   p_legend <- get_legend(p) # the legned
-  logo <- magick::image_read('../logo/usgs_logo_white.png') %>%
-    magick::image_resize('x100') %>%
-    magick::image_colorize(100, "black")
   
   ggdraw(xlim = c(0, 1), ylim = c(0, 1)) +
     draw_plot(p+theme(legend.position = "none"), 
               y = 0.1, x = 0, 
               height = 0.8,
               width = 0.95) +
-    draw_label("Streamflow Drought Duration\n2020 & 2021", 
-               x = 0.015, y = 0.9, 
-               fontface = "bold", 
-               size = 30, 
-               hjust = 0, 
-               fontfamily = font_fam,
-               lineheight = 1.1) +
-    draw_label("Scott Hamshaw, USGS\nData: NWIS", 
-               x = 0.95, y = 0.05, 
-               fontface = "italic", 
-               size = 14, 
-               hjust = 1, vjust = 0,
-               fontfamily = font_fam,
-               lineheight = 1.1) +
-    draw_plot(p_legend, x = 0.06, y = 0.73, width = 0.2, height = 0.1, hjust = 0) +
-    draw_image(logo, x = 0.015, y = 0.05, width = 0.08, hjust = 0, vjust = 0, halign = 0, valign = 0)
+    draw_plot(p_legend, x = 0.06, y = 0.73, width = 0.2, height = 0.1, hjust = 0) 
   
 }
