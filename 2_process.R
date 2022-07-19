@@ -1,4 +1,4 @@
-ource('2_process/src/prep_stripswarm.R')
+source('2_process/src/prep_stripswarm.R')
 
 p2_targets <- list(
   ##### General metadata #####
@@ -27,13 +27,33 @@ p2_targets <- list(
   
   ###### Load drought properties ######
   tar_target(p2_1951_2020_drought_prop_site,
-             readr::read_csv(p1_1951_2020_drought_prop_site_csv, col_types = cols())),
+             readr::read_csv(p1_1951_2020_drought_prop_site_csv, col_types = cols()) %>%
+              mutate(across(c(start, end), ~as.Date(.x, '%Y-%m-%d')))
+             ),
+  tar_target(p2_site_prop_10,
+             # Filter to 10 threshold
+             p2_1951_2020_drought_summary_jd %>%
+               filter(threshold == 10) %>%
+               left_join(p2_1951_2020_metadata %>%
+                           select(StaID:STATE, HCDN_2009))
+             ),
+  tar_target(p2_site_prop_2,
+             # Filter to 10 threshold
+             p2_1951_2020_drought_prop_jd %>%
+               filter(threshold == 2) %>%
+               left_join(p2_1951_2020_metadata %>%
+                           select(StaID:STATE, HCDN_2009))
+  ),
   tar_target(p2_1951_2020_drought_prop_jd,
              readr::read_csv(p1_1951_2020_drought_prop_jd_csv, col_types = cols())),
   tar_target(p2_1951_2020_drought_prop_jd_7d,
              readr::read_csv(p1_1951_2020_drought_prop_jd_7d_csv, col_types = cols())),
   tar_target(p2_1951_2020_drought_prop_jd_30d,
              readr::read_csv(p1_1951_2020_drought_prop_jd_30d_csv, col_types = cols())),
+  tar_target(p2_site_swarm,
+             create_event_swarm(event_data = p2_site_prop_2,
+                                start_period = as.Date('2010-01-01'),
+                                end_period = as.Date('2020-12-31'))),
 
   ###### Load annual stats ######
   tar_target(p2_1951_2020_annual_stats_site,
