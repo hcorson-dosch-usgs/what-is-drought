@@ -7,7 +7,7 @@ create_event_swarm <- function(event_data, start_period, end_period){
     arrange(onset_day)
   
   # set up an empty "swarm grid" to place drought events into
-  n <- 100 # set arbitrarily large number of possible simultaneous drought events positions. Trimmed prior to plotting
+  n <- 600 # set arbitrarily large number of possible simultaneous drought events positions. Trimmed prior to plotting
   
   E <- as_tibble(matrix(NaN,nrow=n,ncol=max(event_subset$end_day)+1))
   E <- E %>% mutate(priority = 1:n)
@@ -16,6 +16,8 @@ create_event_swarm <- function(event_data, start_period, end_period){
     mutate(rnum = 1:(2*n))
   
   # loop through each event and place into best available spot in grid
+  progress_bar <- txtProgressBar(min = 1, max = nrow(event_subset), style = 3)
+  
   for (idx in 1:nrow(event_subset)){
     temp_dur <- event_subset[[idx,'duration']]
     temp_startd <-event_subset[[idx,'onset_day']]
@@ -43,6 +45,8 @@ create_event_swarm <- function(event_data, start_period, end_period){
     # assign event to identified spot by using duration value
     E[temp_rnum,((temp_startd + temp_pos_key):(temp_startd + temp_dur - 1 + temp_pos_key))] <- event_subset[[idx,'duration']]
     E[temp_rnum,(temp_startd + temp_dur + temp_pos_key)] <- 0 # enforces a space between subsequent events
+    
+    setTxtProgressBar(progress_bar, idx)
   }
   # trim unused rows
   ind <- E %>% select(-priority,-rnum) %>% 
