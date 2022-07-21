@@ -10,6 +10,17 @@ p2_targets <- list(
   ###### Get 1951-2020 metadata ######
   tar_target(p2_1951_2020_metadata,
              filter(p2_metadata, national_1951)),
+  tar_target(p2_casc_list,
+             # Climate Adaptation Regions
+             list(NW = c('WA','OR','ID'),
+                  SW = c('CA','UT','NV','NM'),
+                  NC = c('MT','ND','SD','WY','CO','NE','KS'),
+                  MW = c('WI','MN','IA','IN','IL','OH','MI'),
+                  NE = c('ME','VT','NH','NY','NJ','MA','RI','CT','WV','VA','MD','DE','KY'),
+                  SE = c('AR','MS','TN','NC','SC','AL','FL','GA','PR'),
+                  PI = c('HI','AS','GU'),
+                  AK = c('AK'))
+             ),
   
   ###### Load drought summaries ######
   tar_target(p2_1951_2020_drought_summary_site,
@@ -39,7 +50,7 @@ p2_targets <- list(
              ),
   tar_target(p2_site_prop_2,
              # Filter to 10 threshold
-             p2_1951_2020_drought_prop_jd %>%
+             p2_1951_2020_drought_prop_jd_7d %>%
                filter(threshold == 2) %>%
                left_join(p2_1951_2020_metadata %>%
                            select(StaID:STATE, HCDN_2009))
