@@ -1,57 +1,42 @@
-#' @title 
-#' @description 
-#' @param name 
-#' @param 
-drought_lrnr_viz01 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner_viz_df) {
+#' @description This function creates the first frame for the drought learner viz gif/video
+#' @param p2_droughts_learner_viz_df df, the data that contains the drought properties for the focal 
+#' period and site
+#' @param p2_streamflow_learner_viz_df df, the data that contains the streamflow by date, average 
+#' streamflow by day of year, and the thresholds for the focal period and site
+#' @param out_png filepath, the output filepath for this viz frame
+drought_lrnr_viz01 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner_viz_df, out_png) {
   
-  # Login to SB first first. Need to do this for each task that calls
-  stopifnot(sb_secret_exists)
-  login_with_local_sb_credentials()
+  # since the fixed threshold is one static number, create it for a y-intercept and geom_hline
+  fixed_threshold <- unique(p2_streamflow_learner_viz_df$thresh_10_site)
   
-  # List all the files associated with `sb_id`
-  sb_files <- sbtools::item_list_files(sb_id)[["fname"]]
+  ggplot(data = p2_streamflow_learner_viz_df, aes(y = value, x = dt))+
+    # Add in droughts
+    annotate("rect", # fixed threshold
+             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"]),
+             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"]),
+             ymin = -Inf, ymax = Inf,
+             fill = "#eeeeee", alpha = 0.8)+
+    annotate("rect", # variable threshold
+             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "variable"]),
+             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "variable"]),
+             ymin = -Inf, ymax = Inf,
+             fill = "lightblue", alpha = 0.8)+
+    ylim(c(0,2250))+
+    # Streamflow by day
+    geom_line(color = "blue")+ 
+    # Streamflow by day mean across all years
+    geom_line(data = p2_streamflow_learner_viz_df, aes(y = mean_flow, x = dt), color = "grey")+
+    # Add in thresholds
+    geom_hline(yintercept = fixed_threshold, color = "#FFCCFF")+
+    geom_line(aes(y = thresh_10_jd_07d_wndw, x = dt), color = "magenta")+
+    theme_bw()+
+    ylab("Streamflow (cfs)")+
+    xlab("Date")+
+    ggtitle("Scioto River, Dublin, OH (03221000)")+
+    scale_x_date(labels = date_format("%b"), limits = c(as.Date("01/04/1963",'%d/%m/%Y'), as.Date("01/11/1963",'%d/%m/%Y')))
   
-  # Find just the files that match the pattern passed in
-  sb_files_service <- sb_files[grepl(pattern, sb_files)]
   
-  # Remove any that were noted in `exceptions`
-  if(!is.null(exceptions)) {
-    sb_files_keep <- sb_files_service[!grepl(paste(exceptions, collapse="|"), sb_files_service)]
-  } else {
-    sb_files_keep <- sb_files_service
-  }
-  
-  return(sb_files_keep)
-}
-
-#' @title Download files from ScienceBase
-#' @description Download specific ScienceBase files from one ScienceBase item to a local
-#' directory. Set up to retry at least 3 times if there is an error to handle network flakiness.
-#' @param sb_id character string of the ScienceBase item to inventory
-#' @param sb_files_to_download character vector of the filenames on ScienceBase. Designed to work
-#' with output from `inventory_sb_pcode_files()`.
-#' @param dest_dir character string of the local directory (which should exist already) to
-#' download the ScienceBase files to.
-#' @param sb_secret_exists logical indicating whether or not the user has local
-#' ScienceBase credentials stored for `login_with_local_sb_credentials()` to use.
-download_sb_files <- function(sb_id, sb_files_to_download, dest_dir, sb_secret_exists) {
-  
-  # Login to SB first first. Need to do this for each task that calls
-  stopifnot(sb_secret_exists)
-  login_with_local_sb_credentials()
-  
-  # Download the files and save in the local directory
-  files_local_name <- file.path(dest_dir, sb_files_to_download)
-  files_out <- retry(
-    sbtools::item_file_download(
-      sb_id,
-      names = sb_files_to_download,
-      destinations = files_local_name,
-      overwrite_file = TRUE),
-    when = "Error:",
-    max_tries = 3)
-  
-  # `item_file_download()` returns the local filepaths
-  # so pass these on to the user
-  return(files_out)
+  # Save and convert file
+  ggsave(out_png, width = 1200, height = 900, dpi = 300, units = "px")
+  return(out_png)
 }

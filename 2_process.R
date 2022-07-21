@@ -55,14 +55,14 @@ p2_targets <- list(
   ###### Process data for the drought learner viz ######
   # The df that has the drought properties by method (variable vs fixed)
   tar_target(p2_droughts_learner_viz_df,
-             prep_drought_df_lrnr_viz(StaID = '03221000',
-                                      year = 1963,
+             prep_drought_df_lrnr_viz(StationID = '03221000',
+                                      focal_year = 1963,
                                       p2_1951_2020_drought_prop_site,
                                       p2_1951_2020_drought_prop_jd_7d)),
   # The df that has the streamflow values and thresholds by day
   tar_target(p2_streamflow_learner_viz_df,
-             prep_streamflow_df_lrnr_viz(StaID = '03221000',
-                                         year = 1963,
+             prep_streamflow_df_lrnr_viz(StationID = '03221000',
+                                         focal_year = 1963,
                                          p2_1951_2020_metadata,
                                          p2_1951_2020_streamflow_perc))
 )

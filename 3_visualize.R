@@ -7,6 +7,7 @@ p3_targets <- list(
   #
   tar_target(p3_drought_learner_viz01_png,
              drought_lrnr_viz01(p2_droughts_learner_viz_df,
-                                p2_streamflow_learner_viz_df),
+                                p2_streamflow_learner_viz_df,
+                                out_png = "3_visualize/out/drought_learner_01.png"),
              format = "file")
 )
