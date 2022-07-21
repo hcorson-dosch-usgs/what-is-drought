@@ -9,5 +9,18 @@ p3_targets <- list(
              drought_lrnr_viz01(p2_droughts_learner_viz_df,
                                 p2_streamflow_learner_viz_df,
                                 out_png = "3_visualize/out/drought_learner_01.png"),
-             format = "file")
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz02_png,
+             drought_lrnr_viz01(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "3_visualize/out/drought_learner_02.png"),
+             format = "file"),
+  
+  # Wrap up all the frames into a tibble that has filepaths 
+  # to each of the exported pngs for each frame, 
+  # and a variable with the numeric sequencing of the pngs
+  tar_target(p3_learner_viz_tibble,
+             tibble(filepaths = c(p3_drought_learner_viz01_png, p3_drought_learner_viz02_png),
+                    frame_number = 1:length(filepaths)))
 )
