@@ -32,10 +32,6 @@ p2_targets <- list(
   tar_target(p2_1951_2020_drought_summary_jd_30d,
              readr::read_csv(p1_1951_2020_drought_summary_jd_30d_csv, col_types = cols())),
   
-  ###### Load streamflow auditing ######
-  tar_target(p2_1951_2020_streamflow_audit,
-             readr::read_csv(p1_1951_2020_streamflow_audit_csv, col_types = cols())),
-  
   ###### Load drought properties ######
   tar_target(p2_1951_2020_drought_prop_site,
              readr::read_csv(p1_1951_2020_drought_prop_site_csv, col_types = cols()) %>%
