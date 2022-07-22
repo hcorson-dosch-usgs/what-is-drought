@@ -43,22 +43,13 @@ p1_targets <- list(
     # Depend on this dummy variable to initiate re-download of files
     p0_sb_fetch_date
     download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'Drought_Summary_jd_30_wndw.csv',
+                      sb_files_to_download = 'Drought_Summary_jd_30d_wndw.csv',
                       dest_dir = "1_fetch/out/CONUS_1951_2020",
                       sb_secret_exists = p0_sb_credentials_exist)
   },
   format = 'file'),
   
-  ###### Download streamflow auditing file ######
-  tar_target(p1_1951_2020_streamflow_audit_csv, {
-    # Depend on this dummy variable to initiate re-download of files
-    p0_sb_fetch_date
-    download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'streamflow_auditing_national_1951.csv',
-                      dest_dir = "1_fetch/out/CONUS_1951_2020",
-                      sb_secret_exists = p0_sb_credentials_exist)
-  },
-  format = 'file'),
+
   
   ###### Download drought properties files ######
   tar_target(p1_1951_2020_drought_prop_site_csv, {
@@ -83,7 +74,7 @@ p1_targets <- list(
     # Depend on this dummy variable to initiate re-download of files
     p0_sb_fetch_date
     download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'Drought_Properties_jd_07_wndw_updated.csv',
+                      sb_files_to_download = 'Drought_Properties_jd_07d_wndw_updated.csv',
                       dest_dir = "1_fetch/out/CONUS_1951_2020",
                       sb_secret_exists = p0_sb_credentials_exist)
   },
@@ -92,7 +83,7 @@ p1_targets <- list(
     # Depend on this dummy variable to initiate re-download of files
     p0_sb_fetch_date
     download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'Drought_Properties_jd_30_wndw_updated.csv',
+                      sb_files_to_download = 'Drought_Properties_jd_30d_wndw_updated.csv',
                       dest_dir = "1_fetch/out/CONUS_1951_2020",
                       sb_secret_exists = p0_sb_credentials_exist)
   },
