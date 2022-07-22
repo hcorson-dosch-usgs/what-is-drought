@@ -5,7 +5,9 @@ tar_option_set(packages = c("retry",
                             "secret",
                             "tidyverse",
                             "zip",
-                            'ggplot2'))
+                            'ggplot2',
+                            'lubridate',
+                            'scales'))
 
 # Phase target makefiles
 source("0_config.R")
