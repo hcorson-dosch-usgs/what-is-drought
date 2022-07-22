@@ -1,8 +1,20 @@
 library(targets)
 
-tar_option_set(packages = c("retry","sbtools","secret","paletteer", "BAMMtools",
-                            "tidyverse","zip",'scico',"scales", "ggforce", "showtext", 
-                            "cowplot", "lubridate"))
+tar_option_set(packages = c("retry",
+                            "sbtools",
+                            "secret",
+                            "tidyverse",
+                            "zip",
+                            'ggplot2',
+                            'lubridate',
+                            'scales',
+                            'ggforce',
+                            'showtext',
+                            'palatteer',
+                            'BAMMtools',
+                            'scico',
+                            'scales',
+                            'cowplot'))
 
 # Phase target makefiles
 source("0_config.R")
