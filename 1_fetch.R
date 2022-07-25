@@ -49,8 +49,6 @@ p1_targets <- list(
   },
   format = 'file'),
   
-
-  
   ###### Download drought properties files ######
   tar_target(p1_1951_2020_drought_prop_site_csv, {
     # Depend on this dummy variable to initiate re-download of files

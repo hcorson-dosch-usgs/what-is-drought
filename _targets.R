@@ -7,7 +7,14 @@ tar_option_set(packages = c("retry",
                             "zip",
                             'ggplot2',
                             'lubridate',
-                            'scales'))
+                            'scales',
+                            'ggforce',
+                            'showtext',
+                            'paletteer',
+                            'BAMMtools',
+                            'scico',
+                            'scales',
+                            'cowplot'))
 
 # Phase target makefiles
 source("0_config.R")
