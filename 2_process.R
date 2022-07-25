@@ -46,7 +46,7 @@ p2_targets <- list(
                            select(StaID:STATE, HCDN_2009))
              ),
   tar_target(p2_site_prop_2,
-             # Filter to 10 threshold
+             # Filter to 2 threshold
              p2_1951_2020_drought_prop_jd_7d %>%
                filter(threshold == 2) %>%
                left_join(p2_1951_2020_metadata %>%
