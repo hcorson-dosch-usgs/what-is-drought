@@ -55,7 +55,7 @@ prep_streamflow_df_lrnr_viz <- function(StationID, focal_year,
   
   # Third extract station name from metadata
   p2_streamflow <- p2_streamflow %>%
-    left_join(p2_1951_2020_metadata %>% select(StaID, STANAME, STATE), by = "StaID")
+    left_join(p2_1951_2020_metadata %>% select(StaID, STANAME, STATE, LAT_GAGE, LNG_GAGE), by = "StaID")
   
   # Finally add in the averages to the main df
   p2_prep_streamflow_df_lrnr_viz <- p2_streamflow %>% 

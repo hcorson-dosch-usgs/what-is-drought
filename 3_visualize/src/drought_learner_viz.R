@@ -31,9 +31,11 @@ drought_lrnr_viz01 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     geom_line(aes(y = thresh_10_jd_07d_wndw, x = dt), color = "magenta")+
     theme_bw()+
     ylab("Streamflow (cfs)")+
-    xlab("Date")+
+    xlab("1963")+
     ggtitle("Scioto River, Dublin, OH (03221000)")+
-    scale_x_date(labels = date_format("%b"), limits = c(as.Date("01/04/1963",'%d/%m/%Y'), as.Date("01/11/1963",'%d/%m/%Y')))
+    scale_x_date(labels = date_format("%b"), 
+                 date_breaks  ="1 month",
+                 limits = c(as.Date("01/04/1963",'%d/%m/%Y'), as.Date("01/11/1963",'%d/%m/%Y')))
   
   
   # Save and convert file
