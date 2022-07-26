@@ -12,9 +12,39 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz02_png,
-             drought_lrnr_viz01(p2_droughts_learner_viz_df,
+             drought_lrnr_viz02(p2_droughts_learner_viz_df,
                                 p2_streamflow_learner_viz_df,
                                 out_png = "3_visualize/out/drought_learner_02.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz03_png,
+             drought_lrnr_viz03(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "3_visualize/out/drought_learner_03.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz04_png,
+             drought_lrnr_viz04(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "3_visualize/out/drought_learner_04.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz05_png,
+             drought_lrnr_viz05(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "3_visualize/out/drought_learner_05.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz06_png,
+             drought_lrnr_viz06(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "3_visualize/out/drought_learner_06.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz07_png,
+             drought_lrnr_viz07(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "3_visualize/out/drought_learner_07.png"),
              format = "file"),
   
   # Wrap up all the frames into a tibble that has filepaths 
