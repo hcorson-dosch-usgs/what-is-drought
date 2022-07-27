@@ -2,12 +2,12 @@
   <div id="threshold-transition">
     <div id="threshold-image-container-outer">
       <div id="threshold-image-container-inner">
-          <img
+        <img
           id="threshold-image-7"
           src="@/assets/images/threshold-chart/g.png"
           alt=""
         >
-         <img
+        <img
           id="threshold-image-6"
           src="@/assets/images/threshold-chart/f.png"
           alt=""
@@ -63,7 +63,7 @@
           >
             Managing River Flows
           </h3>
-          <p> </p>
+          <p />
         </div>
       </div>
 
@@ -87,7 +87,7 @@
           >
             Reservoirs
           </h3>
-          <p></p>
+          <p />
         </div>
       </div>
       <div
@@ -111,7 +111,8 @@
             Using the Reservoirs
           </h3>
           <p>
-            .</p>
+            .
+          </p>
         </div>
       </div>
       <div
@@ -134,7 +135,7 @@
           >
             Summer Lows
           </h3>
-          <p></p>
+          <p />
         </div>
       </div>
       <div
@@ -157,7 +158,7 @@
           >
             Reservoir Releases
           </h3>
-          <p> </p>
+          <p />
         </div>
       </div>
     </div>

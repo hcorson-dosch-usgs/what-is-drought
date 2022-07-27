@@ -1,60 +1,61 @@
 <template>
-<div class="another-container">
-  <div class="chart-container">
-    <div id="title-container">
-      <h2>What is hydrological drought?</h2>
-    </div>
-<!--     stack all frames on top of each other -->
+  <div class="another-container">
+    <div class="chart-container">
+      <div id="title-container">
+        <h2>What is hydrological drought?</h2>
+      </div>
+      <!--     stack all frames on top of each other -->
       <img 
-      class="hydro-chart onTop" 
-      id="step-a"
-      src="@/assets/images/threshold-chart/a.png"
-    />
-     <img 
-      class="hydro-chart" 
-      id="step-b"
-      src="@/assets/images/threshold-chart/b.png"
-    />
-     <img 
-      class="hydro-chart" 
-      id="step-c"
-      src="@/assets/images/threshold-chart/c.png"
-    />
-     <img 
-      class="hydro-chart" 
-      id="step-d"
-      src="@/assets/images/threshold-chart/d.png"
-    />
-     <img 
-      class="hydro-chart" 
-      id="step-e"
-      src="@/assets/images/threshold-chart/e.png"
-    />
-     <img 
-      class="hydro-chart" 
-      id="step-f"
-      src="@/assets/images/threshold-chart/f.png"
-    />
-     <img 
-      class="hydro-chart" 
-      id="step-g"
-      src="@/assets/images/threshold-chart/g.png"
-    />
+        id="step-a" 
+        class="hydro-chart onTop"
+        src="@/assets/images/threshold-chart/a.png"
+      >
+      <img 
+        id="step-b" 
+        class="hydro-chart"
+        src="@/assets/images/threshold-chart/b.png"
+      >
+      <img 
+        id="step-c" 
+        class="hydro-chart"
+        src="@/assets/images/threshold-chart/c.png"
+      >
+      <img 
+        id="step-d" 
+        class="hydro-chart"
+        src="@/assets/images/threshold-chart/d.png"
+      >
+      <img 
+        id="step-e" 
+        class="hydro-chart"
+        src="@/assets/images/threshold-chart/e.png"
+      >
+      <img 
+        id="step-f" 
+        class="hydro-chart"
+        src="@/assets/images/threshold-chart/f.png"
+      >
+      <img 
+        id="step-g" 
+        class="hydro-chart"
+        src="@/assets/images/threshold-chart/g.png"
+      >
     <!-- this isn't working. pngs don't read in correctly -->
-   <!--  <img v-for="frame in frames" 
+      <!--  <img v-for="frame in frames" 
         :key="frame.id"
         class="hydro-chart"
         :id="`stepy-${frame.id}`" 
         v-bind:src="`@/assets/images/threshold-chart/${frame.id}.png`" /> -->
-    
-  </div>
- <!--  spacing and scrolling text goes here -->
+    </div>
+    <!--  spacing and scrolling text goes here -->
     <!-- create a scrolling div for each frame -->
-    <div v-for="frame in frames" 
-        :key="frame.id"
-        :class="`scrolly scroll-step-${frame.id}`" >
-<!--       <p>{{frame.text}}</p> -->
-      </div>
+    <div
+      v-for="frame in frames" 
+      :key="frame.id"
+      :class="`scrolly scroll-step-${frame.id}`"
+    >
+      <!--       <p>{{frame.text}}</p> -->
+    </div>
   </div>
 </template>
 <script>

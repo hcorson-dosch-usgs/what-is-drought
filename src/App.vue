@@ -1,14 +1,17 @@
 <template>
   <div id="app">
     <WindowSize v-if="checkTypeOfEnv === '-test build-'" />
-    <HeaderUSGS class="sticky-header" ref="headerUSGS" />
-      <InternetExplorerPage v-if="isInternetExplorer" />
-      <!-- an empty string in this case means the 'prod' version of the application   -->
-      <router-view
-        v-if="!isInternetExplorer"
-      />
-      <PreFooterCodeLinks v-if="!isInternetExplorer" />
-      <FooterUSGS />
+    <HeaderUSGS
+      ref="headerUSGS"
+      class="sticky-header"
+    />
+    <InternetExplorerPage v-if="isInternetExplorer" />
+    <!-- an empty string in this case means the 'prod' version of the application   -->
+    <router-view
+      v-if="!isInternetExplorer"
+    />
+    <PreFooterCodeLinks v-if="!isInternetExplorer" />
+    <FooterUSGS />
   </div>
 </template>
 

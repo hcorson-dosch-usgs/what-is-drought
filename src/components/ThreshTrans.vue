@@ -1,11 +1,14 @@
 <template>
-  <section id="DroughtThresholds" class="section">
+  <section
+    id="DroughtThresholds"
+    class="section"
+  >
     <SectionTitle
       :title="title"
-      />
+    />
     <div class="container">
-    <!--   <svg id="threshold-svg" /> -->
-    <ThresholdTransition />
+      <!--   <svg id="threshold-svg" /> -->
+      <ThresholdTransition />
     </div>
   </section>
 </template>
@@ -16,7 +19,7 @@ import { isMobile } from 'mobile-device-detect';
 import ThresholdTransition from "../components/ThresholdTransition";
 
 export default {
-  name: "thresholds",
+  name: "Thresholds",
     components: {
       ThresholdTransition
     },
