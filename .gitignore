@@ -70,3 +70,4 @@ sb.vault/secrets/*
 sb.vault/users/*
 !sb.vault/users/README
 
+node_modules
