@@ -63,3 +63,45 @@ prep_streamflow_df_lrnr_viz <- function(StationID, focal_year,
   
   return(p2_prep_streamflow_df_lrnr_viz)
 }
+
+
+prep_droughts_70year_learner_viz <- function(StationID = '03221000', 
+                                             p2_1951_2020_drought_prop_jd_7d,
+                                             p2_1951_2020_drought_prop_site){
+  # Select only the Ohio site to start, 10% threshold
+  p2_drought_prop_site <- p2_1951_2020_drought_prop_site %>%
+    filter(threshold == 10, StaID == StationID)
+  p2_drought_prop_j7 <- p2_1951_2020_drought_prop_jd_7d %>%
+    filter(threshold == 10, StaID == StationID)
+  
+  # Split each drought out by day that it occurred (longer) based on start and duration
+  p2_drought_prop_site_long <- p2_drought_prop_site %>%
+    group_by(drought_id) %>%
+    slice(rep(seq_len(drought_id), each = duration)) %>%
+    # mutate to add in date 
+    mutate(drought_date = start + (seq_len(duration)-1),
+           drought_date_noYr = format(as.Date(drought_date), "%m-%d"),
+           drought_date_fakeYr = as.Date(sprintf("1999-%s", drought_date_noYr)),
+           decade = year(floor_date(start, years(10))),
+           method = "Fixed")
+  p2_drought_prop_j7_long <- p2_drought_prop_j7 %>%
+    group_by(drought_id) %>%
+    slice(rep(seq_len(drought_id), each = duration)) %>%
+    # mutate to add in date 
+    mutate(drought_date = start + (seq_len(duration)-1),
+           drought_date_noYr = format(as.Date(drought_date), "%m-%d"),
+           drought_date_fakeYr = as.Date(sprintf("1999-%s", drought_date_noYr)),
+           decade = year(floor_date(start, years(10))),
+           method = "Variable")
+  
+  # Add in sequence value for stacking beeswarm points
+  p2_drought_prop_site_long <- p2_drought_prop_site_long %>%
+    group_by(drought_date_noYr) %>%
+    mutate(y_seq = 1:n())
+  p2_drought_prop_j7_long <- p2_drought_prop_j7_long %>%
+    group_by(drought_date_noYr) %>%
+    mutate(y_seq = 1:n())
+  
+  p2_droughts_70year_learner_viz_df <- bind_rows(p2_drought_prop_site_long,
+                                                 p2_drought_prop_j7_long)
+}

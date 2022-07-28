@@ -693,7 +693,7 @@ drought_lrnr_viz06 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
   return(out_png)
 }
 
-#' @description This function creates the sixth frame for the drought learner viz gif/video
+#' @description This function creates the seventh frame for the drought learner viz gif/video
 #' @param p2_droughts_learner_viz_df df, the data that contains the drought properties for the focal 
 #' period and site
 #' @param p2_streamflow_learner_viz_df df, the data that contains the streamflow by date, average 
@@ -821,4 +821,127 @@ drought_lrnr_viz07 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
 
 
 
+
+
+#' @description This function creates the eighth frame for the drought learner viz gif/video
+#' @param p2_droughts_70year_learner_viz_df df, the data used to create beeswarm
+#' @param out_png filepath, the output filepath for this viz frame
+drought_lrnr_viz08 <- function(p2_droughts_70year_learner_viz_df, out_png) {
+  
+  
+  # Fixed threshold viz
+  fixed_plot <- ggplot(data = p2_droughts_70year_learner_viz_df %>% filter(method == "Fixed"), 
+                       aes(x = drought_date_fakeYr, y = y_seq, color = decade))+
+    geom_beeswarm(size = 0.3)+
+    coord_polar()+
+    ylim(-5,25)+
+    xlab("Day of year")+
+    ylab("Number of events")+
+    scale_x_date(labels = date_format("%b"), breaks = "1 month",
+                 limits = c(as.Date("1999-01-01"), as.Date("1999-12-31")))+
+    scale_color_scico(palette = 'lajolla', direction = -1)+
+    theme_minimal()+
+    theme(axis.title = element_blank(),
+          axis.text.y = element_blank(),
+          axis.text.x = element_text(size = 6, hjust = 0),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          legend.title = element_blank(),
+          legend.text = element_text(size = 6))
+  
+  # Fixed threshold viz
+  variable_plot <- ggplot(data = p2_droughts_70year_learner_viz_df %>% filter(method == "Variable"), 
+                       aes(x = drought_date_fakeYr, y = y_seq, color = decade))+
+    geom_beeswarm(size = 0.3)+
+    coord_polar()+
+    ylim(-5,25)+
+    xlab("Day of year")+
+    ylab("Number of events")+
+    scale_x_date(labels = date_format("%b"), breaks = "1 month",
+                 limits = c(as.Date("1999-01-01"), as.Date("1999-12-31")))+
+    scale_color_scico(palette = 'lajolla', direction = -1)+
+    theme_minimal()+
+    theme(axis.title = element_blank(),
+          axis.text.y = element_blank(),
+          axis.text.x = element_text(size = 6),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          legend.title = element_blank(),
+          legend.text = element_text(size = 6))
+  
+  # Inset map
+  gage_location <- usmap::us_map(regions = "county", include = 39049)
+  inset <- usmap::plot_usmap(regions = "states", color = "#dadedf", size = 0.2)+
+    geom_polygon(data = gage_location, aes(x = x, y = y), color = "#e6af84", fill = "#e6af84", size = 0.5)
+  
+  # Legend
+  legend <- get_legend(fixed_plot)
+  
+  
+  # Background
+  color_bknd = "white"
+  canvas <- grid::rectGrob(
+    x = 0, y = 0, 
+    width = 16, height = 9,
+    gp = grid::gpar(fill = color_bknd, alpha = 1, col = color_bknd)
+  )
+  
+  # compose final plot
+  ggdraw(ylim = c(0,1), 
+         xlim = c(0,1)) +
+    # fill in the background
+    draw_grob(canvas,
+              x = 0, y = 1,
+              height = 9, width = 16,
+              hjust = 0, vjust = 1) +
+    # Fixed plot
+    draw_plot(fixed_plot + theme(legend.position = "none"),
+              x = -0.3,
+              y = 0,
+              height = 0.85) +
+    # Variable plot
+    draw_plot(variable_plot + theme(legend.position = "none"),
+              x = 0.1,
+              y = 0,
+              height = 0.85)+
+    # Inset map
+    draw_plot(inset,
+              x = 0.8,
+              y = 0.7,
+              height = 0.3,
+              width = 0.2) +
+    # legend
+    draw_plot(legend,
+              x = 0.9, 
+              y = 0.5,
+              height = 0.05, 
+              width = 0.05)+
+    # Drippy
+    draw_image(image = "3_visualize/in/Drippy100mod.png", 
+               x = 0, 
+               y = 0.8, 
+               width = 0.2, 
+               height = 0.2,
+               hjust = 0.25, 
+               vjust = 0)+
+    # labels for threshold types
+    draw_text("Fixed", 
+              x = 0.17, 
+              y = 0.02,
+              size = 8,
+              vjust = 0,
+              hjust = 0)+
+    draw_text("Variable", 
+              x = 0.56, 
+              y = 0.02,
+              size = 8,
+              vjust = 0,
+              hjust = 0)
+  
+  
+  
+  # Save and convert file
+  ggsave(out_png, width = 1200, height = 600, dpi = 300, units = "px")
+  return(out_png)
+}
 

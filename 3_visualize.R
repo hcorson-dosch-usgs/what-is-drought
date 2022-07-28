@@ -59,6 +59,11 @@ p3_targets <- list(
                                 out_png = "3_visualize/out/drought_learner_07.png"),
              format = "file"),
   
+  tar_target(p3_drought_learner_viz08_png,
+             drought_lrnr_viz08(p2_droughts_70year_learner_viz_df,
+                                out_png = "3_visualize/out/drought_learner_08.png"),
+             format = "file"),
+  
   # Wrap up all the frames into a tibble that has filepaths 
   # to each of the exported pngs for each frame, 
   # and a variable with the numeric sequencing of the pngs
