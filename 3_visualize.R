@@ -20,13 +20,48 @@ p3_targets <- list(
   tar_target(p3_drought_learner_viz01_png,
              drought_lrnr_viz01(p2_droughts_learner_viz_df,
                                 p2_streamflow_learner_viz_df,
-                                out_png = "3_visualize/out/drought_learner_01.png"),
+                                out_png = "src/assets/images/threshold-chart/a.png"),
              format = "file"),
   
   tar_target(p3_drought_learner_viz02_png,
-             drought_lrnr_viz01(p2_droughts_learner_viz_df,
+             drought_lrnr_viz02(p2_droughts_learner_viz_df,
                                 p2_streamflow_learner_viz_df,
-                                out_png = "3_visualize/out/drought_learner_02.png"),
+                                out_png = "src/assets/images/threshold-chart/b.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz03_png,
+             drought_lrnr_viz03(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "src/assets/images/threshold-chart/c.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz04_png,
+             drought_lrnr_viz04(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "src/assets/images/threshold-chart/d.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz05_png,
+             drought_lrnr_viz05(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "src/assets/images/threshold-chart/e.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz06_png,
+             drought_lrnr_viz06(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "src/assets/images/threshold-chart/f.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz07_png,
+             drought_lrnr_viz07(p2_droughts_learner_viz_df,
+                                p2_streamflow_learner_viz_df,
+                                out_png = "src/assets/images/threshold-chart/g.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz08_png,
+             drought_lrnr_viz08(p2_droughts_70year_learner_viz_df,
+                                out_png = "src/assets/images/threshold-chart/h.png"),
              format = "file"),
   
   # Wrap up all the frames into a tibble that has filepaths 

@@ -40,6 +40,11 @@
         class="hydro-chart"
         src="@/assets/images/threshold-chart/g.png"
       >
+      <img 
+        id="step-h" 
+        class="hydro-chart"
+        src="@/assets/images/threshold-chart/h.png"
+      >
     <!-- this isn't working. pngs don't read in correctly -->
       <!--  <img v-for="frame in frames" 
         :key="frame.id"
@@ -113,6 +118,10 @@ export default {
           {
             id: 'g',
             text: 'This variable threshold changes the timing and number of droughts.'
+          },
+          {
+            id: 'h',
+            text: '70 yrs This variable threshold changes the timing and number of droughts.'
           }
         ]
 
@@ -169,7 +178,7 @@ export default {
           toggleClass: {targets: "#step-d", className: "onTop" },
           toggleActions: "restart none none none"
         }
-      }).to(".scroll-step-e", {
+        }).to(".scroll-step-e", {
         scrollTrigger: {
           markers: this.marker_on,
           trigger: ".scroll-step-e",
@@ -178,7 +187,7 @@ export default {
           toggleClass: {targets: "#step-e", className: "onTop" },
           toggleActions: "restart none none none"
         }
-      }).to(".scroll-step-f", {
+        }).to(".scroll-step-f", {
         scrollTrigger: {
           markers: this.marker_on,
           trigger: ".scroll-step-f",
@@ -187,13 +196,22 @@ export default {
           toggleClass: {targets: "#step-f", className: "onTop" },
           toggleActions: "restart none none none"
         }
-      }).to(".scroll-step-g", {
+        }).to(".scroll-step-g", {
         scrollTrigger: {
           markers: this.marker_on,
           trigger: ".scroll-step-g",
           start: "top 50%", // when the animation starts
           end:() => `+=${document.querySelector(".scroll-step-g").offsetHeight}`, 
           toggleClass: {targets: "#step-g", className: "onTop" },
+          toggleActions: "restart none none none"
+        }
+        }).to(".scroll-step-h", {
+        scrollTrigger: {
+          markers: this.marker_on,
+          trigger: ".scroll-step-h",
+          start: "top 50%", // when the animation starts
+          end:() => `+=${document.querySelector(".scroll-step-h").offsetHeight}`, 
+          toggleClass: {targets: "#step-h", className: "onTop" },
           toggleActions: "restart none none pause"
         }
       })
@@ -225,12 +243,13 @@ img {
 }
 
 // stacking all images and using toogleClass to change visibility with scrolling
-#step-a, #step-b, #step-c, #step-d, #step-e, #step-f, #step-g {
+#step-a, #step-b, #step-c, #step-d, #step-e, #step-f, #step-g, #step-h {
   position: fixed;
   top: 10%;
   left: 0;
 }
 .chart-container {
+  background-position: top;
   height: 90vh;
   position: relative;
   top:10vh;

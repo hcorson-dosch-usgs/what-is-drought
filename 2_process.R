@@ -92,5 +92,10 @@ p2_targets <- list(
              prep_streamflow_df_lrnr_viz(StationID = '03221000',
                                          focal_year = 1963,
                                          p2_1951_2020_metadata,
-                                         p2_1951_2020_streamflow_perc))
+                                         p2_1951_2020_streamflow_perc)),
+  # The df that has the drought properties by decade across all 70 years and method
+  tar_target(p2_droughts_70year_learner_viz_df,
+             prep_droughts_70year_learner_viz(StationID = '03221000',
+                                              p2_1951_2020_drought_prop_jd_7d,
+                                              p2_1951_2020_drought_prop_site))
 )

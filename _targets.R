@@ -14,7 +14,10 @@ tar_option_set(packages = c("retry",
                             'BAMMtools',
                             'scico',
                             'scales',
-                            'cowplot'))
+                            'ggthemes',
+                            'usmap',
+                            'cowplot',
+                            'ggbeeswarm'))
 
 # Phase target makefiles
 source("0_config.R")

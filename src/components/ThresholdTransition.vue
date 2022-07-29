@@ -3,6 +3,11 @@
     <div id="threshold-image-container-outer">
       <div id="threshold-image-container-inner">
         <img
+          id="threshold-image-8"
+          src="@/assets/images/threshold-chart/h.png"
+          alt=""
+        >
+        <img
           id="threshold-image-7"
           src="@/assets/images/threshold-chart/g.png"
           alt=""
@@ -216,6 +221,21 @@ export default {
       align-self: start;
     }
     #threshold-image-5 {
+      grid-column: 1;
+      grid-row: 1;
+      align-self: start;
+    }
+    #threshold-image-6 {
+      grid-column: 1;
+      grid-row: 1;
+      align-self: start;
+    }
+    #threshold-image-7 {
+      grid-column: 1;
+      grid-row: 1;
+      align-self: start;
+    }
+    #threshold-image-8 { 
       grid-column: 1;
       grid-row: 1;
       align-self: start;
