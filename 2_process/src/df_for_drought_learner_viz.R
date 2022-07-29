@@ -65,7 +65,7 @@ prep_streamflow_df_lrnr_viz <- function(StationID, focal_year,
 }
 
 
-prep_droughts_70year_learner_viz <- function(StationID = '03221000', 
+prep_droughts_70year_learner_viz <- function(StationID, 
                                              p2_1951_2020_drought_prop_jd_7d,
                                              p2_1951_2020_drought_prop_site){
   # Select only the Ohio site to start, 10% threshold
