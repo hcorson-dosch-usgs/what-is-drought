@@ -24,7 +24,8 @@ drought_lrnr_viz01 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     theme_tufte(base_family = "sans")+
     theme(axis.line = element_line(color = 'black'),
           axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8))
+          axis.title = element_text(size = 8),
+          panel.background = element_blank())
   
   # Inset map
   gage_location <- usmap::us_map(regions = "county", include = 39049)
@@ -46,7 +47,7 @@ drought_lrnr_viz01 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     
     
   # Background
-  color_bknd = "white"
+  color_bknd = "transparent"
   canvas <- grid::rectGrob(
     x = 0, y = 0, 
     width = 16, height = 9,
@@ -130,7 +131,8 @@ drought_lrnr_viz02 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     theme_tufte(base_family = "sans")+
     theme(axis.line = element_line(color = 'black'),
           axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8))
+          axis.title = element_text(size = 8),
+          panel.background = element_blank())
   
   # Inset map
   gage_location <- usmap::us_map(regions = "county", include = 39049)
@@ -152,7 +154,7 @@ drought_lrnr_viz02 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     annotate("text", label = "Drought threshold", x = 6.5, y = 8.2, hjust = 0, vjust = 0, size = 1.45)
   
   # Background
-  color_bknd = "white"
+  color_bknd = "transparent"
   canvas <- grid::rectGrob(
     x = 0, y = 0, 
     width = 16, height = 9,
@@ -245,7 +247,8 @@ drought_lrnr_viz03 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     theme_tufte(base_family = "sans")+
     theme(axis.line = element_line(color = 'black'),
           axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8))
+          axis.title = element_text(size = 8),
+          panel.background = element_blank())
   
   # Inset map
   gage_location <- usmap::us_map(regions = "county", include = 39049)
@@ -272,7 +275,7 @@ drought_lrnr_viz03 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     
   
   # Background
-  color_bknd = "white"
+  color_bknd = "transparent"
   canvas <- grid::rectGrob(
     x = 0, y = 0, 
     width = 16, height = 9,
@@ -371,7 +374,8 @@ drought_lrnr_viz04 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     theme_tufte(base_family = "sans")+
     theme(axis.line = element_line(color = 'black'),
           axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8))
+          axis.title = element_text(size = 8),
+          panel.background = element_blank())
   
   # Inset map
   gage_location <- usmap::us_map(regions = "county", include = 39049)
@@ -398,7 +402,7 @@ drought_lrnr_viz04 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
   
   
   # Background
-  color_bknd = "white"
+  color_bknd = "transparent"
   canvas <- grid::rectGrob(
     x = 0, y = 0, 
     width = 16, height = 9,
@@ -490,7 +494,8 @@ drought_lrnr_viz05 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     theme_tufte(base_family = "sans")+
     theme(axis.line = element_line(color = 'black'),
           axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8))
+          axis.title = element_text(size = 8),
+          panel.background = element_blank())
   
   # Inset map
   gage_location <- usmap::us_map(regions = "county", include = 39049)
@@ -517,7 +522,7 @@ drought_lrnr_viz05 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
   
   
   # Background
-  color_bknd = "white"
+  color_bknd = "transparent"
   canvas <- grid::rectGrob(
     x = 0, y = 0, 
     width = 16, height = 9,
@@ -610,7 +615,8 @@ drought_lrnr_viz06 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     theme_tufte(base_family = "sans")+
     theme(axis.line = element_line(color = 'black'),
           axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8))
+          axis.title = element_text(size = 8),
+          panel.background = element_blank())
   
   # Inset map
   gage_location <- usmap::us_map(regions = "county", include = 39049)
@@ -637,7 +643,7 @@ drought_lrnr_viz06 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
   
   
   # Background
-  color_bknd = "white"
+  color_bknd = "transparent"
   canvas <- grid::rectGrob(
     x = 0, y = 0, 
     width = 16, height = 9,
@@ -736,7 +742,8 @@ drought_lrnr_viz07 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     theme_tufte(base_family = "sans")+
     theme(axis.line = element_line(color = 'black'),
           axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8))
+          axis.title = element_text(size = 8),
+          panel.background = element_blank())
   
   # Inset map
   gage_location <- usmap::us_map(regions = "county", include = 39049)
@@ -763,7 +770,7 @@ drought_lrnr_viz07 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
   
   
   # Background
-  color_bknd = "white"
+  color_bknd = "transparent"
   canvas <- grid::rectGrob(
     x = 0, y = 0, 
     width = 16, height = 9,
@@ -831,7 +838,7 @@ drought_lrnr_viz08 <- function(p2_droughts_70year_learner_viz_df, out_png) {
   
   # Fixed threshold viz
   fixed_plot <- ggplot(data = p2_droughts_70year_learner_viz_df %>% filter(method == "Fixed"), 
-                       aes(x = drought_date_fakeYr, y = y_seq, color = decade))+
+                       aes(x = drought_date_fakeYr, y = y_seq, color = factor(decade)))+
     geom_beeswarm(size = 0.3)+
     coord_polar()+
     ylim(-5,25)+
@@ -839,7 +846,7 @@ drought_lrnr_viz08 <- function(p2_droughts_70year_learner_viz_df, out_png) {
     ylab("Number of events")+
     scale_x_date(labels = date_format("%b"), breaks = "1 month",
                  limits = c(as.Date("1999-01-01"), as.Date("1999-12-31")))+
-    scale_color_scico(palette = 'lajolla', direction = -1)+
+    scale_color_scico_d(palette = 'lajolla', direction = -1, begin = 0.1, end = 1)+
     theme_minimal()+
     theme(axis.title = element_blank(),
           axis.text.y = element_blank(),
@@ -847,7 +854,9 @@ drought_lrnr_viz08 <- function(p2_droughts_70year_learner_viz_df, out_png) {
           panel.grid.major.y = element_blank(),
           panel.grid.minor.x = element_blank(),
           legend.title = element_blank(),
-          legend.text = element_text(size = 6))
+          legend.text = element_text(size = 5),
+          legend.key.size = unit(0.35, 'cm'),
+          panel.background = element_blank())
   
   # Fixed threshold viz
   variable_plot <- ggplot(data = p2_droughts_70year_learner_viz_df %>% filter(method == "Variable"), 
@@ -859,7 +868,7 @@ drought_lrnr_viz08 <- function(p2_droughts_70year_learner_viz_df, out_png) {
     ylab("Number of events")+
     scale_x_date(labels = date_format("%b"), breaks = "1 month",
                  limits = c(as.Date("1999-01-01"), as.Date("1999-12-31")))+
-    scale_color_scico(palette = 'lajolla', direction = -1)+
+    scale_color_scico(palette = 'lajolla', direction = -1, begin = 0.1, end = 1)+
     theme_minimal()+
     theme(axis.title = element_blank(),
           axis.text.y = element_blank(),
@@ -867,7 +876,8 @@ drought_lrnr_viz08 <- function(p2_droughts_70year_learner_viz_df, out_png) {
           panel.grid.major.y = element_blank(),
           panel.grid.minor.x = element_blank(),
           legend.title = element_blank(),
-          legend.text = element_text(size = 6))
+          legend.text = element_text(size = 6),
+          panel.background = element_blank())
   
   # Inset map
   gage_location <- usmap::us_map(regions = "county", include = 39049)
@@ -879,7 +889,7 @@ drought_lrnr_viz08 <- function(p2_droughts_70year_learner_viz_df, out_png) {
   
   
   # Background
-  color_bknd = "white"
+  color_bknd = "transparent"
   canvas <- grid::rectGrob(
     x = 0, y = 0, 
     width = 16, height = 9,
@@ -913,9 +923,9 @@ drought_lrnr_viz08 <- function(p2_droughts_70year_learner_viz_df, out_png) {
     # legend
     draw_plot(legend,
               x = 0.9, 
-              y = 0.5,
+              y = 0.25,
               height = 0.05, 
-              width = 0.05)+
+              width = 0.05) +
     # Drippy
     draw_image(image = "3_visualize/in/Drippy100mod.png", 
                x = 0, 
