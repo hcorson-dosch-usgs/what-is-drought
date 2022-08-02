@@ -54,18 +54,18 @@
     </div>
     <!--  spacing and scrolling text goes here -->
     <!-- create a scrolling div for each frame -->
-    <div id="scroll-container" >
-    <div
-      v-for="frame in frames" 
-      :key="frame.id"
-      :class="`scrolly scroll-step-${frame.id}`"
-    >
-      <div class="text-container">
-        <p>{{frame.text}}</p>
+    <div id="scroll-container">
+      <div
+        v-for="frame in frames" 
+        :key="frame.id"
+        :class="`scrolly scroll-step-${frame.id}`"
+      >
+        <div class="text-container">
+          <p>{{ frame.text }}</p>
         </div>
+      </div>
     </div>
-  </div>
-          <div id="spacer"></div>
+    <div id="spacer" />
   </div>
 </template>
 <script>
@@ -96,39 +96,39 @@ export default {
         // storing unique id and text for each scroll step
         // TODO: move outside of component to separate json
         frames: [
-          {
-            id: 'a',
-            text: 'A hydrological drought means that streamflow is abnormally low.'
-          },
-          {
-            id: 'b',
-            text: 'Here, "abnormally low" is set as a threshold'
-          },
-          {
-            id: 'c',
-            text: 'You might be wondering, what happens if there is an abnormally dry spring when we expect more rain?'
-          },
-          {
-            id: 'd',
-            text: 'Periods of severe drought happen whenever daily streamflow is below the threshold.'
-          },
-          {
-            id: 'e',
-            text: 'And let our threshold change week to week'
-          },
-          {
-            id: 'f',
-            text: 'Well, then we need to determine periods when rainfall is abnormally low for a specific week'
-          },
-          {
-            id: 'g',
-            text: 'This variable threshold changes the timing and number of droughts.'
-          },
-          {
-            id: 'h',
-            text: '70 yrs This variable threshold changes the timing and number of droughts.'
-          }
-        ]
+{
+id: 'a',
+text: 'A hydrological drought means that streamflow is abnormally low.'
+},
+{
+id: 'b',
+text: 'Here, "abnormally low" is set as a threshold'
+},
+{
+id: 'c',
+text: 'Periods of severe drought happen whenever daily streamflow is below the threshold.'
+},
+{
+id: 'd',
+text: 'You might be wondering, what happens if there is an abnormally dry spring when we expect more rain?'
+},
+{
+id: 'e',
+text: 'Well, then we need to determine periods when rainfall is abnormally low for a specific week'
+},
+{
+id: 'f',
+text: 'And let our threshold change week to week'
+},
+{
+id: 'g',
+text: 'Now we capture droughts when streamflow is abnormally low for a given week.'
+},
+{
+id: 'h',
+text: 'This variable threshold changes the timing and number of droughts over the year.'
+}
+]
 
         }
   },
