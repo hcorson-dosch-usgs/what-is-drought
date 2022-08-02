@@ -16,7 +16,7 @@ drought_lrnr_viz01 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     geom_line(data = p2_streamflow_learner_viz_df, aes(y = mean_flow, x = dt), color = "#9bd9f7")+
     
     ylab("Streamflow (cfs)")+
-    xlab("1963")+
+    xlab(NULL)+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
                  limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))+
@@ -115,7 +115,7 @@ drought_lrnr_viz02 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     # Add in thresholds
     geom_hline(yintercept = fixed_threshold, color = "#bf683c")+
     ylab("Streamflow (cfs)")+
-    xlab("1963")+
+    xlab(NULL)+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
                  limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))+
@@ -222,7 +222,7 @@ drought_lrnr_viz03 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     # Streamflow by day
     geom_line(color = "#5691e2", size = .45)+ 
     ylab("Streamflow (cfs)")+
-    xlab("1963")+
+    xlab(NULL)+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
                  limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))+
@@ -340,7 +340,7 @@ drought_lrnr_viz04 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     # Streamflow by day
     geom_line(color = "#5691e2", size = .45)+ 
     ylab("Streamflow (cfs)")+
-    xlab("1963")+
+    xlab(NULL)+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
                  limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))+
@@ -451,7 +451,7 @@ drought_lrnr_viz05 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     # Streamflow by day
     geom_line(color = "#5691e2", size = .45)+ 
     ylab("Streamflow (cfs)")+
-    xlab("1963")+
+    xlab(NULL)+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
                  limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))+
@@ -563,7 +563,7 @@ drought_lrnr_viz06 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     # Streamflow by day
     geom_line(color = "#5691e2", size = .45)+ 
     ylab("Streamflow (cfs)")+
-    xlab("1963")+
+    xlab(NULL)+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
                  limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))+
@@ -682,7 +682,7 @@ drought_lrnr_viz07 <- function(p2_droughts_learner_viz_df, p2_streamflow_learner
     # Streamflow by day
     geom_line(color = "#5691e2", size = .45)+ 
     ylab("Streamflow (cfs)")+
-    xlab("1963")+
+    xlab(NULL)+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
                  limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))+

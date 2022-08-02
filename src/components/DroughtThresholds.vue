@@ -272,7 +272,7 @@ img {
   max-height: 700px;
     max-width: 1000px;
     opacity: 0;
-    widtH: 65vw;
+    width: 65vw;
 }
 
 // stacking all images and using toogleClass to change visibility with scrolling
@@ -286,14 +286,14 @@ img {
 }
 .chart-container {
   //background-position: top;
-  height: 90vh;
+  height: 85vh;
   max-height: 700px;
   width: 50vw;
   position: relative;
   top:10vh;
   left: 0vh;
   margin-bottom: 5%;
-  max-width: 1000px;
+  max-width: 800px;
 }
 // currently empty scoll-by divs used to trigger animation
 .scrolly {
@@ -315,5 +315,4 @@ img {
 .unstuck {
   position: relative;
 }
-
 </style>
