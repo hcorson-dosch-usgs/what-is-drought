@@ -165,7 +165,7 @@
     content: none;
   }
   footer.footer {
-    background: #0b3852;
+    background: black;
     padding-bottom: 0;
     position: relative;
     width: 100%;
