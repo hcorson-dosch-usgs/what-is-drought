@@ -61,6 +61,7 @@
     >
       <!--       <p>{{frame.text}}</p> -->
     </div>
+    <div id="spacer"></div>
   </div>
 </template>
 <script>
@@ -214,6 +215,14 @@ export default {
           toggleClass: {targets: "#step-h", className: "onTop" },
           toggleActions: "restart none none pause"
         }
+      }).to("#spacer", {
+        scrollTrigger: {
+          markers: this.marker_on,
+          trigger: "#spacer",
+          start: "top 50%", // when the animation starts
+          toggleClass: {targets: ".hydro-chart", className: "unstuck" },
+          toggleActions: "restart none none none"
+        }
       })
 
     },
@@ -240,10 +249,11 @@ img {
   height: auto;
   margin-top: 10%;
   margin-left: 10%;
+  background-color: white;
 }
 
 // stacking all images and using toogleClass to change visibility with scrolling
-#step-a, #step-b, #step-c, #step-d, #step-e, #step-f, #step-g, #step-h {
+.hydro-chart {
   position: fixed;
   top: 10%;
   left: 0;
@@ -268,5 +278,11 @@ img {
 .onTop {
   visibility: visible;
   z-index: 100;
+}
+#spacer {
+  height: 30vh;
+}
+.unstuck {
+  position: relative;
 }
 </style>
