@@ -54,14 +54,18 @@
     </div>
     <!--  spacing and scrolling text goes here -->
     <!-- create a scrolling div for each frame -->
+    <div id="scroll-container" >
     <div
       v-for="frame in frames" 
       :key="frame.id"
       :class="`scrolly scroll-step-${frame.id}`"
     >
-      <!--       <p>{{frame.text}}</p> -->
+      <div class="text-container">
+        <p>{{frame.text}}</p>
+        </div>
     </div>
-    <div id="spacer"></div>
+  </div>
+          <div id="spacer"></div>
   </div>
 </template>
 <script>
@@ -87,7 +91,7 @@ export default {
         margin: { top: 50, right: 50, bottom: 50, left: 50 },
 
         // show scroll trigger markers on the page?
-        marker_on: true,
+        marker_on: false,
 
         // storing unique id and text for each scroll step
         // TODO: move outside of component to separate json
@@ -238,6 +242,9 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+// handwriting font
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+$writeFont: 'Nanum Pen Script', cursive;
 // frames are stacked and class is added on an off w/ scroll trigger to bring to front
 img {
   max-width: 80vw;
@@ -245,39 +252,62 @@ img {
 #title-container {
   position: fixed;
 }
+#scroll-container {
+  z-index: 200;
+}
+.text-container {
+  z-index: 500;
+  border-radius: 25px;
+  background-color: #333534;
+  max-width: 400px;
+  p{
+    padding: 25px;
+  }
+}
 .hydro-chart {
   height: auto;
   margin-top: 10%;
   margin-left: 10%;
   background-color: white;
+  max-height: 700px;
+    max-width: 1000px;
+    opacity: 0;
+    widtH: 65vw;
 }
 
 // stacking all images and using toogleClass to change visibility with scrolling
 .hydro-chart {
   position: fixed;
   top: 10%;
-  left: 0;
+  left: 35vh;
+  @media screen and (max-width: 600px) {
+    top: 25%;
+  }
 }
 .chart-container {
-  background-position: top;
+  //background-position: top;
   height: 90vh;
+  max-height: 700px;
+  width: 50vw;
   position: relative;
   top:10vh;
-  left: 0;
+  left: 0vh;
   margin-bottom: 5%;
-  max-width: 1200px;
+  max-width: 1000px;
 }
 // currently empty scoll-by divs used to trigger animation
 .scrolly {
   height: 100vh;
+   z-index: 100;
   p {
     max-width: 700px;
-    z-index: 1000;
+    color: white;
   }
 }
 .onTop {
   visibility: visible;
-  z-index: 100;
+  z-index: 10;
+  opacity: 1;
 }
 #spacer {
   height: 30vh;
@@ -285,4 +315,5 @@ img {
 .unstuck {
   position: relative;
 }
+
 </style>

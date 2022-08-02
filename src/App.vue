@@ -74,7 +74,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
 $SourceSans: 'Source Sans Pro', sans-serif;
 $textcolor: #333534;
-
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+$writeFont: 'Nanum Pen Script', cursive;
 // whole page except header fit within viewport - no scrolling
 #app {
   width: 100%;
@@ -89,8 +90,8 @@ body {
       margin: 0;
       padding: 0;
       line-height: 1.2;
-      font-size: 16px;
-      font-weight: 300;
+      font-size: 20px;
+      font-weight: 400;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       width: 100%;
@@ -114,12 +115,12 @@ h2{
   font-weight: 700;
   text-align: left;
   font-family: $SourceSans;
-  font-size: 3em;
+  font-size: 3.75em;
   margin-top: 5px;
   line-height: 1.2;
     color: $textcolor;
   @media screen and (max-width: 600px) {
-    font-size: 2.75em;
+    font-size: 3em;
   }
 }
 h3{
@@ -195,34 +196,7 @@ input[type=button] {
         padding: 0px; 
     }
   }
-.viz-title-wrapper {
-  max-width: 100%;
-  z-index: 100;
-  @media screen and (max-width: 600px) {
-        max-width: 90%;
-  }
-}
-.viz-title {
-  // box-shadow: -5px -5px $monotoneBlue5;
-  font-size: 1.4em;
-  font-weight: 700;
-  color: darkGrey;
-  margin-bottom: 0;
-  @media screen and (max-width: 600px) {
-       font-size: 1.2em;
-       line-height: 1.2em;
-  }
-}
-.viz-subtitle {
-  color: black;
-  font-size: .8em;
-  text-align: left;
-  font-weight: 100;
-  margin-bottom: 0;
-  @media screen and (max-width: 600px) {
-        font-size: .6em;
-  }
-}
+
 .legend-text {
     fill: black;
     font-family: $SourceSans;
@@ -251,26 +225,7 @@ input[type=button] {
   margin: 0 10px;
 }
 // Link Styling
-a:link { 
-  text-decoration: underline;
-  font-weight: bold;
-  color: dodgerBlue;
-  padding: 5px 0;
-} 
-a:visited { 
-  color: dodgerBlue; 
-} 
-a:hover {
-  text-decoration:none;
-  text-shadow: 0 0 2px lightGrey;  
-  cursor: pointer;
-} 
-a:focus { 
-    text-shadow: 0 0 2px lightGrey;
-}
-a:active {
-  padding-top: 3px;
-}
+
 sup {
   opacity: .4;
 }
