@@ -2,16 +2,17 @@ source('3_visualize/src/plot_stripswarm.R')
 source('3_visualize/src/drought_learner_viz.R')
 
 p3_targets <- list(
-  # Recreate shamshaw's strip swarm chart, but with more sites
+  # Create horizontal duration chart based on Shamshaw's CC 
   tar_target(
     p3_swarm_1980_2020,
-    event_swarm_plot(swarm_data = p2_site_swarm)
+    event_swarm_plot(swarm_data = bind_rows(p2_site_swarm, p2_site_swarm_80s))
   ),
   tar_target(p3_swarm_national_png,
-             ggsave('3_visualize/out/swarm_test.png', 
+             ggsave('3_visualize/out/swarm_national.png', 
                     p3_swarm_1980_2020,
-                    width = 14, height = 10, dpi = 300),
+                    width = 40, height = 10, dpi = 300),
              format = "file" ),
+ 
              
   #### Creates a series of ggplot pngs that will get pulled together downstream
   #
