@@ -73,7 +73,7 @@ import { store } from '../store/store.js'
 import { isMobile } from 'mobile-device-detect';
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // animated scroll events
 import { TimelineMax } from "gsap/all";
-
+import scrollyText from "@/assets/text/scrollyText";  // step text
 export default {
   name: "DroughtThresholds",
     components: {
@@ -84,6 +84,7 @@ export default {
       return {
         publicPath: process.env.BASE_URL, // allows the application to find the files when on different deployment roots
         mobileView: isMobile, // test for mobile
+        frames: scrollyText.frames, // scrolling text
 
         // dimensions
         w: store.state.windowWidth,
@@ -92,43 +93,6 @@ export default {
 
         // show scroll trigger markers on the page?
         marker_on: false,
-
-        // storing unique id and text for each scroll step
-        // TODO: move outside of component to separate json
-        frames: [
-{
-id: 'a',
-text: 'A hydrological drought means that streamflow is abnormally low.'
-},
-{
-id: 'b',
-text: 'Here, "abnormally low" is set as a threshold'
-},
-{
-id: 'c',
-text: 'Periods of severe drought happen whenever daily streamflow is below the threshold.'
-},
-{
-id: 'd',
-text: 'You might be wondering, what happens if there is an abnormally dry spring when we expect more rain?'
-},
-{
-id: 'e',
-text: 'Well, then we need to determine periods when rainfall is abnormally low for a specific week'
-},
-{
-id: 'f',
-text: 'And let our threshold change week to week'
-},
-{
-id: 'g',
-text: 'Now we capture droughts when streamflow is abnormally low for a given week.'
-},
-{
-id: 'h',
-text: 'This variable threshold changes the timing and number of droughts over the year.'
-}
-]
 
         }
   },

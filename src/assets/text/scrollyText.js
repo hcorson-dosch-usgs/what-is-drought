@@ -1,6 +1,4 @@
 export default {
-    framesContent: {
-      title: "Frames",
       frames: [
         {
           id: 'a',
@@ -35,5 +33,4 @@ export default {
           text: 'This variable threshold changes the timing and number of droughts over the year.'
         }
         ]
-    },
   };
