@@ -4,55 +4,13 @@
       <div id="title-container">
         <h2>What is hydrological drought?</h2>
       </div>
-      <!--     stack all frames on top of each other -->
-      <img 
-        id="step-a" 
-        class="hydro-chart onTop"
-        src="@/assets/images/threshold-chart/a.png"
-      >
-      <img 
-        id="step-b" 
-        class="hydro-chart"
-        src="@/assets/images/threshold-chart/b.png"
-      >
-      <img 
-        id="step-c" 
-        class="hydro-chart"
-        src="@/assets/images/threshold-chart/c.png"
-      >
-      <img 
-        id="step-d" 
-        class="hydro-chart"
-        src="@/assets/images/threshold-chart/d.png"
-      >
-      <img 
-        id="step-e" 
-        class="hydro-chart"
-        src="@/assets/images/threshold-chart/e.png"
-      >
-      <img 
-        id="step-f" 
-        class="hydro-chart"
-        src="@/assets/images/threshold-chart/f.png"
-      >
-      <img 
-        id="step-g" 
-        class="hydro-chart"
-        src="@/assets/images/threshold-chart/g.png"
-      >
-      <img 
-        id="step-h" 
-        class="hydro-chart"
-        src="@/assets/images/threshold-chart/h.png"
-      >
-    <!-- this isn't working. pngs don't read in correctly -->
-      <!--  <img v-for="frame in frames" 
+      <!-- read in frames dynamically -->
+       <img v-for="frame in frames" 
         :key="frame.id"
         class="hydro-chart"
-        :id="`stepy-${frame.id}`" 
-        v-bind:src="`@/assets/images/threshold-chart/${frame.id}.png`" /> -->
+        :id="`step-${frame.id}`" 
+        :src="require(`@/assets/images/threshold-chart/${frame.id}.png`)" />
     </div>
-    <!--  spacing and scrolling text goes here -->
     <!-- create a scrolling div for each frame -->
     <div id="scroll-container">
       <div
