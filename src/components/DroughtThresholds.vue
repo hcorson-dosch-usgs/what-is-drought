@@ -72,7 +72,8 @@ export default {
         // get unique ID and class for frame
         let classList = container.className
         let scrollClass = classList.split(' ')[1]
-        let scrollID = scrollClass.slice(-1) // last char of class is unique ID
+        console.log(scrollClass.split('-')[2])
+        let scrollID = scrollClass.split('-')[2] // ending of class is unique ID from scrollyText.js
 
       // use class to set trigger
         tl.to(`.${scrollClass}`, {
