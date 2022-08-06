@@ -5,11 +5,13 @@
         <h2>What is hydrological drought?</h2>
       </div>
       <!-- read in frames dynamically -->
-       <img v-for="frame in frames" 
+      <img
+        v-for="frame in frames" 
+        :id="`step-${frame.id}`"
         :key="frame.id"
-        class="hydro-chart"
-        :id="`step-${frame.id}`" 
-        :src="require(`@/assets/images/threshold-chart/${frame.id}.png`)" />
+        class="hydro-chart" 
+        :src="require(`@/assets/images/threshold-chart/${frame.id}.png`)"
+      >
     </div>
     <!-- create a scrolling div for each frame -->
     <div id="scroll-container">
@@ -70,9 +72,9 @@ export default {
         // get unique ID and class for frame
         let classList = container.className
         let scrollClass = classList.split(' ')[1]
-        let scrollID = scrollClass.slice(-1)
+        let scrollID = scrollClass.slice(-1) // last char of class is unique ID
 
-// use class to set trigger
+      // use class to set trigger
         tl.to(`.${scrollClass}`, {
           scrollTrigger: {
             markers: this.marker_on,
