@@ -1,6 +1,9 @@
 export default {
       frames: [
         {
+          // id is used to source image files with the same naming
+          // and used to assign classes to scrolling text
+          // current use expects a single character id, anything longer will break the scroll pattern rn
           id: 'a',
           text: 'A hydrological drought means that streamflow is abnormally low.'
         },
