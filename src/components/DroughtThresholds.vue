@@ -64,91 +64,25 @@ export default {
       // find all scrolly divs
       const containers = this.$gsap.utils.toArray(".scrolly");
 
-      // loop through and add scroll trigger to timeline for each step (not working)
+      //  add scroll trigger to timeline for each step
       containers.forEach((container) => {
-        /* tl.to(container, {
+
+        // get unique ID and class for frame
+        let classList = container.className
+        let scrollClass = classList.split(' ')[1]
+        let scrollID = scrollClass.slice(-1)
+
+// use class to set trigger
+        tl.to(`.${scrollClass}`, {
           scrollTrigger: {
             markers: this.marker_on,
-            trigger: container,
+            trigger: `.${scrollClass}`,
             start: "top 50%",
-            toggleClass: {targets: ""}
+            toggleClass: {targets: `#step-${scrollID}`, className:"onTop"}, // adds class to target when triggered
+            toggleActions: "restart none none none" // onEnter onLeave ... ...
 
           }
-        }) */
-      })
-
-      // add events
-      tl.to(".scroll-step-b", { // focal element
-        scrollTrigger: {
-          markers: this.marker_on,
-          trigger: ".scroll-step-b", // what the trigger is associated with
-          start: "top 50%", // when the scroll event happens - when the top of the trigger is 50% up
-          end:() => `+=${document.querySelector(".scroll-step-b").offsetHeight}`, // when center of trigger is 20% down of top of vp, trigger ends
-          toggleClass: {targets: "#step-b", className: "onTop" }, // trigger adds and removes a class from the target
-          toggleActions: "restart none none none" // onEnter onLeave ... ...
-        }
-        }).to(".scroll-step-c", {
-        scrollTrigger: {
-          markers: this.marker_on,
-          trigger: ".scroll-step-c",
-          start: "top 50%", // when the animation starts
-          end:() => `+=${document.querySelector(".scroll-step-c").offsetHeight}`, 
-          toggleClass: {targets: "#step-c", className: "onTop" }, // add a class at trigger
-          toggleActions: "restart none none none"
-        }
-        }).to(".scroll-step-d", {
-        scrollTrigger: {
-          markers: this.marker_on,
-          trigger: ".scroll-step-d",
-          start: "top 50%", // when the animation starts
-          end:() => `+=${document.querySelector(".scroll-step-d").offsetHeight}`, 
-          toggleClass: {targets: "#step-d", className: "onTop" },
-          toggleActions: "restart none none none"
-        }
-        }).to(".scroll-step-e", {
-        scrollTrigger: {
-          markers: this.marker_on,
-          trigger: ".scroll-step-e",
-          start: "top 50%", // when the animation starts
-          end:() => `+=${document.querySelector(".scroll-step-e").offsetHeight}`, 
-          toggleClass: {targets: "#step-e", className: "onTop" },
-          toggleActions: "restart none none none"
-        }
-        }).to(".scroll-step-f", {
-        scrollTrigger: {
-          markers: this.marker_on,
-          trigger: ".scroll-step-f",
-          start: "top 50%", // when the animation starts
-          end:() => `+=${document.querySelector(".scroll-step-f").offsetHeight}`, 
-          toggleClass: {targets: "#step-f", className: "onTop" },
-          toggleActions: "restart none none none"
-        }
-        }).to(".scroll-step-g", {
-        scrollTrigger: {
-          markers: this.marker_on,
-          trigger: ".scroll-step-g",
-          start: "top 50%", // when the animation starts
-          end:() => `+=${document.querySelector(".scroll-step-g").offsetHeight}`, 
-          toggleClass: {targets: "#step-g", className: "onTop" },
-          toggleActions: "restart none none none"
-        }
-        }).to(".scroll-step-h", {
-        scrollTrigger: {
-          markers: this.marker_on,
-          trigger: ".scroll-step-h",
-          start: "top 50%", // when the animation starts
-          end:() => `+=${document.querySelector(".scroll-step-h").offsetHeight}`, 
-          toggleClass: {targets: "#step-h", className: "onTop" },
-          toggleActions: "restart none none pause"
-        }
-      }).to("#spacer", {
-        scrollTrigger: {
-          markers: this.marker_on,
-          trigger: "#spacer",
-          start: "top 50%", // when the animation starts
-          toggleClass: {targets: ".hydro-chart", className: "unstuck" },
-          toggleActions: "restart none none none"
-        }
+        }) 
       })
 
     },
