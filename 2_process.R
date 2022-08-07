@@ -76,6 +76,10 @@ p2_targets <- list(
              create_event_swarm(event_data = p2_site_prop_2,
                                 start_period = as.Date('1980-01-01'),
                                 end_period = as.Date('1999-12-31'))),
+  tar_target(p2_site_swarm_50s,
+             create_event_swarm(event_data = p2_site_prop_2,
+                                start_period = as.Date('1950-01-01'),
+                                end_period = as.Date('1979-12-31'))),
   
   ###### Load annual stats ######
   tar_target(p2_1951_2020_annual_stats_site,
