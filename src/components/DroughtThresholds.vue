@@ -69,7 +69,7 @@ export default {
       //  add scroll trigger to timeline for each step
       containers.forEach((container) => {
 
-        // get unique ID and class for frame
+        // get unique ID and class for frame. Scroll frame classes follow the pattern `scrolly scroll-step-${frame.id}`
         let classList = container.className
         let scrollClass = classList.split(' ')[1]
         console.log(scrollClass.split('-')[2])
