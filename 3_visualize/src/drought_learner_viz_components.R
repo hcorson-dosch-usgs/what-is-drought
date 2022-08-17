@@ -14,6 +14,7 @@ blank_plot <- function(p2_streamflow_learner_viz_df){
           axis.title = element_text(size = 8),
           panel.background = element_blank())
   
+  return(blank_plot)
 }
 
 
@@ -22,9 +23,11 @@ inset_map <- function(){
   gage_location <- usmap::us_map(regions = "county", include = 39049)
   inset <- usmap::plot_usmap(regions = "states", fill = "#dadedf", size = 0.1, color = "white")+
     geom_polygon(data = gage_location, aes(x = x, y = y), color = "#e6af84", fill = "#e6af84", size = 0.5)
-}
+  
+  return(inset)
+  }
 
-background_cowplot <- function(){
+background_canvas <- function(){
   # Background
   color_bknd = "transparent"
   canvas <- grid::rectGrob(
@@ -35,15 +38,15 @@ background_cowplot <- function(){
   
 }
 
-bottom_bars <- function(both = FALSE){
+bottom_bars <- function(both, p2_droughts_learner_viz_df, blank_plot){
   
-    # Bottom bars
-    
+  #   # Bottom bars
+
       if(both == FALSE){
-        bottom_bars <- blank_plot + 
+        bottom_bars <- blank_plot +
         annotate("rect", # fixed threshold
-               xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"]),
-               xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"]),
+               xmin = p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"],
+               xmax = p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"],
                ymin = 52, ymax = 100,
                fill = "#da7d81", alpha = 0.8)+
       theme(axis.title = element_text(color = "transparent"),
@@ -66,18 +69,20 @@ bottom_bars <- function(both = FALSE){
             axis.text = element_text(color = "transparent"),
             axis.line = element_line(color = "transparent"),
             axis.ticks = element_line(color = "transparent"))
-    }
+  }
+  
+  return(bottom_bars)
 }
 
 
-frame_a <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
-  both = F
+frame_a <- function(blank_plot, p2_streamflow_learner_viz_df, droughts,
+                    bottom_bars, canvas, inset, out_png){
   
   main <- blank_plot +
     # Fixed threshold drought durations
     annotate("rect", # fixed threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"]),
+             xmin = droughts$start[droughts$method == "fixed"],
+             xmax = droughts$end[droughts$method == "fixed"],
              ymin = -Inf, ymax = Inf,
              fill = "#da7d81", alpha = 0.8) +
     annotate("text", label = "Periods of\nSevere\nDrought", 
@@ -119,13 +124,14 @@ frame_a <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testa.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
 
 
-frame_b <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
-  both = F
+frame_b <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
+
   
   main <- blank_plot +
     # This site's 1963 streamflow
@@ -170,12 +176,13 @@ frame_b <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testb.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
 
-frame_c <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
-  both = F
+frame_c <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
+
   
   main <- blank_plot +
     # This site's 1963 streamflow
@@ -225,12 +232,13 @@ frame_c <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testc.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
 
-frame_d <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
-  both = F
+frame_d <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
+
   
   main <- blank_plot +
     # This site's 1963 streamflow
@@ -285,14 +293,14 @@ frame_d <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testd.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
 
-frame_e <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
+frame_e <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
   
-  both = F
-  
+
   fill_drought_bottom <- p2_streamflow_learner_viz_df %>%
     filter(dt >= as.Date("15/08/1963",'%d/%m/%Y'), 
            dt <= as.Date("28/08/1963",'%d/%m/%Y')) %>%
@@ -337,7 +345,7 @@ frame_e <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
     # Transparent mask
     geom_polygon(data = mask_poly, 
                  aes(group = id, x = x, y = y, subgroup = subid), 
-                 fill = "white", alpha = 0.7)+
+                 fill = "white", alpha = 0.8)+
     geom_polygon(data = mask_poly %>% filter(subid == 2), 
                  aes(group = id, x = x, y = y), 
                  color = "black", fill = "transparent", size = 0.1)+
@@ -423,14 +431,13 @@ frame_e <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/teste.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
 
 
-frame_f <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
-  
-  both = F
+frame_f <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
   
   main <- blank_plot +
     # Fixed threshold drought durations
@@ -490,23 +497,24 @@ frame_f <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testf.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
-frame_g <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
-  both = T
+frame_g <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
+
   
   main <- blank_plot +
     # This site's 1963 streamflow
     geom_line(color = "#1e41b5", size = 0.3)+
-    # annotate("text", label = "Daily\nstreamflow", 
-    #          x = as.Date("03/06/1963",'%d/%m/%Y'), hjust = 0,
-    #          y = 420, color = "#1e41b5", size = 2)+
+    annotate("text", label = "Daily\nstreamflow",
+             x = as.Date("03/06/1963",'%d/%m/%Y'), hjust = 0,
+             y = 420, color = "#1e41b5", size = 2)+
     # Average daily streamflow
-    geom_line(aes(y = mean_flow), color = "#c3e8fa")
-    # annotate("text", label = "Daily average\nstreamflow", 
-    #          x = as.Date("17/07/1963",'%d/%m/%Y'), hjust = 0,
-    #          y = 800, color = "#5691e2", size = 2)
+    geom_line(aes(y = mean_flow), color = "#c3e8fa")+
+    annotate("text", label = "Daily average\nstreamflow",
+             x = as.Date("17/07/1963",'%d/%m/%Y'), hjust = 0,
+             y = 800, color = "#5691e2", size = 2)
   
   
   
@@ -541,10 +549,11 @@ frame_g <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testg.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
-frame_h <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
+frame_h <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
   main <- blank_plot +
     # This site's 1963 streamflow
     geom_line(color = "#1e41b5", size = 0.3)+
@@ -604,12 +613,13 @@ frame_h <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testh.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
 
-frame_i <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
-  both = T
+frame_i <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
+
   
   main <- blank_plot +
     # This site's 1963 streamflow
@@ -658,11 +668,12 @@ frame_i <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testi.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
-frame_j <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
-  both = T
+frame_j <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
+
   
   main <- blank_plot +
     # Variable threshold drought durations
@@ -720,11 +731,12 @@ frame_j <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testj.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
-frame_k <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
-  both = T
+frame_k <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
+
   
   main <- blank_plot +
     # Fixed threshold drought durations
@@ -779,12 +791,13 @@ frame_k <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testk.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
 
-frame_l <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
-  both = T
+frame_l <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+                    bottom_bars, canvas, inset, out_png){
+
   
   blank_plot_year <- ggplot(data = p2_streamflow_learner_viz_df, aes(y = value, x = dt))+
     ylab("Streamflow\n(cfs)")+
@@ -869,7 +882,7 @@ frame_l <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df){
               y = 0.95,
               size = 4)
   
-  ggsave("3_visualize/out/testl.png", width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
 
