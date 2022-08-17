@@ -67,19 +67,7 @@ p2_targets <- list(
                left_join(p2_1951_2020_metadata %>%
                            select(StaID:STATE, HCDN_2009, CASC))
   ),
-  ## Processing data in 2 temporal chunks, processing swarm is slow (~20 min)
-  tar_target(p2_site_swarm,
-             create_event_swarm(event_data = p2_site_prop_2,
-                                start_period = as.Date('2000-01-01'),
-                                end_period = as.Date('2020-12-31'))),
-  tar_target(p2_site_swarm_80s,
-             create_event_swarm(event_data = p2_site_prop_2,
-                                start_period = as.Date('1980-01-01'),
-                                end_period = as.Date('1999-12-31'))),
-  tar_target(p2_site_swarm_50s,
-             create_event_swarm(event_data = p2_site_prop_2,
-                                start_period = as.Date('1950-01-01'),
-                                end_period = as.Date('1979-12-31'))),
+
   
   ###### Load annual stats ######
   tar_target(p2_1951_2020_annual_stats_site,
