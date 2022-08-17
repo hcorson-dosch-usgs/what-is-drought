@@ -14,11 +14,11 @@ export default {
         },
         {
           id: 'c',
-          text: 'text c: A hydrological drought is defined as a period when daily streamflow is abnormally low. Here, we compare \“abnormally low\” against the annual average streamflow.'
+          text: 'text c: A hydrological drought is defined as a period when daily streamflow is abnormally low. '
         },
         {
           id: 'd',
-          text: 'text d: And define drought as being any time when daily streamflow is below 10% of the annual average streamflow.'
+          text: 'text d: Here, we compare \“abnormally low\” against the annual average streamflow.'
         },
         {
           id: 'e',
