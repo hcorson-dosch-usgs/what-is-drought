@@ -134,6 +134,16 @@ p3_targets <- list(
                      inset = p3_inset_map,
                      canvas = p3_canvas,
                      out_png = "src/assets/images/threshold-chart/l.png"),
+             format = "file"),
+  
+  tar_target(p3_drought_learner_viz_m_png,
+             frame_m(p2_streamflow_learner_viz_df = p2_streamflow_learner_viz_df, 
+                     p2_droughts_learner_viz_df = p2_droughts_learner_viz_df,
+                     p2_1951_2020_drought_prop_site = p2_1951_2020_drought_prop_site, 
+                     p2_1951_2020_drought_prop_jd_7d = p2_1951_2020_drought_prop_jd_7d, 
+                     canvas = p3_canvas, 
+                     inset = p3_inset_map, 
+                     out_png = "src/assets/images/threshold-chart/m.png"),
              format = "file")
 )
 
