@@ -11,59 +11,12 @@ p1_targets <- list(
   
   ##### Fetch data from child item 1951-2020 #####
   
-  ###### Download drought summary files ######
-  tar_target(p1_1951_2020_drought_summary_site_csv, {
-    # Depend on this dummy variable to initiate re-download of files
-    p0_sb_fetch_date
-    download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'Drought_Summary_site.csv',
-                      dest_dir = "1_fetch/out/CONUS_1951_2020",
-                      sb_secret_exists = p0_sb_credentials_exist)
-  },
-  format = 'file'),
-  tar_target(p1_1951_2020_drought_summary_jd_csv, {
-    # Depend on this dummy variable to initiate re-download of files
-    p0_sb_fetch_date
-    download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'Drought_Summary_jd.csv',
-                      dest_dir = "1_fetch/out/CONUS_1951_2020",
-                      sb_secret_exists = p0_sb_credentials_exist)
-  },
-  format = 'file'),
-  tar_target(p1_1951_2020_drought_summary_jd_7d_csv, {
-    # Depend on this dummy variable to initiate re-download of files
-    p0_sb_fetch_date
-    download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'Drought_Summary_jd_07d_wndw.csv',
-                      dest_dir = "1_fetch/out/CONUS_1951_2020",
-                      sb_secret_exists = p0_sb_credentials_exist)
-  },
-  format = 'file'),
-  tar_target(p1_1951_2020_drought_summary_jd_30d_csv, {
-    # Depend on this dummy variable to initiate re-download of files
-    p0_sb_fetch_date
-    download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'Drought_Summary_jd_30d_wndw.csv',
-                      dest_dir = "1_fetch/out/CONUS_1951_2020",
-                      sb_secret_exists = p0_sb_credentials_exist)
-  },
-  format = 'file'),
-  
   ###### Download drought properties files ######
   tar_target(p1_1951_2020_drought_prop_site_csv, {
     # Depend on this dummy variable to initiate re-download of files
     p0_sb_fetch_date
     download_sb_files(sb_id = p0_sbitem_child_1951_2020,
                       sb_files_to_download = 'Drought_Properties_site_updated.csv',
-                      dest_dir = "1_fetch/out/CONUS_1951_2020",
-                      sb_secret_exists = p0_sb_credentials_exist)
-  },
-  format = 'file'),
-  tar_target(p1_1951_2020_drought_prop_jd_csv, {
-    # Depend on this dummy variable to initiate re-download of files
-    p0_sb_fetch_date
-    download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'Drought_Properties_jd_updated.csv',
                       dest_dir = "1_fetch/out/CONUS_1951_2020",
                       sb_secret_exists = p0_sb_credentials_exist)
   },
@@ -77,37 +30,7 @@ p1_targets <- list(
                       sb_secret_exists = p0_sb_credentials_exist)
   },
   format = 'file'),
-  tar_target(p1_1951_2020_drought_prop_jd_30d_csv, {
-    # Depend on this dummy variable to initiate re-download of files
-    p0_sb_fetch_date
-    download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'Drought_Properties_jd_30d_wndw_updated.csv',
-                      dest_dir = "1_fetch/out/CONUS_1951_2020",
-                      sb_secret_exists = p0_sb_credentials_exist)
-  },
-  format = 'file'),
-  
-  ###### Download annual stats files ######
-  tar_target(p1_1951_2020_annual_stats_site_csv, {
-    # Depend on this dummy variable to initiate re-download of files
-    p0_sb_fetch_date
-    download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'annual_stats_weibull_site.csv',
-                      dest_dir = "1_fetch/out/CONUS_1951_2020",
-                      sb_secret_exists = p0_sb_credentials_exist)
-  },
-  format = 'file'),
-  
-  tar_target(p1_1951_2020_annual_stats_jd_csv, {
-    # Depend on this dummy variable to initiate re-download of files
-    p0_sb_fetch_date
-    download_sb_files(sb_id = p0_sbitem_child_1951_2020,
-                      sb_files_to_download = 'annual_stats_weibull_jd.csv',
-                      dest_dir = "1_fetch/out/CONUS_1951_2020",
-                      sb_secret_exists = p0_sb_credentials_exist)
-  },
-  format = 'file'),
-  
+
   ###### Download streamflow percentile files ######
   
   tar_target(p1_1951_2020_streamflow_perc_zip, {

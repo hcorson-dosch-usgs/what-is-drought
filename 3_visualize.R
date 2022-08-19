@@ -1,10 +1,7 @@
-source('3_visualize/src/plot_stripswarm.R')
 source('3_visualize/src/drought_learner_viz_components.R')
 
 p3_targets <- list(
-  
- 
-             
+       
   #### Creates a series of ggplot pngs that will get pulled together downstream
   #
   # NOTE: Must make sure that target 'p2_1951_2020_metadata_subset' includes the correct data
@@ -138,7 +135,5 @@ p3_targets <- list(
                      canvas = p3_canvas,
                      out_png = "src/assets/images/threshold-chart/l.png"),
              format = "file")
-  
-
 )
 
