@@ -751,12 +751,6 @@ frame_k <- function(blank_plot, streamflow_df, droughts_df,
              xmax = (droughts_df$end[droughts_df$method == "variable"]),
              ymin = -Inf, ymax = 600,
              fill = "#e6af84", alpha = 0.8) +
-    annotate("text", label = "Periods of\nSevere\nDrought\nwith a\nFixed\nThreshold", 
-             x = as.Date("23/07/1963",'%d/%m/%Y'), hjust = 0.5,
-             y = 1000, color = "#a44a23", size = 1.8) +
-    annotate("text", label = "Periods of\nSevere\nDrought\nwith a\nVariable\nThreshold", 
-             x = as.Date("23/07/1963",'%d/%m/%Y'), hjust = 0.5,
-             y = 300, color = "#a44a23", size = 1.8)+
     theme(axis.title.y = element_text(color="transparent"),
           axis.text.y = element_text(color = "transparent"),
           axis.ticks.y = element_line(color = "transparent"))
@@ -792,7 +786,14 @@ frame_k <- function(blank_plot, streamflow_df, droughts_df,
     draw_text("Frame k",
               x = 0.05, 
               y = 0.95,
-              size = 4)
+              size = 4)+
+    # Annotation
+    draw_text("Periods of\nSevere\nDrought\nwith a\nFixed\nThreshold", 
+             x = 0.1, hjust = 0.5,
+             y = 0.75, color = "#a44a23", size = 5) +
+    draw_text("Periods of\nSevere\nDrought\nwith a\nVariable\nThreshold", 
+             x = 0.1, hjust = 0.5,
+             y = 0.4, color = "#a44a23", size = 5)
   
   ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
@@ -830,12 +831,6 @@ frame_l <- function(streamflow_df, droughts_df,
              xmax = (droughts_df$end[droughts_df$method == "variable"]),
              ymin = -Inf, ymax = 600,
              fill = "#e6af84", alpha = 0.8) +
-    annotate("text", label = "Periods of\nSevere\nDrought\nwith a\nFixed\nThreshold", 
-             x = as.Date("23/07/1963",'%d/%m/%Y'), hjust = 0.5,
-             y = 1000, color = "#a44a23", size = 1.8) +
-    annotate("text", label = "Periods of\nSevere\nDrought\nwith a\nVariable\nThreshold", 
-             x = as.Date("23/07/1963",'%d/%m/%Y'), hjust = 0.5,
-             y = 300, color = "#a44a23", size = 1.8)+
     theme(axis.title.y = element_text(color="transparent"),
           axis.text.y = element_text(color = "transparent"),
           axis.ticks.y = element_line(color = "transparent"))
@@ -886,7 +881,14 @@ frame_l <- function(streamflow_df, droughts_df,
     draw_text("Frame l",
               x = 0.05, 
               y = 0.95,
-              size = 4)
+              size = 4)+
+    # Annotation
+    draw_text("Periods of\nSevere\nDrought\nwith a\nFixed\nThreshold", 
+              x = 0.1, hjust = 0.5,
+              y = 0.75, color = "#a44a23", size = 5) +
+    draw_text("Periods of\nSevere\nDrought\nwith a\nVariable\nThreshold", 
+              x = 0.1, hjust = 0.5,
+              y = 0.4, color = "#a44a23", size = 5)
   
   ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
@@ -1049,10 +1051,17 @@ frame_m <- function(streamflow_df, droughts_df,
               y = 0.95,
               size = 4)+
     # Annotate years 
-    draw_text("1950", size = 4, y = 0.25, x = 0.148)+
-    draw_text("2020", size = 4, y = 0.5765, x = 0.148)+
-    draw_text("1950", size = 4, y = 0.6005, x = 0.148)+
-    draw_text("2020", size = 4, y = 0.92, x = 0.148)
+    draw_text("1950", size = 4, y = 0.25, x = 0.148, color = "#666666")+
+    draw_text("2020", size = 4, y = 0.5765, x = 0.148, color = "#666666")+
+    draw_text("1950", size = 4, y = 0.6005, x = 0.148, color = "#666666")+
+    draw_text("2020", size = 4, y = 0.92, x = 0.148, color = "#666666")+
+    # Annotation
+    draw_text("Periods of\nSevere\nDrought\nwith a\nFixed\nThreshold", 
+              x = 0.1, hjust = 0.5,
+              y = 0.75, color = "#a44a23", size = 5) +
+    draw_text("Periods of\nSevere\nDrought\nwith a\nVariable\nThreshold", 
+              x = 0.1, hjust = 0.5,
+              y = 0.4, color = "#a44a23", size = 5)
   
   ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
