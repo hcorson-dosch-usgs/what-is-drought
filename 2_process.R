@@ -47,5 +47,18 @@ p2_targets <- list(
   tar_target(p2_droughts_70year_learner_viz_df,
              prep_droughts_70year_learner_viz(StationID = '03221000',
                                               df_1951_2020_drought_prop_jd_7d = p2_1951_2020_drought_prop_jd_7d,
-                                              df_1951_2020_drought_prop_site = p2_1951_2020_drought_prop_site))
-)
+                                              df_1951_2020_drought_prop_site = p2_1951_2020_drought_prop_site)),
+
+  # The df that stacks all droughts by DOY
+    # fixed threshold
+  tar_target(p2_droughts_70year_stacked_site_df,
+             p2_droughts_stacked_byDOY_df(droughts_prop_target = p2_1951_2020_drought_prop_site, 
+                                          StationID = '03221000', 
+                                          example_threshold = 10)),
+  
+  # fixed threshold
+  tar_target(p2_droughts_70year_stacked_j7_df,
+             p2_droughts_stacked_byDOY_df(droughts_prop_target = p2_1951_2020_drought_prop_jd_7d, 
+                                          StationID = '03221000', 
+                                          example_threshold = 10))
+  )

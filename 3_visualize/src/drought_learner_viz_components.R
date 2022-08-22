@@ -882,81 +882,14 @@ frame_l <- function(streamflow_df, droughts_df,
   ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
-frame_m <- function(streamflow_df, droughts_df,
-                    droughts_df_70yr_site, droughts_df_70yr_jd,
-                    canvas, out_png, dv_tibble){
-  
-  # Select correct station ID and threshold
-  droughts_site <- droughts_df_70yr_site %>%
-    filter(StaID == '03221000', threshold == 10) %>%
-    select(drought_id, duration, start, end, StaID, threshold) %>%
-    mutate("method" = "fixed")
-  droughts_jd <- droughts_df_70yr_jd %>%
-    filter(StaID == '03221000', threshold == 10) %>%
-    select(drought_id, duration, start, end, StaID, threshold) %>%
-    mutate("method" = "variable")
-  
-  
-  # create date values for plotting
-  droughts_site <- droughts_site %>% 
-    mutate(start_year = year(start),
-           start_noYr = format(as.Date(start), "%m-%d"),
-           start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
-           end_year = year(end),
-           end_noYr = format(as.Date(end), "%m-%d"),
-           end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
-  droughts_jd <- droughts_jd %>% 
-    mutate(start_year = year(start),
-           start_noYr = format(as.Date(start), "%m-%d"),
-           start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
-           end_year = year(end),
-           end_noYr = format(as.Date(end), "%m-%d"),
-           end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
-  
-  # Deal with drought events that wrap year
-  #   1. filter out only those 
-  droughts_jd_wrapYr <- droughts_jd %>%
-    filter(start_year != end_year)
-  droughts_site_wrapYr <- droughts_site %>%
-    filter(start_year != end_year)
-  #   2. Duplicate records
-  droughts_jd_wrapYr_beginningOfYear <- droughts_jd_wrapYr %>%
-    mutate(start = as.Date(sprintf("%s-01-01", year(end))))
-  droughts_jd_wrapYr_endOfYear <- droughts_jd_wrapYr %>%
-    mutate(end = as.Date(sprintf("%s-12-31", year(start))))
-  droughts_jd_wrapYr <- bind_rows(droughts_jd_wrapYr_beginningOfYear,
-                                     droughts_jd_wrapYr_endOfYear) 
-  droughts_site_wrapYr_beginningOfYear <- droughts_site_wrapYr %>%
-    mutate(start = as.Date(sprintf("%s-01-01", year(end))))
-  droughts_site_wrapYr_endOfYear <- droughts_site_wrapYr %>%
-    mutate(end = as.Date(sprintf("%s-12-31", year(start))))
-  droughts_site_wrapYr <- bind_rows(droughts_site_wrapYr_beginningOfYear,
-                                       droughts_site_wrapYr_endOfYear) 
-  #   3. Fix metadata
-  droughts_jd_wrapYr <- droughts_jd_wrapYr %>%
-    mutate(start_year = year(start),
-           start_noYr = format(as.Date(start), "%m-%d"),
-           start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
-           end_year = year(end),
-           end_noYr = format(as.Date(end), "%m-%d"),
-           end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
-  droughts_site_wrapYr <- droughts_site_wrapYr %>%
-    mutate(start_year = year(start),
-           start_noYr = format(as.Date(start), "%m-%d"),
-           start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
-           end_year = year(end),
-           end_noYr = format(as.Date(end), "%m-%d"),
-           end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
-  #   4. Merge back in with other records
-  droughts_jd_noWrapYr <- droughts_jd %>%
-    filter(start_year == end_year)
-  droughts_jd <- bind_rows(droughts_jd_wrapYr,
-                              droughts_jd_noWrapYr)
-  droughts_site_noWrapYr <- droughts_site %>%
-    filter(start_year == end_year)
-  droughts_site <- bind_rows(droughts_site_wrapYr,
-                                droughts_site_noWrapYr)
-  
+frame_m <- function(streamflow_df, 
+                    droughts_df,
+                    droughts_70yr_site_df, 
+                    droughts_70yr_j7_df, 
+                    canvas, 
+                    out_png,
+                    dv_tibble){
+
   
   blank_plot_year <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     ylab("Year\n(sort of)")+
@@ -974,15 +907,15 @@ frame_m <- function(streamflow_df, droughts_df,
     geom_hline(yintercept = 1949, color = "#666666", size = 0.2, linetype = "dashed")+
     # Fixed threshold drought durations
     annotate("rect", # fixed threshold
-             xmin = (droughts_site$start_fakeYr),
-             xmax = (droughts_site$end_fakeYr),
-             ymin = droughts_site$start_year-1, ymax = droughts_site$start_year,
+             xmin = (droughts_70yr_site_df$start_fakeYr),
+             xmax = (droughts_70yr_site_df$end_fakeYr),
+             ymin = droughts_70yr_site_df$start_year-1, ymax = droughts_70yr_site_df$start_year,
              fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.9) +
     # Variable threshold drought durations
     annotate("rect", # variable threshold
-             xmin = (droughts_jd$start_fakeYr),
-             xmax = (droughts_jd$end_fakeYr),
-             ymin = droughts_jd$start_year-70, ymax = droughts_jd$start_year-69,
+             xmin = (droughts_70yr_j7_df$start_fakeYr),
+             xmax = (droughts_70yr_j7_df$end_fakeYr),
+             ymin = droughts_70yr_j7_df$start_year-70, ymax = droughts_70yr_j7_df$start_year-69,
              fill = dv_tibble$dv_drought_fill_variable, alpha = 0.9)+
     theme(axis.title.y = element_text(color="transparent"),
           axis.text.y = element_text(color = "transparent"),

@@ -105,3 +105,51 @@ prep_droughts_70year_learner_viz <- function(StationID,
   droughts_70year_learner_viz_df <- bind_rows(drought_prop_site_long,
                                                  drought_prop_j7_long)
 }
+
+
+p2_droughts_stacked_byDOY_df <- function(droughts_prop_target, StationID, example_threshold){
+  # Select correct station ID and threshold
+  droughts <- droughts_prop_target %>%
+    filter(StaID == StationID, threshold == example_threshold) %>%
+    select(drought_id, duration, start, end, StaID, threshold)
+  
+  
+  
+  # create date values for plotting
+  droughts <- droughts %>% 
+    mutate(start_year = year(start),
+           start_noYr = format(as.Date(start), "%m-%d"),
+           start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
+           end_year = year(end),
+           end_noYr = format(as.Date(end), "%m-%d"),
+           end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
+  
+  # Deal with drought events that wrap year
+  #   1. filter out only those 
+  droughts_wrapYr <- droughts %>%
+    filter(start_year != end_year)
+
+  #   2. Duplicate records
+  droughts_wrapYr_beginningOfYear <- droughts_wrapYr %>%
+    mutate(start = as.Date(sprintf("%s-01-01", year(end))))
+  droughts_wrapYr_endOfYear <- droughts_wrapYr %>%
+    mutate(end = as.Date(sprintf("%s-12-31", year(start))))
+  droughts_wrapYr <- bind_rows(droughts_wrapYr_beginningOfYear,
+                                  droughts_wrapYr_endOfYear) 
+
+  #   3. Fix metadata
+  droughts_wrapYr <- droughts_wrapYr %>%
+    mutate(start_year = year(start),
+           start_noYr = format(as.Date(start), "%m-%d"),
+           start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
+           end_year = year(end),
+           end_noYr = format(as.Date(end), "%m-%d"),
+           end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
+
+  #   4. Merge back in with other records
+  droughts_noWrapYr <- droughts %>%
+    filter(start_year == end_year)
+  droughts <- bind_rows(droughts_wrapYr,
+                           droughts_noWrapYr)
+
+}
