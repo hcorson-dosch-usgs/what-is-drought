@@ -1,5 +1,5 @@
-blank_plot <- function(p2_streamflow_learner_viz_df){
-  blank_plot <- ggplot(data = p2_streamflow_learner_viz_df, aes(y = value, x = dt))+
+blank_plot <- function(streamflow_df){
+  blank_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     ylab("Streamflow\n(cfs)")+
     xlab(NULL)+
     scale_y_continuous(limits = c(0,1400), 
@@ -38,15 +38,15 @@ background_canvas <- function(){
   
 }
 
-bottom_bars <- function(both, p2_droughts_learner_viz_df, blank_plot){
+bottom_bars <- function(both, droughts_df, blank_plot){
   
   #   # Bottom bars
 
       if(both == FALSE){
         bottom_bars <- blank_plot +
         annotate("rect", # fixed threshold
-               xmin = p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"],
-               xmax = p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"],
+               xmin = droughts_df$start[droughts_df$method == "fixed"],
+               xmax = droughts_df$end[droughts_df$method == "fixed"],
                ymin = 52, ymax = 100,
                fill = "#da7d81", alpha = 0.8)+
       theme(axis.title = element_text(color = "transparent"),
@@ -56,13 +56,13 @@ bottom_bars <- function(both, p2_droughts_learner_viz_df, blank_plot){
   } else {
     bottom_bars <- blank_plot +   
     annotate("rect", # fixed threshold
-               xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"]),
-               xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"]),
+               xmin = (droughts_df$start[droughts_df$method == "fixed"]),
+               xmax = (droughts_df$end[droughts_df$method == "fixed"]),
                ymin = 52, ymax = 100,
                fill = "#da7d81", alpha = 0.8)+
       annotate("rect", # variable threshold
-               xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "variable"]),
-               xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "variable"]),
+               xmin = (droughts_df$start[droughts_df$method == "variable"]),
+               xmax = (droughts_df$end[droughts_df$method == "variable"]),
                ymin = 0, ymax = 48,
                fill = "#e6af84", alpha = 0.8)+
       theme(axis.title = element_text(color = "transparent"),
@@ -75,14 +75,14 @@ bottom_bars <- function(both, p2_droughts_learner_viz_df, blank_plot){
 }
 
 
-frame_a <- function(blank_plot, p2_streamflow_learner_viz_df, droughts,
+frame_a <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
   
   main <- blank_plot +
     # Fixed threshold drought durations
     annotate("rect", # fixed threshold
-             xmin = droughts$start[droughts$method == "fixed"],
-             xmax = droughts$end[droughts$method == "fixed"],
+             xmin = droughts_df$start[droughts_df$method == "fixed"],
+             xmax = droughts_df$end[droughts_df$method == "fixed"],
              ymin = -Inf, ymax = Inf,
              fill = "#da7d81", alpha = 0.8) +
     annotate("text", label = "Periods of\nSevere\nDrought", 
@@ -129,7 +129,7 @@ frame_a <- function(blank_plot, p2_streamflow_learner_viz_df, droughts,
 
 
 
-frame_b <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_b <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
 
   
@@ -180,7 +180,7 @@ frame_b <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
 }
 
 
-frame_c <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_c <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
 
   
@@ -236,7 +236,7 @@ frame_c <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
 }
 
 
-frame_d <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_d <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
 
   
@@ -297,11 +297,11 @@ frame_d <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
 }
 
 
-frame_e <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_e <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
   
 
-  fill_drought_bottom <- p2_streamflow_learner_viz_df %>%
+  fill_drought_bottom <- streamflow_df %>%
     filter(dt >= as.Date("15/08/1963",'%d/%m/%Y'), 
            dt <= as.Date("28/08/1963",'%d/%m/%Y')) %>%
     select(dt, value)
@@ -359,7 +359,7 @@ frame_e <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
              color = "black", size = 0.2)
   
   # Zoomed in plot
-  zoom_plot <- ggplot(data = p2_streamflow_learner_viz_df, aes(y = value, x = dt))+
+  zoom_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     # This site's 1963 streamflow
     geom_line(color = "#1e41b5", size = 0.3)+
     annotate("text", label = "Daily\nstreamflow", 
@@ -436,14 +436,14 @@ frame_e <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
 
 
 
-frame_f <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_f <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
   
   main <- blank_plot +
     # Fixed threshold drought durations
     annotate("rect", # fixed threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"]),
+             xmin = (droughts_df$start[droughts_df$method == "fixed"]),
+             xmax = (droughts_df$end[droughts_df$method == "fixed"]),
              ymin = -Inf, ymax = Inf,
              fill = "#da7d81", alpha = 0.8) +
     annotate("text", label = "Periods of\nSevere\nDrought", 
@@ -500,7 +500,7 @@ frame_f <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
   ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
-frame_g <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_g <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
 
   
@@ -552,7 +552,7 @@ frame_g <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
   ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
-frame_h <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_h <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
   main <- blank_plot +
     # This site's 1963 streamflow
@@ -617,7 +617,7 @@ frame_h <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
 }
 
 
-frame_i <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_i <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
 
   
@@ -671,15 +671,15 @@ frame_i <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
   ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
-frame_j <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_j <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
 
   
   main <- blank_plot +
     # Variable threshold drought durations
     annotate("rect", # variable threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "variable"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "variable"]),
+             xmin = (droughts_df$start[droughts_df$method == "variable"]),
+             xmax = (droughts_df$end[droughts_df$method == "variable"]),
              ymin = -Inf, ymax = Inf,
              fill = "#e6af84", alpha = 0.8) +
     annotate("text", label = "Periods of\nSevere\nDrought", 
@@ -734,21 +734,21 @@ frame_j <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
   ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
-frame_k <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_k <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
 
   
   main <- blank_plot +
     # Fixed threshold drought durations
     annotate("rect", # fixed threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"]),
+             xmin = (droughts_df$start[droughts_df$method == "fixed"]),
+             xmax = (droughts_df$end[droughts_df$method == "fixed"]),
              ymin = 650, ymax = Inf,
              fill = "#da7d81", alpha = 0.8) +
     # Variable threshold drought durations
     annotate("rect", # variable threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "variable"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "variable"]),
+             xmin = (droughts_df$start[droughts_df$method == "variable"]),
+             xmax = (droughts_df$end[droughts_df$method == "variable"]),
              ymin = -Inf, ymax = 600,
              fill = "#e6af84", alpha = 0.8) +
     annotate("text", label = "Periods of\nSevere\nDrought\nwith a\nFixed\nThreshold", 
@@ -798,11 +798,11 @@ frame_k <- function(blank_plot, p2_streamflow_learner_viz_df, p2_droughts_learne
 }
 
 
-frame_l <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
+frame_l <- function(streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png){
 
   
-  blank_plot_year <- ggplot(data = p2_streamflow_learner_viz_df, aes(y = value, x = dt))+
+  blank_plot_year <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     ylab("Streamflow\n(cfs)")+
     xlab(NULL)+
     scale_y_continuous(limits = c(0,1400), 
@@ -820,14 +820,14 @@ frame_l <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
   main <- blank_plot_year +
     # Fixed threshold drought durations
     annotate("rect", # fixed threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"]),
+             xmin = (droughts_df$start[droughts_df$method == "fixed"]),
+             xmax = (droughts_df$end[droughts_df$method == "fixed"]),
              ymin = 650, ymax = Inf,
              fill = "#da7d81", alpha = 0.8) +
     # Variable threshold drought durations
     annotate("rect", # variable threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "variable"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "variable"]),
+             xmin = (droughts_df$start[droughts_df$method == "variable"]),
+             xmax = (droughts_df$end[droughts_df$method == "variable"]),
              ymin = -Inf, ymax = 600,
              fill = "#e6af84", alpha = 0.8) +
     annotate("text", label = "Periods of\nSevere\nDrought\nwith a\nFixed\nThreshold", 
@@ -844,13 +844,13 @@ frame_l <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
   # Bottom bars
   bottom_bars_year <- blank_plot_year + 
     annotate("rect", # fixed threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"]),
+             xmin = (droughts_df$start[droughts_df$method == "fixed"]),
+             xmax = (droughts_df$end[droughts_df$method == "fixed"]),
              ymin = 52, ymax = 100,
              fill = "#da7d81", alpha = 0.8)+
     annotate("rect", # variable threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "variable"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "variable"]),
+             xmin = (droughts_df$start[droughts_df$method == "variable"]),
+             xmax = (droughts_df$end[droughts_df$method == "variable"]),
              ymin = 0, ymax = 48,
              fill = "#e6af84", alpha = 0.8)+
     theme(axis.title = element_text(color = "transparent"),
@@ -891,30 +891,30 @@ frame_l <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
   ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }
 
-frame_m <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
-                    p2_1951_2020_drought_prop_site, p2_1951_2020_drought_prop_jd_7d,
-                    bottom_bars, canvas, inset, out_png){
+frame_m <- function(streamflow_df, droughts_df,
+                    droughts_df_70yr_site, droughts_df_70yr_jd,
+                    canvas, out_png){
   
   # Select correct station ID and threshold
-  p2_droughts_site <- p2_1951_2020_drought_prop_site %>%
+  droughts_site <- droughts_df_70yr_site %>%
     filter(StaID == '03221000', threshold == 10) %>%
     select(drought_id, duration, start, end, StaID, threshold) %>%
     mutate("method" = "fixed")
-  p2_droughts_jd <- p2_1951_2020_drought_prop_jd_7d %>%
+  droughts_jd <- droughts_df_70yr_jd %>%
     filter(StaID == '03221000', threshold == 10) %>%
     select(drought_id, duration, start, end, StaID, threshold) %>%
     mutate("method" = "variable")
   
   
   # create date values for plotting
-  p2_droughts_site <- p2_droughts_site %>% 
+  droughts_site <- droughts_site %>% 
     mutate(start_year = year(start),
            start_noYr = format(as.Date(start), "%m-%d"),
            start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
            end_year = year(end),
            end_noYr = format(as.Date(end), "%m-%d"),
            end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
-  p2_droughts_jd <- p2_droughts_jd %>% 
+  droughts_jd <- droughts_jd %>% 
     mutate(start_year = year(start),
            start_noYr = format(as.Date(start), "%m-%d"),
            start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
@@ -924,32 +924,32 @@ frame_m <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
   
   # Deal with drought events that wrap year
   #   1. filter out only those 
-  p2_droughts_jd_wrapYr <- p2_droughts_jd %>%
+  droughts_jd_wrapYr <- droughts_jd %>%
     filter(start_year != end_year)
-  p2_droughts_site_wrapYr <- p2_droughts_site %>%
+  droughts_site_wrapYr <- droughts_site %>%
     filter(start_year != end_year)
   #   2. Duplicate records
-  p2_droughts_jd_wrapYr_beginningOfYear <- p2_droughts_jd_wrapYr %>%
+  droughts_jd_wrapYr_beginningOfYear <- droughts_jd_wrapYr %>%
     mutate(start = as.Date(sprintf("%s-01-01", year(end))))
-  p2_droughts_jd_wrapYr_endOfYear <- p2_droughts_jd_wrapYr %>%
+  droughts_jd_wrapYr_endOfYear <- droughts_jd_wrapYr %>%
     mutate(end = as.Date(sprintf("%s-12-31", year(start))))
-  p2_droughts_jd_wrapYr <- bind_rows(p2_droughts_jd_wrapYr_beginningOfYear,
-                                     p2_droughts_jd_wrapYr_endOfYear) 
-  p2_droughts_site_wrapYr_beginningOfYear <- p2_droughts_site_wrapYr %>%
+  droughts_jd_wrapYr <- bind_rows(droughts_jd_wrapYr_beginningOfYear,
+                                     droughts_jd_wrapYr_endOfYear) 
+  droughts_site_wrapYr_beginningOfYear <- droughts_site_wrapYr %>%
     mutate(start = as.Date(sprintf("%s-01-01", year(end))))
-  p2_droughts_site_wrapYr_endOfYear <- p2_droughts_site_wrapYr %>%
+  droughts_site_wrapYr_endOfYear <- droughts_site_wrapYr %>%
     mutate(end = as.Date(sprintf("%s-12-31", year(start))))
-  p2_droughts_site_wrapYr <- bind_rows(p2_droughts_site_wrapYr_beginningOfYear,
-                                       p2_droughts_site_wrapYr_endOfYear) 
+  droughts_site_wrapYr <- bind_rows(droughts_site_wrapYr_beginningOfYear,
+                                       droughts_site_wrapYr_endOfYear) 
   #   3. Fix metadata
-  p2_droughts_jd_wrapYr <- p2_droughts_jd_wrapYr %>%
+  droughts_jd_wrapYr <- droughts_jd_wrapYr %>%
     mutate(start_year = year(start),
            start_noYr = format(as.Date(start), "%m-%d"),
            start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
            end_year = year(end),
            end_noYr = format(as.Date(end), "%m-%d"),
            end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
-  p2_droughts_site_wrapYr <- p2_droughts_site_wrapYr %>%
+  droughts_site_wrapYr <- droughts_site_wrapYr %>%
     mutate(start_year = year(start),
            start_noYr = format(as.Date(start), "%m-%d"),
            start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
@@ -957,17 +957,17 @@ frame_m <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
            end_noYr = format(as.Date(end), "%m-%d"),
            end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
   #   4. Merge back in with other records
-  p2_droughts_jd_noWrapYr <- p2_droughts_jd %>%
+  droughts_jd_noWrapYr <- droughts_jd %>%
     filter(start_year == end_year)
-  p2_droughts_jd <- bind_rows(p2_droughts_jd_wrapYr,
-                              p2_droughts_jd_noWrapYr)
-  p2_droughts_site_noWrapYr <- p2_droughts_site %>%
+  droughts_jd <- bind_rows(droughts_jd_wrapYr,
+                              droughts_jd_noWrapYr)
+  droughts_site_noWrapYr <- droughts_site %>%
     filter(start_year == end_year)
-  p2_droughts_site <- bind_rows(p2_droughts_site_wrapYr,
-                                p2_droughts_site_noWrapYr)
+  droughts_site <- bind_rows(droughts_site_wrapYr,
+                                droughts_site_noWrapYr)
   
   
-  blank_plot_year <- ggplot(data = p2_streamflow_learner_viz_df, aes(y = value, x = dt))+
+  blank_plot_year <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     ylab("Year\n(sort of)")+
     xlab(NULL)+
     scale_x_date(labels = date_format("%b"), 
@@ -980,17 +980,18 @@ frame_m <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
           panel.background = element_blank())
   
   main <- blank_plot_year +
+    geom_hline(yintercept = 1949, color = "#666666", size = 0.2, linetype = "dashed")+
     # Fixed threshold drought durations
     annotate("rect", # fixed threshold
-             xmin = (p2_droughts_site$start_fakeYr),
-             xmax = (p2_droughts_site$end_fakeYr),
-             ymin = p2_droughts_site$start_year-1, ymax = p2_droughts_site$start_year,
+             xmin = (droughts_site$start_fakeYr),
+             xmax = (droughts_site$end_fakeYr),
+             ymin = droughts_site$start_year-1, ymax = droughts_site$start_year,
              fill = "#da7d81", alpha = 0.9) +
     # Variable threshold drought durations
     annotate("rect", # variable threshold
-             xmin = (p2_droughts_jd$start_fakeYr),
-             xmax = (p2_droughts_jd$end_fakeYr),
-             ymin = p2_droughts_jd$start_year-70, ymax = p2_droughts_jd$start_year-69,
+             xmin = (droughts_jd$start_fakeYr),
+             xmax = (droughts_jd$end_fakeYr),
+             ymin = droughts_jd$start_year-70, ymax = droughts_jd$start_year-69,
              fill = "#e6af84", alpha = 0.9)+
     theme(axis.title.y = element_text(color="transparent"),
           axis.text.y = element_text(color = "transparent"),
@@ -998,20 +999,30 @@ frame_m <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
   
   
   # Bottom bars
-  bottom_bars_year <- blank_plot_year + 
+  bottom_bars_year <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
+    ylab("Streamflow\n(cfs)")+
+    xlab(NULL)+
     annotate("rect", # fixed threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "fixed"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "fixed"]),
+             xmin = (droughts_df$start[droughts_df$method == "fixed"]),
+             xmax = (droughts_df$end[droughts_df$method == "fixed"]),
              ymin = 52, ymax = 100,
              fill = "#da7d81", alpha = 0.8)+
     annotate("rect", # variable threshold
-             xmin = (p2_droughts_learner_viz_df$start[p2_droughts_learner_viz_df$method == "variable"]),
-             xmax = (p2_droughts_learner_viz_df$end[p2_droughts_learner_viz_df$method == "variable"]),
+             xmin = (droughts_df$start[droughts_df$method == "variable"]),
+             xmax = (droughts_df$end[droughts_df$method == "variable"]),
              ymin = 0, ymax = 48,
              fill = "#e6af84", alpha = 0.8)+
-    theme(axis.title = element_text(color = "transparent"),
-          axis.text = element_text(color = "transparent"),
-          axis.line = element_line(color = "transparent"),
+    scale_y_continuous(limits = c(0,1400), 
+                       labels = c(0,200,400,600,800,1000,1200,1400),
+                       breaks = c(0, 200, 400, 600, 800, 1000, 1200,1400))+
+    scale_x_date(labels = date_format("%b"), 
+                 date_breaks  ="1 month",
+                 limits = c(as.Date("01/01/1963",'%d/%m/%Y'), as.Date("31/12/1963",'%d/%m/%Y')))+
+    theme_tufte(base_family = "sans", base_size = 16)+
+    theme(axis.line = element_line(color = "transparent"),
+          axis.text = element_text(size = 6, color = "transparent"),
+          axis.title = element_text(size = 8, color = "transparent"),
+          panel.background = element_blank(),
           axis.ticks = element_line(color = "transparent"))
   
   ggdraw(ylim = c(0,1), 
@@ -1027,16 +1038,21 @@ frame_m <- function(p2_streamflow_learner_viz_df, p2_droughts_learner_viz_df,
               y = 0.1,
               height = 0.9,
               width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
+    # Bottom bars
+    draw_plot(bottom_bars_year,
+              x = 0, 
+              y = -0.05,
+              height = 0.4,
+              width = 1)+
     draw_text("Frame m",
               x = 0.05, 
               y = 0.95,
-              size = 4)
+              size = 4)+
+    # Annotate years 
+    draw_text("1950", size = 4, y = 0.25, x = 0.148)+
+    draw_text("2020", size = 4, y = 0.5765, x = 0.148)+
+    draw_text("1950", size = 4, y = 0.6005, x = 0.148)+
+    draw_text("2020", size = 4, y = 0.92, x = 0.148)
   
   ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
 }

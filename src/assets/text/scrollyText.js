@@ -54,7 +54,7 @@ export default {
         },
         {
           id: 'm',
-          text: 'text l: And even more recognizable across the past 70 years.'
+          text: 'text m: And even more recognizable across the past 70 years.'
         }
         ]
   };
