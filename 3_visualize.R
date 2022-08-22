@@ -2,6 +2,30 @@ source('3_visualize/src/drought_learner_viz_components.R')
 
 p3_targets <- list(
        
+  
+  # Global design variables to be used in each frame, with "dv_" as prefix for "design variable"
+  tar_target(p3_dv_tibble,
+             tibble(
+               # Drought events
+               dv_drought_fill_variable = "#e6af84",
+               dv_drought_fill_fixed = "#da7d81",
+               dv_drought_threshold_variable = "#a44a23",
+               dv_drought_threshold_fixed = "#c1272d",
+               dv_drought_textColor = "#c1272d",
+               # Streamflow
+               dv_streamflow_line_daily = "#1e41b5",
+               dv_streamflow_line_annual_average = "#da7d81",
+               dv_streamflow_line_daily_average = "#c3e8fa",
+               dv_streamflow_textcolor_daily = "#1e41b5",
+               dv_streamflow_textcolor_annual_average = "#da7d81",
+               dv_streamflow_textcolor_daily_average = "#5691e2",
+               # Other Annotations
+               dv_circle_explainer = "#a44a23",
+             )
+  ),
+  
+  
+  
   #### Creates a series of ggplot pngs that will get pulled together downstream
   #
   # NOTE: Must make sure that target 'p2_1951_2020_metadata_subset' includes the correct data
@@ -13,9 +37,15 @@ p3_targets <- list(
   tar_target(p3_canvas,
              background_canvas()),
   tar_target(p3_bottom_bars_fixed,
-             bottom_bars(both = F, droughts_df = p2_droughts_learner_viz_df, blank_plot = p3_blank_plot)),
+             bottom_bars(both = F, 
+                         droughts_df = p2_droughts_learner_viz_df, 
+                         blank_plot = p3_blank_plot,
+                         dv_tibble = p3_dv_tibble)),
   tar_target(p3_bottom_bars_both,
-             bottom_bars(both = T, droughts_df = p2_droughts_learner_viz_df, blank_plot = p3_blank_plot)),
+             bottom_bars(both = T, 
+                         droughts_df = p2_droughts_learner_viz_df, 
+                         blank_plot = p3_blank_plot,
+                         dv_tibble = p3_dv_tibble)),
   
   tar_target(p3_drought_learner_viz_a_png,
              frame_a(p3_blank_plot,
@@ -24,7 +54,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_fixed,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/a.png"),
+                     out_png = "src/assets/images/threshold-chart/a.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_b_png,
@@ -34,7 +65,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_fixed,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/b.png"),
+                     out_png = "src/assets/images/threshold-chart/b.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_c_png,
@@ -44,7 +76,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_fixed,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/c.png"),
+                     out_png = "src/assets/images/threshold-chart/c.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_d_png,
@@ -54,7 +87,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_fixed,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/d.png"),
+                     out_png = "src/assets/images/threshold-chart/d.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_e_png,
@@ -64,7 +98,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_fixed,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/e.png"),
+                     out_png = "src/assets/images/threshold-chart/e.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_f_png,
@@ -74,7 +109,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_fixed,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/f.png"),
+                     out_png = "src/assets/images/threshold-chart/f.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_g_png,
@@ -84,7 +120,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_fixed,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/g.png"),
+                     out_png = "src/assets/images/threshold-chart/g.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_h_png,
@@ -94,7 +131,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_fixed,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/h.png"),
+                     out_png = "src/assets/images/threshold-chart/h.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_i_png,
@@ -104,7 +142,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_fixed,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/i.png"),
+                     out_png = "src/assets/images/threshold-chart/i.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_j_png,
@@ -114,7 +153,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_both,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/j.png"),
+                     out_png = "src/assets/images/threshold-chart/j.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_k_png,
@@ -124,7 +164,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_both,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/k.png"),
+                     out_png = "src/assets/images/threshold-chart/k.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_l_png,
@@ -133,7 +174,8 @@ p3_targets <- list(
                      bottom_bars = p3_bottom_bars_both,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
-                     out_png = "src/assets/images/threshold-chart/l.png"),
+                     out_png = "src/assets/images/threshold-chart/l.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file"),
   
   tar_target(p3_drought_learner_viz_m_png,
@@ -142,7 +184,8 @@ p3_targets <- list(
                      droughts_df_70yr_site = p2_1951_2020_drought_prop_site, 
                      droughts_df_70yr_jd = p2_1951_2020_drought_prop_jd_7d, 
                      canvas = p3_canvas, 
-                     out_png = "src/assets/images/threshold-chart/m.png"),
+                     out_png = "src/assets/images/threshold-chart/m.png",
+                     dv_tibble = p3_dv_tibble),
              format = "file")
 )
 
