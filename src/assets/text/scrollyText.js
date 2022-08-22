@@ -51,6 +51,10 @@ export default {
         {
           id: 'l',
           text: 'text l: These seasonal patterns are even more distinct when we look at the whole year.'
+        },
+        {
+          id: 'm',
+          text: 'text m: And even more recognizable across the past 70 years.'
         }
         ]
   };
