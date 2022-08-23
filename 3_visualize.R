@@ -7,20 +7,22 @@ p3_targets <- list(
   tar_target(p3_dv_tibble,
              tibble(
                # Drought events
-               dv_drought_fill_variable = "#e6af84",
-               dv_drought_fill_fixed = "#da7d81",
-               dv_drought_threshold_variable = "#a44a23",
-               dv_drought_threshold_fixed = "#c1272d",
-               dv_drought_textColor = "#c1272d",
+               dv_drought_fill_variable = "#FCC065",
+               dv_drought_fill_fixed = "#E76254",
+               dv_drought_threshold_variable = "#F7931E",
+               dv_drought_threshold_fixed = "#A00E00",
+               dv_drought_textColor = "#E76254",
+               dv_threshold_line_size = 0.5, #default = 0.5
                # Streamflow
-               dv_streamflow_line_daily = "#1e41b5",
-               dv_streamflow_line_annual_average = "#da7d81",
-               dv_streamflow_line_daily_average = "#c3e8fa",
-               dv_streamflow_textcolor_daily = "#1e41b5",
-               dv_streamflow_textcolor_annual_average = "#da7d81",
-               dv_streamflow_textcolor_daily_average = "#5691e2",
+               dv_streamflow_line_daily = "#3F729C",
+               dv_streamflow_line_annual_average = "#FFE3AD",
+               dv_streamflow_line_daily_average = "#a2d7de",
+               dv_streamflow_textcolor_daily = "#3F729C",
+               dv_streamflow_textcolor_annual_average = "#FCC065",
+               dv_streamflow_textcolor_daily_average = "#64A8C4",
+               dv_streamflow_line_size = 0.3, #default = 0.5
                # Other Annotations
-               dv_circle_explainer = "#a44a23",
+               dv_circle_explainer = "#E76254",
                dv_shading_fill = "white",
                dv_zoom_box_outline = "black",
                dv_zoom_box_lines = "black",
@@ -28,8 +30,9 @@ p3_targets <- list(
                dv_png_width = 1200, 
                dv_png_height = 800,
                # Base plot design
-               dv_basePlot_axis_color = "black",
-               dv_basePlot_axis_size = 0.1
+               dv_basePlot_axis_color = "#132B69",
+               dv_basePlot_axis_size = 0.1,
+               dv_basePlot_axis_text_color = "#132B69"
              )
   ),
   
@@ -52,7 +55,10 @@ p3_targets <- list(
                         growing_season = F)),
   
   tar_target(p3_inset_map,
-             inset_map()),
+             inset_map(state_fill = "#ffe3ad",
+                       border_size = 0.1,
+                       border_fill = "#ffeece",
+                       highlight_site_color = "#A00E00")),
   tar_target(p3_canvas,
              background_canvas()),
   tar_target(p3_bottom_bars_fixed,
