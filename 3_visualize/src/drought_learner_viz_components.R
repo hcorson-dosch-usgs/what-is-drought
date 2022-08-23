@@ -1,15 +1,17 @@
-blank_plot <- function(streamflow_df){
+blank_plot <- function(streamflow_df, dv_tibble){
   blank_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     ylab("Streamflow\n(cfs)")+
     xlab(NULL)+
     scale_y_continuous(limits = c(0,1400), 
-                       labels = c(0,200,400,600,800,1000,1200,1400),
-                       breaks = c(0, 200, 400, 600, 800, 1000, 1200,1400))+
+                       labels = c(0,400,800,1200),
+                       breaks = c(0, 400, 800, 1200))+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
                  limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))+
     theme_tufte(base_family = "sans", base_size = 16)+
-    theme(axis.line = element_line(color = 'black'),
+    theme(#axis.line = element_line(color = dv_tibble$dv_basePlot_axis_color, size = dv_tibble$dv_basePlot_axis_size),
+          axis.ticks = element_line(color = dv_tibble$dv_basePlot_axis_color, 
+                                    size = dv_tibble$dv_basePlot_axis_size),
           axis.text = element_text(size = 6),
           axis.title = element_text(size = 8),
           panel.background = element_blank())
@@ -125,7 +127,8 @@ frame_a <- function(blank_plot, streamflow_df, droughts_df,
               y = 0.95,
               size = 4)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 
@@ -177,7 +180,8 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
               y = 0.95,
               size = 4)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 
@@ -233,7 +237,8 @@ frame_c <- function(blank_plot, streamflow_df, droughts_df,
               y = 0.95,
               size = 4)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 
@@ -294,7 +299,8 @@ frame_d <- function(blank_plot, streamflow_df, droughts_df,
               y = 0.95,
               size = 4)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 
@@ -346,18 +352,18 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
     # Transparent mask
     geom_polygon(data = mask_poly, 
                  aes(group = id, x = x, y = y, subgroup = subid), 
-                 fill = "white", alpha = 0.8)+
+                 fill = dv_tibble$dv_shading_fill, alpha = 0.8)+
     geom_polygon(data = mask_poly %>% filter(subid == 2), 
                  aes(group = id, x = x, y = y), 
-                 color = "black", fill = "transparent", size = 0.1)+
+                 color = dv_tibble$dv_zoom_box_outline, fill = "transparent", size = 0.1)+
     annotate("segment", y = 100, yend = 400, 
              x = as.Date("29/08/1963",'%d/%m/%Y'),
              xend = as.Date("26/09/1963",'%d/%m/%Y'),
-             color = "black", size = 0.2)+
+             color = dv_tibble$dv_zoom_box_lines, size = 0.2)+
     annotate("segment", y = 400, yend = 100, 
              x = as.Date("16/07/1963",'%d/%m/%Y'),
              xend = as.Date("14/08/1963",'%d/%m/%Y'),
-             color = "black", size = 0.2)
+             color = dv_tibble$dv_zoom_box_lines, size = 0.2)
   
   # Zoomed in plot
   zoom_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
@@ -432,7 +438,8 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
               y = 0.95,
               size = 4)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 
@@ -492,7 +499,8 @@ frame_f <- function(blank_plot, streamflow_df, droughts_df,
               y = 0.95,
               size = 4)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 frame_g <- function(blank_plot, streamflow_df, droughts_df,
@@ -544,7 +552,8 @@ frame_g <- function(blank_plot, streamflow_df, droughts_df,
               y = 0.95,
               size = 4)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 frame_h <- function(blank_plot, streamflow_df, droughts_df,
@@ -608,7 +617,8 @@ frame_h <- function(blank_plot, streamflow_df, droughts_df,
               y = 0.95,
               size = 4)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 
@@ -663,7 +673,8 @@ frame_i <- function(blank_plot, streamflow_df, droughts_df,
               y = 0.95,
               size = 4)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 frame_j <- function(blank_plot, streamflow_df, droughts_df,
@@ -720,7 +731,8 @@ frame_j <- function(blank_plot, streamflow_df, droughts_df,
               y = 0.95,
               size = 4)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 frame_k <- function(blank_plot, streamflow_df, droughts_df,
@@ -784,7 +796,8 @@ frame_k <- function(blank_plot, streamflow_df, droughts_df,
              x = 0.1, hjust = 0.5,
              y = 0.4, color = dv_tibble$dv_drought_fill_variable, size = 5)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 
@@ -879,7 +892,8 @@ frame_l <- function(streamflow_df, droughts_df,
               x = 0.1, hjust = 0.5,
               y = 0.4, color = dv_tibble$dv_drought_fill_variable, size = 5)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
 frame_m <- function(streamflow_df, 
@@ -985,6 +999,7 @@ frame_m <- function(streamflow_df,
               x = 0.1, hjust = 0.5,
               y = 0.4, color = dv_tibble$dv_drought_fill_variable, size = 5)
   
-  ggsave(out_png, width = 1200, height = 800, dpi = 300, units = "px")
+  ggsave(out_png, width = dv_tibble$dv_png_width, 
+         height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 

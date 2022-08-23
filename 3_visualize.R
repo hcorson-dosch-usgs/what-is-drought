@@ -21,6 +21,15 @@ p3_targets <- list(
                dv_streamflow_textcolor_daily_average = "#5691e2",
                # Other Annotations
                dv_circle_explainer = "#a44a23",
+               dv_shading_fill = "white",
+               dv_zoom_box_outline = "black",
+               dv_zoom_box_lines = "black",
+               # png sizing,
+               dv_png_width = 1200, 
+               dv_png_height = 800,
+               # Base plot design
+               dv_basePlot_axis_color = "black",
+               dv_basePlot_axis_size = 0.1
              )
   ),
   
@@ -31,7 +40,8 @@ p3_targets <- list(
   # NOTE: Must make sure that target 'p2_1951_2020_metadata_subset' includes the correct data
   #
   tar_target(p3_blank_plot,
-             blank_plot(streamflow_df = p2_streamflow_learner_viz_df)),
+             blank_plot(streamflow_df = p2_streamflow_learner_viz_df,
+                        dv_tibble = p3_dv_tibble)),
   tar_target(p3_inset_map,
              inset_map()),
   tar_target(p3_canvas,
