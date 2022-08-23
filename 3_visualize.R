@@ -39,9 +39,18 @@ p3_targets <- list(
   #
   # NOTE: Must make sure that target 'p2_1951_2020_metadata_subset' includes the correct data
   #
-  tar_target(p3_blank_plot,
+
+    # This is for most frames, focused on growing season
+  tar_target(p3_blank_plot_summer,
              blank_plot(streamflow_df = p2_streamflow_learner_viz_df,
-                        dv_tibble = p3_dv_tibble)),
+                        dv_tibble = p3_dv_tibble,
+                        growing_season = T)),
+    # This is for the frames showing a whole year
+  tar_target(p3_blank_plot_year,
+             blank_plot(streamflow_df = p2_streamflow_learner_viz_df,
+                        dv_tibble = p3_dv_tibble,
+                        growing_season = F)),
+  
   tar_target(p3_inset_map,
              inset_map()),
   tar_target(p3_canvas,
@@ -49,16 +58,16 @@ p3_targets <- list(
   tar_target(p3_bottom_bars_fixed,
              bottom_bars(both = F, 
                          droughts_df = p2_droughts_learner_viz_df, 
-                         blank_plot = p3_blank_plot,
+                         blank_plot = p3_blank_plot_summer,
                          dv_tibble = p3_dv_tibble)),
   tar_target(p3_bottom_bars_both,
              bottom_bars(both = T, 
                          droughts_df = p2_droughts_learner_viz_df, 
-                         blank_plot = p3_blank_plot,
+                         blank_plot = p3_blank_plot_summer,
                          dv_tibble = p3_dv_tibble)),
   
   tar_target(p3_drought_learner_viz_a_png,
-             frame_a(p3_blank_plot,
+             frame_a(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed,
@@ -69,7 +78,7 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_b_png,
-             frame_b(p3_blank_plot,
+             frame_b(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed,
@@ -80,7 +89,7 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_c_png,
-             frame_c(p3_blank_plot,
+             frame_c(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed,
@@ -91,7 +100,7 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_d_png,
-             frame_d(p3_blank_plot,
+             frame_d(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed,
@@ -102,7 +111,7 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_e_png,
-             frame_e(p3_blank_plot,
+             frame_e(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed,
@@ -113,7 +122,7 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_f_png,
-             frame_f(p3_blank_plot,
+             frame_f(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed,
@@ -124,7 +133,7 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_g_png,
-             frame_g(p3_blank_plot,
+             frame_g(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed,
@@ -135,7 +144,7 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_h_png,
-             frame_h(p3_blank_plot,
+             frame_h(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed,
@@ -146,7 +155,7 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_i_png,
-             frame_i(p3_blank_plot,
+             frame_i(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed,
@@ -157,7 +166,7 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_j_png,
-             frame_j(p3_blank_plot,
+             frame_j(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_both,
@@ -168,7 +177,7 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_k_png,
-             frame_k(p3_blank_plot,
+             frame_k(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_both,
@@ -179,7 +188,8 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_l_png,
-             frame_l(streamflow_df = p2_streamflow_learner_viz_df,
+             frame_l(blank_plot = p3_blank_plot_year,
+                     streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_both,
                      inset = p3_inset_map,
@@ -189,7 +199,8 @@ p3_targets <- list(
              format = "file"),
   
   tar_target(p3_drought_learner_viz_m_png,
-             frame_m(streamflow_df = p2_streamflow_learner_viz_df, 
+             frame_m(blank_plot = p3_blank_plot_year,
+                     streamflow_df = p2_streamflow_learner_viz_df, 
                      droughts_df = p2_droughts_learner_viz_df,
                      droughts_70yr_site_df = p2_droughts_70year_stacked_site_df, 
                      droughts_70yr_j7_df = p2_droughts_70year_stacked_j7_df, 

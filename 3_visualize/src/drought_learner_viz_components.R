@@ -1,20 +1,31 @@
-blank_plot <- function(streamflow_df, dv_tibble){
+blank_plot <- function(streamflow_df, dv_tibble, growing_season = T){
+  
+
+  
   blank_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     ylab("Streamflow\n(cfs)")+
     xlab(NULL)+
     scale_y_continuous(limits = c(0,1400), 
-                       labels = c(0,400,800,1200),
+                       labels = c(0, 400, 800, 1200),
                        breaks = c(0, 400, 800, 1200))+
-    scale_x_date(labels = date_format("%b"), 
-                 date_breaks  ="1 month",
-                 limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))+
     theme_tufte(base_family = "sans", base_size = 16)+
     theme(#axis.line = element_line(color = dv_tibble$dv_basePlot_axis_color, size = dv_tibble$dv_basePlot_axis_size),
-          axis.ticks = element_line(color = dv_tibble$dv_basePlot_axis_color, 
-                                    size = dv_tibble$dv_basePlot_axis_size),
-          axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8),
-          panel.background = element_blank())
+      axis.ticks = element_line(color = dv_tibble$dv_basePlot_axis_color, 
+                                size = dv_tibble$dv_basePlot_axis_size),
+      axis.text = element_text(size = 6),
+      axis.title = element_text(size = 8),
+      panel.background = element_blank()) + 
+    {if(growing_season == TRUE){
+      scale_x_date(labels = date_format("%b"), 
+                   date_breaks  ="1 month",
+                   limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))
+    } else {
+      scale_x_date(labels = date_format("%b"), 
+                   date_breaks  ="1 month",
+                   limits = c(as.Date("01/01/1963",'%d/%m/%Y'), as.Date("31/12/1963",'%d/%m/%Y')))
+    }}
+    
+
   
   return(blank_plot)
 }
@@ -801,26 +812,13 @@ frame_k <- function(blank_plot, streamflow_df, droughts_df,
 }
 
 
-frame_l <- function(streamflow_df, droughts_df,
+frame_l <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png, dv_tibble){
 
   
-  blank_plot_year <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
-    ylab("Streamflow\n(cfs)")+
-    xlab(NULL)+
-    scale_y_continuous(limits = c(0,1400), 
-                       labels = c(0,200,400,600,800,1000,1200,1400),
-                       breaks = c(0, 200, 400, 600, 800, 1000, 1200,1400))+
-    scale_x_date(labels = date_format("%b"), 
-                 date_breaks  ="1 month",
-                 limits = c(as.Date("01/01/1963",'%d/%m/%Y'), as.Date("31/12/1963",'%d/%m/%Y')))+
-    theme_tufte(base_family = "sans", base_size = 16)+
-    theme(axis.line = element_line(color = 'black'),
-          axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8),
-          panel.background = element_blank())
   
-  main <- blank_plot_year +
+  
+  main <- blank_plot +
     # Fixed threshold drought durations
     annotate("rect", # fixed threshold
              xmin = (droughts_df$start[droughts_df$method == "fixed"]),
@@ -839,7 +837,7 @@ frame_l <- function(streamflow_df, droughts_df,
 
   
   # Bottom bars
-  bottom_bars_year <- blank_plot_year + 
+  bottom_bars_year <- blank_plot + 
     annotate("rect", # fixed threshold
              xmin = (droughts_df$start[droughts_df$method == "fixed"]),
              xmax = (droughts_df$end[droughts_df$method == "fixed"]),
@@ -896,7 +894,8 @@ frame_l <- function(streamflow_df, droughts_df,
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
 
-frame_m <- function(streamflow_df, 
+frame_m <- function(blank_plot, 
+                    streamflow_df, 
                     droughts_df,
                     droughts_70yr_site_df, 
                     droughts_70yr_j7_df, 
@@ -904,20 +903,11 @@ frame_m <- function(streamflow_df,
                     out_png,
                     dv_tibble){
 
+  blank_plot <- blank_plot + ylim(c(min(droughts_70yr_j7_df$start_year)-65, 
+                                    max(droughts_70yr_site_df$start_year)-5))
   
-  blank_plot_year <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
-    ylab("Year\n(sort of)")+
-    xlab(NULL)+
-    scale_x_date(labels = date_format("%b"), 
-                 date_breaks  ="1 month",
-                 limits = c(as.Date("01/01/1963",'%d/%m/%Y'), as.Date("31/12/1963",'%d/%m/%Y')))+
-    theme_tufte(base_family = "sans", base_size = 16)+
-    theme(axis.line = element_line(color = 'black'),
-          axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8),
-          panel.background = element_blank())
   
-  main <- blank_plot_year +
+  main <- blank_plot +
     geom_hline(yintercept = 1949, color = "#666666", size = 0.2, linetype = "dashed")+
     # Fixed threshold drought durations
     annotate("rect", # fixed threshold
