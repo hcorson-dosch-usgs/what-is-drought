@@ -25,5 +25,10 @@ source("1_fetch.R")
 source("2_process.R")
 source("3_visualize.R")
 
+# Global options
+focal_StaID = '03221000'
+focal_year = 1963
+focal_threshold = 10
+
 # Combined list of target outputs
 c(p0_targets, p1_targets, p2_targets, p3_targets)

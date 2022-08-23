@@ -8,15 +8,16 @@
 #' a seven-day floating window (3 days on either side of a specific day)
 prep_drought_df_lrnr_viz <- function(StationID, focal_year,
                                      df_1951_2020_drought_prop_site,
-                                     df_1951_2020_drought_prop_jd_7d) {
+                                     df_1951_2020_drought_prop_jd_7d, 
+                                     focal_threshold) {
   
   # Filter and simplify data to include only OH station and only 10% threshold and only 1963
   droughts_site <- df_1951_2020_drought_prop_site %>%
-    filter(StaID == StationID, year(start) == focal_year, threshold == 10) %>%
+    filter(StaID == StationID, year(start) == focal_year, threshold == focal_threshold) %>%
     select(drought_id, duration, start, end, StaID, threshold) %>%
     mutate("method" = "fixed")
   droughts_j7 <- df_1951_2020_drought_prop_jd_7d %>%
-    filter(StaID == StationID, year(start) == focal_year, threshold == 10) %>%
+    filter(StaID == StationID, year(start) == focal_year, threshold == focal_threshold) %>%
     select(drought_id, duration, start, end, StaID, threshold) %>% 
     mutate("method" = "variable")
   
@@ -67,12 +68,13 @@ prep_streamflow_df_lrnr_viz <- function(StationID, focal_year,
 
 prep_droughts_70year_learner_viz <- function(StationID, 
                                              df_1951_2020_drought_prop_jd_7d,
-                                             df_1951_2020_drought_prop_site){
+                                             df_1951_2020_drought_prop_site, 
+                                             focal_threshold){
   # Select only the Ohio site to start, 10% threshold
   drought_prop_site <- df_1951_2020_drought_prop_site %>%
-    filter(threshold == 10, StaID == StationID)
+    filter(threshold == focal_threshold, StaID == StationID)
   drought_prop_j7 <- df_1951_2020_drought_prop_jd_7d %>%
-    filter(threshold == 10, StaID == StationID)
+    filter(threshold == focal_threshold, StaID == StationID)
   
   # Split each drought out by day that it occurred (longer) based on start and duration
   drought_prop_site_long <- drought_prop_site %>%
