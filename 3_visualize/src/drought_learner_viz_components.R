@@ -97,6 +97,57 @@ bottom_bars <- function(both, droughts_df, blank_plot, dv_tibble){
   return(bottom_bars)
 }
 
+add_core_plot_elements <- function(canvas, text, ...) {
+  # pull out passed elements into list
+  elements <- list(...)
+  
+  # set positioning for each element
+  element_positioning <- tibble(
+    element = c('main', 'inset', 'bottom_bars'),
+    x = c(0, 0.8, 0),
+    y = c(0.1, 0.8, -0.05),
+    height = c(0.9, 0.2, 0.4),
+    width = c(1, 0.2, 1)
+  )
+  
+  # start plot with canvas
+  plot <- ggdraw(ylim = c(0,1), 
+                 xlim = c(0,1)) +
+    # fill in the background
+    draw_grob(canvas,
+              x = 0.25, y = 1,
+              height = 12, width = 16,
+              hjust = 0, vjust = 1)
+  
+  # add each of the passed elements
+  for (element in names(elements)) {
+    element_position <- filter(element_positioning, element==!!element)
+    plot <- plot + draw_plot(elements[[element]], 
+                             x= element_position$x, 
+                             y= element_position$y, 
+                             height= element_position$height,
+                             width = element_position$width)
+  }
+  
+  # add text w/ frame name
+  plot +
+    draw_text(text,
+              x = 0.05, 
+              y = 0.95,
+              size = 4)
+  
+  return(plot)
+}
+
+
+
+
+
+
+
+
+
+
 
 frame_a <- function(blank_plot, streamflow_df, droughts_df,
                     bottom_bars, canvas, inset, out_png, dv_tibble){
@@ -117,35 +168,8 @@ frame_a <- function(blank_plot, streamflow_df, droughts_df,
              x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame a",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)
+  add_core_plot_elements(canvas = canvas, text = 'frame a', 
+                         main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -171,35 +195,8 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
              y = 800, color = dv_tibble$dv_streamflow_textcolor_daily_average, size = 2)
   
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame b",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)
+  add_core_plot_elements(canvas = canvas, text = 'frame b', 
+                         main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -229,35 +226,8 @@ frame_c <- function(blank_plot, streamflow_df, droughts_df,
              y = 970, color = dv_tibble$dv_streamflow_textcolor_annual_average, size = 2)
   
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame c",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)
+  add_core_plot_elements(canvas = canvas, text = 'frame c', 
+                         main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -293,35 +263,8 @@ frame_d <- function(blank_plot, streamflow_df, droughts_df,
              y = 15, color = dv_tibble$dv_drought_textColor, size = 2)
   
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame d",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)
+  add_core_plot_elements(canvas = canvas, text = 'frame d', 
+                         main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -400,6 +343,8 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
     geom_line(aes(y = thresh_10_site), 
               color = dv_tibble$dv_drought_threshold_fixed, 
               size = dv_tibble$dv_threshold_line_size)+
+    geom_polygon(data = fill_drought, aes(group = id, x = dt, y = value),
+                 fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.3)+
     ylab(NULL)+
     xlab(NULL)+
     ylim(c(0,100))+
@@ -424,41 +369,15 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
              y = 25, color = dv_tibble$dv_drought_textColor, size = 2.2)
   
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    # Zoomed in chart
+  plot <- add_core_plot_elements(canvas = canvas, text = 'frame e', 
+                                 main = main, inset = inset, bottom_bars = bottom_bars)
+  
+  plot + 
     draw_plot(zoom_plot,
               x = 0.45,
-              y = 0.41,
+              y = 0.41, 
               height = 0.4,
-              width = 0.44)+
-    draw_text("Frame e",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)
+              width = 0.44)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -493,35 +412,8 @@ frame_f <- function(blank_plot, streamflow_df, droughts_df,
   
   
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame f",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)
+  add_core_plot_elements(canvas = canvas, text = 'frame f', 
+                         main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -547,35 +439,8 @@ frame_g <- function(blank_plot, streamflow_df, droughts_df,
   
   
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame g",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)
+  add_core_plot_elements(canvas = canvas, text = 'frame g', 
+                         main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -613,35 +478,8 @@ frame_h <- function(blank_plot, streamflow_df, droughts_df,
   
   
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame h",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)
+  add_core_plot_elements(canvas = canvas, text = 'frame h', 
+                         main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -670,36 +508,8 @@ frame_i <- function(blank_plot, streamflow_df, droughts_df,
 
   
   
-  
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame i",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)
+  add_core_plot_elements(canvas = canvas, text = 'frame i', 
+                         main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -730,36 +540,8 @@ frame_j <- function(blank_plot, streamflow_df, droughts_df,
   
   
  
-  
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame j",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)
+  add_core_plot_elements(canvas = canvas, text = 'frame j', 
+                         main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -788,36 +570,10 @@ frame_k <- function(blank_plot, streamflow_df, droughts_df,
   
   
   
+  plot <- add_core_plot_elements(canvas = canvas, text = 'frame k', 
+                                 main = main, inset = inset, bottom_bars = bottom_bars)
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame k",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)+
+  plot +
     # Annotation
     draw_text("Periods of\nSevere\nDrought\nwith a\nFixed\nThreshold", 
              x = 0.1, hjust = 0.5,
@@ -872,35 +628,10 @@ frame_l <- function(blank_plot, streamflow_df, droughts_df,
           axis.line = element_line(color = "transparent"),
           axis.ticks = element_line(color = "transparent"))
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
-              x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Inset map
-    draw_plot(inset,
-              x = 0.8,
-              y = 0.8,
-              height = 0.2,
-              width = 0.2) +
-    # Bottom bars
-    draw_plot(bottom_bars_year,
-              x = 0, 
-              y = -0.05,
-              height = 0.4,
-              width = 1)+
-    draw_text("Frame l",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)+
+  plot <- add_core_plot_elements(canvas = canvas, text = 'frame l', 
+                                 main = main, inset = inset, bottom_bars = bottom_bars)
+  
+  plot +
     # Annotation
     draw_text("Periods of\nSevere\nDrought\nwith a\nFixed\nThreshold", 
               x = 0.1, hjust = 0.5,
@@ -973,29 +704,15 @@ frame_m <- function(blank_plot,
           panel.background = element_blank(),
           axis.ticks = element_line(color = "transparent"))
   
-  ggdraw(ylim = c(0,1), 
-         xlim = c(0,1)) +
-    # fill in the background
-    draw_grob(canvas,
-              x = 0.25, y = 1,
-              height = 12, width = 16,
-              hjust = 0, vjust = 1) +
-    # Main plot
-    draw_plot(main,
+  plot <- add_core_plot_elements(canvas = canvas, text = 'frame m', 
+                                 main = main)
+  
+  plot +
+    draw_plot(bottom_bars_year, 
               x = 0,
-              y = 0.1,
-              height = 0.9,
-              width = 1)+
-    # Bottom bars
-    draw_plot(bottom_bars_year,
-              x = 0, 
               y = -0.05,
               height = 0.4,
               width = 1)+
-    draw_text("Frame m",
-              x = 0.05, 
-              y = 0.95,
-              size = 4)+
     # Annotate years 
     draw_text("1950", size = 4, y = 0.25, x = 0.148, color = dv_tibble$dv_axis_additions_stackedYear)+
     draw_text("2020", size = 4, y = 0.5765, x = 0.148, color = dv_tibble$dv_axis_additions_stackedYear)+
@@ -1012,4 +729,5 @@ frame_m <- function(blank_plot,
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
 }
+
 
