@@ -50,10 +50,7 @@ inset_map <- function(state_fill,
   return(inset)
   }
 
-background_canvas <- function(){
 
-  
-}
 
 bottom_bars <- function(both, droughts_df, blank_plot, dv_tibble){
   
