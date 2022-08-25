@@ -51,13 +51,7 @@ inset_map <- function(state_fill,
   }
 
 background_canvas <- function(){
-  # Background
-  color_bknd = "transparent"
-  canvas <- grid::rectGrob(
-    x = 0, y = 0, 
-    width = 16, height = 12,
-    gp = grid::gpar(fill = color_bknd, alpha = 1, col = color_bknd)
-  )
+
   
 }
 
@@ -97,7 +91,17 @@ bottom_bars <- function(both, droughts_df, blank_plot, dv_tibble){
   return(bottom_bars)
 }
 
-add_core_plot_elements <- function(canvas, text, ...) {
+add_core_plot_elements <- function(text, ...) {
+  
+  
+  # Background
+  color_bknd = "transparent"
+  canvas <- grid::rectGrob(
+    x = 0, y = 0, 
+    width = 16, height = 12,
+    gp = grid::gpar(fill = color_bknd, alpha = 1, col = color_bknd)
+  )
+  
   # pull out passed elements into list
   elements <- list(...)
   
@@ -168,7 +172,7 @@ frame_a <- function(blank_plot, streamflow_df, droughts_df,
              x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)
   
-  add_core_plot_elements(canvas = canvas, text = 'frame a', 
+  add_core_plot_elements(text = 'frame a', 
                          main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
@@ -195,7 +199,7 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
              y = 800, color = dv_tibble$dv_streamflow_textcolor_daily_average, size = 2)
   
   
-  add_core_plot_elements(canvas = canvas, text = 'frame b', 
+  add_core_plot_elements(text = 'frame b', 
                          main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
@@ -226,7 +230,7 @@ frame_c <- function(blank_plot, streamflow_df, droughts_df,
              y = 970, color = dv_tibble$dv_streamflow_textcolor_annual_average, size = 2)
   
   
-  add_core_plot_elements(canvas = canvas, text = 'frame c', 
+  add_core_plot_elements(text = 'frame c', 
                          main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
@@ -263,7 +267,7 @@ frame_d <- function(blank_plot, streamflow_df, droughts_df,
              y = 15, color = dv_tibble$dv_drought_textColor, size = 2)
   
   
-  add_core_plot_elements(canvas = canvas, text = 'frame d', 
+  add_core_plot_elements(text = 'frame d', 
                          main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
@@ -369,7 +373,7 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
              y = 25, color = dv_tibble$dv_drought_textColor, size = 2.2)
   
   
-  plot <- add_core_plot_elements(canvas = canvas, text = 'frame e', 
+  plot <- add_core_plot_elements(text = 'frame e', 
                                  main = main, inset = inset, bottom_bars = bottom_bars)
   
   plot + 
@@ -412,7 +416,7 @@ frame_f <- function(blank_plot, streamflow_df, droughts_df,
   
   
   
-  add_core_plot_elements(canvas = canvas, text = 'frame f', 
+  add_core_plot_elements(text = 'frame f', 
                          main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
@@ -439,7 +443,7 @@ frame_g <- function(blank_plot, streamflow_df, droughts_df,
   
   
   
-  add_core_plot_elements(canvas = canvas, text = 'frame g', 
+  add_core_plot_elements(text = 'frame g', 
                          main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
@@ -478,7 +482,7 @@ frame_h <- function(blank_plot, streamflow_df, droughts_df,
   
   
   
-  add_core_plot_elements(canvas = canvas, text = 'frame h', 
+  add_core_plot_elements(text = 'frame h', 
                          main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
@@ -508,7 +512,7 @@ frame_i <- function(blank_plot, streamflow_df, droughts_df,
 
   
   
-  add_core_plot_elements(canvas = canvas, text = 'frame i', 
+  add_core_plot_elements(text = 'frame i', 
                          main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
@@ -540,7 +544,7 @@ frame_j <- function(blank_plot, streamflow_df, droughts_df,
   
   
  
-  add_core_plot_elements(canvas = canvas, text = 'frame j', 
+  add_core_plot_elements(text = 'frame j', 
                          main = main, inset = inset, bottom_bars = bottom_bars)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
@@ -570,7 +574,7 @@ frame_k <- function(blank_plot, streamflow_df, droughts_df,
   
   
   
-  plot <- add_core_plot_elements(canvas = canvas, text = 'frame k', 
+  plot <- add_core_plot_elements(text = 'frame k', 
                                  main = main, inset = inset, bottom_bars = bottom_bars)
   
   plot +
@@ -628,7 +632,7 @@ frame_l <- function(blank_plot, streamflow_df, droughts_df,
           axis.line = element_line(color = "transparent"),
           axis.ticks = element_line(color = "transparent"))
   
-  plot <- add_core_plot_elements(canvas = canvas, text = 'frame l', 
+  plot <- add_core_plot_elements(text = 'frame l', 
                                  main = main, inset = inset, bottom_bars = bottom_bars)
   
   plot +
@@ -704,7 +708,7 @@ frame_m <- function(blank_plot,
           panel.background = element_blank(),
           axis.ticks = element_line(color = "transparent"))
   
-  plot <- add_core_plot_elements(canvas = canvas, text = 'frame m', 
+  plot <- add_core_plot_elements(text = 'frame m', 
                                  main = main)
   
   plot +

@@ -60,8 +60,7 @@ p3_targets <- list(
                        border_size = 0.1,
                        border_fill = "#ffeece",
                        highlight_site_color = "#A00E00")),
-  tar_target(p3_canvas,
-             background_canvas()),
+
   tar_target(p3_bottom_bars_fixed,
              bottom_bars(both = F, 
                          droughts_df = p2_droughts_learner_viz_df, 
