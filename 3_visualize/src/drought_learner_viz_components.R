@@ -19,11 +19,13 @@ blank_plot <- function(streamflow_df, dv_tibble, growing_season = T){
     {if(growing_season == TRUE){
       scale_x_date(labels = date_format("%b"), 
                    date_breaks  ="1 month",
-                   limits = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y')))
+                   limits = c(as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'), 
+                              as.Date(sprintf("15/10/%s", focal_year),'%d/%m/%Y')))
     } else {
       scale_x_date(labels = date_format("%b"), 
                    date_breaks  ="1 month",
-                   limits = c(as.Date("01/01/1963",'%d/%m/%Y'), as.Date("31/12/1963",'%d/%m/%Y')))
+                   limits = c(as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), 
+                              as.Date(sprintf("31/12/%s", focal_year),'%d/%m/%Y')))
     }}
     
 
@@ -107,12 +109,12 @@ frame_a <- function(blank_plot, streamflow_df, droughts_df,
              ymin = -Inf, ymax = Inf,
              fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8) +
     annotate("text", label = "Periods of\nSevere\nDrought", 
-             x = as.Date("01/08/1963",'%d/%m/%Y'), hjust = 0.5,
+             x = as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'), hjust = 0.5,
              y = 1000, color = dv_tibble$dv_drought_textColor, size = 2) + 
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily\nstreamflow", 
-             x = as.Date("03/06/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)
   
   ggdraw(ylim = c(0,1), 
@@ -159,13 +161,13 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily\nstreamflow", 
-             x = as.Date("03/06/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
     # Average daily streamflow
     geom_line(aes(y = mean_flow), color = dv_tibble$dv_streamflow_line_daily_average,
               size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily average\nstreamflow", 
-             x = as.Date("17/07/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/07/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 800, color = dv_tibble$dv_streamflow_textcolor_daily_average, size = 2)
   
   
@@ -212,18 +214,18 @@ frame_c <- function(blank_plot, streamflow_df, droughts_df,
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily\nstreamflow", 
-             x = as.Date("03/06/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
     # Average daily streamflow
     geom_line(aes(y = mean_flow), color = dv_tibble$dv_streamflow_line_daily_average, 
               size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily average\nstreamflow", 
-             x = as.Date("17/07/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/07/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 800, color = dv_tibble$dv_streamflow_textcolor_daily_average, size = 2)+
     # Average annual streamflow 
     geom_line(aes(y = mean(mean_flow)), color = dv_tibble$dv_streamflow_line_annual_average)+
     annotate("text", label = "Annual average streamflow", 
-             x = as.Date("17/07/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/07/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 970, color = dv_tibble$dv_streamflow_textcolor_annual_average, size = 2)
   
   
@@ -270,24 +272,24 @@ frame_d <- function(blank_plot, streamflow_df, droughts_df,
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily\nstreamflow", 
-             x = as.Date("03/06/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
     # Average daily streamflow
     geom_line(aes(y = mean_flow), color = dv_tibble$dv_streamflow_line_daily_average, 
               size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily average\nstreamflow", 
-             x = as.Date("17/07/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/07/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 800, color = dv_tibble$dv_streamflow_textcolor_daily_average, size = 2)+
     # Average daily streamflow across year
     geom_line(aes(y = mean(mean_flow)), color = dv_tibble$dv_streamflow_line_annual_average)+
     annotate("text", label = "Annual average streamflow", 
-             x = as.Date("17/07/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/07/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 970, color = dv_tibble$dv_streamflow_textcolor_annual_average, size = 2)+
     # Severe drought threshold (10%)
     geom_line(aes(y = thresh_10_site), color = dv_tibble$dv_drought_threshold_fixed, 
               size = dv_tibble$dv_threshold_line_size)+
     annotate("text", label = "10% of annual average streamflow", 
-             x = as.Date("17/05/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/05/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 15, color = dv_tibble$dv_drought_textColor, size = 2)
   
   
@@ -331,8 +333,8 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
   
 
   fill_drought_bottom <- streamflow_df %>%
-    filter(dt >= as.Date("15/08/1963",'%d/%m/%Y'), 
-           dt <= as.Date("28/08/1963",'%d/%m/%Y')) %>%
+    filter(dt >= as.Date(sprintf("15/08/%s", focal_year),'%d/%m/%Y'), 
+           dt <= as.Date(sprintf("28/08/%s", focal_year),'%d/%m/%Y')) %>%
     select(dt, value)
   
   fill_drought_top <- fill_drought_bottom %>%
@@ -345,10 +347,14 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
   mask_poly <- data.frame(
     id = rep(1, 8),
     subid = rep(1:2,each = 4),
-    x = c(as.Date("01/05/1963",'%d/%m/%Y'), as.Date("01/05/1963",'%d/%m/%Y'), 
-          as.Date("15/10/1963",'%d/%m/%Y'), as.Date("15/10/1963",'%d/%m/%Y'),
-          as.Date("15/08/1963",'%d/%m/%Y'), as.Date("15/08/1963",'%d/%m/%Y'), 
-          as.Date("28/08/1963",'%d/%m/%Y'), as.Date("28/08/1963",'%d/%m/%Y')),
+    x = c(as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'), 
+          as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'), 
+          as.Date(sprintf("15/10/%s", focal_year),'%d/%m/%Y'), 
+          as.Date(sprintf("15/10/%s", focal_year),'%d/%m/%Y'),
+          as.Date(sprintf("15/08/%s", focal_year),'%d/%m/%Y'), 
+          as.Date(sprintf("15/08/%s", focal_year),'%d/%m/%Y'), 
+          as.Date(sprintf("28/08/%s", focal_year),'%d/%m/%Y'), 
+          as.Date(sprintf("28/08/%s", focal_year),'%d/%m/%Y')),
     y = c(-Inf, Inf, Inf, -Inf,
           0, 100, 100, 0)
   )
@@ -357,7 +363,7 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily\nstreamflow", 
-             x = as.Date("03/06/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
     # Average daily streamflow
     geom_line(aes(y = mean_flow), color = dv_tibble$dv_streamflow_line_daily_average,
@@ -369,7 +375,7 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
     geom_line(aes(y = thresh_10_site), color = dv_tibble$dv_drought_threshold_fixed, 
               size = dv_tibble$dv_threshold_line_size)+
     annotate("text", label = "10% of annual average streamflow", 
-             x = as.Date("17/05/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/05/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 15, color = dv_tibble$dv_drought_textColor, size = 2)+
     # Transparent mask
     geom_polygon(data = mask_poly, 
@@ -379,12 +385,12 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
                  aes(group = id, x = x, y = y), 
                  color = dv_tibble$dv_zoom_box_outline, fill = "transparent", size = 0.1)+
     annotate("segment", y = 100, yend = 400, 
-             x = as.Date("29/08/1963",'%d/%m/%Y'),
-             xend = as.Date("26/09/1963",'%d/%m/%Y'),
+             x = as.Date(sprintf("29/08/%s", focal_year),'%d/%m/%Y'),
+             xend = as.Date(sprintf("26/09/%s", focal_year),'%d/%m/%Y'),
              color = dv_tibble$dv_zoom_box_lines, size = 0.2)+
     annotate("segment", y = 400, yend = 100, 
-             x = as.Date("16/07/1963",'%d/%m/%Y'),
-             xend = as.Date("14/08/1963",'%d/%m/%Y'),
+             x = as.Date(sprintf("16/07/%s", focal_year),'%d/%m/%Y'),
+             xend = as.Date(sprintf("14/08/%s", focal_year),'%d/%m/%Y'),
              color = dv_tibble$dv_zoom_box_lines, size = 0.2)
   
   # Zoomed in plot
@@ -399,7 +405,8 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
     ylim(c(0,100))+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
-                 limits = c(as.Date("13/08/1963",'%d/%m/%Y'), as.Date("30/08/1963",'%d/%m/%Y')))+
+                 limits = c(as.Date(sprintf("13/08/%s", focal_year),'%d/%m/%Y'), 
+                            as.Date(sprintf("30/08/%s", focal_year),'%d/%m/%Y')))+
     theme_tufte(base_family = "sans", base_size = 16)+
     theme(axis.line = element_line(color = dv_tibble$dv_basePlot_axis_color),
           axis.text = element_text(size = 6),
@@ -407,13 +414,13 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
           panel.background = element_blank(),
           axis.ticks = element_line(size = dv_tibble$dv_basePlot_axis_size))+
     annotate("text", label = "Daily\n  streamflow", 
-             x = as.Date("13/08/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("13/08/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 86, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
     annotate("text", label = "10% average streamflow", 
-             x = as.Date("15/08/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("15/08/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 52, color = dv_tibble$dv_drought_textColor, size = 2)+
     annotate("text", label = "Severe\nDrought", 
-             x = as.Date("23/08/1963",'%d/%m/%Y')+0.5, hjust = 0.5,
+             x = as.Date(sprintf("23/08/%s", focal_year),'%d/%m/%Y')+0.5, hjust = 0.5,
              y = 25, color = dv_tibble$dv_drought_textColor, size = 2.2)
   
   
@@ -470,7 +477,7 @@ frame_f <- function(blank_plot, streamflow_df, droughts_df,
              ymin = -Inf, ymax = Inf,
              fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8) +
     annotate("text", label = "Periods of\nSevere\nDrought", 
-             x = as.Date("01/08/1963",'%d/%m/%Y'), hjust = 0.5,
+             x = as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'), hjust = 0.5,
              y = 1000, color = dv_tibble$dv_drought_textColor, size = 2) + 
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
@@ -481,7 +488,7 @@ frame_f <- function(blank_plot, streamflow_df, droughts_df,
     geom_line(aes(y = thresh_10_site), color = dv_tibble$dv_drought_threshold_fixed, 
               size = dv_tibble$dv_threshold_line_size)+
     annotate("text", label = "10% of annual average streamflow", 
-             x = as.Date("17/05/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/05/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 15, color = dv_tibble$dv_drought_textColor, size = 2)
   
   
@@ -528,13 +535,13 @@ frame_g <- function(blank_plot, streamflow_df, droughts_df,
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily\nstreamflow",
-             x = as.Date("03/06/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
     # Average daily streamflow
     geom_line(aes(y = mean_flow), color = dv_tibble$dv_streamflow_line_daily_average, 
               size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily average\nstreamflow",
-             x = as.Date("17/07/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/07/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 800, color = dv_tibble$dv_streamflow_textcolor_daily_average, size = 2)
   
   
@@ -580,28 +587,28 @@ frame_h <- function(blank_plot, streamflow_df, droughts_df,
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily\nstreamflow",
-             x = as.Date("03/06/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
     # Average daily streamflow
     geom_line(aes(y = mean_flow), color = dv_tibble$dv_streamflow_line_daily_average,
               size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily average\nstreamflow",
-             x = as.Date("17/07/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/07/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 800, color = dv_tibble$dv_streamflow_textcolor_daily_average, size = 2)+
     # Circle explainer
-    annotate("point", x = as.Date("13/05/1963",'%d/%m/%Y'), y = 110,
+    annotate("point", x = as.Date(sprintf("13/05/%s", focal_year),'%d/%m/%Y'), y = 110,
              size = 3, pch = 1, color = dv_tibble$dv_circle_explainer)+
-    annotate("point", x = as.Date("13/05/1963",'%d/%m/%Y'), y = 1210,
+    annotate("point", x = as.Date(sprintf("13/05/%s", focal_year),'%d/%m/%Y'), y = 1210,
              size = 3, pch = 1, color = dv_tibble$dv_circle_explainer)+
-    annotate("segment", x = as.Date("13/05/1963",'%d/%m/%Y'),
-             xend = as.Date("13/05/1963",'%d/%m/%Y'),
+    annotate("segment", x = as.Date(sprintf("13/05/%s", focal_year),'%d/%m/%Y'),
+             xend = as.Date(sprintf("13/05/%s", focal_year),'%d/%m/%Y'),
              y = 1100, yend = 200, color = dv_tibble$dv_circle_explainer,
              arrow = arrow(length = unit(0.1, "cm")))+
     annotate("text", label = "Typical streamflow",
-             x = as.Date("14/05/1963",'%d/%m/%Y'), y = 1280, hjust = 0,
+             x = as.Date(sprintf("14/05/%s", focal_year),'%d/%m/%Y'), y = 1280, hjust = 0,
              color = dv_tibble$dv_circle_explainer, size = 2)+
     annotate("text", label = "Actual streamflow",
-             x = as.Date("14/05/1963",'%d/%m/%Y'), y = 30, hjust = 0,
+             x = as.Date(sprintf("14/05/%s", focal_year),'%d/%m/%Y'), y = 30, hjust = 0,
              color = dv_tibble$dv_circle_explainer, size = 2)
   
   
@@ -649,13 +656,13 @@ frame_i <- function(blank_plot, streamflow_df, droughts_df,
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily\nstreamflow",
-             x = as.Date("03/06/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
     # Average daily streamflow
     geom_line(aes(y = mean_flow), color = dv_tibble$dv_streamflow_line_daily_average,
               size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily average\nstreamflow",
-             x = as.Date("17/07/1963",'%d/%m/%Y'), hjust = 0,
+             x = as.Date(sprintf("17/07/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 800, color = dv_tibble$dv_streamflow_textcolor_daily_average, size = 2)+
     # Variable Threshold
     geom_line(aes(y = thresh_10_jd_07d_wndw, x = dt), color = dv_tibble$dv_drought_threshold_variable, 
@@ -710,7 +717,7 @@ frame_j <- function(blank_plot, streamflow_df, droughts_df,
              ymin = -Inf, ymax = Inf,
              fill = dv_tibble$dv_drought_fill_variable, alpha = 0.8) +
     annotate("text", label = "Periods of\nSevere\nDrought", 
-             x = as.Date("01/08/1963",'%d/%m/%Y'), hjust = 0.5,
+             x = as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'), hjust = 0.5,
              y = 1000, color = dv_tibble$dv_drought_textColor, size = 2)+
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
@@ -920,7 +927,7 @@ frame_m <- function(blank_plot,
   
   
   main <- blank_plot +
-    geom_hline(yintercept = 1949, color = "#666666", size = 0.2, linetype = "dashed")+
+    geom_hline(yintercept = 1949, color = dv_tibble$dv_axis_additions_stackedYear, size = 0.2, linetype = "dashed")+
     # Fixed threshold drought durations
     annotate("rect", # fixed threshold
              xmin = (droughts_70yr_site_df$start_fakeYr),
@@ -957,7 +964,8 @@ frame_m <- function(blank_plot,
                        breaks = c(0, 200, 400, 600, 800, 1000, 1200,1400))+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
-                 limits = c(as.Date("01/01/1963",'%d/%m/%Y'), as.Date("31/12/1963",'%d/%m/%Y')))+
+                 limits = c(as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), 
+                            as.Date(sprintf("31/12/%s", focal_year),'%d/%m/%Y')))+
     theme_tufte(base_family = "sans", base_size = 16)+
     theme(axis.line = element_line(color = "transparent"),
           axis.text = element_text(size = 6, color = "transparent"),
@@ -989,10 +997,10 @@ frame_m <- function(blank_plot,
               y = 0.95,
               size = 4)+
     # Annotate years 
-    draw_text("1950", size = 4, y = 0.25, x = 0.148, color = "#666666")+
-    draw_text("2020", size = 4, y = 0.5765, x = 0.148, color = "#666666")+
-    draw_text("1950", size = 4, y = 0.6005, x = 0.148, color = "#666666")+
-    draw_text("2020", size = 4, y = 0.92, x = 0.148, color = "#666666")+
+    draw_text("1950", size = 4, y = 0.25, x = 0.148, color = dv_tibble$dv_axis_additions_stackedYear)+
+    draw_text("2020", size = 4, y = 0.5765, x = 0.148, color = dv_tibble$dv_axis_additions_stackedYear)+
+    draw_text("1950", size = 4, y = 0.6005, x = 0.148, color = dv_tibble$dv_axis_additions_stackedYear)+
+    draw_text("2020", size = 4, y = 0.92, x = 0.148, color = dv_tibble$dv_axis_additions_stackedYear)+
     # Annotation
     draw_text("Periods of\nSevere\nDrought\nwith a\nFixed\nThreshold", 
               x = 0.1, hjust = 0.5,

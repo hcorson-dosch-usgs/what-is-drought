@@ -26,6 +26,7 @@ p3_targets <- list(
                dv_shading_fill = "white",
                dv_zoom_box_outline = "black",
                dv_zoom_box_lines = "black",
+               dv_axis_additions_stackedYear = "#666666",
                # png sizing,
                dv_png_width = 1200, 
                dv_png_height = 800,

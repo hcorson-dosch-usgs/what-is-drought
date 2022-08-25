@@ -61,6 +61,6 @@ p2_targets <- list(
   # fixed threshold
   tar_target(p2_droughts_70year_stacked_j7_df,
              p2_droughts_stacked_byDOY_df(droughts_prop_target = p2_1951_2020_drought_prop_jd_7d, 
-                                          StationID = '03221000', 
+                                          StationID = focal_StaID, 
                                           example_threshold = focal_threshold))
   )

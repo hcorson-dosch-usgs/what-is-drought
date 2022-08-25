@@ -121,10 +121,10 @@ p2_droughts_stacked_byDOY_df <- function(droughts_prop_target, StationID, exampl
   droughts <- droughts %>% 
     mutate(start_year = year(start),
            start_noYr = format(as.Date(start), "%m-%d"),
-           start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
+           start_fakeYr = as.Date(sprintf("%s-%s", focal_year, start_noYr)),
            end_year = year(end),
            end_noYr = format(as.Date(end), "%m-%d"),
-           end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
+           end_fakeYr = as.Date(sprintf("%s-%s", focal_year, end_noYr)))
   
   # Deal with drought events that wrap year
   #   1. filter out only those 
@@ -143,10 +143,10 @@ p2_droughts_stacked_byDOY_df <- function(droughts_prop_target, StationID, exampl
   droughts_wrapYr <- droughts_wrapYr %>%
     mutate(start_year = year(start),
            start_noYr = format(as.Date(start), "%m-%d"),
-           start_fakeYr = as.Date(sprintf("1963-%s", start_noYr)),
+           start_fakeYr = as.Date(sprintf("%s-%s", focal_year, start_noYr)),
            end_year = year(end),
            end_noYr = format(as.Date(end), "%m-%d"),
-           end_fakeYr = as.Date(sprintf("1963-%s", end_noYr)))
+           end_fakeYr = as.Date(sprintf("%s-%s", focal_year, end_noYr)))
 
   #   4. Merge back in with other records
   droughts_noWrapYr <- droughts %>%
