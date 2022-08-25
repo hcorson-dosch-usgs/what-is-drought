@@ -23,7 +23,7 @@ p3_targets <- list(
                dv_streamflow_line_size = 0.3, #default = 0.5
                # Other Annotations
                dv_circle_explainer = "#E76254",
-               dv_shading_fill = "white",
+               dv_shading_fill = "white", # should match the css .hydro-chart background-color
                dv_zoom_box_outline = "black",
                dv_zoom_box_lines = "black",
                dv_axis_additions_stackedYear = "#666666",
@@ -72,6 +72,8 @@ p3_targets <- list(
                          blank_plot = p3_blank_plot_summer,
                          dv_tibble = p3_dv_tibble)),
   
+  
+  # Frames 
   tar_target(p3_drought_learner_viz_a_png,
              frame_a(blank_plot = p3_blank_plot_summer,
                      streamflow_df = p2_streamflow_learner_viz_df,
