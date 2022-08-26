@@ -215,7 +215,7 @@ p3_targets <- list(
              frame_l(blank_plot = p3_blank_plot_year,
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
-                     bottom_bars = p3_bottom_bars_both,
+                     bottom_bars = p3_bottom_bars_both_year,
                      inset = p3_inset_map,
                      canvas = p3_canvas,
                      out_png = "src/assets/images/threshold-chart/l.png",

@@ -109,7 +109,11 @@ bottom_bars <- function(extent = "fixed one", droughts_df, blank_plot, dv_tibble
       theme(axis.title = element_text(color = "transparent"),
             axis.text = element_text(color = "transparent"),
             axis.line = element_line(color = "transparent"),
-            axis.ticks = element_line(color = "transparent"))
+            axis.ticks = element_line(color = "transparent"))+
+      scale_x_date(labels = date_format("%b"),
+                   date_breaks = "1 month",
+                   limits = c(as.Date(sprintf("01/01/%s", focal_year), '%d/%m/%Y'),
+                              as.Date(sprintf("31/12/%s", focal_year), '%d/%m/%Y')))
   } 
   
   return(bottom_bars)
@@ -497,7 +501,7 @@ frame_h <- function(blank_plot, streamflow_df, droughts_df,
              x = as.Date(sprintf("14/05/%s", focal_year),'%d/%m/%Y'), y = 1280, hjust = 0,
              color = dv_tibble$dv_circle_explainer, size = 2)+
     annotate("text", label = "Actual daily streamflow",
-             x = as.Date(sprintf("14/05/%s", focal_year),'%d/%m/%Y'), y = 30, hjust = 0,
+             x = as.Date(sprintf("14/05/%s", focal_year),'%d/%m/%Y'), y = 10, hjust = 0,
              color = dv_tibble$dv_circle_explainer, size = 2)
   
   
@@ -688,34 +692,7 @@ frame_m <- function(blank_plot,
           axis.text.y = element_text(color = "transparent"),
           axis.ticks.y = element_line(color = "transparent"))
   
-  
-  # # Bottom bars
-  # bottom_bars_year <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
-  #   ylab("Streamflow\n(cfs)")+
-  #   xlab(NULL)+
-  #   annotate("rect", # fixed threshold
-  #            xmin = (droughts_df$start[droughts_df$method == "fixed"]),
-  #            xmax = (droughts_df$end[droughts_df$method == "fixed"]),
-  #            ymin = 52, ymax = 100,
-  #            fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8)+
-  #   annotate("rect", # variable threshold
-  #            xmin = (droughts_df$start[droughts_df$method == "variable"]),
-  #            xmax = (droughts_df$end[droughts_df$method == "variable"]),
-  #            ymin = 0, ymax = 48,
-  #            fill = dv_tibble$dv_drought_fill_variable, alpha = 0.8)+
-  #   scale_y_continuous(limits = c(0,1400), 
-  #                      labels = c(0,200,400,600,800,1000,1200,1400),
-  #                      breaks = c(0, 200, 400, 600, 800, 1000, 1200,1400))+
-  #   scale_x_date(labels = date_format("%b"), 
-  #                date_breaks  ="1 month",
-  #                limits = c(as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), 
-  #                           as.Date(sprintf("31/12/%s", focal_year),'%d/%m/%Y')))+
-  #   theme_tufte(base_family = "sans", base_size = 16)+
-  #   theme(axis.line = element_line(color = "transparent"),
-  #         axis.text = element_text(size = 6, color = "transparent"),
-  #         axis.title = element_text(size = 8, color = "transparent"),
-  #         panel.background = element_blank(),
-  #         axis.ticks = element_line(color = "transparent"))
+
   
   plot <- add_core_plot_elements(text = 'frame m', 
                                  main = main, bottom_bars = bottom_bars)
