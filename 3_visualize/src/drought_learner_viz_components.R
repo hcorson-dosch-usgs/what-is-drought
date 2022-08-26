@@ -247,9 +247,6 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
     annotate("text", label = "Daily\nstreamflow", 
              x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
-    # Average annual streamflow
-    geom_line(aes(y = mean(mean_flow)), color = dv_tibble$dv_streamflow_line_annual_average,
-              size = dv_tibble$dv_streamflow_line_size)+
     # Severe drought threshold (10%)
     geom_line(aes(y = thresh_10_site), color = dv_tibble$dv_drought_threshold_fixed, 
               size = dv_tibble$dv_threshold_line_size)+
