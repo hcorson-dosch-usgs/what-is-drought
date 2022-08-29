@@ -211,14 +211,14 @@ frame_a <- function(blank_plot, streamflow_df, droughts_df,
   
   plot +
     draw_plot(inset,
-              x = 0,
+              x = -0.05,
               y = 0,
-              width = 0.7,
+              width = 0.65,
               height = 0.9)+
     draw_plot(main,
-              x = 0.6,
+              x = 0.5,
               y = 0.1,
-              width = 0.4,
+              width = 0.5,
               height = 0.4) 
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
@@ -296,8 +296,8 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
     ylim(c(0,100))+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
-                 limits = c(as.Date(sprintf("13/08/%s", focal_year),'%d/%m/%Y'), 
-                            as.Date(sprintf("30/08/%s", focal_year),'%d/%m/%Y')))+
+                 limits = c(as.Date(sprintf("10/08/%s", focal_year),'%d/%m/%Y'), 
+                            as.Date(sprintf("02/09/%s", focal_year),'%d/%m/%Y')))+
     theme_tufte(base_family = "sans", base_size = 16)+
     theme(axis.line = element_line(color = "transparent"),
           axis.text = element_blank(),
@@ -310,30 +310,33 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
              y = 86, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
     annotate("text", label = "Drought threshold", 
              x = as.Date(sprintf("15/08/%s", focal_year),'%d/%m/%Y'), hjust = 0,
-             y = 52, color = dv_tibble$dv_drought_textColor, size = 2)+
+             y = 52, color = dv_tibble$dv_drought_textColor, size = 1.8)+
     annotate("text", label = "Period of\nDrought", 
              x = as.Date(sprintf("23/08/%s", focal_year),'%d/%m/%Y')+0.5, hjust = 0.5,
-             y = 25, color = dv_tibble$dv_drought_textColor, size = 2.2)
+             y = 25, color = dv_tibble$dv_drought_textColor, size = 1.8)
   
+  circle <- grid::circleGrob(gp = grid::gpar(color = "#FCEE21"))
   
   plot <- add_core_plot_elements(text = 'frame b')
   
   plot +
     draw_plot(inset,
-              x = 0,
+              x = -0.05,
               y = 0,
-              width = 0.7,
+              width = 0.65,
               height = 0.9)+
     draw_plot(main,
-              x = 0.6,
+              x = 0.5,
               y = 0.1,
-              width = 0.4,
-              height = 0.4) + 
+              width = 0.5,
+              height = 0.4)  + 
     draw_plot(zoom_plot,
-              x = 0.65,
-              y = 0.41, 
+              x = 0.675,
+              y = 0.51, 
               height = 0.4,
-              width = 0.35)
+              width = 0.35)+
+    draw_grob(circle, scale = 0.1, y = -0.3, x = 0.353)+
+    draw_grob(circle, scale = 0.42, y = 0.24, x = 0.353)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -452,9 +455,9 @@ frame_f <- function(blank_plot, streamflow_df, droughts_df,
              y = 1000, color = dv_tibble$dv_drought_textColor, size = 2) + 
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
-    # Average daily streamflow
-    geom_line(aes(y = mean_flow), color = dv_tibble$dv_streamflow_line_daily_average,
-              size = dv_tibble$dv_streamflow_line_size)+
+    annotate("text", label = "Daily\nstreamflow", 
+             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
+             y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
     # Severe drought threshold (10%)
     geom_line(aes(y = thresh_10_site), color = dv_tibble$dv_drought_threshold_fixed, 
               size = dv_tibble$dv_threshold_line_size)+
