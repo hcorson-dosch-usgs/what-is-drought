@@ -359,7 +359,7 @@ frame_c <- function(blank_plot, streamflow_df, droughts_df,
   
   
   add_core_plot_elements(text = 'frame c', 
-                         main = main, inset = inset, bottom_bars = bottom_bars)
+                         main = main, inset = inset)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -390,7 +390,7 @@ frame_d <- function(blank_plot, streamflow_df, droughts_df,
   
   
   add_core_plot_elements(text = 'frame d', 
-                         main = main, inset = inset, bottom_bars = bottom_bars)
+                         main = main, inset = inset)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -427,7 +427,7 @@ frame_e <- function(blank_plot, streamflow_df, droughts_df,
   
   
   add_core_plot_elements(text = 'frame e', 
-                         main = main, inset = inset, bottom_bars = bottom_bars)
+                         main = main, inset = inset)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -465,7 +465,7 @@ frame_f <- function(blank_plot, streamflow_df, droughts_df,
   
   
   add_core_plot_elements(text = 'frame f', 
-                         main = main, inset = inset, bottom_bars = bottom_bars)
+                         main = main, inset = inset)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -492,7 +492,7 @@ frame_g <- function(blank_plot, streamflow_df, droughts_df,
   
   
   add_core_plot_elements(text = 'frame g', 
-                         main = main, inset = inset, bottom_bars = bottom_bars)
+                         main = main, inset = inset)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -531,7 +531,7 @@ frame_h <- function(blank_plot, streamflow_df, droughts_df,
   
   
   add_core_plot_elements(text = 'frame h', 
-                         main = main, inset = inset, bottom_bars = bottom_bars)
+                         main = main, inset = inset)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -564,7 +564,7 @@ frame_i <- function(blank_plot, streamflow_df, droughts_df,
   
   
   add_core_plot_elements(text = 'frame i', 
-                         main = main, inset = inset, bottom_bars = bottom_bars)
+                         main = main, inset = inset)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -597,7 +597,7 @@ frame_j <- function(blank_plot, streamflow_df, droughts_df,
   
   
   add_core_plot_elements(text = 'frame j', 
-                         main = main, inset = inset, bottom_bars = bottom_bars)
+                         main = main, inset = inset)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -629,7 +629,7 @@ frame_k <- function(blank_plot, streamflow_df, droughts_df,
   
   
   plot <- add_core_plot_elements(text = 'frame k', 
-                                 main = main, inset = inset, bottom_bars = bottom_bars)
+                                 main = main, inset = inset)
   
   plot +
     # Annotation
@@ -674,7 +674,7 @@ frame_l <- function(blank_plot, streamflow_df, droughts_df,
 
   
   plot <- add_core_plot_elements(text = 'frame l', 
-                                 main = main, inset = inset, bottom_bars = bottom_bars)
+                                 main = main, inset = inset)
   
   plot +
     # Annotation
@@ -724,7 +724,7 @@ frame_m <- function(blank_plot,
 
   
   plot <- add_core_plot_elements(text = 'frame m', 
-                                 main = main, bottom_bars = bottom_bars)
+                                 main = main)
   
   plot +
     # Annotate years 
