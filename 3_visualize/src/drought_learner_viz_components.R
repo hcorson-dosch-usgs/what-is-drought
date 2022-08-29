@@ -193,16 +193,33 @@ frame_a <- function(blank_plot, streamflow_df, droughts_df,
              fill = dv_tibble$dv_drought_fill_fixed, alpha = 1.0,
              color = dv_tibble$df_fill_outline, size = dv_tibble$dv_fill_outline_size) +
     annotate("text", label = "Period of\nDrought", 
-             x = as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'), hjust = 0.5,
-             y = 1000, color = dv_tibble$dv_drought_textColor, size = 2) + 
+             x = as.Date(sprintf("28/07/%s", focal_year),'%d/%m/%Y'), hjust = 0.5,
+             y = 1000, color = dv_tibble$dv_drought_textColor, size = 1) + 
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily\nstreamflow", 
-             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
-             y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)
+             x = as.Date(sprintf("05/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
+             y = 480, color = dv_tibble$dv_streamflow_textcolor_daily, size = 1)+
+    theme(axis.title = element_text(size = 5),
+          axis.text = element_text(size = 3))+
+    scale_x_date(labels = date_format("%b"), 
+                 date_breaks  ="2 month",
+                 limits = c(as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'), 
+                            as.Date(sprintf("15/10/%s", focal_year),'%d/%m/%Y')))
   
-  add_core_plot_elements(text = 'frame a', 
-                         main = main, inset = inset, bottom_bars = bottom_bars)
+  plot <- add_core_plot_elements(text = 'frame a')
+  
+  plot +
+    draw_plot(inset,
+              x = 0,
+              y = 0,
+              width = 0.7,
+              height = 0.9)+
+    draw_plot(main,
+              x = 0.6,
+              y = 0.1,
+              width = 0.4,
+              height = 0.4) 
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
@@ -243,29 +260,27 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
   )
   
   main <- blank_plot +
+    # Fixed threshold drought durations
+    annotate("rect", # fixed threshold
+             xmin = droughts_df$start[droughts_df$method == "fixed" & droughts_df$drought_id == 76],
+             xmax = droughts_df$end[droughts_df$method == "fixed" & droughts_df$drought_id == 76],
+             ymin = -Inf, ymax = Inf,
+             fill = dv_tibble$dv_drought_fill_fixed, alpha = 1.0,
+             color = dv_tibble$df_fill_outline, size = dv_tibble$dv_fill_outline_size) +
+    annotate("text", label = "Period of\nDrought", 
+             x = as.Date(sprintf("28/07/%s", focal_year),'%d/%m/%Y'), hjust = 0.5,
+             y = 1000, color = dv_tibble$dv_drought_textColor, size = 1) + 
     # This site's 1963 streamflow
     geom_line(color = dv_tibble$dv_streamflow_line_daily, size = dv_tibble$dv_streamflow_line_size)+
     annotate("text", label = "Daily\nstreamflow", 
-             x = as.Date(sprintf("03/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
-             y = 420, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
-    # Severe drought threshold (10%)
-    geom_line(aes(y = thresh_10_site), color = dv_tibble$dv_drought_threshold_fixed, 
-              size = dv_tibble$dv_threshold_line_size)+
-    # Transparent mask
-    geom_polygon(data = mask_poly, 
-                 aes(group = id, x = x, y = y, subgroup = subid), 
-                 fill = dv_tibble$dv_shading_fill, alpha = 0.8)+
-    geom_polygon(data = mask_poly %>% filter(subid == 2), 
-                 aes(group = id, x = x, y = y), 
-                 color = dv_tibble$dv_zoom_box_outline, fill = "transparent", size = 0.1)+
-    annotate("segment", y = 100, yend = 400, 
-             x = as.Date(sprintf("29/08/%s", focal_year),'%d/%m/%Y'),
-             xend = as.Date(sprintf("26/09/%s", focal_year),'%d/%m/%Y'),
-             color = dv_tibble$dv_zoom_box_lines, size = 0.2)+
-    annotate("segment", y = 400, yend = 100, 
-             x = as.Date(sprintf("16/07/%s", focal_year),'%d/%m/%Y'),
-             xend = as.Date(sprintf("14/08/%s", focal_year),'%d/%m/%Y'),
-             color = dv_tibble$dv_zoom_box_lines, size = 0.2)
+             x = as.Date(sprintf("05/06/%s", focal_year),'%d/%m/%Y'), hjust = 0,
+             y = 480, color = dv_tibble$dv_streamflow_textcolor_daily, size = 1)+
+    theme(axis.title = element_text(size = 5),
+          axis.text = element_text(size = 3))+
+    scale_x_date(labels = date_format("%b"), 
+                 date_breaks  ="2 month",
+                 limits = c(as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'), 
+                            as.Date(sprintf("15/10/%s", focal_year),'%d/%m/%Y')))
   
   # Zoomed in plot
   zoom_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
@@ -285,13 +300,11 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
                             as.Date(sprintf("30/08/%s", focal_year),'%d/%m/%Y')))+
     theme_tufte(base_family = "sans", base_size = 16)+
     theme(axis.line = element_line(color = "transparent"),
-          axis.text = element_text(size = 6,
-                                   color = dv_tibble$dv_basePlot_axis_color),
-          axis.title = element_text(size = 8,
+          axis.text = element_blank(),
+          axis.title = element_text(size = 5,
                                     color = dv_tibble$dv_basePlot_axis_color),
           panel.background = element_blank(),
-          axis.ticks = element_line(size = dv_tibble$dv_basePlot_axis_size,
-                                    color = dv_tibble$dv_basePlot_axis_color))+
+          axis.ticks = element_blank())+
     annotate("text", label = "Daily\n  streamflow", 
              x = as.Date(sprintf("13/08/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 86, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
@@ -303,15 +316,24 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
              y = 25, color = dv_tibble$dv_drought_textColor, size = 2.2)
   
   
-  plot <- add_core_plot_elements(text = 'frame b', 
-                                 main = main, inset = inset, bottom_bars = bottom_bars)
+  plot <- add_core_plot_elements(text = 'frame b')
   
-  plot + 
+  plot +
+    draw_plot(inset,
+              x = 0,
+              y = 0,
+              width = 0.7,
+              height = 0.9)+
+    draw_plot(main,
+              x = 0.6,
+              y = 0.1,
+              width = 0.4,
+              height = 0.4) + 
     draw_plot(zoom_plot,
-              x = 0.45,
+              x = 0.65,
               y = 0.41, 
               height = 0.4,
-              width = 0.44)
+              width = 0.35)
   
   ggsave(out_png, width = dv_tibble$dv_png_width, 
          height = dv_tibble$dv_png_height, dpi = 300, units = "px")
