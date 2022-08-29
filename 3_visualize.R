@@ -24,7 +24,7 @@ p3_targets <- list(
                dv_streamflow_textcolor_daily_average = "#DDEFF2",
                dv_streamflow_line_size = 0.3, #default = 0.5
                # Other Annotations
-               dv_circle_explainer = "#fef8a6",
+               dv_circle_explainer = "#fcee21",
                dv_shading_fill = "#FFEECE", # should match the css .hydro-chart background-color
                dv_zoom_box_outline = "black",
                dv_zoom_box_lines = "black",
