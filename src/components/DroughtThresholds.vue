@@ -131,7 +131,6 @@ img {
 }
 #scroll-container {
   z-index: 200;
-
 }
 .text-container {
   z-index: 500;
