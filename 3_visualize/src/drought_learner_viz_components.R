@@ -62,7 +62,7 @@ bottom_bars <- function(extent = "fixed one", droughts_df, blank_plot, dv_tibble
                xmin = droughts_df$start[droughts_df$method == "fixed" & droughts_df$drought_id == 76],
                xmax = droughts_df$end[droughts_df$method == "fixed" & droughts_df$drought_id == 76],
                ymin = 52, ymax = 100,
-               fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8)+
+               fill = dv_tibble$dv_drought_fill_fixed, alpha = 1.0)+
       theme(axis.title = element_text(color = "transparent"),
             axis.text = element_text(color = "transparent"),
             axis.line = element_line(color = "transparent"),
@@ -73,7 +73,7 @@ bottom_bars <- function(extent = "fixed one", droughts_df, blank_plot, dv_tibble
                xmin = droughts_df$start[droughts_df$method == "fixed"],
                xmax = droughts_df$end[droughts_df$method == "fixed"],
                ymin = 52, ymax = 100,
-               fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8)+
+               fill = dv_tibble$dv_drought_fill_fixed, alpha = 1.0)+
       theme(axis.title = element_text(color = "transparent"),
             axis.text = element_text(color = "transparent"),
             axis.line = element_line(color = "transparent"),
@@ -84,12 +84,12 @@ bottom_bars <- function(extent = "fixed one", droughts_df, blank_plot, dv_tibble
                xmin = (droughts_df$start[droughts_df$method == "fixed"]),
                xmax = (droughts_df$end[droughts_df$method == "fixed"]),
                ymin = 52, ymax = 100,
-               fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8)+
+               fill = dv_tibble$dv_drought_fill_fixed, alpha = 1.0)+
       annotate("rect", # variable threshold
                xmin = (droughts_df$start[droughts_df$method == "variable"]),
                xmax = (droughts_df$end[droughts_df$method == "variable"]),
                ymin = 0, ymax = 48,
-               fill = dv_tibble$dv_drought_fill_variable, alpha = 0.8)+
+               fill = dv_tibble$dv_drought_fill_variable, alpha = 1.0)+
       theme(axis.title = element_text(color = "transparent"),
             axis.text = element_text(color = "transparent"),
             axis.line = element_line(color = "transparent"),
@@ -100,12 +100,12 @@ bottom_bars <- function(extent = "fixed one", droughts_df, blank_plot, dv_tibble
                xmin = (droughts_df$start[droughts_df$method == "fixed"]),
                xmax = (droughts_df$end[droughts_df$method == "fixed"]),
                ymin = 52, ymax = 100,
-               fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8)+
+               fill = dv_tibble$dv_drought_fill_fixed, alpha = 1.0)+
       annotate("rect", # variable threshold
                xmin = (droughts_df$start[droughts_df$method == "variable"]),
                xmax = (droughts_df$end[droughts_df$method == "variable"]),
                ymin = 0, ymax = 48,
-               fill = dv_tibble$dv_drought_fill_variable, alpha = 0.8)+
+               fill = dv_tibble$dv_drought_fill_variable, alpha = 1.0)+
       theme(axis.title = element_text(color = "transparent"),
             axis.text = element_text(color = "transparent"),
             axis.line = element_line(color = "transparent"),
@@ -190,7 +190,8 @@ frame_a <- function(blank_plot, streamflow_df, droughts_df,
              xmin = droughts_df$start[droughts_df$method == "fixed" & droughts_df$drought_id == 76],
              xmax = droughts_df$end[droughts_df$method == "fixed" & droughts_df$drought_id == 76],
              ymin = -Inf, ymax = Inf,
-             fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8) +
+             fill = dv_tibble$dv_drought_fill_fixed, alpha = 1.0,
+             color = dv_tibble$df_fill_outline, size = dv_tibble$dv_fill_outline_size) +
     annotate("text", label = "Period of\nDrought", 
              x = as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'), hjust = 0.5,
              y = 1000, color = dv_tibble$dv_drought_textColor, size = 2) + 
@@ -268,13 +269,13 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
   
   # Zoomed in plot
   zoom_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
+    geom_polygon(data = fill_drought, aes(group = id, x = dt, y = value),
+                 fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.7)+
     geom_line(color = dv_tibble$dv_streamflow_line_daily, 
               size = dv_tibble$dv_streamflow_line_size)+
     geom_line(aes(y = thresh_10_site), 
               color = dv_tibble$dv_drought_threshold_fixed, 
               size = dv_tibble$dv_threshold_line_size)+
-    geom_polygon(data = fill_drought, aes(group = id, x = dt, y = value),
-                 fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.3)+
     ylab(NULL)+
     xlab(NULL)+
     ylim(c(0,100))+
@@ -283,11 +284,14 @@ frame_b <- function(blank_plot, streamflow_df, droughts_df,
                  limits = c(as.Date(sprintf("13/08/%s", focal_year),'%d/%m/%Y'), 
                             as.Date(sprintf("30/08/%s", focal_year),'%d/%m/%Y')))+
     theme_tufte(base_family = "sans", base_size = 16)+
-    theme(axis.line = element_line(color = dv_tibble$dv_basePlot_axis_color),
-          axis.text = element_text(size = 6),
-          axis.title = element_text(size = 8),
+    theme(axis.line = element_line(color = "transparent"),
+          axis.text = element_text(size = 6,
+                                   color = dv_tibble$dv_basePlot_axis_color),
+          axis.title = element_text(size = 8,
+                                    color = dv_tibble$dv_basePlot_axis_color),
           panel.background = element_blank(),
-          axis.ticks = element_line(size = dv_tibble$dv_basePlot_axis_size))+
+          axis.ticks = element_line(size = dv_tibble$dv_basePlot_axis_size,
+                                    color = dv_tibble$dv_basePlot_axis_color))+
     annotate("text", label = "Daily\n  streamflow", 
              x = as.Date(sprintf("13/08/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 86, color = dv_tibble$dv_streamflow_textcolor_daily, size = 2)+
@@ -419,7 +423,8 @@ frame_f <- function(blank_plot, streamflow_df, droughts_df,
              xmin = (droughts_df$start[droughts_df$method == "fixed"]),
              xmax = (droughts_df$end[droughts_df$method == "fixed"]),
              ymin = -Inf, ymax = Inf,
-             fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8) +
+             fill = dv_tibble$dv_drought_fill_fixed, alpha = 1.0,
+             color = dv_tibble$df_fill_outline, size = dv_tibble$dv_fill_outline_size) +
     annotate("text", label = "Periods of\nDrought", 
              x = as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'), hjust = 0.5,
              y = 1000, color = dv_tibble$dv_drought_textColor, size = 2) + 
@@ -553,7 +558,8 @@ frame_j <- function(blank_plot, streamflow_df, droughts_df,
              xmin = (droughts_df$start[droughts_df$method == "variable"]),
              xmax = (droughts_df$end[droughts_df$method == "variable"]),
              ymin = -Inf, ymax = Inf,
-             fill = dv_tibble$dv_drought_fill_variable, alpha = 0.8) +
+             fill = dv_tibble$dv_drought_fill_variable, alpha = 1.0,
+             color = dv_tibble$df_fill_outline, size = dv_tibble$dv_fill_outline_size) +
     annotate("text", label = "Periods of\nDrought", 
              x = as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'), hjust = 0.5,
              y = 1000, color = dv_tibble$dv_drought_textColor, size = 2)+
@@ -585,13 +591,15 @@ frame_k <- function(blank_plot, streamflow_df, droughts_df,
              xmin = (droughts_df$start[droughts_df$method == "fixed"]),
              xmax = (droughts_df$end[droughts_df$method == "fixed"]),
              ymin = 650, ymax = Inf,
-             fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8) +
+             fill = dv_tibble$dv_drought_fill_fixed, alpha = 1.0,
+             color = dv_tibble$df_fill_outline, size = dv_tibble$dv_fill_outline_size) +
     # Variable threshold drought durations
     annotate("rect", # variable threshold
              xmin = (droughts_df$start[droughts_df$method == "variable"]),
              xmax = (droughts_df$end[droughts_df$method == "variable"]),
              ymin = -Inf, ymax = 600,
-             fill = dv_tibble$dv_drought_fill_variable, alpha = 0.8) +
+             fill = dv_tibble$dv_drought_fill_variable, alpha = 1.0,
+             color = dv_tibble$df_fill_outline, size = dv_tibble$dv_fill_outline_size) +
     theme(axis.title.y = element_text(color="transparent"),
           axis.text.y = element_text(color = "transparent"),
           axis.ticks.y = element_line(color = "transparent"))
@@ -627,13 +635,15 @@ frame_l <- function(blank_plot, streamflow_df, droughts_df,
              xmin = (droughts_df$start[droughts_df$method == "fixed"]),
              xmax = (droughts_df$end[droughts_df$method == "fixed"]),
              ymin = 650, ymax = Inf,
-             fill = dv_tibble$dv_drought_fill_fixed, alpha = 0.8) +
+             fill = dv_tibble$dv_drought_fill_fixed, alpha = 1.0,
+             color = dv_tibble$df_fill_outline, size = dv_tibble$dv_fill_outline_size) +
     # Variable threshold drought durations
     annotate("rect", # variable threshold
              xmin = (droughts_df$start[droughts_df$method == "variable"]),
              xmax = (droughts_df$end[droughts_df$method == "variable"]),
              ymin = -Inf, ymax = 600,
-             fill = dv_tibble$dv_drought_fill_variable, alpha = 0.8) +
+             fill = dv_tibble$dv_drought_fill_variable, alpha = 1.0,
+             color = dv_tibble$df_fill_outline, size = dv_tibble$dv_fill_outline_size) +
     theme(axis.title.y = element_text(color="transparent"),
           axis.text.y = element_text(color = "transparent"),
           axis.ticks.y = element_line(color = "transparent"))

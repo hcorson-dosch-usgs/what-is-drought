@@ -11,19 +11,21 @@ p3_targets <- list(
                dv_drought_fill_fixed = "#E76254",
                dv_drought_threshold_variable = "#F7931E",
                dv_drought_threshold_fixed = "#A00E00",
-               dv_drought_textColor = "#E76254",
+               dv_drought_textColor = "#FCC065",
                dv_threshold_line_size = 0.5, #default = 0.5
+               df_fill_outline = "white",
+               dv_fill_outline_size = 0.05,
                # Streamflow
-               dv_streamflow_line_daily = "#3F729C",
+               dv_streamflow_line_daily = "#a2d7de",
                dv_streamflow_line_annual_average = "#FFE3AD",
-               dv_streamflow_line_daily_average = "#a2d7de",
-               dv_streamflow_textcolor_daily = "#3F729C",
+               dv_streamflow_line_daily_average = "#132B69",
+               dv_streamflow_textcolor_daily = "#a2d7de",
                dv_streamflow_textcolor_annual_average = "#FCC065",
-               dv_streamflow_textcolor_daily_average = "#64A8C4",
+               dv_streamflow_textcolor_daily_average = "#132B69",
                dv_streamflow_line_size = 0.3, #default = 0.5
                # Other Annotations
                dv_circle_explainer = "#E76254",
-               dv_shading_fill = "white", # should match the css .hydro-chart background-color
+               dv_shading_fill = "#3F729C", # should match the css .hydro-chart background-color
                dv_zoom_box_outline = "black",
                dv_zoom_box_lines = "black",
                dv_axis_additions_stackedYear = "#666666",
@@ -31,9 +33,9 @@ p3_targets <- list(
                dv_png_width = 1200, 
                dv_png_height = 800,
                # Base plot design
-               dv_basePlot_axis_color = "#132B69",
+               dv_basePlot_axis_color = "#A2D7DE",
                dv_basePlot_axis_size = 0.1,
-               dv_basePlot_axis_text_color = "#132B69"
+               dv_basePlot_axis_text_color = "#A2D7DE"
              )
   ),
   
