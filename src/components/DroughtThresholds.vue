@@ -2,7 +2,7 @@
   <div class="another-container">
     <div class="chart-container">
       <div id="title-container">
-        <h2 class="knockout-text smaller">What is streamflow drought?</h2>
+        <h2 class="knockout-text">What is streamflow drought?</h2>
       </div>
       <!-- read in frames dynamically -->
       <img
@@ -15,7 +15,6 @@
     </div>
     <!-- create a scrolling div for each frame -->
     <div id="scroll-container">
-
       <div
         v-for="frame in frames" 
         :key="frame.id"
@@ -66,16 +65,16 @@ export default {
 
       // things that go before containers
             // use class to set trigger
-/*         tl.to(h2, {
+         tl.to('knockout-text', {
           scrollTrigger: {
             markers: true,
-            trigger: h2,
+            trigger: '.knockout-text',
             start: "top 10%",
-            toggleClass: {targets: `h2`, className:".knockout-text.smaller"}, // adds class to target when triggered
-            toggleActions: "play none reverse none" // onEnter onLeave ... ...
+            toggleClass: {targets: `.knockout-text`, className:"smaller"}, // adds class to target when triggered
+            toggleActions: "restart none reverse none" // onEnter onLeave ... ...
 
           }
-        })  */
+        })  
 
 
 
@@ -143,16 +142,15 @@ img {
   }
 }
 .knockout-text {
+  font-size: 20vh;
   font-weight: bold;
   font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: #e76254;
   background: white;
   mix-blend-mode: lighten;
 }
-.knockout-text.big{
-  font-size: 12vh;
-}
-.knockout-text.smaller {
+
+.smaller {
   font-size: 3.75em;
 }
 .hydro-chart {
