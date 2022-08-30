@@ -67,7 +67,7 @@ export default {
             // use class to set trigger
          tl.to('knockout-text', {
           scrollTrigger: {
-            markers: true,
+            markers: false,
             trigger: '.knockout-text',
             start: "top 10%",
             toggleClass: {targets: `.knockout-text`, className:"smaller"}, // adds class to target when triggered
