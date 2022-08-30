@@ -65,14 +65,20 @@ export default {
 
       // things that go before containers
             // use class to set trigger
-         tl.to('knockout-text', {
-          scrollTrigger: {
-            markers: false,
+         tl.to('.knockout-text', {
+          scrollTrigger: {  
+            markers: true,
             trigger: '.knockout-text',
-            start: "top 10%",
-            toggleClass: {targets: `.knockout-text`, className:"smaller"}, // adds class to target when triggered
-            toggleActions: "restart none reverse none" // onEnter onLeave ... ...
-
+            start: "top center",
+            end: "top 10%",
+            toggleClass: {targets: `.knockout-text`, className:"bigger"}, // adds class to target when triggered
+            toggleActions: "restart none none none" // onEnter onLeave ... ...
+            /*
+            onEnter - scrolling down, start meets scroller-start
+            onLeave - scrolling down, end meets scroller-end
+            onEnterBack - scrolling up, end meets scroller-end
+            onLeaveBack - scrolling up, start meets scroller-start
+            */
           }
         })  
 
@@ -97,8 +103,13 @@ export default {
             trigger: `.${scrollClass}`,
             start: "top 50%",
             toggleClass: {targets: `#step-${scrollID}`, className:"onTop"}, // adds class to target when triggered
-            toggleActions: "restart none none none" // onEnter onLeave ... ...
-
+            toggleActions: "restart none none none" 
+            /*
+            onEnter - scrolling down, start meets scroller-start
+            onLeave - scrolling down, end meets scroller-end
+            onEnterBack - scrolling up, end meets scroller-end
+            onLeaveBack - scrolling up, start meets scroller-start
+            */
           }
         }) 
       })
@@ -125,7 +136,7 @@ img {
 }
 #title-container {
   position: fixed;
-  background-image: url("./dry_drought_soil_publicDomain.jpg");
+  background-image: url("https://labs.waterdata.usgs.gov/visualizations/images/dry_drought_soil_publicDomain.jpg");
   background-size: cover;
 }
 #scroll-container {
@@ -142,7 +153,7 @@ img {
   }
 }
 .knockout-text {
-  font-size: 20vh;
+  font-size: 3.75em;
   font-weight: bold;
   font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: #e76254;
@@ -152,6 +163,9 @@ img {
 
 .smaller {
   font-size: 3.75em;
+}
+.bigger {
+  font-size: 20vh;
 }
 .hydro-chart {
   height: auto;
