@@ -57,6 +57,10 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
+# Large image files
+src/components/dry_drought_soil_publicDomain.jpg
+src/assets/images/threshold-chart/aa.png
+
 ###### DO NOT EDIT BELOW THIS LINE ######
 
 # This section should not be edited without careful consideration
