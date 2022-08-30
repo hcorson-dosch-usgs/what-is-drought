@@ -67,7 +67,7 @@ export default {
             // use class to set trigger
          tl.to('.knockout-text', {
           scrollTrigger: {  
-            markers: true,
+            markers: false,
             trigger: '.knockout-text',
             start: "top center",
             end: "top 10%",
@@ -156,7 +156,7 @@ img {
   font-size: 3.75em;
   font-weight: bold;
   font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
-  color: #e76254;
+  color: #E76254;
   background: white;
   mix-blend-mode: lighten;
 }
