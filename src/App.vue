@@ -106,7 +106,7 @@ h1{
   line-height: 1;
   text-align: left;
   text-shadow: 1px 1px 100px rgba(0,0,0,.8);
-    color: $textcolor;
+    //color: $textcolor;
   @media screen and (max-width: 600px) {
     font-size: 4.75em;
   }
@@ -116,9 +116,9 @@ h2{
   text-align: left;
   font-family: $SourceSans;
   font-size: 3.75em;
-  margin-top: 5px;
+  margin-top: 0px;
   line-height: 1.2;
-    color: $textcolor;
+    //color: $textcolor;
   @media screen and (max-width: 600px) {
     font-size: 3em;
   }

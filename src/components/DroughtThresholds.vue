@@ -2,7 +2,7 @@
   <div class="another-container">
     <div class="chart-container">
       <div id="title-container">
-        <h2>What is hydrological drought?</h2>
+        <h2 class="knockout-text">What is streamflow drought?</h2>
       </div>
       <!-- read in frames dynamically -->
       <img
@@ -63,6 +63,27 @@ export default {
       // create the scrolling timeline
       let tl = this.$gsap.timeline(); 
 
+      // things that go before containers
+            // use class to set trigger
+         tl.to('.knockout-text', {
+          scrollTrigger: {  
+            markers: false,
+            trigger: '.knockout-text',
+            start: "top center",
+            end: "top 10%",
+            toggleClass: {targets: `.knockout-text`, className:"bigger"}, // adds class to target when triggered
+            toggleActions: "restart none none none" // onEnter onLeave ... ...
+            /*
+            onEnter - scrolling down, start meets scroller-start
+            onLeave - scrolling down, end meets scroller-end
+            onEnterBack - scrolling up, end meets scroller-end
+            onLeaveBack - scrolling up, start meets scroller-start
+            */
+          }
+        })  
+
+
+
       // find all scrolly divs
       const containers = this.$gsap.utils.toArray(".scrolly");
 
@@ -82,8 +103,13 @@ export default {
             trigger: `.${scrollClass}`,
             start: "top 50%",
             toggleClass: {targets: `#step-${scrollID}`, className:"onTop"}, // adds class to target when triggered
-            toggleActions: "restart none none none" // onEnter onLeave ... ...
-
+            toggleActions: "restart none none none" 
+            /*
+            onEnter - scrolling down, start meets scroller-start
+            onLeave - scrolling down, end meets scroller-end
+            onEnterBack - scrolling up, end meets scroller-end
+            onLeaveBack - scrolling up, start meets scroller-start
+            */
           }
         }) 
       })
@@ -110,6 +136,8 @@ img {
 }
 #title-container {
   position: fixed;
+  background-image: url("https://labs.waterdata.usgs.gov/visualizations/images/dry_drought_soil_publicDomain.jpg");
+  background-size: cover;
 }
 #scroll-container {
   z-index: 200;
@@ -117,17 +145,33 @@ img {
 .text-container {
   z-index: 500;
   border-radius: 25px;
-  background-color: #333534;
+  background: #C33F00;
+  //mix-blend-mode: overlay;
   max-width: 400px;
   p{
     padding: 25px;
   }
 }
+.knockout-text {
+  font-size: 3.75em;
+  font-weight: bold;
+  font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #E76254;
+  background: white;
+  mix-blend-mode: lighten;
+}
+
+.smaller {
+  font-size: 3.75em;
+}
+.bigger {
+  font-size: 20vh;
+}
 .hydro-chart {
   height: auto;
   margin-top: 10%;
   margin-left: 10%;
-  background-color: white;
+  background-color: #3F729C;
   max-height: 700px;
     max-width: 1000px;
     opacity: 0;

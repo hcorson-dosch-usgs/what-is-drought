@@ -5,12 +5,18 @@ export default {
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
+          id: 'aa',
+          text: 'text aa: There are many types of drought, from meteorological drought to hydrological drought, and each type affects different aspects of our nation’s water use. Streamflow drought is one specific form of hydrological drought that is defined based on the rate of flow for a given stream in cubic feet per second.'
+        },
+        {
+          // id is used to source image files with the same naming
+          // and used to assign classes to scrolling text
           id: 'a',
-          text: 'text a: Although we have been hearing a lot about drought in the western US lately, drought can happen anywhere. For example, here\'s one severe streamflow drought that occurred at a site in Ohio in late summer.'
+          text: 'text a: Although we have been hearing a lot about drought in the western US lately, drought can happen anywhere. For example, here\'s one severe streamflow drought that occurred at a site in Ohio in late summer of 1963.'
         },
         {
           id: 'b',
-          text: 'text b: Streamflow droughts like this occur whenever streamflow gets below a certain threshold. The threshold can be defined based on typical streamflow rates over the year or by day. Let’s explore how changing the threshold affects when we detect streamflow droughts at this site.'
+          text: 'text b: Streamflow droughts like this occur whenever streamflow gets below a certain threshold. The threshold can be defined based on typical streamflow rates over the year or by day. Let\’s explore how changing the threshold affects when we detect streamflow droughts at this site.'
         },
         {
           id: 'c',
