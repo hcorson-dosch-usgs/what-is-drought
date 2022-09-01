@@ -7,35 +7,35 @@ p3_targets <- list(
   tar_target(p3_dv_tibble,
              tibble(
                # Drought events
-               dv_drought_fill_variable = "#F7931E",
-               dv_drought_fill_fixed = "#FFCC00",
-               dv_drought_threshold_variable = "#FCC065",
-               dv_drought_threshold_fixed = "#fcee21",
-               dv_drought_textColor = "#fef8a6",
+               dv_drought_fill_variable = "#666666",
+               dv_drought_fill_fixed = "#666666",
+               dv_drought_threshold_variable = "#ffffff",
+               dv_drought_threshold_fixed = "#ffffff",
+               dv_drought_textColor = "#ffffff",
                dv_threshold_line_size = 0.5, #default = 0.5
-               df_fill_outline = "white",
+               df_fill_outline = "#666666",
                dv_fill_outline_size = 0.05, #0.05
                # Streamflow
-               dv_streamflow_line_daily = "#A2D7DE",
-               dv_streamflow_line_annual_average = "#DDEFF2",
-               dv_streamflow_line_daily_average = "#DDEFF2",
-               dv_streamflow_textcolor_daily = "#A2D7DE",
-               dv_streamflow_textcolor_annual_average = "#DDEFF2",
-               dv_streamflow_textcolor_daily_average = "#DDEFF2",
+               dv_streamflow_line_daily = "#333333",
+               dv_streamflow_line_annual_average = "#333333",
+               dv_streamflow_line_daily_average = "#333333",
+               dv_streamflow_textcolor_daily = "#333333",
+               dv_streamflow_textcolor_annual_average = "#333333",
+               dv_streamflow_textcolor_daily_average = "#333333",
                dv_streamflow_line_size = 0.3, #default = 0.5
                # Other Annotations
-               dv_circle_explainer = "#fcee21",
-               dv_shading_fill = "#FFEECE", # should match the css .hydro-chart background-color
-               dv_zoom_box_outline = "black",
-               dv_zoom_box_lines = "black",
-               dv_axis_additions_stackedYear = "#666666",
+               dv_circle_explainer = "#cccccc",
+               dv_zoom_box_outline = "#cccccc",
+               dv_zoom_box_lines = "#cccccc",
+               dv_axis_additions_stackedYear = "#cccccc",
                # png sizing,
                dv_png_width = 1200, 
                dv_png_height = 800,
                # Base plot design
-               dv_basePlot_axis_color = "#DDEFF2",
+               dv_basePlot_axis_color = "#eeeeee",
                dv_basePlot_axis_size = 0.1,
-               dv_basePlot_axis_text_color = "#DDEFF2"
+               dv_basePlot_axis_text_color = "#eeeeee",
+               dv_basePlot_axis_fill_color = "#eeeeee"
              )
   ),
   
@@ -58,11 +58,22 @@ p3_targets <- list(
                         dv_tibble = p3_dv_tibble,
                         growing_season = F)),
   
-  tar_target(p3_inset_map,
-             inset_map(state_fill = "#1e466e",
+  # Inset maps
+      # view = "USA" includes Alaska and Hawaii
+      # view = "CONUS" excludes Alaska and Hawaii
+      # view = "midwest" zooms in on midwest states
+  tar_target(p3_map_midwest,
+             inset_map(state_fill = "#666666",
                        border_size = 0.1,
-                       border_fill = "#ddeff2",
-                       highlight_site_color = "#fcee21")),
+                       border_fill = "#ffffff",
+                       highlight_site_color = "#fcee21",
+                       view = "midwest")),
+  tar_target(p3_inset_map,
+             inset_map(state_fill = "#666666",
+                       border_size = 0.1,
+                       border_fill = "#666666",
+                       highlight_site_color = "#fcee21",
+                       view = "CONUS")),
 
     # Bottom bars are specified in four ways:
       # extent = "fixed one" when only the August fixed threshold drought should show; growing season time frame
@@ -97,7 +108,7 @@ p3_targets <- list(
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed_one,
-                     inset = p3_inset_map,
+                     inset = p3_map_midwest,
                      canvas = p3_canvas,
                      out_png = "src/assets/images/threshold-chart/a.png",
                      dv_tibble = p3_dv_tibble),
@@ -108,7 +119,7 @@ p3_targets <- list(
                      streamflow_df = p2_streamflow_learner_viz_df,
                      droughts_df = p2_droughts_learner_viz_df,
                      bottom_bars = p3_bottom_bars_fixed_one,
-                     inset = p3_inset_map,
+                     inset = p3_map_midwest,
                      canvas = p3_canvas,
                      out_png = "src/assets/images/threshold-chart/b.png",
                      dv_tibble = p3_dv_tibble),
