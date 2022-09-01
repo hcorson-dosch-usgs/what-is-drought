@@ -145,8 +145,7 @@ img {
 .text-container {
   z-index: 500;
   border-radius: 25px;
-  background: #C33F00;
-  //mix-blend-mode: overlay;
+  background: #EC8176;
   max-width: 400px;
   p{
     padding: 25px;
@@ -156,8 +155,8 @@ img {
   font-size: 3.75em;
   font-weight: bold;
   font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
-  color: #E76254;
-  background: white;
+  color: #FFE3AD;
+  background: #5BA5B3;
   mix-blend-mode: lighten;
 }
 
@@ -171,7 +170,7 @@ img {
   height: auto;
   margin-top: 10%;
   margin-left: 10%;
-  background-color: #3F729C;
+  background-color: #999999;
   max-height: 700px;
     max-width: 1000px;
     opacity: 0;
@@ -204,7 +203,7 @@ img {
    z-index: 100;
   p {
     max-width: 700px;
-    color: white;
+    color: black;
   }
 }
 .onTop {
