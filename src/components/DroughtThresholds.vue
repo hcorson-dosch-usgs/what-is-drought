@@ -157,7 +157,7 @@ img {
   font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: #FFE3AD;
   background: #5BA5B3;
-  mix-blend-mode: lighten;
+  //mix-blend-mode: lighten;
 }
 
 .smaller {
