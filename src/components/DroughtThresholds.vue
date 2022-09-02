@@ -4,6 +4,11 @@
       <div id="title-container">
         <h2 class="knockout-text">What is streamflow drought?</h2>
       </div>
+      <div class = 'chevronContainer'>
+        <div class = 'chevron'></div>
+        <div class = 'chevron'></div>
+        <div class = 'chevron'></div>
+      </div>
       <!-- read in frames dynamically -->
       <img
         v-for="frame in frames" 
@@ -130,6 +135,7 @@ export default {
 // handwriting font
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 $writeFont: 'Nanum Pen Script', cursive;
+$base: 0.6rem; //for chevron scroll animation
 // frames are stacked and class is added on an off w/ scroll trigger to bring to front
 img {
   max-width: 80vw;
@@ -158,6 +164,7 @@ img {
   color: #FFE3AD;
   background: #5BA5B3;
   //mix-blend-mode: lighten;
+  padding: 0 0 0 50px;
 }
 
 .smaller {
@@ -217,4 +224,65 @@ img {
 .unstuck {
   position: relative;
 }
+
+.chevronContainer {
+  position: fixed;
+  display: flex;
+  justify-contents: center;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+}
+.chevron {
+  position: absolute;
+  width: $base * 3.5;
+  height: $base * 0.8;
+  opacity: 0;
+  transform: scale(0.3);
+  animation: move-chevron 3s ease-out infinite;
+}
+.chevron:first-child {
+  animation: move-chevron 3s ease-out 1s infinite;
+}
+.chevron:nth-child(2) {
+  animation: move-chevron 3s ease-out 2s infinite;
+}
+.chevron:before,
+.chevron:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: #FFE3AD;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skewY(30deg);
+}
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skewY(-30deg);
+}
+
+@keyframes move-chevron {
+  25% {
+    opacity: 1;
+  }
+  33.3% {
+    opacity: 1;
+    transform: translateY($base * 3.8);
+  }
+  66.6% {
+    opacity: 1;
+    transform: translateY($base * 5.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY($base * 8) scale(0.5);
+  }
+}
+
 </style>
