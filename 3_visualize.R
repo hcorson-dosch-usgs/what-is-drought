@@ -23,7 +23,7 @@ p3_targets <- list(
                dv_streamflow_textcolor_annual_average = "#132B69",
                dv_streamflow_textcolor_daily_average = "#132B69",
                dv_streamflow_fade = "#3F7296",
-               dv_streamflow_line_size = 0.3, #default = 0.5
+               dv_streamflow_line_size = 0.2, #default = 0.5
                # Other Annotations
                dv_circle_explainer = "#000000",
                dv_zoom_box_outline = "#ec8176",
