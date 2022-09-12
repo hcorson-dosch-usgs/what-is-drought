@@ -683,7 +683,8 @@ frame_l <- function(blank_plot,
                     droughts_70yr_j7_df, 
                     canvas, 
                     out_png,
-                    dv_tibble){
+                    dv_tibble,
+                    inset){
   
   
   baseline_fixed <- 310
@@ -697,31 +698,32 @@ frame_l <- function(blank_plot,
              xmax = (droughts_70yr_site_df$end_fakeYr),
              ymin = ((droughts_70yr_site_df$start_year-origin)*4)+baseline_fixed, 
              ymax = ((droughts_70yr_site_df$start_year-origin)*4)+baseline_fixed +1,
-             fill = dv_tibble$dv_drought_fill_fixed) +
+             fill = dv_tibble$dv_drought_fill) +
     # Variable threshold drought durations
     annotate("rect", # variable threshold
              xmin = (droughts_70yr_j7_df$start_fakeYr),
              xmax = (droughts_70yr_j7_df$end_fakeYr),
              ymin = ((droughts_70yr_j7_df$start_year-origin)*4)+baseline_variable, 
              ymax = ((droughts_70yr_j7_df$start_year-origin)*4)+baseline_variable + 1,
-             fill = dv_tibble$dv_drought_fill_variable)+
+             fill = dv_tibble$dv_drought_fill)+
     annotate("text", label = "Periods of Drought with a Variable Threshold", 
              x = as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), hjust = 0,
-             y = 280, color = dv_tibble$dv_drought_textColor, size = 2) +
+             y = 280, color = dv_tibble$dv_drought_text_color, size = 2) +
     annotate("text", label = "Periods of Drought with a Fixed Threshold", 
              x = as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), hjust = 0,
-             y = 620, color = dv_tibble$dv_drought_textColor, size = 2) +
+             y = 620, color = dv_tibble$dv_drought_text_color, size = 2) +
     annotate("text", label = c("1950", "2020", "1950", "2020"), 
              x = rep(as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'),4),
              y = c(baseline_variable, baseline_variable + 280,
                    baseline_fixed, baseline_fixed + 280),
-             color = dv_tibble$dv_drought_textColor,
+             color = dv_tibble$dv_drought_text_color,
              size = 1, hjust =1.1) 
   
 
   
   plot <- add_core_plot_elements(text = 'frame l', 
-                                 main = main)
+                                 main = main,
+                                 inset = inset)
   
   
   
