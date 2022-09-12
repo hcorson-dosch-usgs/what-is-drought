@@ -151,7 +151,7 @@ img {
 .text-container {
   z-index: 500;
   border-radius: 25px;
-  background: #EC8176;
+  background: #FFE3AD;
   max-width: 400px;
   p{
     padding: 25px;
@@ -177,7 +177,7 @@ img {
   height: auto;
   margin-top: 10%;
   margin-left: 10%;
-  background-color: #999999;
+  background-color: #5BA5B3;
   max-height: 700px;
     max-width: 1000px;
     opacity: 0;

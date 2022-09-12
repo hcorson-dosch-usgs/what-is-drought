@@ -7,26 +7,27 @@ p3_targets <- list(
   tar_target(p3_dv_tibble,
              tibble(
                # Drought events
-               dv_drought_fill_variable = "#666666",
-               dv_drought_fill_fixed = "#666666",
-               dv_drought_threshold_variable = "#ffffff",
-               dv_drought_threshold_fixed = "#ffffff",
-               dv_drought_textColor = "#ffffff",
+               dv_drought_fill_variable = "#ffE3ad",
+               dv_drought_fill_fixed = "#ffE3ad",
+               dv_drought_threshold_variable = "#ffE3ad",
+               dv_drought_threshold_fixed = "#ffE3ad",
+               dv_drought_textColor = "#ffE3ad",
                dv_threshold_line_size = 0.5, #default = 0.5
                df_fill_outline = "#666666",
-               dv_fill_outline_size = 0.05, #0.05
+               dv_fill_outline_size = 0, #0.05
                # Streamflow
-               dv_streamflow_line_daily = "#333333",
-               dv_streamflow_line_annual_average = "#333333",
-               dv_streamflow_line_daily_average = "#333333",
-               dv_streamflow_textcolor_daily = "#333333",
-               dv_streamflow_textcolor_annual_average = "#333333",
-               dv_streamflow_textcolor_daily_average = "#333333",
+               dv_streamflow_line_daily = "#132B69",
+               dv_streamflow_line_annual_average = "#132B69",
+               dv_streamflow_line_daily_average = "#132B69",
+               dv_streamflow_textcolor_daily = "#132B69",
+               dv_streamflow_textcolor_annual_average = "#132B69",
+               dv_streamflow_textcolor_daily_average = "#132B69",
+               dv_streamflow_fade = "#3F7296",
                dv_streamflow_line_size = 0.3, #default = 0.5
                # Other Annotations
-               dv_circle_explainer = "#cccccc",
-               dv_zoom_box_outline = "#cccccc",
-               dv_zoom_box_lines = "#cccccc",
+               dv_circle_explainer = "#000000",
+               dv_zoom_box_outline = "#ec8176",
+               dv_zoom_box_lines = "#ec8176",
                dv_axis_additions_stackedYear = "#cccccc",
                # png sizing,
                dv_png_width = 1200, 
@@ -35,7 +36,7 @@ p3_targets <- list(
                dv_basePlot_axis_color = "#eeeeee",
                dv_basePlot_axis_size = 0.1,
                dv_basePlot_axis_text_color = "#eeeeee",
-               dv_basePlot_axis_fill_color = "#eeeeee"
+               dv_basePlot_axis_fill_color = "#a2d7d3"
              )
   ),
   
@@ -62,15 +63,15 @@ p3_targets <- list(
       # view = "CONUS" excludes Alaska and Hawaii
       # view = "midwest" zooms in on midwest states
   tar_target(p3_map_midwest,
-             inset_map(state_fill = "#666666",
+             inset_map(state_fill = "#1E466E",
                        border_size = 0.05,
-                       border_color = "#ffffff",
-                       highlight_site_color = "#fcee21",
+                       border_color = "#5BA5B3",
+                       highlight_site_color = "#ec8176",
                        view = "midwest")),
   tar_target(p3_inset_map,
-             inset_map(state_fill = "#666666",
+             inset_map(state_fill = "#1E466E",
                        border_size = 0.05,
-                       border_color = "#666666",
+                       border_color = "#1E466E",
                        highlight_site_color = "#fcee21",
                        view = "CONUS")),
 
