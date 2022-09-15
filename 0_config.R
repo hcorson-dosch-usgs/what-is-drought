@@ -1,5 +1,3 @@
-source("0_config/src/authentication_helpers.R")
-
 p0_targets <- list(
   
   # Set parent ScienceBase item ID 
@@ -10,10 +8,5 @@ p0_targets <- list(
   
   # Set date for re-fetching data
   # Change this if you want to repull the data
-  tar_target(p0_sb_fetch_date, "2022-07-18"),
-  
-  # Make sure that the user can authenticate to ScienceBase for later targets that push
-  # or pull. Targets that need to push/pull from ScienceBase will use this as input.
-  tar_target(p0_sb_credentials_exist, has_sb_credentials())
-  
+  tar_target(p0_sb_fetch_date, "2022-09-15")
 )
