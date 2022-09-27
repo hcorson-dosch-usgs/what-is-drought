@@ -96,7 +96,7 @@ inset_map <- function(state_fill,
       geom_polygon(data = gage_location, aes(x = long, y = lat, group = group), 
                    color = highlight_site_color, 
                    fill = highlight_site_color, size = 0.5)+
-      coord_fixed(1.3) +
+      coord_map("conic", lat0 = 30)+
       theme_void()
   
   return(inset)
