@@ -589,10 +589,10 @@ frame_j <- function(blank_plot, streamflow_df, droughts_df,
              ymin = -30, ymax = 250,
              fill = dv_tibble$dv_drought_fill, 
              color = dv_tibble$df_fill_outline_color, size = dv_tibble$dv_fill_outline_size) +
-    annotate("text", label = "Periods of Drought with a Variable Threshold", 
+    annotate("text", label = "Variable Threshold Droughts", 
               x = as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'), hjust = 0,
               y = 280, color = dv_tibble$dv_drought_text_color, size = 2) +
-    annotate("text", label = "Periods of Drought with a Fixed Threshold", 
+    annotate("text", label = "Fixed Threshold Droughts", 
               x = as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'), hjust = 0,
               y = 620, color = dv_tibble$dv_drought_text_color, size = 2)
   
@@ -630,10 +630,10 @@ frame_k <- function(blank_plot, streamflow_df, droughts_df,
              ymin = -30, ymax = 250,
              fill = dv_tibble$dv_drought_fill, 
              color = dv_tibble$df_fill_outline_color, size = dv_tibble$dv_fill_outline_size) +
-    annotate("text", label = "Periods of Drought with a Variable Threshold", 
+    annotate("text", label = "Variable Threshold Droughts", 
              x = as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 280, color = dv_tibble$dv_drought_text_color, size = 2) +
-    annotate("text", label = "Periods of Drought with a Fixed Threshold", 
+    annotate("text", label = "Fixed Threshold Droughts", 
              x = as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 620, color = dv_tibble$dv_drought_text_color, size = 2)  
   
@@ -678,10 +678,10 @@ frame_l <- function(blank_plot,
              ymin = ((droughts_70yr_j7_df$start_year-origin)*4)+baseline_variable, 
              ymax = ((droughts_70yr_j7_df$start_year-origin)*4)+baseline_variable + 1,
              fill = dv_tibble$dv_drought_fill)+
-    annotate("text", label = "Periods of Drought with a Variable Threshold", 
+    annotate("text", label = "Variable Threshold Droughts", 
              x = as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 280, color = dv_tibble$dv_drought_text_color, size = 2) +
-    annotate("text", label = "Periods of Drought with a Fixed Threshold", 
+    annotate("text", label = "Fixed Threshold Droughts", 
              x = as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 620, color = dv_tibble$dv_drought_text_color, size = 2) +
     annotate("text", label = c("1950", "2020", "1950", "2020"), 
