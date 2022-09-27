@@ -1,50 +1,22 @@
 blank_plot <- function(streamflow_df, dv_tibble, growing_season = T){
   
-  axis_rects <- data.frame(
-    ymax = rep(-70, 6),
-    ymin = rep(-100, 6),
-    xmin = c(as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/06/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/07/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/09/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/10/%s", focal_year),'%d/%m/%Y')),
-    xmax = c(as.Date(sprintf("31/05/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/06/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/07/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/08/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/09/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("14/10/%s", focal_year),'%d/%m/%Y'))
-  )
-  axis_rects_year <- data.frame(
+
+  axis_rects_year <- tibble(
     ymax = rep(-70, 12),
     ymin = rep(-100, 12),
-    xmin = c(as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/02/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/03/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/04/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/06/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/07/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/09/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/10/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/11/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/12/%s", focal_year),'%d/%m/%Y')),
-    xmax = c(as.Date(sprintf("31/01/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("28/02/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/03/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/04/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/05/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/06/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/07/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/08/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/09/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/10/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/11/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/12/%s", focal_year),'%d/%m/%Y'))
+    xmin = seq.Date(as.Date(sprintf('01/01/%s', focal_year),'%d/%m/%Y'), 
+                    as.Date(sprintf('01/12/%s', focal_year),'%d/%m/%Y'), 
+                    by = '1 month'),
+    xmax = xmin + lubridate::period("1 month")-lubridate::period("1 day")
   )
   
+  axis_rects <- axis_rects_year %>%
+    filter(xmin <= as.Date(sprintf('01/10/%s', focal_year),'%d/%m/%Y'),
+           xmin >= as.Date(sprintf('01/05/%s', focal_year),'%d/%m/%Y')) %>%
+    # cut October off on the 14th
+    mutate(xmax = case_when(xmin == as.Date(sprintf('01/10/%s', focal_year),'%d/%m/%Y') ~ 
+                              as.Date(sprintf('14/10/%s', focal_year),'%d/%m/%Y'),
+                            TRUE ~ xmax))
   
   blank_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     # Axis bars
@@ -124,7 +96,7 @@ inset_map <- function(state_fill,
       geom_polygon(data = gage_location, aes(x = long, y = lat, group = group), 
                    color = highlight_site_color, 
                    fill = highlight_site_color, size = 0.5)+
-      coord_fixed(1.3) +
+      coord_map("conic", lat0 = 30)+
       theme_void()
   
   return(inset)
@@ -617,10 +589,10 @@ frame_j <- function(blank_plot, streamflow_df, droughts_df,
              ymin = -30, ymax = 250,
              fill = dv_tibble$dv_drought_fill, 
              color = dv_tibble$df_fill_outline_color, size = dv_tibble$dv_fill_outline_size) +
-    annotate("text", label = "Periods of Drought with a Variable Threshold", 
+    annotate("text", label = "Variable Threshold Droughts", 
               x = as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'), hjust = 0,
               y = 280, color = dv_tibble$dv_drought_text_color, size = 2) +
-    annotate("text", label = "Periods of Drought with a Fixed Threshold", 
+    annotate("text", label = "Fixed Threshold Droughts", 
               x = as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'), hjust = 0,
               y = 620, color = dv_tibble$dv_drought_text_color, size = 2)
   
@@ -658,10 +630,10 @@ frame_k <- function(blank_plot, streamflow_df, droughts_df,
              ymin = -30, ymax = 250,
              fill = dv_tibble$dv_drought_fill, 
              color = dv_tibble$df_fill_outline_color, size = dv_tibble$dv_fill_outline_size) +
-    annotate("text", label = "Periods of Drought with a Variable Threshold", 
+    annotate("text", label = "Variable Threshold Droughts", 
              x = as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 280, color = dv_tibble$dv_drought_text_color, size = 2) +
-    annotate("text", label = "Periods of Drought with a Fixed Threshold", 
+    annotate("text", label = "Fixed Threshold Droughts", 
              x = as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 620, color = dv_tibble$dv_drought_text_color, size = 2)  
   
@@ -706,10 +678,10 @@ frame_l <- function(blank_plot,
              ymin = ((droughts_70yr_j7_df$start_year-origin)*4)+baseline_variable, 
              ymax = ((droughts_70yr_j7_df$start_year-origin)*4)+baseline_variable + 1,
              fill = dv_tibble$dv_drought_fill)+
-    annotate("text", label = "Periods of Drought with a Variable Threshold", 
+    annotate("text", label = "Variable Threshold Droughts", 
              x = as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 280, color = dv_tibble$dv_drought_text_color, size = 2) +
-    annotate("text", label = "Periods of Drought with a Fixed Threshold", 
+    annotate("text", label = "Fixed Threshold Droughts", 
              x = as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'), hjust = 0,
              y = 620, color = dv_tibble$dv_drought_text_color, size = 2) +
     annotate("text", label = c("1950", "2020", "1950", "2020"), 
