@@ -5,8 +5,26 @@ export default {
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
-          id: 'aa',
-          text: 'text aa: There are many types of drought, from meteorological drought to hydrological drought, and each type affects different aspects of our nation’s water use. Streamflow drought is one specific form of hydrological drought that is defined based on the rate of flow for a given stream in cubic feet per second.'
+          id: 'aa01',
+          text: 'text aa01: There are many different types of drought, with varying effects on our daily lives.'
+        },
+        {
+          // id is used to source image files with the same naming
+          // and used to assign classes to scrolling text
+          id: 'aa02',
+          text: 'text aa02: Drought often begins as meterological drought, which means that there is less rain or snow melt than expected.'
+        },
+        {
+          // id is used to source image files with the same naming
+          // and used to assign classes to scrolling text
+          id: 'aa03',
+          text: 'text aa03: Meterological drought can lead to agricultural drought, which is where soil moisture becomes depleted and our crops and livestock begin to suffer and farmers rely on using irrigation.'
+        },
+        {
+          // id is used to source image files with the same naming
+          // and used to assign classes to scrolling text
+          id: 'aa04',
+          text: 'text aa04: Prolonged agricultural drought can begin to cause hydrological drought, which affects deeper soil layers and eventually reduces streamflow. Streamflow drought is one type of hydrological drought.'
         },
         {
           // id is used to source image files with the same naming
@@ -20,47 +38,43 @@ export default {
         },
         {
           id: 'c',
-          text: 'text c: To begin, let\'s start with a hydrograph, which is a plot of streamflow over time. We can compare typical values as the daily average streamflow to actual values, represented by daily streamflow.'
+          text: 'text c: To begin, start with a hydrograph, which is a plot of streamflow over time. Here, we are looking at daily streamflow during the growing season of 1963. '
         },
         {
           id: 'd',
-          text: 'text d: A \"fixed\" threshold is created by first calculating average streamflow across all years and days.'
+          text: 'text d: A \"fixed\" threshold is created by first calculating average streamflow across all years and days and then calculating 10% of this annual average streamflow as the threshold.'
         },
         {
           id: 'e',
-          text: 'text e: And then calculating 10% of this annual average streamflow as the threshold. A drought is defined here as any time when streamflow is below 10% of the annual average streamflow.'
+          text: 'text e: That\'s how these periods of drought were defined. These dry-season droughts are especially important to detect for hydropower production and for aquatic ecosystems that rely on water year-round.'
         },
         {
           id: 'f',
-          text: 'text f: That\'s how these periods of drought were defined. These dry-season droughts are especially important to detect for hydropower or water system intakes where the absolute water level at any time of the year is really important.'
+          text: 'text f: But droughts can also occur in the spring and winter when we expect wetter conditions and greater streamflow from rain showers and snow melt! To understand this, let\'s zoom out and look at the average daily streamflow for the last 70 years or so.'
         },
         {
           id: 'g',
-          text: 'text g: But droughts can also occur in the spring and winter when we expect wetter conditions and greater streamflow from rain showers and snow melt!'
+          text: 'text g: In 1963, spring streamflow was much lower than a typical spring.'
         },
         {
           id: 'h',
-          text: 'text h: For example, in this year, spring streamflow was much lower than a typical spring.'
+          text: 'text h: To detect droughts in wetter seasons like this, we have to calculate a variable threshold as 10% of the average daily streamflow.'
         },
         {
           id: 'i',
-          text: 'text i: To detect droughts in wetter seasons, we have to calculate a variable threshold as 10% of the average daily streamflow.'
+          text: 'text i: By zooming back in, now we detect several droughts that happened in the spring. These wetter-season droughts are important to identify for city water managers trying to fill their reservoirs or for farmers planting early season crops.'
         },
         {
           id: 'j',
-          text: 'text j: Now we detect several droughts that happened in the spring. These wetter-season droughts are important to identify for city water managers trying to fill their reservoirs or for farmers planting early season crops.'
+          text: 'text j: When we use both ways of looking at drought, we can identify droughts during the spring when streamflow is higher and during the summer when streamflow is extremely low. Having this ability to know when drought is occurring throughout the year makes it easier to use water sustainably.'
         },
         {
           id: 'k',
-          text: 'text k: When we use both ways of looking at drought, we can identify droughts during the spring when streamflow is higher and during the summer when streamflow is extremely low. Having this ability to know when drought is occurring throughout the year makes it easier to use water sustainably.'
+          text: 'text k: These seasonal patterns are even more distinct when we look at the whole year.'
         },
         {
           id: 'l',
-          text: 'text l: These seasonal patterns are even more distinct when we look at the whole year.'
-        },
-        {
-          id: 'm',
-          text: 'text m: And even more recognizable across the past 70 years.'
+          text: 'text l: And even more recognizable across the past 70 years.'
         }
         ]
   };

@@ -15,9 +15,10 @@ tar_option_set(packages = c("retry",
                             'scico',
                             'scales',
                             'ggthemes',
-                            'usmap',
+                            'maps',
+                            'mapdata',
                             'cowplot',
-                            'ggbeeswarm'))
+                            'mapproj'))
 
 # Phase target makefiles
 source("0_config.R")
