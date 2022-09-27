@@ -1,50 +1,22 @@
 blank_plot <- function(streamflow_df, dv_tibble, growing_season = T){
   
-  axis_rects <- data.frame(
-    ymax = rep(-70, 6),
-    ymin = rep(-100, 6),
-    xmin = c(as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/06/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/07/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/09/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/10/%s", focal_year),'%d/%m/%Y')),
-    xmax = c(as.Date(sprintf("31/05/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/06/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/07/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/08/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/09/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("14/10/%s", focal_year),'%d/%m/%Y'))
-  )
-  axis_rects_year <- data.frame(
+
+  axis_rects_year <- tibble(
     ymax = rep(-70, 12),
     ymin = rep(-100, 12),
-    xmin = c(as.Date(sprintf("01/01/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/02/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/03/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/04/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/06/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/07/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/08/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/09/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/10/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/11/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("01/12/%s", focal_year),'%d/%m/%Y')),
-    xmax = c(as.Date(sprintf("31/01/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("28/02/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/03/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/04/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/05/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/06/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/07/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/08/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/09/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/10/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("30/11/%s", focal_year),'%d/%m/%Y'),
-             as.Date(sprintf("31/12/%s", focal_year),'%d/%m/%Y'))
+    xmin = seq.Date(as.Date(sprintf('01/01/%s', focal_year),'%d/%m/%Y'), 
+                    as.Date(sprintf('01/12/%s', focal_year),'%d/%m/%Y'), 
+                    by = '1 month'),
+    xmax = xmin + lubridate::period("1 month")-lubridate::period("1 day")
   )
   
+  axis_rects <- axis_rects_year %>%
+    filter(xmin <= as.Date(sprintf('01/10/%s', focal_year),'%d/%m/%Y'),
+           xmin >= as.Date(sprintf('01/05/%s', focal_year),'%d/%m/%Y')) %>%
+    # cut October off on the 14th
+    mutate(xmax = case_when(xmin == as.Date(sprintf('01/10/%s', focal_year),'%d/%m/%Y') ~ 
+                              as.Date(sprintf('14/10/%s', focal_year),'%d/%m/%Y'),
+                            TRUE ~ xmax))
   
   blank_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     # Axis bars
