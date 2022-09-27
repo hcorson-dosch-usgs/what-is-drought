@@ -21,6 +21,22 @@
 #' @return a character string with the name of the secret that was created successfully
 set_up_auth <- function(user_email, secret_name = "sciencebase", vault = "sb.vault") {
   
+  # Try to specify user key location if it doesn't exist
+  if(Sys.getenv("USER_KEY") == "") {
+    # Specify USER_KEY environmental variable (see `?secret::local_key`)
+    if(file.exists(file.path(Sys.getenv("USERPROFILE"), ".ssh\\id_rsa"))) {
+      Sys.setenv(USER_KEY = file.path(Sys.getenv("USERPROFILE"), ".ssh\\id_rsa"))
+    } else {
+      stop("Specify location of user key with `Sys.setenv(USER_KEY = <path>)`")
+    }
+  }
+  
+  # Create vault if it doesn't already exist
+  if(!file.exists(vault)) {
+    create_vault(vault)
+  }
+  
+  
   # Skip adding a user if they exist already:
   if(!user_email %in% list_users(vault)) {
     # Add the user
