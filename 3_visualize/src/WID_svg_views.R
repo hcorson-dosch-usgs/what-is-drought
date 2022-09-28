@@ -198,19 +198,17 @@ create_zoomed_explainer_svg <- function(streamflow_df, dv_tibble, out_svg){
     theme_void()+
     
     # Hydrograph elements
-    geom_polygon(data = fill_drought, aes(group = id, x = dt, y = value),
-                 fill = dv_tibble$dv_drought_fill)+
     geom_line(color = dv_tibble$dv_streamflow_line_color, 
               size = dv_tibble$dv_streamflow_line_size)+
     geom_line(aes(y = thresh_10_site), 
               color = dv_tibble$dv_drought_threshold, 
               size = dv_tibble$dv_threshold_line_size)+
     
-    # Have to add 0.4 before and after dates to fill corners 
+    # Drought fill: Have to add 0.4 before and after dates to fill corners 
     annotate("ribbon", x = c(min(fill_drought_bottom$dt)-0.4, fill_drought_bottom$dt, max(fill_drought_bottom$dt)+0.4),
              ymin = c(45,fill_drought_bottom$value, 45),
              ymax = c(45,fill_drought_top$value, 45),
-             fill = "red")+
+             fill = dv_tibble$dv_drought_fill)+
     
     # Labels
     annotate("text", label = "Daily\n  streamflow", 
