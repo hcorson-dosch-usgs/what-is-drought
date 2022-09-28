@@ -143,11 +143,11 @@ create_hydrograph_views_svg <- function(streamflow_df, droughts_df, dv_tibble, y
   if(yaxis_max == 1400){
     plot <- base_plot +
       # Average daily streamflow
-      geom_line(aes(y = mean_flow), color = dv_tibble$dv_streamflow_fade_color,
+      geom_line(aes(y = mean_flow), color = dv_tibble$dv_streamflow_line_color,
                 size = dv_tibble$dv_streamflow_line_size)+
       annotate("text", label = "Average daily\nstreamflow\n(1951-2020)",
                x = as.Date(sprintf("17/07/%s", focal_year),'%d/%m/%Y'), hjust = 0,
-               y = 800, color = dv_tibble$dv_streamflow_fade_color, size = 2)+
+               y = 800, color = dv_tibble$dv_streamflow_text_color, size = 2)+
       
       # Circle explainer
       annotate("point", x = as.Date(sprintf("13/05/%s", focal_year),'%d/%m/%Y'), y = 110,
