@@ -1,4 +1,5 @@
 source('3_visualize/src/drought_learner_viz_components.R')
+source('3_visualize/src/WID_svg_views.R')
 
 p3_targets <- list(
        
@@ -187,6 +188,47 @@ p3_targets <- list(
                      out_png = "src/assets/images/threshold-chart/l.png",
                      dv_tibble = p3_dv_tibble,
                      inset = p3_inset_map),
+             format = "file"),
+  
+  # Add in the main views and export them to SVG for manual prep in AI
+  tar_target(p3_WID_view_midwest_svg,
+             create_map_views_svg(state_fill = "#1E466E",
+                                     border_size = 0.05,
+                                     border_color = "#5BA5B3",
+                                     highlight_site_color = "#ec8176",
+                                     view = "midwest",
+                                     out_svg = "3_visualize/out/view_M1_midwest.svg"),
+             format = "file"),
+  
+  tar_target(p3_WID_view_conus_svg,
+             create_map_views_svg(state_fill = "#1E466E",
+                                  border_size = 0.05,
+                                  border_color = "#1E466E",
+                                  highlight_site_color = "#fcee21",
+                                  view = "CONUS",
+                                  out_svg = "3_visualize/out/view_M2_conus.svg"),
+             format = "file"),
+  
+  tar_target(p3_WID_view_main_hydrograph_svg,
+             create_hydrograph_views_svg(streamflow_df = p2_streamflow_learner_viz_df, 
+                                         droughts_df = p2_droughts_learner_viz_df,
+                                         dv_tibble = p3_dv_tibble, 
+                                         yaxis_max = 800, 
+                                         out_svg = "3_visualize/out/view_H1_main.svg"),
+             format = "file"),
+  
+  tar_target(p3_WID_view_scaledY_hydrograph_svg,
+             create_hydrograph_views_svg(streamflow_df = p2_streamflow_learner_viz_df, 
+                                         droughts_df = p2_droughts_learner_viz_df,
+                                         dv_tibble = p3_dv_tibble, 
+                                         yaxis_max = 1400, 
+                                         out_svg = "3_visualize/out/view_H2_scaledY.svg"),
+             format = "file"),
+  
+  tar_target(p3_WID_view_zoomed_inset_svg,
+             create_zoomed_explainer_svg(streamflow_df = p2_streamflow_learner_viz_df, 
+                                         dv_tibble = p3_dv_tibble, 
+                                         out_svg = "3_visualize/out/view_Z1_zoomed_inset.svg"),
              format = "file")
 )
 

@@ -18,7 +18,8 @@ tar_option_set(packages = c("retry",
                             'maps',
                             'mapdata',
                             'cowplot',
-                            'mapproj'))
+                            'mapproj',
+                            'svglite'))
 
 # Phase target makefiles
 source("0_config.R")
