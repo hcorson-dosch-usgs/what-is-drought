@@ -59,7 +59,7 @@ create_hydrograph_views_svg <- function(streamflow_df, droughts_df, dv_tibble, y
     theme_void()+
     theme(axis.text.x = element_text(size = 6,
                                      color = dv_tibble$dv_basePlot_axis_text_color,
-                                     vjust = 10))+
+                                     vjust = 5))+
     scale_x_date(labels = date_format("%b"), 
                  date_breaks  ="1 month",
                  limits = c(as.Date(sprintf("01/05/%s", focal_year),'%d/%m/%Y'), 
