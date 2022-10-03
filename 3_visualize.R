@@ -298,6 +298,15 @@ p3_targets <- list(
                                          out_svg = "3_visualize/out/view_H2_scaledY.svg"),
              format = "file"),
   
+  tar_target(p3_WID_view_stacked_hydrograph_svg,
+             create_stacked_hydrograph_svg(streamflow_df = p2_streamflow_learner_viz_df, 
+                                           droughts_df = p2_droughts_learner_viz_df,
+                                           droughts_70yr_site_df = p2_droughts_70year_stacked_site_df, 
+                                           droughts_70yr_j7_df = p2_droughts_70year_stacked_j7_df, 
+                                           dv_tibble = p3_dv_tibble,
+                                           out_svg = "3_visualize/out/view_H3_stacked.svg"),
+             format = "file"),
+  
   tar_target(p3_WID_view_zoomed_inset_svg,
              create_zoomed_explainer_svg(streamflow_df = p2_streamflow_learner_viz_df, 
                                          dv_tibble = p3_dv_tibble, 

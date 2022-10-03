@@ -681,7 +681,7 @@ frame_k <- function(blank_plot,
              ymin = -30, ymax = 700,
              fill = dv_tibble$dv_drought_fill, alpha = 0.2,
              color = dv_tibble$df_fill_outline_color, size = dv_tibble$dv_fill_outline_size) +
-    # Variable Threshold
+    # Fixed Threshold
     geom_line(aes(y = thresh_10_site, x = dt), color = dv_tibble$dv_drought_threshold,
               size = dv_tibble$dv_threshold_line_size)
   
