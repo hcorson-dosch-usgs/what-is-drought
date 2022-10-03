@@ -262,6 +262,9 @@ p3_targets <- list(
              format = "file"),
   
   # Add in the main views and export them to SVG for manual prep in AI
+  tar_target(p3_axis_rectangles,
+             create_axis_rectangles()),
+  
   tar_target(p3_WID_view_midwest_svg,
              create_map_views_svg(state_fill = "#1E466E",
                                   border_size = 0.05,
@@ -286,6 +289,7 @@ p3_targets <- list(
              create_hydrograph_views_svg(streamflow_df = p2_streamflow_learner_viz_df, 
                                          droughts_df = p2_droughts_learner_viz_df,
                                          dv_tibble = p3_dv_tibble, 
+                                         axis_rects = p3_axis_rectangles,
                                          yaxis_max = 800, 
                                          out_svg = "3_visualize/out/view_H1_main.svg"),
              format = "file"),
@@ -294,6 +298,7 @@ p3_targets <- list(
              create_hydrograph_views_svg(streamflow_df = p2_streamflow_learner_viz_df, 
                                          droughts_df = p2_droughts_learner_viz_df,
                                          dv_tibble = p3_dv_tibble, 
+                                         axis_rects = p3_axis_rectangles,
                                          yaxis_max = 1400, 
                                          out_svg = "3_visualize/out/view_H2_scaledY.svg"),
              format = "file"),
@@ -303,6 +308,7 @@ p3_targets <- list(
                                            droughts_df = p2_droughts_learner_viz_df,
                                            droughts_70yr_site_df = p2_droughts_70year_stacked_site_df, 
                                            droughts_70yr_j7_df = p2_droughts_70year_stacked_j7_df, 
+                                           axis_rects = p3_axis_rectangles,
                                            dv_tibble = p3_dv_tibble,
                                            out_svg = "3_visualize/out/view_H3_stacked.svg"),
              format = "file"),

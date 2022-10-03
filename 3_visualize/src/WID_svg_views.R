@@ -35,9 +35,7 @@ create_map_views_svg <- function(state_fill,
          width = 1000, height = 1000, units = "px")
 }
 
-
-create_hydrograph_views_svg <- function(streamflow_df, droughts_df, dv_tibble, yaxis_max, out_svg){
-  
+create_axis_rectangles <- function(){
   # x-axis rectangles
   axis_rects <- tibble(
     ymax = rep(-70, 6),
@@ -51,6 +49,11 @@ create_hydrograph_views_svg <- function(streamflow_df, droughts_df, dv_tibble, y
     mutate(xmax = case_when(xmin == as.Date(sprintf('01/10/%s', focal_year),'%d/%m/%Y') ~ 
                               as.Date(sprintf('14/10/%s', focal_year),'%d/%m/%Y'),
                             TRUE ~ xmax))
+}
+
+create_hydrograph_views_svg <- function(streamflow_df, droughts_df, axis_rects, dv_tibble, yaxis_max, out_svg){
+  
+
   
   base_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     scale_y_continuous(limits = c(-100, yaxis_max))+
@@ -259,22 +262,11 @@ create_stacked_hydrograph_svg <- function(streamflow_df,
                                           droughts_df,
                                           droughts_70yr_site_df, 
                                           droughts_70yr_j7_df, 
+                                          axis_rects,
                                           dv_tibble, 
                                           out_svg){
   
-  # x-axis rectangles
-  axis_rects <- tibble(
-    ymax = rep(-70, 6),
-    ymin = rep(-100, 6),
-    xmin = seq.Date(as.Date(sprintf('01/05/%s', focal_year),'%d/%m/%Y'), 
-                    as.Date(sprintf('01/10/%s', focal_year),'%d/%m/%Y'), 
-                    by = '1 month'),
-    xmax = xmin + lubridate::period("1 month") - lubridate::period("1 day")
-  ) %>%
-    # cut October off on the 14th
-    mutate(xmax = case_when(xmin == as.Date(sprintf('01/10/%s', focal_year),'%d/%m/%Y') ~ 
-                              as.Date(sprintf('14/10/%s', focal_year),'%d/%m/%Y'),
-                            TRUE ~ xmax))
+
   
   base_plot <- ggplot(data = streamflow_df, aes(y = value, x = dt))+
     scale_y_continuous(limits = c(-100, 800))+
