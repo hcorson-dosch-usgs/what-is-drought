@@ -2,7 +2,7 @@ source('3_visualize/src/drought_learner_viz_components.R')
 source('3_visualize/src/WID_svg_views.R')
 
 p3_targets <- list(
-       
+  
   
   # Global design variables to be used in each frame, with "dv_" as prefix for "design variable"
   tar_target(p3_dv_tibble,
@@ -36,35 +36,37 @@ p3_targets <- list(
   #
   # NOTE: Must make sure that target 'p2_1951_2020_metadata_subset' includes the correct data
   #
-
-    # This is for most frames, focused on growing season
+  
+  # This is for most frames, focused on growing season
   tar_target(p3_blank_plot_summer,
              blank_plot(streamflow_df = p2_streamflow_learner_viz_df,
                         dv_tibble = p3_dv_tibble,
                         growing_season = T)),
   
-    # This is for the frames showing a whole year
+  # This is for the frames showing a whole year
   tar_target(p3_blank_plot_year,
              blank_plot(streamflow_df = p2_streamflow_learner_viz_df,
                         dv_tibble = p3_dv_tibble,
                         growing_season = F)),
   
   # Inset maps
-      # view = "CONUS" excludes Alaska and Hawaii
-      # view = "midwest" zooms in on midwest states
+  # view = "CONUS" excludes Alaska and Hawaii
+  # view = "midwest" zooms in on midwest states
   tar_target(p3_map_midwest,
              inset_map(state_fill = "#1E466E",
                        border_size = 0.05,
                        border_color = "#5BA5B3",
-                       highlight_site_color = "#ec8176",
-                       view = "midwest")),
+                       highlight_site_color = "#fcee21",
+                       view = "midwest",
+                       site_info = p2_metadata %>% filter(StaID == focal_StaID))),
   tar_target(p3_inset_map,
              inset_map(state_fill = "#1E466E",
                        border_size = 0.05,
                        border_color = "#1E466E",
                        highlight_site_color = "#fcee21",
-                       view = "CONUS")),
-
+                       view = "CONUS",
+                       site_info = p2_metadata %>% filter(StaID == focal_StaID))),
+  
   
   
   # Frames 
@@ -262,11 +264,12 @@ p3_targets <- list(
   # Add in the main views and export them to SVG for manual prep in AI
   tar_target(p3_WID_view_midwest_svg,
              create_map_views_svg(state_fill = "#1E466E",
-                                     border_size = 0.05,
-                                     border_color = "#5BA5B3",
-                                     highlight_site_color = "#ec8176",
-                                     view = "midwest",
-                                     out_svg = "3_visualize/out/view_M1_midwest.svg"),
+                                  border_size = 0.05,
+                                  border_color = "#5BA5B3",
+                                  highlight_site_color = "#fcee21",
+                                  view = "midwest",
+                                  out_svg = "3_visualize/out/view_M1_midwest.svg",
+                                  site_info = p2_metadata %>% filter(StaID == focal_StaID)),
              format = "file"),
   
   tar_target(p3_WID_view_conus_svg,
@@ -275,7 +278,8 @@ p3_targets <- list(
                                   border_color = "#1E466E",
                                   highlight_site_color = "#fcee21",
                                   view = "CONUS",
-                                  out_svg = "3_visualize/out/view_M2_conus.svg"),
+                                  out_svg = "3_visualize/out/view_M2_conus.svg",
+                                  site_info = p2_metadata %>% filter(StaID == focal_StaID)),
              format = "file"),
   
   tar_target(p3_WID_view_main_hydrograph_svg,

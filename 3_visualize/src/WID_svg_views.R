@@ -3,13 +3,11 @@ create_map_views_svg <- function(state_fill,
                                  border_color,
                                  highlight_site_color,
                                  view,
-                                 out_svg){
+                                 out_svg,
+                                 site_info){
   
   
-  # Inset map
-  gage_location <- ggplot2::map_data('county') %>%
-    filter(region == 'ohio',
-           subregion == 'franklin')
+
   
   if(view == "CONUS"){
     state <- ggplot2::map_data('state')
@@ -20,16 +18,16 @@ create_map_views_svg <- function(state_fill,
                            "kentucky"))
   }
   
-  
+  # Just needs a numeric value so that it can be mapped
+  site_info$group <- 2036
   
   inset <-  
     ggplot(data = state, aes(x = long, y = lat, group = group)) + 
     geom_polygon(fill = state_fill,
                  color = border_color,
                  size = border_size) +       
-    geom_polygon(data = gage_location, aes(x = long, y = lat, group = group), 
-                 color = highlight_site_color, 
-                 fill = highlight_site_color, size = 0.5)+
+    geom_point(data = site_info, aes(x = LNG_GAGE, y = LAT_GAGE), 
+               color = highlight_site_color, size = 2)+
     coord_map("conic", lat0 = 30)+
     theme_void()
   
