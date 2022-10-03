@@ -22,8 +22,8 @@ p3_targets <- list(
                # Other Annotations
                dv_circle_explainer = "#000000",
                # png sizing,
-               dv_png_width = 1200, 
-               dv_png_height = 800,
+               dv_png_width = 1000, 
+               dv_png_height = 1000,
                # Base plot design
                dv_basePlot_axis_text_color = "#a2d7d3",
                dv_basePlot_axis_fill_color = "#a2d7d3"
