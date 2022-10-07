@@ -5,25 +5,25 @@ export default {
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
-          id: 'aa01',
+          id: 'aa02',
           text: 'text aa01: There are many different types of drought, with varying effects on our daily lives.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
-          id: 'aa02',
+          id: 'aa03',
           text: 'text aa02: Drought often begins as meterological drought, which means that there is less rain or snow melt than expected.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
-          id: 'aa03',
+          id: 'aa04',
           text: 'text aa03: Meterological drought can lead to agricultural drought, which is where soil moisture becomes depleted and our crops and livestock begin to suffer and farmers rely on using irrigation.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
-          id: 'aa04',
+          id: 'aa05',
           text: 'text aa04: Prolonged agricultural drought can begin to cause hydrological drought, which affects deeper soil layers and eventually reduces streamflow. Streamflow drought is one type of hydrological drought.'
         },
         {
