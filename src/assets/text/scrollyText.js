@@ -2,7 +2,7 @@ import { time } from "vue-analytics";
 
 export default {
       frames: [
-        {
+        /* {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa02',
@@ -25,7 +25,7 @@ export default {
           // and used to assign classes to scrolling text
           id: 'aa05',
           text: 'text aa04: Prolonged agricultural drought can begin to cause hydrological drought, which affects deeper soil layers and eventually reduces streamflow. Streamflow drought is one type of hydrological drought.'
-        },
+        },*/
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
