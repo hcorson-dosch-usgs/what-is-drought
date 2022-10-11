@@ -2,7 +2,9 @@
   <div class="another-container">
     <div class="chart-container">
       <div id="title-container">
-        <h2 class="knockout-text">What is streamflow drought?</h2>
+        <h2 class="knockout-text">
+          What is streamflow drought?
+        </h2>
       </div>
       <!-- read in frames dynamically -->
       <img
