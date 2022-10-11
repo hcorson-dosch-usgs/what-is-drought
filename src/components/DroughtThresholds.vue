@@ -1060,7 +1060,6 @@ img {
 }
 #title-container {
   position: fixed;
-  background-image: url("https://labs.waterdata.usgs.gov/visualizations/images/dry_drought_soil_publicDomain.jpg");
   background-size: cover;
 }
 #scroll-container {
@@ -1080,8 +1079,6 @@ img {
   font-weight: bold;
   font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: #FFE3AD;
-  background: #5BA5B3;
-  //mix-blend-mode: lighten;
   padding: 0 0 0 50px;
 }
 
@@ -1096,8 +1093,8 @@ img {
   margin-top: 10%;
   margin-left: 10%;
   max-height: 700px;
-    max-width: 1000px;
-    width: 65vw;
+  max-width: 700px;
+  width: 65vw;
   position: fixed;
   top: 10%;
   left: 35vh;
