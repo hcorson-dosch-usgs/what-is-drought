@@ -205,6 +205,7 @@
               </g>
 			      </g>
         </defs>
+
         <g class="drought hidden" id="step-a">
           <use xlink:href="#axis"/>
           <rect x="149.4" y="216.6" width="17" height="7.1"/>
@@ -223,24 +224,20 @@
 				  <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
 			  </g>
         <g class="hidden" id="step-b">
-				  <circle class="inset" cx="157.8" cy="55.1" r="43"/>
+				  <circle class="inset"  cx="158.5" cy="70" r="57"/>
           <g>
-            <polygon class="drought fade" points="138.1,61.2 139.4,61.2 142.6,61.2 145.8,61.2 149,61.2 152.2,61.2 155.4,61.2 158.6,61.2 
-              161.8,61.2 165,61.2 168.2,61.2 171.4,61.2 174.6,61.2 177.8,61.2 181.1,61.2 182.3,61.2 182.3,61.2 181.1,67.1 177.8,78.2 
-              174.6,89.5 171.4,91.1 168.2,91.8 165,91.8 161.8,92.1 158.6,92.1 155.4,71.5 152.2,64.9 149,65.6 145.8,64.9 142.6,64.9 
-              139.4,65.6 					"/>
-            <polyline class="streamflow" points="138.1,61.2 139.4,61.2 142.6,61.2 145.8,61.2 149,61.2 152.2,61.2 155.4,61.2 158.6,61.2 
-              161.8,61.2 165,61.2 168.2,61.2 171.4,61.2 174.6,61.2 177.8,61.2 181.1,61.2 182.3,61.2 					"/>
-            <polyline class="streamflow" points="123.3,31.7 126.5,31.7 129.7,31.7 132.9,33.9 136.2,53.8 139.4,65.6 142.6,64.9 145.8,64.9 
-              149,65.6 152.2,64.9 155.4,71.5 158.6,92.1 161.8,92.1 165,91.8 168.2,91.8 171.4,91.1 174.6,89.5 177.8,78.2 181.1,67.1 
-              184.3,52.4 187.5,53.8 190.7,52.4 193.9,52.4 197.1,52.4 					"/>
-            <polyline class="threshold" points="123.3,61.2 126.5,61.2 129.7,61.2 132.9,61.2 136.2,61.2 139.4,61.2 142.6,61.2 145.8,61.2 
-              149,61.2 152.2,61.2 155.4,61.2 158.6,61.2 161.8,61.2 165,61.2 168.2,61.2 171.4,61.2 174.6,61.2 177.8,61.2 181.1,61.2 
-              184.3,61.2 187.5,61.2 190.7,61.2 193.9,61.2 197.1,61.2 					"/>
-            <text transform="matrix(1 0 0 1 132.9402 30.1523)" class="streamtext">Daily</text>
-            <text transform="matrix(1 0 0 1 134.9402 38.9004)" class="streamtext">streamflow</text>
-            <text transform="matrix(1 0 0 1 139.3562 57.7793)" class="threshtext">Drought threshold</text>
-            <text transform="matrix(1 0 0 1 159.9968 75.7002)" class="streamtext">Drought</text>
+            <polygon class="drought fade" points="132.3,78 134,78 138.3,78 142.5,78 146.8,78 151.1,78 155.3,78 159.6,78 163.8,78 168.1,78 
+				      172.4,78 176.6,78 180.9,78 185.1,78 189.4,78 191.1,78 191.1,78 189.4,85.9 185.1,100.6 180.9,115.6 176.6,117.7 172.4,118.6 
+				      168.1,118.6 163.8,119 159.6,119 155.3,91.8 151.1,82.9 146.8,83.9 142.5,82.9 138.3,82.9 134,83.9 			"/>
+            <polyline class="streamflow" points="112.7,38.9 117,38.9 121.3,38.9 125.5,41.8 129.8,68.2 134,83.9 138.3,82.9 142.5,82.9 146.8,83.9 
+				      151.1,82.9 155.3,91.8 159.6,119 163.8,119 168.1,118.6 172.4,118.6 176.6,117.7 180.9,115.6 185.1,100.6 189.4,85.9 193.6,66.3 
+				      197.9,68.2 202.2,66.3 206.4,66.3 210.7,66.3 			"/>
+			      <polyline class="threshold" points="112.7,78 117,78 121.3,78 125.5,78 129.8,78 134,78 138.3,78 142.5,78 146.8,78 151.1,78 155.3,78 
+				      159.6,78 163.8,78 168.1,78 172.4,78 176.6,78 180.9,78 185.1,78 189.4,78 193.6,78 197.9,78 202.2,78 206.4,78 210.7,78 			"/>
+            <text transform="matrix(1 0 0 1 125.5088 36.7912)" class="streamtext">Daily</text>
+            <text transform="matrix(1 0 0 1 127.1646 43.0948)" class="streamtext">streamflow</text>
+            <text transform="matrix(1 0 0 1 137.0284 73.4738)" class="threshtext">Drought threshold</text>
+            <text transform="matrix(1 0 0 1 158.4341 97.2697)" class="streamtext">Drought</text>
           </g>
 			  </g>
         <g class="hidden" id="step-c">
@@ -275,28 +272,28 @@
           <use xlink:href="#axis"/>
           <g id="average_streamflow">
             <use xlink:href="#average streamflow"/>
-            <text transform="matrix(1 0 0 1 111.501 89.7202)" class="streamtext">Average daily</text>
-            <text transform="matrix(1 0 0 1 111.51 97.92)" class="streamtext">streamflow</text>
-            <text transform="matrix(1 0 0 1 111.51 106.11)" class="streamtext">(1951-2020)</text>
+            <text transform="matrix(1 0 0 1 113.501 89.7202)" class="streamtext">Average daily</text>
+            <text transform="matrix(1 0 0 1 113.51 97.92)" class="streamtext">streamflow</text>
+            <text transform="matrix(1 0 0 1 113.51 106.11)" class="streamtext">(1951-2020)</text>
           </g>
 			    <g id="scaled_daily_streamflow">
             <use xlink:href="#scaled daily streamflow"/>
-            <text transform="matrix(1 0 0 1 56.64 125.07)" class="streamtext">Daily</text>
-            <text transform="matrix(1 0 0 1 56.64 133.26)" class="streamtext">streamflow</text>
+            <text transform="matrix(1 0 0 1 54.64 133.07)" class="streamtext">Daily</text>
+            <text transform="matrix(1 0 0 1 55.64 140.26)" class="streamtext">streamflow</text>
 			    </g>
         </g>
         <g class="hidden" id="step-g">
           <use xlink:href="#axis"/>
           <g id="average_streamflow">
             <use xlink:href="#average streamflow"/>
-            <text transform="matrix(1 0 0 1 111.501 89.7202)" class="streamtext">Average daily</text>
-            <text transform="matrix(1 0 0 1 111.51 97.92)" class="streamtext">streamflow</text>
-            <text transform="matrix(1 0 0 1 111.51 106.11)" class="streamtext">(1951-2020)</text>
+            <text transform="matrix(1 0 0 1 113.501 89.7202)" class="streamtext">Average daily</text>
+            <text transform="matrix(1 0 0 1 113.51 97.92)" class="streamtext">streamflow</text>
+            <text transform="matrix(1 0 0 1 113.51 106.11)" class="streamtext">(1951-2020)</text>
           </g>
 			    <g id="scaled_daily_streamflow">
             <use xlink:href="#scaled daily streamflow"/>
-            <text transform="matrix(1 0 0 1 56.64 125.07)" class="streamtext">Daily</text>
-            <text transform="matrix(1 0 0 1 56.64 133.26)" class="streamtext">streamflow</text>
+            <text transform="matrix(1 0 0 1 54.64 133.07)" class="streamtext">Daily</text>
+            <text transform="matrix(1 0 0 1 55.64 140.26)" class="streamtext">streamflow</text>
 			    </g>
           <g id="explainer">
             <g class="explainer">
@@ -314,14 +311,14 @@
           <use xlink:href="#scaled variable threshold"/>
           <g id="average_streamflow">
             <use xlink:href="#average streamflow"/>
-            <text transform="matrix(1 0 0 1 111.501 89.7202)" class="streamtext">Average daily</text>
-            <text transform="matrix(1 0 0 1 111.51 97.92)" class="streamtext">streamflow</text>
-            <text transform="matrix(1 0 0 1 111.51 106.11)" class="streamtext">(1951-2020)</text>
+            <text transform="matrix(1 0 0 1 113.501 89.7202)" class="streamtext">Average daily</text>
+            <text transform="matrix(1 0 0 1 113.51 97.92)" class="streamtext">streamflow</text>
+            <text transform="matrix(1 0 0 1 113.51 106.11)" class="streamtext">(1951-2020)</text>
           </g>
 			    <g id="scaled_daily_streamflow">
             <use xlink:href="#scaled daily streamflow"/>
-            <text transform="matrix(1 0 0 1 56.64 125.07)" class="streamtext">Daily</text>
-            <text transform="matrix(1 0 0 1 56.64 133.26)" class="streamtext">streamflow</text>
+            <text transform="matrix(1 0 0 1 54.64 133.07)" class="streamtext">Daily</text>
+            <text transform="matrix(1 0 0 1 55.64 140.26)" class="streamtext">streamflow</text>
 			    </g>
         </g>
         <g class="hidden" id="step-i">
@@ -1002,6 +999,8 @@ img {
 .hidden{
   visibility: hidden;
 }
+
+
 
 
 .axis{
