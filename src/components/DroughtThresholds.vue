@@ -648,11 +648,7 @@
         <g class="hidden" id="step-j">
           <use xlink:href="#axis"/>
           <use xlink:href="#stacked variable threshold"/>
-          <g id="daily_streamflow">
-            <use xlink:href="#stacked streamflow bottom"/>
-            <text transform="matrix(1 0 0 1 56.64 138.56)" class="streamtext">Daily</text>
-            <text transform="matrix(1 0 0 1 56.64 146.75)" class="streamtext">streamflow</text>
-          </g>
+
           <g id="variable droughts" class="drought">
             <rect x="17.4" y="216.7" width="11.8" height="7"/>
             <rect x="39.7" y="216.7" width="5.2" height="7"/>
@@ -662,6 +658,11 @@
             <rect x="39.7" y="126.8" class="fade" width="5.2" height="84.3"/>
             <rect x="73.6" y="126.8" class="fade" width="9.2" height="84.3"/>
             <rect x="149.4" y="126.8" class="fade" width="15.7" height="84.3"/>
+          </g>
+          <g id="daily_streamflow">
+            <use xlink:href="#stacked streamflow bottom"/>
+            <text transform="matrix(1 0 0 1 56.64 138.56)" class="streamtext">Daily</text>
+            <text transform="matrix(1 0 0 1 56.64 146.75)" class="streamtext">streamflow</text>
           </g>
           <g id="top_axis" class="axis">
             <rect x="10.9" y="105.7" width="39.2" height="7"/>
@@ -1105,13 +1106,7 @@ export default {
           }
         })  
 
-        tl.to('.gage', {
-          scrollTrigger: {
-          trigger: ".gage",
-          start: "top center",
-          end: "top 10%",
-          toggleClass: {targets: '.gage', className:'visible'}
-        }})
+
 
       // find all scrolly divs
       const containers = this.$gsap.utils.toArray(".scrolly");
