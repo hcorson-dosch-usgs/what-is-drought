@@ -6,71 +6,67 @@ export default {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa01',
-          text: 'text aa01: There are many different types of drought, with varying effects on our daily lives.'
+          text: 'Drought is increasing worldwide, threatening our water supplies and affecting our daily lives. What starts with reduced rain can progress to impacts on soil moisture and streamflow.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa02',
-          text: 'text aa02: Drought often begins as meterological drought, which means that there is less rain or snow melt than expected.'
+          text: 'When there is less rainfall or snowmelt than typical, this can cause meteorological drought.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa03',
-          text: 'text aa03: Meterological drought can lead to agricultural drought, which is where soil moisture becomes depleted and our crops and livestock begin to suffer and farmers rely on using irrigation.'
+          text: 'When soil moisture becomes depleted, agricultural drought sets in. To keep crops and livestock healthy, farmers use more water for irrigation.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa04',
-          text: 'text aa04: Prolonged agricultural drought can begin to cause hydrological drought, which affects deeper soil layers and eventually reduces streamflow. Streamflow drought is one type of hydrological drought.'
+          text: 'As these conditions persist, less water moves into and through streams. When streamflow levels are unusually low, this is defined as streamflow drought. But what does "unusually low" really mean?'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'a',
-          text: 'text a: Although we have been hearing a lot about drought in the western US lately, drought can happen anywhere. For example, here\'s one severe streamflow drought that occurred at a site in Ohio in late summer of 1963.'
+          text: 'Consider this Ohio streamgage site in the late summer of 1963. On August 15th there was a severe streamflow drought.'
         },
         {
           id: 'b',
-          text: 'text b: Streamflow droughts like this occur whenever streamflow gets below a certain threshold. The threshold can be defined based on typical streamflow rates over the year or by day. Let\’s explore how changing the threshold affects when we detect streamflow droughts at this site.'
+          text: 'We can call streamflow unusually low whenever streamflow drops below a certain level or threshold. Here, drought happened when flow dropped below 45 cubic feet per second (cfs). Why 45 cfs? There are two methods to choose that threshold, depending on the questions we are trying to answer.'
         },
         {
           id: 'c',
-          text: 'text c: To begin, start with a hydrograph, which is a plot of streamflow over time. Here, we are looking at daily streamflow during the growing season of 1963. '
+          text: 'To begin, we need to consider historical conditions. Over the past 70 years at this site in Ohio, average daily streamflow ranged from 100 to 2700 cfs, with August through October typically having the lowest streamflow during the year.'
         },
         {
           id: 'd',
-          text: 'text d: A \"fixed\" threshold is created by first calculating average streamflow across all years and days and then calculating 10% of this annual average streamflow as the threshold.'
+          text: 'By considering records across the whole year, streamflow levels that fall below a threshold of 45 cfs are in the lowest 10%. This fixed threshold of 45 cfs is constant from day-to-day and identifies drought events only during the dry season when the lowest streamflow levels occur.'
         },
         {
           id: 'e',
-          text: 'text e: That\'s how these periods of drought were defined. These dry-season droughts are especially important to detect for hydropower production and for aquatic ecosystems that rely on water year-round.'
+          text: 'Using a 10% fixed threshold identifies two drought events in 1963 in the dry season. Unusually low flow at this time of year can reduce hydropower production, impair water quality, and require reservoir releases to provide water to communities.'
         },
         {
           id: 'f',
-          text: 'text f: But droughts can also occur in the spring and winter when we expect wetter conditions and greater streamflow from rain showers and snow melt! To understand this, let\'s zoom out and look at the average daily streamflow for the last 70 years or so.'
+          text: 'But drought can also occur during wetter seasons if flow levels are unusually low for that time of year. To identify seasonal drought events, let\'s zoom out and look at the average daily streamflow for the last 70 years.'
         },
         {
           id: 'g',
-          text: 'text g: In 1963, spring streamflow was much lower than a typical spring.'
+          text: 'In 1963, spring streamflow was much lower than in a typical spring but still not as low as during the dry season.'
         },
         {
           id: 'h',
-          text: 'text h: To detect droughts in wetter seasons like this, we have to calculate a variable threshold as 10% of the average daily streamflow.'
+          text: 'To identify drought events during wetter times of the year, a variable threshold can be used to compare streamflow to typical conditions at that time of the year. Streamflow drought occurs if streamflow falls below the lowest 10% of observations ever recorded for that day. The result is a threshold that varies day to day.'
         },
         {
           id: 'i',
-          text: 'text i: By zooming back in, now we detect several droughts that happened in the spring. These wetter-season droughts are important to identify for city water managers trying to fill their reservoirs or for farmers planting early season crops.'
+          text: 'The variable threshold detects several drought events in the spring during the wet season. Low stream levels in the spring can reduce inflow to water supply reservoirs and impact early season crops. This method also detects the drought in August, when streamflow was unusually low for even the dry season.'
         },
         {
           id: 'j',
-          text: 'text j: When we use both ways of looking at drought, we can identify droughts during the spring when streamflow is higher and during the summer when streamflow is extremely low. Having this ability to know when drought is occurring throughout the year makes it easier to use water sustainably.'
-        },
-        {
-          id: 'k',
-          text: 'text k: These seasonal patterns are even more distinct when we look at the past 70 years.'
+          text: 'By pairing the two methods, we get a more comprehensive understanding of streamflow drought. This complete picture of drought patterns can inform water management, guide drought prediction, and help us use water more sustainably throughout the year.'
         }
         ]
   };

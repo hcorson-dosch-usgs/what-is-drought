@@ -556,7 +556,7 @@
         <g class="hidden" id="step-d">
           <use xlink:href="#axis"/>
           <use xlink:href="#fixed threshold"/>
-				  <text transform="matrix(1 0 0 1 31.81 198.53)" class="threshtext">10% of annual average streamflow</text>
+				  <text transform="matrix(1 0 0 1 31.81 198.53)" class="threshtext">Drought threshold</text>
           <use xlink:href="#daily streamflow"/>
 				  <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
 				  <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
@@ -570,7 +570,7 @@
             <rect x="178.1" y="34.3" class="fade" width="39.2" height="172.8"/>
 			    </g>
           <use xlink:href="#fixed threshold"/>
-				  <text transform="matrix(1 0 0 1 31.81 198.53)" class="threshtext">10% of annual average streamflow</text>
+				  <text transform="matrix(1 0 0 1 31.81 198.53)" class="threshtext">Drought threshold</text>
           <use xlink:href="#daily streamflow"/>
 				<text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
 				<text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
