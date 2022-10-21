@@ -42,7 +42,7 @@ export default {
         },
         {
           id: 'd',
-          text: 'By considering records across the whole year, streamflow levels that fall below a threshold of 45 cfs are in the lowest 10%. This fixed threshold of 45 cfs is constant from day-to-day and identifies drought events only during the dry season when the lowest streamflow levels occur.'
+          text: 'By considering records across the whole year, streamflow levels that fall below a threshold of 45 cfs are in the lowest 10%. This fixed threshold of 45 cfs is constant from day-to-day and identifies these drought events during the dry season when the lowest streamflow levels occur.'
         },
         {
           id: 'e',
@@ -58,7 +58,7 @@ export default {
         },
         {
           id: 'h',
-          text: 'To identify drought events during wetter times of the year, a variable threshold can be used to compare streamflow to typical conditions at that time of the year. Streamflow drought occurs if streamflow falls below the lowest 10% of observations ever recorded for that day. The result is a threshold that varies day to day.'
+          text: 'To identify drought events during wetter times of the year, a variable threshold can be used to compare streamflow to typical conditions at that time of the year. Here, streamflow drought occurs if streamflow falls below the lowest 10% of observations ever recorded for that day. The result is a threshold that varies day to day.'
         },
         {
           id: 'i',
