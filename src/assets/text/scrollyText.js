@@ -34,7 +34,7 @@ export default {
         },
         {
           id: 'b',
-          text: 'We can call streamflow unusually low whenever streamflow drops below a certain level or threshold. Here, drought happened when flow dropped below 45 cubic feet per second (cfs). Why 45 cfs? There are two methods to choose that threshold, depending on the questions we are trying to answer.'
+          text: 'We can say that streamflow is 'unusually low' whenever streamflow drops below a certain level or threshold. Here, that threshold was defined as 45 cubic feet per second (cfs). Why 45 cfs? There are two methods to choose that threshold, depending on the questions we are trying to answer.'
         },
         {
           id: 'c',
