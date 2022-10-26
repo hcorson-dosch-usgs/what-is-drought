@@ -836,11 +836,14 @@ $base: 0.6rem; //for chevron scroll animation
   background-size: cover;
 }
 .knockout-text {
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: bold;
   font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: #FFE3AD;
   padding: 0 0 0 50px;
+  @media (min-width: 900px){
+    font-size:3.0em;
+  }
 }
 .bigger {
   font-size: 15vh;
@@ -853,6 +856,7 @@ $base: 0.6rem; //for chevron scroll animation
     "textbox"
     "chart";
   grid-gap: 0;
+  align-content: start;
   width:100%;
   height: 80vh;
   position: fixed;
@@ -869,7 +873,9 @@ $base: 0.6rem; //for chevron scroll animation
   padding: 5rem 1rem;
   font-size: 1.2rem;
   grid-area: chart; // names the grid child component
+  place-self: center;
 }
+
 
 
 #textbox-container{
@@ -880,7 +886,7 @@ $base: 0.6rem; //for chevron scroll animation
   background: #FFE3AD;
   position:fixed;
   p{
-    padding: 25px;
+    padding: 15px;
   }
   @media (min-width:900px) {
     max-width:25%;
@@ -901,11 +907,11 @@ $base: 0.6rem; //for chevron scroll animation
 
 .hydro-chart {
   position:sticky;
-  width: 100%;
+  width: 80vw;
   height: auto;
   /*aspect-ratio: 1/1;*/
   @media (min-width: 900px) {
-    width: 70vh;
+    width: 65vh;
   }
 }
 
