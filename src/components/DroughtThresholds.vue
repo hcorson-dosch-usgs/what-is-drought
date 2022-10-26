@@ -661,44 +661,6 @@ $base: 0.6rem; //for chevron scroll animation
   position: fixed;
   background-size: cover;
 }
-
-.grid-container{
-  --auto-grid-min-size: 25rem;
-  display: grid;
-  grid-template-rows: repeat(2, minmax(var(--auto-grid-min-size), 1fr));
-  grid-template-columns: repeat(2, minmax(var(--auto-grid-min-size), 1fr));
-  grid-gap: 1rem;
-  max-height: 80vh;
-  background-color: orchid;
-  position: fixed;
-  left: center;
-  top: 250px;
-}
-
-#hydro-chart-container{
-  padding: 5rem 1rem;
-  font-size: 1.2rem;
-  background: #f4a93b;
-  color: #ffffff;
-}
-
-#scroll-container {
-  padding: 5rem 1rem;
-  font-size: 1.2rem;
-}
-.text-container {
-  z-index: 500;
-  border-radius: 25px;
-  background: #FFE3AD;
-  max-width: 400px;
-  position:fixed;
-  p{
-    padding: 25px;
-  }
-}
-#textbox-container{
-  background-color:black;
-}
 .knockout-text {
   font-size: 3em;
   font-weight: bold;
@@ -706,22 +668,70 @@ $base: 0.6rem; //for chevron scroll animation
   color: #FFE3AD;
   padding: 0 0 0 50px;
 }
+.bigger {
+  font-size: 15vh;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "textbox"
+    "chart";
+  grid-gap: 0;
+  width:100%;
+  height: 80vh;
+  position: fixed;
+  left: 10px;
+  top: 250px;
+  @media (min-width: 900px){
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "textbox chart"
+  }
+}
+
+#hydro-chart-container{
+  padding: 5rem 1rem;
+  font-size: 1.2rem;
+  grid-area: chart; // names the grid child component
+}
+
+
+#textbox-container{
+  grid-area: textbox; // names the grid child component
+}
+.text-container {
+  border-radius: 25px;
+  background: #FFE3AD;
+  position:fixed;
+  p{
+    padding: 25px;
+  }
+  @media (min-width:900px) {
+    max-width:25%;
+  }
+}
+
+#scroll-container {
+  padding: 5rem 1rem;
+}
+
+
 
 .scrolly{
   height:60vh;
 }
 
 
-.bigger {
-  font-size: 15vh;
-}
+
 .hydro-chart {
   position:sticky;
   width: 100%;
-  //height: auto;
+  height: auto;
   /*aspect-ratio: 1/1;*/
   @media (min-width: 900px) {
-    width: 400px;
+    width: 70vh;
   }
 }
 
