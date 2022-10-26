@@ -516,7 +516,531 @@
             <g class="medBlue"><use xlink:href="#inner_river"/></g>
           </g>
 
-          
+          <g class="drought hidden" id="step-a">
+            <use xlink:href="#axis"/>
+            <rect x="149.4" y="216.6" width="17" height="7.1"/>
+            <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+            <use xlink:href="#daily streamflow"/>
+            <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
+            <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
+          </g>
+          <g class="drought hidden" id="step-b">
+            <use xlink:href="#axis"/>
+            <rect x="149.4" y="216.6" width="17" height="7.1"/>
+            <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+            <use xlink:href="#fixed threshold"/>
+            <use xlink:href="#daily streamflow"/>
+            <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
+            <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
+          </g>
+          <g class="hidden" id="step-b">
+            <circle class="inset"  cx="158.5" cy="70" r="57"/>
+            <g>
+              <polygon class="drought fade" points="132.3,78 134,78 138.3,78 142.5,78 146.8,78 151.1,78 155.3,78 159.6,78 163.8,78 168.1,78 
+                172.4,78 176.6,78 180.9,78 185.1,78 189.4,78 191.1,78 191.1,78 189.4,85.9 185.1,100.6 180.9,115.6 176.6,117.7 172.4,118.6 
+                168.1,118.6 163.8,119 159.6,119 155.3,91.8 151.1,82.9 146.8,83.9 142.5,82.9 138.3,82.9 134,83.9 			"/>
+              <polyline class="streamflow" points="112.7,38.9 117,38.9 121.3,38.9 125.5,41.8 129.8,68.2 134,83.9 138.3,82.9 142.5,82.9 146.8,83.9 
+                151.1,82.9 155.3,91.8 159.6,119 163.8,119 168.1,118.6 172.4,118.6 176.6,117.7 180.9,115.6 185.1,100.6 189.4,85.9 193.6,66.3 
+                197.9,68.2 202.2,66.3 206.4,66.3 210.7,66.3 			"/>
+              <polyline class="threshold" points="112.7,78 117,78 121.3,78 125.5,78 129.8,78 134,78 138.3,78 142.5,78 146.8,78 151.1,78 155.3,78 
+                159.6,78 163.8,78 168.1,78 172.4,78 176.6,78 180.9,78 185.1,78 189.4,78 193.6,78 197.9,78 202.2,78 206.4,78 210.7,78 			"/>
+              <text transform="matrix(1 0 0 1 125.5088 36.7912)" class="streamtext">Daily</text>
+              <text transform="matrix(1 0 0 1 127.1646 43.0948)" class="streamtext">streamflow</text>
+              <text transform="matrix(1 0 0 1 137.0284 73.4738)" class="threshtext">Drought threshold</text>
+              <text transform="matrix(1 0 0 1 158.4341 97.2697)" class="streamtext">Drought</text>
+            </g>
+          </g>
+          <g class="hidden" id="step-c">
+            <use xlink:href="#axis"/>
+            <use xlink:href="#daily streamflow"/>
+            <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
+            <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
+          </g>
+          <g class="hidden" id="step-d">
+            <use xlink:href="#axis"/>
+            <use xlink:href="#fixed threshold"/>
+            <text transform="matrix(1 0 0 1 31.81 198.53)" class="threshtext">Drought threshold</text>
+            <use xlink:href="#daily streamflow"/>
+            <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
+            <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
+          </g>
+          <g class="hidden" id="step-e">
+            <use xlink:href="#axis"/>
+            <g class="drought">
+              <rect x="149.4" y="216.6" width="17" height="7.1"/>
+              <rect x="178.1" y="216.6" width="39.2" height="7.1"/>
+              <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+              <rect x="178.1" y="34.3" class="fade" width="39.2" height="172.8"/>
+            </g>
+            <use xlink:href="#fixed threshold"/>
+            <text transform="matrix(1 0 0 1 31.81 198.53)" class="threshtext">Drought threshold</text>
+            <use xlink:href="#daily streamflow"/>
+          <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
+          <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
+          </g>
+          <g class="hidden" id="step-f">
+            <use xlink:href="#axis"/>
+            <g id="average_streamflow">
+              <use xlink:href="#average streamflow"/>
+              <text transform="matrix(1 0 0 1 113.501 89.7202)" class="streamtext">Average daily</text>
+              <text transform="matrix(1 0 0 1 113.51 97.92)" class="streamtext">streamflow</text>
+              <text transform="matrix(1 0 0 1 113.51 106.11)" class="streamtext">(1951-2020)</text>
+            </g>
+            <g id="scaled_daily_streamflow">
+              <use xlink:href="#scaled daily streamflow"/>
+              <text transform="matrix(1 0 0 1 54.64 133.07)" class="streamtext">Daily</text>
+              <text transform="matrix(1 0 0 1 55.64 140.26)" class="streamtext">streamflow</text>
+            </g>
+          </g>
+          <g class="hidden" id="step-g">
+            <use xlink:href="#axis"/>
+            <g id="average_streamflow">
+              <use xlink:href="#average streamflow"/>
+              <text transform="matrix(1 0 0 1 113.501 89.7202)" class="streamtext">Average daily</text>
+              <text transform="matrix(1 0 0 1 113.51 97.92)" class="streamtext">streamflow</text>
+              <text transform="matrix(1 0 0 1 113.51 106.11)" class="streamtext">(1951-2020)</text>
+            </g>
+            <g id="scaled_daily_streamflow">
+              <use xlink:href="#scaled daily streamflow"/>
+              <text transform="matrix(1 0 0 1 54.64 133.07)" class="streamtext">Daily</text>
+              <text transform="matrix(1 0 0 1 55.64 140.26)" class="streamtext">streamflow</text>
+            </g>
+            <g id="explainer">
+              <g class="explainer">
+                <circle cx="26.6" cy="193.9" r="3.6"/>
+                <circle cx="26.6" cy="37.6" r="3.6"/>
+                <line x1="26.6" y1="53.3" x2="26.6" y2="181.1"/>
+                <polyline points="25.2,178.6 26.6,181.1 28,178.6"/>
+              </g>
+              <text transform="matrix(1 0 0 1 27.8901 29.7402)" class="explainertext">Typical daily streamflow</text>
+              <text transform="matrix(1 0 0 1 27.89 210.13)" class="explainertext">Actual daily streamflow</text>
+            </g>
+          </g>
+          <g class="hidden" id="step-h">
+            <use xlink:href="#axis"/>
+            <use xlink:href="#scaled variable threshold"/>
+            <g id="average_streamflow">
+              <use xlink:href="#average streamflow"/>
+              <text transform="matrix(1 0 0 1 113.501 89.7202)" class="streamtext">Average daily</text>
+              <text transform="matrix(1 0 0 1 113.51 97.92)" class="streamtext">streamflow</text>
+              <text transform="matrix(1 0 0 1 113.51 106.11)" class="streamtext">(1951-2020)</text>
+            </g>
+            <g id="scaled_daily_streamflow">
+              <use xlink:href="#scaled daily streamflow"/>
+              <text transform="matrix(1 0 0 1 54.64 133.07)" class="streamtext">Daily</text>
+              <text transform="matrix(1 0 0 1 55.64 140.26)" class="streamtext">streamflow</text>
+            </g>
+          </g>
+          <g class="hidden" id="step-i">
+            <use xlink:href="#axis"/>
+            <g id="variable_droughts" class="drought">
+              <rect x="17.4" y="216.6" width="11.8" height="7.1"/>
+              <rect x="39.7" y="216.6" width="5.2" height="7.1"/>
+              <rect x="73.6" y="216.6" width="9.2" height="7.1"/>
+              <rect x="149.4" y="216.6"  width="15.7" height="7.1"/>
+              <rect x="17.4" y="34.3" class="fade" width="11.8" height="172.8"/>
+              <rect x="39.7" y="34.3" class="fade" width="5.2" height="172.8"/>
+              <rect x="73.6" y="34.3" class="fade" width="9.2" height="172.8"/>
+              <rect x="149.4" y="34.3" class="fade" width="15.7" height="172.8"/>
+            </g>
+            <use xlink:href="#variable threshold"/>
+            <g>
+              <use xlink:href="#daily streamflow"/>
+              <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
+              <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
+            </g>
+          </g>
+          <g class="hidden" id="step-j">
+            <use xlink:href="#axis"/>
+            <use xlink:href="#stacked variable threshold"/>
+
+            <g id="variable droughts" class="drought">
+              <rect x="17.4" y="216.7" width="11.8" height="7"/>
+              <rect x="39.7" y="216.7" width="5.2" height="7"/>
+              <rect x="73.6" y="216.7" width="9.2" height="7"/>
+              <rect x="149.4" y="216.7" width="15.7" height="7"/>
+              <rect x="17.4" y="126.8" class="fade" width="11.8" height="84.3"/>
+              <rect x="39.7" y="126.8" class="fade" width="5.2" height="84.3"/>
+              <rect x="73.6" y="126.8" class="fade" width="9.2" height="84.3"/>
+              <rect x="149.4" y="126.8" class="fade" width="15.7" height="84.3"/>
+            </g>
+            <g id="daily_streamflow">
+              <use xlink:href="#stacked streamflow bottom"/>
+              <text transform="matrix(1 0 0 1 56.64 138.56)" class="streamtext">Daily</text>
+              <text transform="matrix(1 0 0 1 56.64 146.75)" class="streamtext">streamflow</text>
+            </g>
+            <g id="top_axis" class="axis">
+              <rect x="10.9" y="105.7" width="39.2" height="7"/>
+              <rect x="51.4" y="105.7" width="37.9" height="7"/>
+              <rect x="90.6" y="105.7" width="39.2" height="7"/>
+              <rect x="131.1" y="105.7" width="39.2" height="7"/>
+              <rect x="171.6" y="105.7" width="37.9" height="7"/>
+              <rect x="210.8" y="105.7" width="17" height="7"/>
+            </g>
+            <use xlink:href="#stacked fixed threshold"/>
+            <g id="daily_streamflow">
+              <use xlink:href="#stacked streamflow top"/>
+              <text transform="matrix(1 0 0 1 56.64 28.5601)" class="streamtext">Daily</text>
+              <text transform="matrix(1 0 0 1 56.64 36.75)" class="streamtext">streamflow</text>
+            </g>
+            <g id="fixed droughts" class="drought">
+              <rect x="149.4" y="105.7" width="17" height="7"/>
+              <rect x="178.1" y="105.7" width="39.2" height="7"/>
+              <rect x="149.4" y="16.8" class="fade" width="17" height="84.3"/>
+              <rect x="178.1" y="16.8" class="fade" width="39.2" height="84.3"/>
+            </g>
+          </g>
+          <g class="hidden" id="step-k">
+            <use xlink:href="#axis"/>
+            <use xlink:href="#stacked variable threshold"/>
+            <g id="daily_streamflow">
+              <use xlink:href="#stacked streamflow bottom"/>
+              <text transform="matrix(1 0 0 1 56.64 138.56)" class="streamtext">Daily</text>
+              <text transform="matrix(1 0 0 1 56.64 146.75)" class="streamtext">streamflow</text>
+            </g>
+            <g id="variable_70_droughts" class="drought">
+              <g>
+                <rect x="114.1" y="216.6" width="7.8" height="7.1"/>
+                <rect x="60.6" y="216.6" width="47" height="7.1"/>
+                <rect x="13.5" y="216.6" width="5.2" height="7.1"/>
+                <rect x="68.4" y="216.6" width="19.6" height="7.1"/>
+                <rect x="95.8" y="216.6" width="6.5" height="7.1"/>
+                <rect x="148.1" y="216.6" width="6.5" height="7.1"/>
+                <rect x="178.1" y="216.6" width="5.2" height="7.1"/>
+                <rect x="33.1" y="216.6" width="36.6" height="7.1"/>
+                <rect x="86.7" y="216.6" width="11.8" height="7.1"/>
+                <rect x="115.4" y="216.6" width="9.2" height="7.1"/>
+                <rect x="136.3" y="216.6" width="10.4" height="7.1"/>
+                <rect x="153.3" y="216.6" width="15.7" height="7.1"/>
+                <rect x="216" y="216.6" width="10.4" height="7.1"/>
+                <rect x="10.9" y="216.6" width="56.2" height="7.1"/>
+                <rect x="77.5" y="216.6" width="13.1" height="7.1"/>
+                <rect x="101.1" y="216.6" width="7.8" height="7.1"/>
+                <rect x="179.4" y="216.6" width="6.5" height="7.1"/>
+                <rect x="188.6" y="216.6" width="6.5" height="7.1"/>
+                <rect x="44.9" y="216.6" width="15.7" height="7.1"/>
+                <rect x="25.3" y="216.6" width="19.6" height="7.1"/>
+                <rect x="59.2" y="216.6" width="11.8" height="7.1"/>
+                <rect x="91.9" y="216.6" width="35.3" height="7.1"/>
+                <rect x="132.4" y="216.6" width="10.4" height="7.1"/>
+                <rect x="178.1" y="216.6" width="9.1" height="7.1"/>
+                <rect x="17.4" y="216.6" width="11.8" height="7.1"/>
+                <rect x="39.7" y="216.6" width="5.2" height="7.1"/>
+                <rect x="73.6" y="216.6" width="9.2" height="7.1"/>
+                <rect x="149.4" y="216.6" width="15.7" height="7.1"/>
+                <rect x="137.6" y="216.6" width="11.8" height="7.1"/>
+                <rect x="195.1" y="216.6" width="13.1" height="7.1"/>
+                <rect x="35.7" y="216.6" width="7.8" height="7.1"/>
+                <rect x="68.4" y="216.6" width="17" height="7.1"/>
+                <rect x="102.4" y="216.6" width="14.4" height="7.1"/>
+                <rect x="136.3" y="216.6" width="9.1" height="7.1"/>
+                <rect x="166.4" y="216.6" width="13.1" height="7.1"/>
+                <rect x="82.8" y="216.6" width="5.2" height="7.1"/>
+                <rect x="208.2" y="216.6" width="13.1" height="7.1"/>
+                <rect x="10.9" y="216.6" width="11.8" height="7.1"/>
+                <rect x="186" y="216.6" width="5.2" height="7.1"/>
+                <rect x="206.9" y="216.6" width="7.8" height="7.1"/>
+                <rect x="65.8" y="216.6" width="5.2" height="7.1"/>
+                <rect x="103.7" y="216.6" width="23.5" height="7.1"/>
+                <rect x="155.9" y="216.6" width="9.1" height="7.1"/>
+                <rect x="44.9" y="216.6" width="15.7" height="7.1"/>
+                <rect x="125.9" y="216.6" width="14.4" height="7.1"/>
+                <rect x="162.5" y="216.6" width="6.5" height="7.1"/>
+                <rect x="127.2" y="216.6" width="5.2" height="7.1"/>
+                <rect x="145.5" y="216.6" width="18.3" height="7.1"/>
+                <rect x="170.3" y="216.6" width="6.5" height="7.1"/>
+                <rect x="163.8" y="216.6" width="5.2" height="7.1"/>
+                <rect x="120.7" y="216.6" width="15.7" height="7.1"/>
+                <rect x="167.7" y="216.6" width="17" height="7.1"/>
+                <rect x="197.7" y="216.6" width="10.4" height="7.1"/>
+                <rect x="119.3" y="216.6" width="11.8" height="7.1"/>
+                <rect x="204.3" y="216.6" width="7.8" height="7.1"/>
+                <rect x="132.4" y="216.6" width="17" height="7.1"/>
+                <rect x="187.3" y="216.6" width="30.1" height="7.1"/>
+                <rect x="149.4" y="216.6" width="6.5" height="7.1"/>
+                <rect x="172.9" y="216.6" width="26.1" height="7.1"/>
+                <rect x="115.4" y="216.6" width="5.2" height="7.1"/>
+                <rect x="25.3" y="216.6" width="41.8" height="7.1"/>
+                <rect x="74.9" y="216.6" width="23.5" height="7.1"/>
+                <rect x="158.5" y="216.6" width="9.1" height="7.1"/>
+                <rect x="196.4" y="216.6" width="6.5" height="7.1"/>
+                <rect x="158.5" y="216.6" width="7.8" height="7.1"/>
+                <rect x="187.3" y="216.6" width="18.3" height="7.1"/>
+                <rect x="217.3" y="216.6" width="6.5" height="7.1"/>
+                <rect x="145.5" y="216.6" width="9.1" height="7.1"/>
+                <rect x="192.5" y="216.6" width="6.5" height="7.1"/>
+                <rect x="214.7" y="216.6" width="10.4" height="7.1"/>
+                <rect x="162.5" y="216.6" width="6.5" height="7.1"/>
+                <rect x="89.3" y="216.6" width="23.5" height="7.1"/>
+                <rect x="18.8" y="216.6" width="5.2" height="7.1"/>
+                <rect x="91.9" y="216.6" width="6.5" height="7.1"/>
+                <rect x="135" y="216.6" width="5.2" height="7.1"/>
+                <rect x="178.1" y="216.6" width="18.3" height="7.1"/>
+              </g>
+              <g class="fade_extra">
+                <rect x="114.1" y="127.8" width="7.8" height="84.3"/>
+                <rect x="60.6" y="127.8" width="47" height="84.3"/>
+                <rect x="13.5" y="127.8" width="5.2" height="84.3"/>
+                <rect x="68.4" y="127.8" width="19.6" height="84.3"/>
+                <rect x="95.8" y="127.8" width="6.5" height="84.3"/>
+                <rect x="148.1" y="127.8" width="6.5" height="84.3"/>
+                <rect x="178.1" y="127.8" width="5.2" height="84.3"/>
+                <rect x="33.1" y="127.8" width="36.6" height="84.3"/>
+                <rect x="86.7" y="127.8" width="11.8" height="84.3"/>
+                <rect x="115.4" y="127.8" width="9.2" height="84.3"/>
+                <rect x="136.3" y="127.8" width="10.4" height="84.3"/>
+                <rect x="153.3" y="127.8" width="15.7" height="84.3"/>
+                <rect x="216" y="127.8" width="10.4" height="84.3"/>
+                <rect x="10.9" y="127.8" width="56.2" height="84.3"/>
+                <rect x="77.5" y="127.8" width="13.1" height="84.3"/>
+                <rect x="101.1" y="127.8" width="7.8" height="84.3"/>
+                <rect x="179.4" y="127.8" width="6.5" height="84.3"/>
+                <rect x="188.6" y="127.8" width="6.5" height="84.3"/>
+                <rect x="44.9" y="127.8" width="15.7" height="84.3"/>
+                <rect x="25.3" y="127.8" width="19.6" height="84.3"/>
+                <rect x="59.2" y="127.8" width="11.8" height="84.3"/>
+                <rect x="91.9" y="127.8" width="35.3" height="84.3"/>
+                <rect x="132.4" y="127.8" width="10.4" height="84.3"/>
+                <rect x="178.1" y="127.8" width="9.1" height="84.3"/>
+                <rect x="17.4" y="127.8" width="11.8" height="84.3"/>
+                <rect x="39.7" y="127.8" width="5.2" height="84.3"/>
+                <rect x="73.6" y="127.8" width="9.2" height="84.3"/>
+                <rect x="149.4" y="127.8" width="15.7" height="84.3"/>
+                <rect x="137.6" y="127.8" width="11.8" height="84.3"/>
+                <rect x="195.1" y="127.8" width="13.1" height="84.3"/>
+                <rect x="35.7" y="127.8" width="7.8" height="84.3"/>
+                <rect x="68.4" y="127.8" width="17" height="84.3"/>
+                <rect x="102.4" y="127.8" width="14.4" height="84.3"/>
+                <rect x="136.3" y="127.8" width="9.1" height="84.3"/>
+                <rect x="166.4" y="127.8" width="13.1" height="84.3"/>
+                <rect x="82.8" y="127.8" width="5.2" height="84.3"/>
+                <rect x="208.2" y="127.8" width="13.1" height="84.3"/>
+                <rect x="10.9" y="127.8" width="11.8" height="84.3"/>
+                <rect x="186" y="127.8" width="5.2" height="84.3"/>
+                <rect x="206.9" y="127.8" width="7.8" height="84.3"/>
+                <rect x="65.8" y="127.8" width="5.2" height="84.3"/>
+                <rect x="103.7" y="127.8" width="23.5" height="84.3"/>
+                <rect x="155.9" y="127.8" width="9.1" height="84.3"/>
+                <rect x="44.9" y="127.8" width="15.7" height="84.3"/>
+                <rect x="125.9" y="127.8" width="14.4" height="84.3"/>
+                <rect x="162.5" y="127.8" width="6.5" height="84.3"/>
+                <rect x="127.2" y="127.8" width="5.2" height="84.3"/>
+                <rect x="145.5" y="127.8" width="18.3" height="84.3"/>
+                <rect x="170.3" y="127.8" width="6.5" height="84.3"/>
+                <rect x="163.8" y="127.8" width="5.2" height="84.3"/>
+                <rect x="120.7" y="127.8" width="15.7" height="84.3"/>
+                <rect x="167.7" y="127.8" width="17" height="84.3"/>
+                <rect x="197.7" y="127.8" width="10.4" height="84.3"/>
+                <rect x="119.3" y="127.8" width="11.8" height="84.3"/>
+                <rect x="204.3" y="127.8" width="7.8" height="84.3"/>
+                <rect x="132.4" y="127.8" width="17" height="84.3"/>
+                <rect x="187.3" y="127.8" width="30.1" height="84.3"/>
+                <rect x="149.4" y="127.8" width="6.5" height="84.3"/>
+                <rect x="172.9" y="127.8" width="26.1" height="84.3"/>
+                <rect x="115.4" y="127.8" width="5.2" height="84.3"/>
+                <rect x="25.3" y="127.8" width="41.8" height="84.3"/>
+                <rect x="74.9" y="127.8" width="23.5" height="84.3"/>
+                <rect x="158.5" y="127.8" width="9.1" height="84.3"/>
+                <rect x="196.4" y="127.8" width="6.5" height="84.3"/>
+                <rect x="158.5" y="127.8" width="7.8" height="84.3"/>
+                <rect x="187.3" y="127.8" width="18.3" height="84.3"/>
+                <rect x="217.3" y="127.8" width="6.5" height="84.3"/>
+                <rect x="145.5" y="127.8" width="9.1" height="84.3"/>
+                <rect x="192.5" y="127.8" width="6.5" height="84.3"/>
+                <rect x="214.7" y="127.8" width="10.4" height="84.3"/>
+                <rect x="162.5" y="127.8" width="6.5" height="84.3"/>
+                <rect x="89.3" y="127.8" width="23.5" height="84.3"/>
+                <rect x="18.8" y="127.8" width="5.2" height="84.3"/>
+                <rect x="91.9" y="127.8" width="6.5" height="84.3"/>
+                <rect x="135" y="127.8" width="5.2" height="84.3"/>
+                <rect x="178.1" y="127.8" width="18.3" height="84.3"/>
+              </g>
+            </g>
+            <g id="top_axis" class="axis">
+              <rect x="10.9" y="105.7" width="39.2" height="7"/>
+              <rect x="51.4" y="105.7" width="37.9" height="7"/>
+              <rect x="90.6" y="105.7" width="39.2" height="7"/>
+              <rect x="131.1" y="105.7" width="39.2" height="7"/>
+              <rect x="171.6" y="105.7" width="37.9" height="7"/>
+              <rect x="210.8" y="105.7" width="17" height="7"/>
+            </g>
+            <use xlink:href="#stacked fixed threshold"/>
+            <g id="daily_streamflow">
+              <use xlink:href="#stacked streamflow top"/>
+              <text transform="matrix(1 0 0 1 56.64 28.5601)" class="streamtext">Daily</text>
+              <text transform="matrix(1 0 0 1 56.64 36.75)" class="streamtext">streamflow</text>
+            </g>
+            <g id="fixed_70_droughts" class="drought">
+              <g>
+                <rect x="115.4" y="105.7" width="6.5" height="7"/>
+                <rect x="161.1" y="105.7" width="6.5" height="7"/>
+                <rect x="184.7" y="105.7" width="7.8" height="7"/>
+                <rect x="102.4" y="105.7" width="5.2" height="7"/>
+                <rect x="78.8" y="105.7" width="6.5" height="7"/>
+                <rect x="148.1" y="105.7" width="7.8" height="7"/>
+                <rect x="176.8" y="105.7" width="7.8" height="7"/>
+                <rect x="88" y="105.7" width="9.2" height="7"/>
+                <rect x="115.4" y="105.7" width="9.2" height="7"/>
+                <rect x="136.3" y="105.7" width="10.4" height="7"/>
+                <rect x="153.3" y="105.7" width="15.7" height="7"/>
+                <rect x="216" y="105.7" width="10.4" height="7"/>
+                <rect x="59.2" y="105.7" width="6.5" height="7"/>
+                <rect x="82.8" y="105.7" width="5.2" height="7"/>
+                <rect x="101.1" y="105.7" width="7.8" height="7"/>
+                <rect x="179.4" y="105.7" width="6.5" height="7"/>
+                <rect x="203" y="105.7" width="6.5" height="7"/>
+                <rect x="162.5" y="105.7" width="6.5" height="7"/>
+                <rect x="188.6" y="105.7" width="7.8" height="7"/>
+                <rect x="171.6" y="105.7" width="7.8" height="7"/>
+                <rect x="192.5" y="105.7" width="10.4" height="7"/>
+                <rect x="91.9" y="105.7" width="35.3" height="7"/>
+                <rect x="132.4" y="105.7" width="10.4" height="7"/>
+                <rect x="163.8" y="105.7" width="5.2" height="7"/>
+                <rect x="178.1" y="105.7" width="13.1" height="7"/>
+                <rect x="201.6" y="105.7" width="14.4" height="7"/>
+                <rect x="149.4" y="105.7" width="17" height="7"/>
+                <rect x="178.1" y="105.7" width="39.2" height="7"/>
+                <rect x="137.6" y="105.7" width="11.8" height="7"/>
+                <rect x="179.4" y="105.7" width="48.3" height="7"/>
+                <rect x="74.9" y="105.7" width="5.2" height="7"/>
+                <rect x="103.7" y="105.7" width="13.1" height="7"/>
+                <rect x="136.3" y="105.7" width="9.1" height="7"/>
+                <rect x="184.7" y="105.7" width="14.4" height="7"/>
+                <rect x="159.9" y="105.7" width="14.4" height="7"/>
+                <rect x="206.9" y="105.7" width="14.4" height="7"/>
+                <rect x="166.4" y="105.7" width="10.4" height="7"/>
+                <rect x="189.9" y="105.7" width="18.3" height="7"/>
+                <rect x="161.1" y="105.7" width="13.1" height="7"/>
+                <rect x="186" y="105.7" width="5.2" height="7"/>
+                <rect x="141.6" y="105.7" width="10.4" height="7"/>
+                <rect x="180.8" y="105.7" width="6.5" height="7"/>
+                <rect x="205.6" y="105.7" width="10.4" height="7"/>
+                <rect x="110.2" y="105.7" width="15.7" height="7"/>
+                <rect x="144.2" y="105.7" width="26.1" height="7"/>
+                <rect x="138.9" y="105.7" width="9.1" height="7"/>
+                <rect x="150.7" y="105.7" width="19.6" height="7"/>
+                <rect x="125.9" y="105.7" width="14.4" height="7"/>
+                <rect x="154.6" y="105.7" width="14.4" height="7"/>
+                <rect x="127.2" y="105.7" width="5.2" height="7"/>
+                <rect x="145.5" y="105.7" width="19.6" height="7"/>
+                <rect x="170.3" y="105.7" width="6.5" height="7"/>
+                <rect x="153.3" y="105.7" width="17" height="7"/>
+                <rect x="120.7" y="105.7" width="15.7" height="7"/>
+                <rect x="154.6" y="105.7" width="67.9" height="7"/>
+                <rect x="119.3" y="105.7" width="11.8" height="7"/>
+                <rect x="203" y="105.7" width="10.4" height="7"/>
+                <rect x="132.4" y="105.7" width="17" height="7"/>
+                <rect x="186" y="105.7" width="31.4" height="7"/>
+                <rect x="149.4" y="105.7" width="6.5" height="7"/>
+                <rect x="172.9" y="105.7" width="26.1" height="7"/>
+                <rect x="187.3" y="105.7" width="14.4" height="7"/>
+                <rect x="115.4" y="105.7" width="5.2" height="7"/>
+                <rect x="157.2" y="105.7" width="10.4" height="7"/>
+                <rect x="193.8" y="105.7" width="10.4" height="7"/>
+                <rect x="214.7" y="105.7" width="13.1" height="7"/>
+                <rect x="145.5" y="105.7" width="9.1" height="7"/>
+                <rect x="158.5" y="105.7" width="66.6" height="7"/>
+                <rect x="145.5" y="105.7" width="9.1" height="7"/>
+                <rect x="179.4" y="105.7" width="44.4" height="7"/>
+                <rect x="187.3" y="105.7" width="27.4" height="7"/>
+                <rect x="192.5" y="105.7" width="6.5" height="7"/>
+                <rect x="175.5" y="105.7" width="19.6" height="7"/>
+                <rect x="214.7" y="105.7" width="10.4" height="7"/>
+                <rect x="162.5" y="105.7" width="6.5" height="7"/>
+                <rect x="174.2" y="105.7" width="13.1" height="7"/>
+                <rect x="195.1" y="105.7" width="5.2" height="7"/>
+                <rect x="196.4" y="105.7" width="9.1" height="7"/>
+                <rect x="135" y="105.7" width="5.2" height="7"/>
+                <rect x="206.9" y="105.7" width="7.8" height="7"/>
+                <rect x="178.1" y="105.7" width="18.3" height="7"/>
+                <rect x="206.9" y="105.7" width="6.5" height="7"/>
+              </g>
+              <g class="fade_extra">
+                <rect x="115.4" y="16.8" width="6.5" height="84.3"/>
+                <rect x="161.1" y="16.8" width="6.5" height="84.3"/>
+                <rect x="184.7" y="16.8" width="7.8" height="84.3"/>
+                <rect x="102.4" y="16.8" width="5.2" height="84.3"/>
+                <rect x="78.8" y="16.8" width="6.5" height="84.3"/>
+                <rect x="148.1" y="16.8" width="7.8" height="84.3"/>
+                <rect x="176.8" y="16.8" width="7.8" height="84.3"/>
+                <rect x="88" y="16.8" width="9.2" height="84.3"/>
+                <rect x="115.4" y="16.8" width="9.2" height="84.3"/>
+                <rect x="136.3" y="16.8" width="10.4" height="84.3"/>
+                <rect x="153.3" y="16.8" width="15.7" height="84.3"/>
+                <rect x="216" y="16.8" width="10.4" height="84.3"/>
+                <rect x="59.2" y="16.8" width="6.5" height="84.3"/>
+                <rect x="82.8" y="16.8" width="5.2" height="84.3"/>
+                <rect x="101.1" y="16.8" width="7.8" height="84.3"/>
+                <rect x="179.4" y="16.8" width="6.5" height="84.3"/>
+                <rect x="203" y="16.8" width="6.5" height="84.3"/>
+                <rect x="162.5" y="16.8" width="6.5" height="84.3"/>
+                <rect x="188.6" y="16.8" width="7.8" height="84.3"/>
+                <rect x="171.6" y="16.8" width="7.8" height="84.3"/>
+                <rect x="192.5" y="16.8" width="10.4" height="84.3"/>
+                <rect x="91.9" y="16.8" width="35.3" height="84.3"/>
+                <rect x="132.4" y="16.8" width="10.4" height="84.3"/>
+                <rect x="163.8" y="16.8" width="5.2" height="84.3"/>
+                <rect x="178.1" y="16.8" width="13.1" height="84.3"/>
+                <rect x="201.6" y="16.8" width="14.4" height="84.3"/>
+                <rect x="149.4" y="16.8" width="17" height="84.3"/>
+                <rect x="178.1" y="16.8" width="39.2" height="84.3"/>
+                <rect x="137.6" y="16.8" width="11.8" height="84.3"/>
+                <rect x="179.4" y="16.8" width="48.3" height="84.3"/>
+                <rect x="74.9" y="16.8" width="5.2" height="84.3"/>
+                <rect x="103.7" y="16.8" width="13.1" height="84.3"/>
+                <rect x="136.3" y="16.8" width="9.1" height="84.3"/>
+                <rect x="184.7" y="16.8" width="14.4" height="84.3"/>
+                <rect x="159.9" y="16.8" width="14.4" height="84.3"/>
+                <rect x="206.9" y="16.8" width="14.4" height="84.3"/>
+                <rect x="166.4" y="16.8" width="10.4" height="84.3"/>
+                <rect x="189.9" y="16.8" width="18.3" height="84.3"/>
+                <rect x="161.1" y="16.8" width="13.1" height="84.3"/>
+                <rect x="186" y="16.8" width="5.2" height="84.3"/>
+                <rect x="141.6" y="16.8" width="10.4" height="84.3"/>
+                <rect x="180.8" y="16.8" width="6.5" height="84.3"/>
+                <rect x="205.6" y="16.8" width="10.4" height="84.3"/>
+                <rect x="110.2" y="16.8" width="15.7" height="84.3"/>
+                <rect x="144.2" y="16.8" width="26.1" height="84.3"/>
+                <rect x="138.9" y="16.8" width="9.1" height="84.3"/>
+                <rect x="150.7" y="16.8" width="19.6" height="84.3"/>
+                <rect x="125.9" y="16.8" width="14.4" height="84.3"/>
+                <rect x="154.6" y="16.8" width="14.4" height="84.3"/>
+                <rect x="127.2" y="16.8" width="5.2" height="84.3"/>
+                <rect x="145.5" y="16.8" width="19.6" height="84.3"/>
+                <rect x="170.3" y="16.8" width="6.5" height="84.3"/>
+                <rect x="153.3" y="16.8" width="17" height="84.3"/>
+                <rect x="120.7" y="16.8" width="15.7" height="84.3"/>
+                <rect x="154.6" y="16.8" width="67.9" height="84.3"/>
+                <rect x="119.3" y="16.8" width="11.8" height="84.3"/>
+                <rect x="203" y="16.8" width="10.4" height="84.3"/>
+                <rect x="132.4" y="16.8" width="17" height="84.3"/>
+                <rect x="186" y="16.8" width="31.4" height="84.3"/>
+                <rect x="149.4" y="16.8" width="6.5" height="84.3"/>
+                <rect x="172.9" y="16.8" width="26.1" height="84.3"/>
+                <rect x="187.3" y="16.8" width="14.4" height="84.3"/>
+                <rect x="115.4" y="16.8" width="5.2" height="84.3"/>
+                <rect x="157.2" y="16.8" width="10.4" height="84.3"/>
+                <rect x="193.8" y="16.8" width="10.4" height="84.3"/>
+                <rect x="214.7" y="16.8" width="13.1" height="84.3"/>
+                <rect x="145.5" y="16.8" width="9.1" height="84.3"/>
+                <rect x="158.5" y="16.8" width="66.6" height="84.3"/>
+                <rect x="145.5" y="16.8" width="9.1" height="84.3"/>
+                <rect x="179.4" y="16.8" width="44.4" height="84.3"/>
+                <rect x="187.3" y="16.8" width="27.4" height="84.3"/>
+                <rect x="192.5" y="16.8" width="6.5" height="84.3"/>
+                <rect x="175.5" y="16.8" width="19.6" height="84.3"/>
+                <rect x="214.7" y="16.8" width="10.4" height="84.3"/>
+                <rect x="162.5" y="16.8" width="6.5" height="84.3"/>
+                <rect x="174.2" y="16.8" width="13.1" height="84.3"/>
+                <rect x="195.1" y="16.8" width="5.2" height="84.3"/>
+                <rect x="196.4" y="16.8" width="9.1" height="84.3"/>
+                <rect x="135" y="16.8" width="5.2" height="84.3"/>
+                <rect x="206.9" y="16.8" width="7.8" height="84.3"/>
+                <rect x="178.1" y="16.8" width="18.3" height="84.3"/>
+                <rect x="206.9" y="16.8" width="6.5" height="84.3"/>
+              </g>
+            </g>
+          </g>
         </svg>
       </div>
       <!-- create a scrolling div for each frame -->
