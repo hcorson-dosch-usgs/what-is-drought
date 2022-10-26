@@ -574,7 +574,7 @@ export default {
         margin: { top: 50, right: 50, bottom: 50, left: 50 },
 
         // show scroll trigger markers on the page?
-        marker_on: true,
+        marker_on: false,
 
         }
   },
