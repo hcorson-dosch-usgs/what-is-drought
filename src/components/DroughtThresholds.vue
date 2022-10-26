@@ -874,6 +874,10 @@ $base: 0.6rem; //for chevron scroll animation
   font-size: 1.2rem;
   grid-area: chart; // names the grid child component
   place-self: center;
+  display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
 }
 
 
@@ -907,11 +911,15 @@ $base: 0.6rem; //for chevron scroll animation
 
 .hydro-chart {
   position:sticky;
+  padding:0;
+  margin:0;
   width: 80vw;
+  max-height: 60vh;
   height: auto;
   /*aspect-ratio: 1/1;*/
   @media (min-width: 900px) {
-    width: 65vh;
+    width: 65vw;
+    max-height: 65vh;
   }
 }
 
