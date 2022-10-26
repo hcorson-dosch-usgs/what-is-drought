@@ -623,8 +623,8 @@ export default {
           scrollTrigger: {
             markers: this.marker_on,
             trigger: `.${scrollClass}`,
-            start: "top 50%",
-            end: "bottom center",
+            start: "top 80%",
+            end: "bottom 80%",
             toggleClass: {targets: `#step-${scrollID}`, className:"visible"}, // adds class to target when triggered
             toggleActions: "restart reverse none reverse" 
             /*
@@ -655,9 +655,7 @@ export default {
 $writeFont: 'Nanum Pen Script', cursive;
 $base: 0.6rem; //for chevron scroll animation
 // frames are stacked and class is added on an off w/ scroll trigger to bring to front
-img {
-  max-width: 80vw;
-}
+
 
 #title-container {
   position: fixed;
@@ -672,7 +670,9 @@ img {
   grid-gap: 1rem;
   max-height: 80vh;
   background-color: orchid;
-  position:fixed;
+  position: fixed;
+  left: center;
+  top: 250px;
 }
 
 #hydro-chart-container{
@@ -680,18 +680,11 @@ img {
   font-size: 1.2rem;
   background: #f4a93b;
   color: #ffffff;
-  /*grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;*/
 }
 
 #scroll-container {
   padding: 5rem 1rem;
   font-size: 1.2rem;
-  background: #eb4d4b;
-  color: #ffffff;
-  opacity: .5;
 }
 .text-container {
   z-index: 500;
@@ -707,7 +700,7 @@ img {
   background-color:black;
 }
 .knockout-text {
-  font-size: 3.75em;
+  font-size: 3em;
   font-weight: bold;
   font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: #FFE3AD;
@@ -715,14 +708,12 @@ img {
 }
 
 .scrolly{
-  height:100vh;
+  height:60vh;
 }
 
-.smaller {
-  font-size: 3.75em;
-}
+
 .bigger {
-  font-size: 20vh;
+  font-size: 15vh;
 }
 .hydro-chart {
   position:sticky;
