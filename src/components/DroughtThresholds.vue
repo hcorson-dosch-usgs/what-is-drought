@@ -888,7 +888,7 @@ $base: 0.6rem; //for chevron scroll animation
 .text-container {
   border-radius: 25px;
   background: #FFE3AD;
-  position:fixed;
+  position:absolute;
   p{
     padding: 15px;
   }
