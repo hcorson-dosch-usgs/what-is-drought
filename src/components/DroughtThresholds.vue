@@ -852,6 +852,7 @@ $base: 0.6rem; //for chevron scroll animation
 .grid-container{
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr;
   grid-template-areas:
     "textbox"
     "chart";
@@ -859,9 +860,9 @@ $base: 0.6rem; //for chevron scroll animation
   align-content: start;
   width:100%;
   height: 80vh;
-  position: fixed;
+  position: sticky;
   left: 10px;
-  top: 250px;
+  top: 35vh;
   @media (min-width: 900px){
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
@@ -870,7 +871,6 @@ $base: 0.6rem; //for chevron scroll animation
 }
 
 #hydro-chart-container{
-  padding: 5rem 1rem;
   font-size: 1.2rem;
   grid-area: chart; // names the grid child component
   place-self: center;
