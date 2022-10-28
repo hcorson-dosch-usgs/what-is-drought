@@ -38,7 +38,7 @@
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
-    border-bottom: 0px solid whitesmoke;
+    border-bottom: 0px solid white;
   }
   .tmp-container a {
     text-decoration: none;
