@@ -839,7 +839,7 @@ $base: 0.6rem; //for chevron scroll animation
   font-size: 2.5em;
   font-weight: bold;
   font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
-  color: #FFE3AD;
+  color: #032a56;
   padding: 0 0 0 50px;
   @media (min-width: 900px){
     font-size:3.0em;
@@ -974,7 +974,7 @@ $base: 0.6rem; //for chevron scroll animation
   top: 0;
   height: 100%;
   width: 50%;
-  background: #FFE3AD;
+  background: #032a56;
 }
 
 .chevron:before {

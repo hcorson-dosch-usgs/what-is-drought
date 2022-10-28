@@ -14,7 +14,7 @@
         >
           <img
             class="img"
-            src="@/assets/usgsHeaderAndFooter/images/usgsLogo_white-01.png"
+            src="@/assets/usgsHeaderAndFooter/images/usgsLogo_blue.png"
             alt="Home"
           >
         </a>
@@ -38,7 +38,7 @@
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
-    border-bottom: 0px solid white;
+    border-bottom: 0px solid whitesmoke;
   }
   .tmp-container a {
     text-decoration: none;
@@ -54,7 +54,7 @@
   }
   /* header (only) nav */
   .header-nav {
-    background: black;
+    background: white;
 ;
   }
   .logo-header img {
