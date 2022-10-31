@@ -697,16 +697,14 @@
 
 
       <div id="textbox-container">
-        <div
+        <p
           v-for="frame in frames" 
           :key="frame.id"
           :id="`step-${frame.id}`"
-          class="hidden"
+          class="textBox hidden"
         >
-          <div class="text-container">
-            <p>{{ frame.text }}</p>
-          </div>
-        </div>
+          {{ frame.text }}
+        </p>
       </div>
       
     
