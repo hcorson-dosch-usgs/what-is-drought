@@ -817,14 +817,14 @@ $usgsBlue: #032a56;
 .grid-container{
   display: grid;
   grid-template-columns: 3fr 0.5fr;
-  grid-template-rows: 1fr 2.5fr auto;
+  grid-template-rows: 6em 10em auto;
   grid-template-areas:
     "title chevron"
     "textbox textbox"
     "chart chart";
   justify-content: center;
   margin: auto;
-  width:100%;
+  width:95vw;
   position: sticky;
   left: 10px;
   top: 81px;
@@ -850,7 +850,7 @@ $usgsBlue: #032a56;
   }
   transition: ease 1s;
   &--scrolled {
-    padding: 0 0 0 0;
+    padding: 5px 0 5px 0;
   }
 }
 #hydro-chart-container{
@@ -858,11 +858,15 @@ $usgsBlue: #032a56;
   grid-area: chart; // names the grid child component
   align-self: center;
   justify-self: center;
-  height: 60vh;
+  height: 95%;
+  max-height: 60vh;
   display: flex;
     display: -webkit-flex;
     justify-content: space-between;
     -webkit-justify-content: space-between;
+  @media (min-width: 950px){
+    height: 60vh;
+  }
 }
 .textBox {
   grid-area: textbox;
