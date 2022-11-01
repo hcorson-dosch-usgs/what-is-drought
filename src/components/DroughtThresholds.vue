@@ -744,14 +744,14 @@ export default {
 
       // things that go before containers
             // use class to set trigger
-         tl.to('.title-text', {
+         tl.to('.scroll-step-aa01', {
           scrollTrigger: {  
             markers: false,
-            trigger: '.title-text',
-            start: "top center",
-            end: "top 10%",
-            toggleClass: {targets: `.title-text`, className:"bigger"}, // adds class to target when triggered
-            toggleActions: "restart none none none" // onEnter onLeave ... ...
+            trigger: '.scroll-step-aa01',
+            start: "top 70%",
+            end: 99999,
+            toggleClass: {targets: `.title-text`, className:"title-text--scrolled"}, // adds class to target when triggered
+            toggleActions: "restart none none none" // onEnter onLeave ... ... restart none none none
             /*
             onEnter - scrolling down, start meets scroller-start
             onLeave - scrolling down, end meets scroller-end
@@ -780,8 +780,8 @@ export default {
           scrollTrigger: {
             markers: this.marker_on,
             trigger: `.${scrollClass}`,
-            start: "top 80%",
-            end: "bottom 80%",
+            start: "top 70%",
+            end: "bottom 70%",
             toggleClass: {targets: `#step-${scrollID}`, className:"visible"}, // adds class to target when triggered
             toggleActions: "restart reverse none reverse" 
             /*
@@ -816,8 +816,8 @@ $usgsBlue: #032a56;
 
 .grid-container{
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 0.5fr 1fr 3fr;
+  grid-template-columns: 3fr 0.5fr;
+  grid-template-rows: 1fr 2.5fr auto;
   grid-template-areas:
     "title chevron"
     "textbox textbox"
@@ -828,11 +828,12 @@ $usgsBlue: #032a56;
   position: sticky;
   left: 10px;
   top: 81px;
-  @media (min-width: 900px){
+  height: 88vh;
+  @media (min-width: 950px){
     width: 70vw;
     max-width: 1400px;
     grid-template-columns: minmax(100px, 400px) auto 1fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 0.5fr 3fr;
     grid-template-areas:
       "title title chevron"
       "textbox chart chart"
@@ -842,23 +843,20 @@ $usgsBlue: #032a56;
   grid-area: title;
   align-self: center;
   font-size: 2em;
-  padding: 0 0 0 0;
+  padding: 40vh 0 40vh 0;
   color: $usgsBlue;
-  @media (min-width: 900px){
+  @media (min-width: 950px){
     font-size:3.0em;
   }
-}
-.bigger {
-  padding: 40vh 0 40vh 0;
-  @media (min-width: 900px){
-    margin-left: 40px;
-    margin-bottom: 60px;
+  transition: ease 1s;
+  &--scrolled {
+    padding: 0 0 0 0;
   }
 }
 #hydro-chart-container{
   font-size: 1.2rem;
   grid-area: chart; // names the grid child component
-  align-self: start;
+  align-self: center;
   justify-self: center;
   height: 60vh;
   display: flex;
@@ -873,7 +871,7 @@ $usgsBlue: #032a56;
   color: $usgsBlue;
   position: absolute;
   padding: 0 0 0 0;
-  @media (min-width: 900px){
+  @media (min-width: 950px){
     align-self: center;
     justify-self: end;
   }
@@ -900,14 +898,14 @@ $usgsBlue: #032a56;
   align-self: center;
   justify-self: start;
   position: absolute;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-bottom: 80px;
   width: $base * 3.5;
   height: $base * 0.8;
   opacity: 0;
   transform: scale(0.3);
   animation: move-chevron 3s ease-out 1s infinite;
-  @media (min-width: 900px){
+  @media (min-width: 950px){
     margin-left: 40px;
     margin-bottom: 60px;
   }
