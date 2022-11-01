@@ -878,7 +878,7 @@ $usgsBlue: #032a56;
 }
 // currently empty scroll-by divs used to trigger animation
 .scrolly{
-  height:100vh;
+  height:50vh;
 }
 .hydro-chart {
   padding:0;
