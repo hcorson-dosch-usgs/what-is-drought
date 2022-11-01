@@ -817,7 +817,7 @@ $usgsBlue: #032a56;
 .grid-container{
   display: grid;
   grid-template-columns: 3fr 0.5fr;
-  grid-template-rows: 6em 10em auto;
+  grid-template-rows: auto 10em auto;
   grid-template-areas:
     "title chevron"
     "textbox textbox"
