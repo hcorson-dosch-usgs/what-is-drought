@@ -686,10 +686,6 @@
           
         </svg>
       </div>
-      <!-- create a scrolling div for each frame -->
-
-
-      <!--div id="textbox-container"-->
       <p
         v-for="frame in frames" 
         :key="frame.id"
@@ -698,12 +694,8 @@
       >
         {{ frame.text }}
       </p>
-      <!--/div-->
-      
-    
-      
     </div>
-
+    <!-- create a scrolling div for each frame -->
     <div id="scroll-container">
         <div
           v-for="frame in frames" 
