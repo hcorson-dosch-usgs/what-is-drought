@@ -9,7 +9,7 @@
       <div class = 'chevron'></div>
       <div class = 'chevron'></div>
       <div id="hydro-chart-container">
-        <svg class="hydro-chart" id="svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 240 240">
+        <svg class="hydro-chart" id="svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 240 240" preserveAspectRatio="xMidYMid meet">
           <defs>
             <clipPath id="clippath">
               <ellipse cx="120" cy="120" rx="119" ry="116.37" fill="none"/>
@@ -859,6 +859,7 @@ $usgsBlue: #032a56;
   align-self: center;
   justify-self: center;
   height: 95%;
+  width: 95%;
   max-height: 60vh;
   display: flex;
     display: -webkit-flex;
@@ -882,7 +883,7 @@ $usgsBlue: #032a56;
 }
 // currently empty scroll-by divs used to trigger animation
 .scrolly{
-  height:50vh;
+  height:60vh;
 }
 .hydro-chart {
   padding:0;
