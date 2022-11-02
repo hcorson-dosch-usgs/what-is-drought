@@ -1,22 +1,15 @@
 <template>
   <div class="another-container">
-    <div class="chart-container">
-      <div id="title-container">
-        <h2 class="knockout-text">
-          What is streamflow drought?
-        </h2>
-      </div>
-      <div class = 'chevronContainer'>
-        <div class = 'chevron'></div>
-        <div class = 'chevron'></div>
-        <div class = 'chevron'></div>
-      </div>
-    </div>
     
     <div class="grid-container">
-      
+      <h2 class="title-text">
+        What is <span class='emph'>streamflow</span> drought?
+      </h2>
+      <div class = 'chevron'></div>
+      <div class = 'chevron'></div>
+      <div class = 'chevron'></div>
       <div id="hydro-chart-container">
-        <svg class="hydro-chart" id="svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 240 240">
+        <svg class="hydro-chart" id="svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 240 240" preserveAspectRatio="xMidYMid meet">
           <defs>
             <clipPath id="clippath-insetb">
               <circle stroke-width="0.2" cx="92.3" cy="32.7" r="22.9"/>
@@ -1634,26 +1627,16 @@
           
         </svg>
       </div>
-      <!-- create a scrolling div for each frame -->
-
-
-      <div id="textbox-container">
-        <div
-          v-for="frame in frames" 
-          :key="frame.id"
-          :id="`step-${frame.id}`"
-          class="hidden"
-        >
-          <div class="text-container">
-            <p>{{ frame.text }}</p>
-          </div>
-        </div>
-      </div>
-      
-    
-      
+      <p
+        v-for="frame in frames" 
+        :key="frame.id"
+        :id="`step-${frame.id}`"
+        class="textBox hidden"
+      >
+        {{ frame.text }}
+      </p>
     </div>
-
+    <!-- create a scrolling div for each frame -->
     <div id="scroll-container">
         <div
           v-for="frame in frames" 
@@ -1702,14 +1685,14 @@ export default {
 
       // things that go before containers
             // use class to set trigger
-         tl.to('.knockout-text', {
+         tl.to('.scroll-step-aa01', {
           scrollTrigger: {  
             markers: false,
-            trigger: '.knockout-text',
-            start: "top center",
-            end: "top 10%",
-            toggleClass: {targets: `.knockout-text`, className:"bigger"}, // adds class to target when triggered
-            toggleActions: "restart none none none" // onEnter onLeave ... ...
+            trigger: '.scroll-step-aa01',
+            start: "top 70%",
+            end: 99999,
+            toggleClass: {targets: `.title-text`, className:"title-text--scrolled"}, // adds class to target when triggered
+            toggleActions: "restart none none none" // onEnter onLeave ... ... restart none none none
             /*
             onEnter - scrolling down, start meets scroller-start
             onLeave - scrolling down, end meets scroller-end
@@ -1738,8 +1721,8 @@ export default {
           scrollTrigger: {
             markers: this.marker_on,
             trigger: `.${scrollClass}`,
-            start: "top 80%",
-            end: "bottom 80%",
+            start: "top 70%",
+            end: "bottom 70%",
             toggleClass: {targets: `#step-${scrollID}`, className:"visible"}, // adds class to target when triggered
             toggleActions: "restart reverse none reverse" 
             /*
@@ -1770,143 +1753,114 @@ export default {
 $writeFont: 'Nanum Pen Script', cursive;
 $base: 0.6rem; //for chevron scroll animation
 // frames are stacked and class is added on an off w/ scroll trigger to bring to front
-
-
-#title-container {
-  position: fixed;
-  background-size: cover;
-}
-.knockout-text {
-  font-size: 2.5em;
-  font-weight: bold;
-  font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
-  color: #032a56;
-  padding: 0 0 0 50px;
-  @media (min-width: 900px){
-    font-size:3.0em;
-  }
-}
-.bigger {
-  font-size: 15vh;
-}
+$usgsBlue: #032a56;
 
 .grid-container{
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr;
+  grid-template-columns: 3fr 0.5fr;
+  grid-template-rows: auto 10em auto;
   grid-template-areas:
-    "textbox"
-    "chart";
-  grid-gap: 0;
-  align-content: start;
-  width:100%;
-  height: 80vh;
+    "title chevron"
+    "textbox textbox"
+    "chart chart";
+  justify-content: center;
+  margin: auto;
+  width:95vw;
   position: sticky;
   left: 10px;
-  top: 35vh;
-  @media (min-width: 900px){
-    grid-template-columns: 1fr 3fr;
+  top: 81px;
+  height: 88vh;
+  @media (min-width: 950px){
+    width: 70vw;
+    max-width: 1400px;
+    grid-template-columns: minmax(100px, 400px) auto 1fr;
+    grid-template-rows: 0.5fr 3fr;
     grid-template-areas:
-      "textbox chart"
+      "title title chevron"
+      "textbox chart chart"
   }
 }
-
+.title-text {
+  grid-area: title;
+  align-self: center;
+  font-size: 2em;
+  padding: 40vh 0 40vh 0;
+  color: $usgsBlue;
+  @media (min-width: 950px){
+    font-size:3.0em;
+  }
+  transition: ease 1s;
+  &--scrolled {
+    padding: 5px 0 5px 0;
+  }
+}
 #hydro-chart-container{
   font-size: 1.2rem;
   grid-area: chart; // names the grid child component
-  place-self: center;
+  align-self: center;
+  justify-self: center;
+  height: 95%;
+  width: 95%;
+  max-height: 60vh;
   display: flex;
     display: -webkit-flex;
     justify-content: space-between;
     -webkit-justify-content: space-between;
-}
-
-
-
-#textbox-container{
-  grid-area: textbox; // names the grid child component
-}
-.text-container {
-  border-radius: 25px;
-  background: #FFE3AD;
-  position:absolute;
-  p{
-    padding: 15px;
-  }
-  @media (min-width:900px) {
-    max-width:25%;
+  @media (min-width: 950px){
+    height: 60vh;
   }
 }
-
-#scroll-container {
-  padding: 5rem 1rem;
+.textBox {
+  grid-area: textbox;
+  align-self: center;
+  justify-self: center;
+  color: $usgsBlue;
+  position: absolute;
+  padding: 0 0 0 0;
+  @media (min-width: 950px){
+    align-self: center;
+    justify-self: end;
+  }
 }
-
-
-
+// currently empty scroll-by divs used to trigger animation
 .scrolly{
   height:60vh;
 }
-
-
-
 .hydro-chart {
-  position:sticky;
   padding:0;
   margin:0;
-  width: 80vw;
-  max-height: 60vh;
-  height: auto;
-  /*aspect-ratio: 1/1;*/
-  @media (min-width: 900px) {
-    width: 65vw;
-    max-height: 65vh;
-  }
-}
-
-.chart-container {
-  //background-position: top;
-  height: 85vh;
-  max-height: 700px;
-  width: 50vw;
-  position: relative;
-  top:10vh;
-  left: 0vh;
-  margin-bottom: 5%;
-  max-width: 800px;
-}
-// currently empty scroll-by divs used to trigger animation
-.scrolly {
-  p {
-    color: black;
-  }
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #spacer {
   height: 30vh;
 }
 
-.chevronContainer {
-  position: fixed;
-  display: flex;
-  justify-contents: center;
-  align-items: center;
-  width: 100%;
-  height: 10vh;
-}
 .chevron {
+  grid-area: chevron;
+  align-self: center;
+  justify-self: start;
   position: absolute;
+  margin-left: 10px;
+  margin-bottom: 80px;
   width: $base * 3.5;
   height: $base * 0.8;
   opacity: 0;
   transform: scale(0.3);
-  animation: move-chevron 3s ease-out infinite;
-}
-.chevron:first-child {
   animation: move-chevron 3s ease-out 1s infinite;
+  @media (min-width: 950px){
+    margin-left: 40px;
+    margin-bottom: 60px;
+  }
 }
 .chevron:nth-child(2) {
   animation: move-chevron 3s ease-out 2s infinite;
+}
+.chevron:nth-child(3) {
+  animation: move-chevron 3s ease-out infinite;
 }
 .chevron:before,
 .chevron:after {
@@ -2063,5 +2017,8 @@ $base: 0.6rem; //for chevron scroll animation
 
 .visible{
   visibility: visible;
+}
+.emph {
+  font-weight: 700;
 }
 </style>

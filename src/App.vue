@@ -112,12 +112,12 @@ h1{
   }
 }
 h2{
-  font-weight: 700;
+  font-weight: 200;
   text-align: left;
   font-family: $SourceSans;
   font-size: 3.75em;
   margin-top: 0px;
-  line-height: 1.2;
+  line-height: 1;
     //color: $textcolor;
   @media screen and (max-width: 600px) {
     font-size: 3em;
