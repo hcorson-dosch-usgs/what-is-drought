@@ -1366,7 +1366,7 @@
                 <rect x="131.1" y="216.6" width="39.2" height="7.1"/>
                 <rect x="171.6" y="216.6" width="37.9" height="7.1"/>
                 <rect x="210.8" y="216.6" width="17" height="7.1"/>
-                <g>
+                <g class="axisText">
                   <text transform="matrix(1 0 0 1 5.2425 233.34)">May</text>
                   <text transform="matrix(1 0 0 1 46.5731 233.34)">Jun</text>
                   <text transform="matrix(1 0 0 1 86.7651 233.3403)">Jul</text>
@@ -2002,17 +2002,24 @@ $base: 0.6rem; //for chevron scroll animation
   stroke-width: 0.2px;
 }
 .axis{
-  fill:#7e8959;
+  fill:#cccccc;
+  stroke:#5b616b;
+  stroke-width:0.5px;
+}
+.axisText{
+  fill:#5b616b;
   font-size:6px;
 }
 
-
 .drought{
   fill:#b07e09;
+  stroke:#b07e09;
+  stroke-width:0.5px;
   font-size:6px;
 }
 .fade{
   fill-opacity:0.5;
+  stroke-width:0px;
 }
 .fade_extra{
   fill-opacity:0.2;
@@ -2028,29 +2035,29 @@ $base: 0.6rem; //for chevron scroll animation
 }
 
 .streamflow{
-  stroke:#507282;
+  stroke:#032a56;
   fill:none;
 }
 .streamtext{
-  fill:#335c64;
+  fill:#032a56;
   font-size:7px;
 }
 
 .explainer{
-  stroke:#b07e09;
+  stroke:#e31c3d;
   fill:none;
 }
 .explainertext{
-  fill:#855914;
+  fill:#981b1e;
   font-size:7px;
 }
 
 .threshold{
-  stroke:#b07e09;
+  stroke:#e31c3d;
   fill:none;
 }
 .threshtext{
-  fill:#b07e09;
+  fill:#981b1e;
   font-size:6px;
 }
 
