@@ -1290,18 +1290,22 @@
             <use xlink:href="#woodcut_texture"/>
           </g>
 
-          <g class="drought hidden" id="step-a">
+          <g class="hidden" id="step-a">
             <use xlink:href="#axis"/>
-            <rect x="149.4" y="216.6" width="17" height="7.1"/>
-            <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+            <g class="drought">
+              <rect x="149.4" y="216.6" width="17" height="7.1"/>
+              <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+            </g>
             <use xlink:href="#daily streamflow"/>
             <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
             <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
           </g>
-          <g class="drought hidden" id="step-b">
+          <g class="hidden" id="step-b">
             <use xlink:href="#axis"/>
-            <rect x="149.4" y="216.6" width="17" height="7.1"/>
-            <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+            <g class="drought">
+              <rect x="149.4" y="216.6" width="17" height="7.1"/>
+              <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+            </g>
             <use xlink:href="#fixed threshold"/>
             <use xlink:href="#daily streamflow"/>
             <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
