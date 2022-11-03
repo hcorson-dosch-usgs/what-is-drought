@@ -24,7 +24,7 @@
               <circle stroke-width="0.2" cx="36" cy="25" r="22.9"/>
             </clipPath>
             <clipPath id="clippath-texture">
-              <rect class="cls-1" x="0" y="57.5" width="240" height="182"/>
+              <rect x="0" y="57.5" width="240" height="182"/>
             </clipPath>
             <g id="sun">
               <circle class="sunflowerYellow" cx="34.5" cy="98" r="11.5"/>
