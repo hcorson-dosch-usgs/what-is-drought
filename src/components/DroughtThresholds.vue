@@ -1299,6 +1299,8 @@
             <use xlink:href="#daily streamflow"/>
             <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
             <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
+            <use xlink:href="#inset_d"/>
+            <use xlink:href="#focalCircle-d"/>
           </g>
           <g class="hidden" id="step-b">
             <use xlink:href="#axis"/>
@@ -1312,20 +1314,24 @@
             <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
           </g>
           <g class="hidden" id="step-b">
-            <circle class="inset"  cx="158.5" cy="70" r="57"/>
+            <circle class="inset"  cx="158.5" cy="110" r="57"/>
             <g>
-              <polygon class="drought fade" points="132.3,78 134,78 138.3,78 142.5,78 146.8,78 151.1,78 155.3,78 159.6,78 163.8,78 168.1,78 
-                172.4,78 176.6,78 180.9,78 185.1,78 189.4,78 191.1,78 191.1,78 189.4,85.9 185.1,100.6 180.9,115.6 176.6,117.7 172.4,118.6 
-                168.1,118.6 163.8,119 159.6,119 155.3,91.8 151.1,82.9 146.8,83.9 142.5,82.9 138.3,82.9 134,83.9 			"/>
-              <polyline class="streamflow" points="112.7,38.9 117,38.9 121.3,38.9 125.5,41.8 129.8,68.2 134,83.9 138.3,82.9 142.5,82.9 146.8,83.9 
-                151.1,82.9 155.3,91.8 159.6,119 163.8,119 168.1,118.6 172.4,118.6 176.6,117.7 180.9,115.6 185.1,100.6 189.4,85.9 193.6,66.3 
-                197.9,68.2 202.2,66.3 206.4,66.3 210.7,66.3 			"/>
-              <polyline class="threshold" points="112.7,78 117,78 121.3,78 125.5,78 129.8,78 134,78 138.3,78 142.5,78 146.8,78 151.1,78 155.3,78 
-                159.6,78 163.8,78 168.1,78 172.4,78 176.6,78 180.9,78 185.1,78 189.4,78 193.6,78 197.9,78 202.2,78 206.4,78 210.7,78 			"/>
-              <text transform="matrix(1 0 0 1 125.5088 36.7912)" class="streamtext">Daily</text>
-              <text transform="matrix(1 0 0 1 127.1646 43.0948)" class="streamtext">streamflow</text>
-              <text transform="matrix(1 0 0 1 137.0284 73.4738)" class="threshtext">Drought threshold</text>
-              <text transform="matrix(1 0 0 1 158.4341 97.2697)" class="streamtext">Drought</text>
+              <polygon class="drought fade" points="132.3,118 134,118 138.3,118 142.5,118 146.8,118 151.1,118 155.3,118 159.6,118 163.8,118 
+				168.1,118 172.4,118 176.6,118 180.9,118 185.1,118 189.4,118 191.1,118 191.1,118 189.4,125.9 185.1,140.6 180.9,155.6 
+				176.6,157.7 172.4,158.6 168.1,158.6 163.8,159 159.6,159 155.3,131.8 151.1,122.9 146.8,123.9 142.5,122.9 138.3,122.9 
+				134,123.9 			"/>
+              <polyline class="streamflow" points="112.7,78.9 117,78.9 121.3,78.9 125.5,81.8 129.8,108.2 134,123.9 138.3,122.9 142.5,122.9 
+				146.8,123.9 151.1,122.9 155.3,131.8 159.6,159 163.8,159 168.1,158.6 172.4,158.6 176.6,157.7 180.9,155.6 185.1,140.6 
+				189.4,125.9 193.6,106.3 197.9,108.2 202.2,106.3 206.4,106.3 210.7,106.3 			"/>
+              <polyline class="threshold" points="112.7,118 117,118 121.3,118 125.5,118 129.8,118 134,118 138.3,118 142.5,118 146.8,118 
+				151.1,118 155.3,118 159.6,118 163.8,118 168.1,118 172.4,118 176.6,118 180.9,118 185.1,118 189.4,118 193.6,118 197.9,118 
+				202.2,118 206.4,118 210.7,118 			"/>
+              <text transform="matrix(1 0 0 1 125.5088 76.7913)" class="streamtext">Daily</text>
+              <text transform="matrix(1 0 0 1 128.1646 83.0947)" class="streamtext">streamflow</text>
+              <text transform="matrix(1 0 0 1 134.0284 113.4739)" class="threshtext">Drought threshold</text>
+              <text transform="matrix(1 0 0 1 161.4341 137.2698)" class="streamtext">Drought</text>
+              <use xlink:href="#inset_d"/>
+              <use xlink:href="#focalCircle-d"/>
             </g>
           </g>
           <g class="hidden" id="step-c">
@@ -1333,6 +1339,8 @@
             <use xlink:href="#daily streamflow"/>
             <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
             <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
+            <use xlink:href="#inset_d"/>
+            <use xlink:href="#focalCircle-d"/>
           </g>
           <g class="hidden" id="step-d">
             <use xlink:href="#axis"/>
@@ -1341,6 +1349,8 @@
             <use xlink:href="#daily streamflow"/>
             <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
             <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
+            <use xlink:href="#inset_d"/>
+            <use xlink:href="#focalCircle-d"/>
           </g>
           <g class="hidden" id="step-e">
             <use xlink:href="#axis"/>
@@ -1355,6 +1365,8 @@
             <use xlink:href="#daily streamflow"/>
           <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
           <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
+            <use xlink:href="#inset_d"/>
+            <use xlink:href="#focalCircle-d"/>
           </g>
           <g class="hidden" id="step-f">
             <use xlink:href="#axis"/>
@@ -1370,6 +1382,8 @@
               <text transform="matrix(1 0 0 1 55.64 140.26)" class="streamtext">streamflow</text>
               <text transform="matrix(1 0 0 1 55.64 147.26)" class="streamtext">(1963)</text>
             </g>
+            <use xlink:href="#inset_d"/>
+            <use xlink:href="#focalCircle-d"/>
           </g>
           <g class="hidden" id="step-g">
             <use xlink:href="#axis"/>
@@ -1395,6 +1409,8 @@
               <text transform="matrix(1 0 0 1 27.8901 29.7402)" class="explainertext">Typical daily streamflow</text>
               <text transform="matrix(1 0 0 1 27.89 210.13)" class="explainertext">Actual daily streamflow</text>
             </g>
+            <use xlink:href="#inset_d"/>
+            <use xlink:href="#focalCircle-d"/>
           </g>
           <g class="hidden" id="step-h">
             <use xlink:href="#axis"/>
@@ -1410,6 +1426,8 @@
               <text transform="matrix(1 0 0 1 54.64 133.07)" class="streamtext">Daily</text>
               <text transform="matrix(1 0 0 1 55.64 140.26)" class="streamtext">streamflow</text>
             </g>
+            <use xlink:href="#inset_d"/>
+            <use xlink:href="#focalCircle-d"/>
           </g>
           <g class="hidden" id="step-i">
             <use xlink:href="#axis"/>
@@ -1429,6 +1447,8 @@
               <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
               <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
             </g>
+            <use xlink:href="#inset_d"/>
+            <use xlink:href="#focalCircle-d"/>
           </g>
           <g class="hidden" id="step-j">
             <use xlink:href="#axis"/>
@@ -1469,6 +1489,8 @@
               <rect x="149.4" y="16.8" class="fade" width="17" height="84.3"/>
               <rect x="178.1" y="16.8" class="fade" width="39.2" height="84.3"/>
             </g>
+            <use xlink:href="#inset_d"/>
+            <use xlink:href="#focalCircle-d"/>
           </g>
           
         </svg>
