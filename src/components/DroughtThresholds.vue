@@ -1328,8 +1328,8 @@
 				202.2,118 206.4,118 210.7,118 			"/>
               <text transform="matrix(1 0 0 1 125.5088 76.7913)" class="streamtext">Daily</text>
               <text transform="matrix(1 0 0 1 128.1646 83.0947)" class="streamtext">streamflow</text>
-              <text transform="matrix(1 0 0 1 134.0284 113.4739)" class="threshtext">Drought threshold</text>
-              <text transform="matrix(1 0 0 1 161.4341 137.2698)" class="streamtext">Drought</text>
+              <text transform="matrix(1 0 0 1 135.0284 113.4739)" class="threshtext">Drought threshold</text>
+              <text transform="matrix(1 0 0 1 158.4341 137.2698)" class="streamtext">Drought</text>
               <use xlink:href="#inset_d"/>
               <use xlink:href="#focalCircle-d"/>
             </g>
