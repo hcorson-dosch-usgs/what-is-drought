@@ -1368,6 +1368,7 @@
               <use xlink:href="#scaled daily streamflow"/>
               <text transform="matrix(1 0 0 1 54.64 133.07)" class="streamtext">Daily</text>
               <text transform="matrix(1 0 0 1 55.64 140.26)" class="streamtext">streamflow</text>
+              <text transform="matrix(1 0 0 1 55.64 147.26)" class="streamtext">(1963)</text>
             </g>
           </g>
           <g class="hidden" id="step-g">
@@ -1382,6 +1383,7 @@
               <use xlink:href="#scaled daily streamflow"/>
               <text transform="matrix(1 0 0 1 54.64 133.07)" class="streamtext">Daily</text>
               <text transform="matrix(1 0 0 1 55.64 140.26)" class="streamtext">streamflow</text>
+              <text transform="matrix(1 0 0 1 55.64 147.26)" class="streamtext">(1963)</text>
             </g>
             <g id="explainer">
               <g class="explainer">
@@ -1531,7 +1533,7 @@ export default {
             // use class to set trigger
          tl.to('.scroll-step-aa01', {
           scrollTrigger: {  
-            markers: false,
+            markers: this.marker_on,
             trigger: '.scroll-step-aa01',
             start: "top 70%",
             end: 99999,
@@ -1575,7 +1577,7 @@ export default {
             onEnterBack - scrolling up, end meets scroller-end
             onLeaveBack - scrolling up, start meets scroller-start
             */
-          }
+          },
         }) 
       })
 
@@ -1669,6 +1671,9 @@ $usgsBlue: #032a56;
 // currently empty scroll-by divs used to trigger animation
 .scrolly{
   height:60vh;
+  @media (min-width: 950px){
+  height:50vh;
+  }
 }
 .hydro-chart {
   padding:0;
@@ -1746,6 +1751,8 @@ $usgsBlue: #032a56;
 
 .hidden{
   visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
 .woodcutBlack {
@@ -1861,6 +1868,8 @@ $usgsBlue: #032a56;
 
 .visible{
   visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
 }
 .emph {
   font-weight: 700;
