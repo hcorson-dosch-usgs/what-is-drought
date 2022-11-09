@@ -1560,8 +1560,8 @@
             <g id="fixed droughts" class="drought">
               <rect x="149.4" y="105.7" width="17" height="7"/>
               <rect x="178.1" y="105.7" width="39.2" height="7"/>
-              <rect x="149.4" y="16.8" class="fade" width="17" height="84.3"/>
-              <rect x="178.1" y="16.8" class="fade" width="39.2" height="84.3"/>
+              <rect x="149.4" y="19.8" class="fade" width="17" height="80.3"/>
+              <rect x="178.1" y="19.8" class="fade" width="39.2" height="80.3"/>
             </g>
             <g id="daily_streamflow">
               <use xlink:href="#stacked streamflow top mask"/>
