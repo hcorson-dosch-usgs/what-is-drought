@@ -1764,17 +1764,19 @@ $usgsBlue: #032a56;
   justify-self: center;
   color: $usgsBlue;
   position: absolute;
+  min-width: 100px;
   padding: 0 0 0 0;
   @media (min-width: 950px){
     align-self: center;
     justify-self: end;
+    min-height: 220px;
   }
 }
 // currently empty scroll-by divs used to trigger animation
 .scrolly{
   height:60vh;
   @media (min-width: 950px){
-  height:50vh;
+    height:50vh;
   }
 }
 .hydro-chart {
@@ -1965,7 +1967,7 @@ $usgsBlue: #032a56;
 .threshold{
   stroke:#883e3a;
   fill:none;
-  stroke-width: 0.9px;
+  stroke-width: 0.7px;
 }
 .threshtext{
   fill:#883e3a;
