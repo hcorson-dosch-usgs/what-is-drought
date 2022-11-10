@@ -1764,7 +1764,6 @@ $usgsBlue: #032a56;
   justify-self: center;
   color: $usgsBlue;
   position: absolute;
-  min-width: 100px;
   padding: 0 0 0 0;
   @media (min-width: 950px){
     align-self: center;
