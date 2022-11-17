@@ -42,11 +42,11 @@ export default {
         },
         {
           id: 'd',
-          text: 'When considering records across the whole year, streamflow levels that fall below a threshold of 45 cfs are in the lowest 10%. This fixed threshold of 45 cfs is constant from day-to-day and identifies these drought events during the dry season when the lowest streamflow levels typically occur.'
+          text: 'When considering records across the whole year, streamflow levels that fall below a threshold of 45 cfs are in the lowest 10%. This fixed threshold of 45 cfs is constant from day-to-day and identifies these streamflow drought events during the dry season when the lowest streamflow levels typically occur.'
         },
         {
           id: 'e',
-          text: 'Using a 10% fixed threshold identifies two drought events for 1963 in the dry season. Unusually low flow at this time of year can reduce hydropower production, impair water quality, and require reservoir releases to provide water to communities.'
+          text: 'Using a 10% fixed threshold identifies two streamflow drought events for 1963 in the dry season. Unusually low flow at this time of year can reduce hydropower production, impair water quality, and require reservoir releases to provide water to communities.'
         },
         {
           id: 'f',
@@ -58,11 +58,11 @@ export default {
         },
         {
           id: 'h',
-          text: 'To identify drought events during wetter times of the year, a variable threshold can be used to compare streamflow to typical conditions at that time of the year. Here, streamflow drought occurs if streamflow falls below the lowest 10% of observations ever recorded for that particular day. The result is a threshold that varies from day to day.'
+          text: 'To identify streamflow drought events during wetter times of the year, a variable threshold can be used to compare streamflow to typical conditions at that time of the year. Here, streamflow drought occurs if streamflow falls below the lowest 10% of observations ever recorded for that particular day. The result is a threshold that varies from day to day.'
         },
         {
           id: 'i',
-          text: 'The variable threshold detects several drought events in the spring during the wet season. Low stream levels in the spring can reduce inflow to water supply reservoirs, affect the behavior and survival of aquatic species, and impact early season crops. This method also detects the drought in August, when streamflow was unusually low for even the dry season.'
+          text: 'The variable threshold detects several streamflow drought events in the spring during the wet season. Low stream levels in the spring can reduce inflow to water supply reservoirs, affect the behavior and survival of aquatic species, and impact early season crops. This method also detects the drought in August, when streamflow was unusually low for even the dry season.'
         },
         {
           id: 'j',
