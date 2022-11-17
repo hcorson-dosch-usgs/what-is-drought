@@ -12,7 +12,7 @@ export default {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa02',
-          text: 'When there is less rain or snowfall than typical, this can cause a meteorological drought.'
+          text: 'When there is less rain or snowfall than typical, this can be known as meteorological drought.'
         },
         {
           // id is used to source image files with the same naming
