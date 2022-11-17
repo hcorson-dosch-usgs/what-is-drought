@@ -1270,6 +1270,10 @@
                   <text transform="matrix(1 0 0 1 206.1328 233.3403)">Oct</text>
                 </g>
               </g>
+            <linearGradient id="droughtGradient" gradientTransform="rotate(90)">
+              <stop offset="25%" stop-color="#ffffff" />
+              <stop offset="100%" stop-color="#D3BF95" />
+            </linearGradient>
           </defs>
 
           <g class="hidden" id="step-aa01">
@@ -1400,7 +1404,7 @@
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
-              <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+              <rect x="149.4" y="34.3" fill="url(#droughtGradient)" width="17" height="172.8"/>
             </g>
             <use xlink:href="#daily streamflow mask"/>
             <use xlink:href="#daily streamflow"/>
@@ -1417,7 +1421,7 @@
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
-              <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+              <rect x="149.4" y="34.3" fill="url(#droughtGradient)" width="17" height="172.8"/>
             </g>
             <use xlink:href="#fixed threshold"/>
             <use xlink:href="#daily streamflow mask"/>
@@ -1486,8 +1490,8 @@
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
               <rect x="178.1" y="216.6" width="39.2" height="7.1"/>
-              <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
-              <rect x="178.1" y="34.3" class="fade" width="39.2" height="172.8"/>
+              <rect x="149.4" y="34.3" fill="url(#droughtGradient)" width="17" height="172.8"/>
+              <rect x="178.1" y="34.3" fill="url(#droughtGradient)" width="39.2" height="172.8"/>
             </g>
             <use xlink:href="#fixed threshold"/>
             <text transform="matrix(1 0 0 1 31.81 198.53)" class="threshtext">Drought threshold</text>
@@ -1585,10 +1589,10 @@
               <rect x="39.7" y="216.6" width="5.2" height="7.1"/>
               <rect x="73.6" y="216.6" width="9.2" height="7.1"/>
               <rect x="149.4" y="216.6"  width="15.7" height="7.1"/>
-              <rect x="17.4" y="34.3" class="fade" width="11.8" height="172.8"/>
-              <rect x="39.7" y="34.3" class="fade" width="5.2" height="172.8"/>
-              <rect x="73.6" y="34.3" class="fade" width="9.2" height="172.8"/>
-              <rect x="149.4" y="34.3" class="fade" width="15.7" height="172.8"/>
+              <rect x="17.4" y="34.3" fill="url(#droughtGradient)" width="11.8" height="172.8"/>
+              <rect x="39.7" y="34.3" fill="url(#droughtGradient)" width="5.2" height="172.8"/>
+              <rect x="73.6" y="34.3" fill="url(#droughtGradient)" width="9.2" height="172.8"/>
+              <rect x="149.4" y="34.3" fill="url(#droughtGradient)" width="15.7" height="172.8"/>
             </g>
             <use xlink:href="#variable threshold"/>
             <g>
@@ -1613,10 +1617,10 @@
               <rect x="39.7" y="216.7" width="5.2" height="7"/>
               <rect x="73.6" y="216.7" width="9.2" height="7"/>
               <rect x="149.4" y="216.7" width="15.7" height="7"/>
-              <rect x="17.4" y="126.8" class="fade" width="11.8" height="84.3"/>
-              <rect x="39.7" y="126.8" class="fade" width="5.2" height="84.3"/>
-              <rect x="73.6" y="126.8" class="fade" width="9.2" height="84.3"/>
-              <rect x="149.4" y="126.8" class="fade" width="15.7" height="84.3"/>
+              <rect x="17.4" y="126.8" fill="url(#droughtGradient)" width="11.8" height="84.3"/>
+              <rect x="39.7" y="126.8" fill="url(#droughtGradient)" width="5.2" height="84.3"/>
+              <rect x="73.6" y="126.8" fill="url(#droughtGradient)" width="9.2" height="84.3"/>
+              <rect x="149.4" y="126.8" fill="url(#droughtGradient)" width="15.7" height="84.3"/>
             </g>
             <g id="daily_streamflow">
               <use xlink:href="#stacked streamflow bottom mask"/>
@@ -1636,8 +1640,8 @@
             <g id="fixed droughts" class="drought">
               <rect x="149.4" y="105.7" width="17" height="7"/>
               <rect x="178.1" y="105.7" width="39.2" height="7"/>
-              <rect x="149.4" y="19.8" class="fade" width="17" height="80.3"/>
-              <rect x="178.1" y="19.8" class="fade" width="39.2" height="80.3"/>
+              <rect x="149.4" y="19.8" fill="url(#droughtGradient)" width="17" height="80.3"/>
+              <rect x="178.1" y="19.8" fill="url(#droughtGradient)" width="39.2" height="80.3"/>
             </g>
             <g id="daily_streamflow">
               <use xlink:href="#stacked streamflow top mask"/>
