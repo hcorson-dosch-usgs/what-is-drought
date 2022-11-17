@@ -6,25 +6,25 @@ export default {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa01',
-          text: 'Drought is increasing for regions worldwide, threatening our water supplies and affecting our daily lives. What starts with reduced rain and snowfall can progress to impacts on soil moisture and streamflow.'
+          text: 'Drought is increasing for regions worldwide, threatening our water security and affecting our daily lives. What starts with reduced rain and snowfall can progress to impacts on soil moisture and streamflow.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa02',
-          text: 'When there is less rain or snowfall than typical, this can be known as meteorological drought.'
+          text: 'When there is less rain or snowfall than typical, this is known as meteorological drought.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa03',
-          text: 'If meteorological drought continues, soil moisture becomes depleted and agricultural drought sets in. To keep crops and livestock healthy, farmers might use more water for irrigation.'
+          text: 'If meteorological drought continues, soil moisture becomes depleted and agricultural drought sets in. To keep crops and livestock healthy, farmers might use more water for irrigation. Extensive irrigation can impair water supplies and quality for local communities.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa04',
-          text: 'As these conditions persist, less water moves into and through streams. When streamflow levels are unusually low, this is defined as streamflow drought. But what does "unusually low" really mean?'
+          text: 'As these conditions persist, less water moves into and through streams. Reduced streamflow has significant impact on plants, animals, and humans. When streamflow levels are unusually low, this is defined as streamflow drought. But what does "unusually low" really mean?'
         },
         {
           // id is used to source image files with the same naming
