@@ -1655,6 +1655,12 @@
               <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
+            <g class="threshtext">
+              <text transform="matrix(1 0 0 1 108 55)">Fixed threshold</text>
+              <text transform="matrix(1 0 0 1 124 62)">droughts</text>
+              <text transform="matrix(1 0 0 1 100.5 175)">Variable threshold</text>
+              <text transform="matrix(1 0 0 1 124 182)">droughts</text>
+            </g>
           </g>
           
         </svg>
