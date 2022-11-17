@@ -1610,7 +1610,6 @@
           </g>
           <g class="hidden" id="step-j">
             <use xlink:href="#axis"/>
-            <use xlink:href="#stacked variable threshold"/>
 
             <g id="variable droughts" class="drought">
               <rect x="17.4" y="216.7" width="11.8" height="7"/>
@@ -1622,6 +1621,7 @@
               <rect x="73.6" y="126.8" fill="url(#droughtGradient)" width="9.2" height="84.3"/>
               <rect x="149.4" y="126.8" fill="url(#droughtGradient)" width="15.7" height="84.3"/>
             </g>
+            <use xlink:href="#stacked variable threshold"/>
             <g id="daily_streamflow">
               <use xlink:href="#stacked streamflow bottom mask"/>
               <use xlink:href="#stacked streamflow bottom"/>
@@ -1636,13 +1636,13 @@
               <rect x="171.6" y="105.7" width="37.9" height="7"/>
               <rect x="210.8" y="105.7" width="17" height="7"/>
             </g>
-            <use xlink:href="#stacked fixed threshold"/>
             <g id="fixed droughts" class="drought">
               <rect x="149.4" y="105.7" width="17" height="7"/>
               <rect x="178.1" y="105.7" width="39.2" height="7"/>
               <rect x="149.4" y="19.8" fill="url(#droughtGradient)" width="17" height="80.3"/>
               <rect x="178.1" y="19.8" fill="url(#droughtGradient)" width="39.2" height="80.3"/>
             </g>
+            <use xlink:href="#stacked fixed threshold"/>
             <g id="daily_streamflow">
               <use xlink:href="#stacked streamflow top mask"/>
               <use xlink:href="#stacked streamflow top"/>
