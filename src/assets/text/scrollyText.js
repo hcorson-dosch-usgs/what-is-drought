@@ -6,25 +6,25 @@ export default {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa01',
-          text: 'Drought is increasing for regions worldwide, threatening our water supplies and affecting our daily lives. What starts with reduced rain and snowfall can progress to impacts on soil moisture and streamflow.'
+          text: 'Drought is increasing for regions worldwide, threatening our water security and affecting our daily lives. What starts with reduced rain and snowfall can progress to impacts on soil moisture and streamflow.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa02',
-          text: 'When there is less rain or snowfall than typical, this can cause a meteorological drought.'
+          text: 'When there is less rain or snowfall than typical, this is known as meteorological drought.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa03',
-          text: 'If meteorological drought continues, soil moisture becomes depleted and agricultural drought sets in. To keep crops and livestock healthy, farmers might use more water for irrigation.'
+          text: 'If meteorological drought continues, soil moisture becomes depleted and agricultural drought sets in. To keep crops and livestock healthy, farmers might use more water for irrigation. Extensive irrigation can impair water supplies and quality for local communities.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'aa04',
-          text: 'As these conditions persist, less water moves into and through streams. When streamflow levels are unusually low, this is defined as streamflow drought. But what does "unusually low" really mean?'
+          text: 'As these conditions persist, less water moves into and through streams. Reduced streamflow has significant impact on plants, animals, and humans. When streamflow levels are unusually low, this is defined as streamflow drought. But what does "unusually low" really mean?'
         },
         {
           // id is used to source image files with the same naming
@@ -42,11 +42,11 @@ export default {
         },
         {
           id: 'd',
-          text: 'When considering records across the whole year, streamflow levels that fall below a threshold of 45 cfs are in the lowest 10%. This fixed threshold of 45 cfs is constant from day-to-day and identifies these drought events during the dry season when the lowest streamflow levels typically occur.'
+          text: 'When considering records across the whole year, streamflow levels that fall below a threshold of 45 cfs are in the lowest 10%. This fixed threshold of 45 cfs is constant from day-to-day and identifies these streamflow drought events during the dry season when the lowest streamflow levels typically occur.'
         },
         {
           id: 'e',
-          text: 'Using a 10% fixed threshold identifies two drought events for 1963 in the dry season. Unusually low flow at this time of year can reduce hydropower production, impair water quality, and require reservoir releases to provide water to communities.'
+          text: 'Using a 10% fixed threshold identifies two streamflow drought events for 1963 in the dry season. Unusually low flow at this time of year can reduce hydropower production, impair water quality, and require reservoir releases to provide water to communities. Notice that even if streamflow goes over the threshold for a brief time (up to about 5 days), this is still one drought event'
         },
         {
           id: 'f',
@@ -58,11 +58,11 @@ export default {
         },
         {
           id: 'h',
-          text: 'To identify drought events during wetter times of the year, a variable threshold can be used to compare streamflow to typical conditions at that time of the year. Here, streamflow drought occurs if streamflow falls below the lowest 10% of observations ever recorded for that particular day. The result is a threshold that varies from day to day.'
+          text: 'To identify streamflow drought events during wetter times of the year, a variable threshold can be used to compare streamflow to typical conditions at that time of the year. Here, streamflow drought occurs if streamflow falls below the lowest 10% of observations ever recorded for that particular day. The result is a threshold that varies from day to day.'
         },
         {
           id: 'i',
-          text: 'The variable threshold detects several drought events in the spring during the wet season. Low stream levels in the spring can reduce inflow to water supply reservoirs, affect the behavior and survival of aquatic species, and impact early season crops. This method also detects the drought in August, when streamflow was unusually low for even the dry season.'
+          text: 'The variable threshold detects several streamflow drought events in the spring during the wet season. Low stream levels in the spring can reduce inflow to water supply reservoirs, affect the behavior and survival of aquatic species, and impact early season crops. This method also detects the drought in August, when streamflow was unusually low for even the dry season.'
         },
         {
           id: 'j',

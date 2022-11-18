@@ -1270,6 +1270,10 @@
                   <text transform="matrix(1 0 0 1 206.1328 233.3403)">Oct</text>
                 </g>
               </g>
+            <linearGradient id="droughtGradient" gradientTransform="rotate(90)">
+              <stop offset="25%" stop-color="#ffffff" />
+              <stop offset="100%" stop-color="#D3BF95" />
+            </linearGradient>
           </defs>
 
           <g class="hidden" id="step-aa01">
@@ -1292,6 +1296,16 @@
             <use xlink:href="#shadeMask-d"/>
             <use xlink:href="#healthy_sunflower"/>
             <use xlink:href="#woodcut_texture"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 24 55)">Normal</text>
+              <text transform="matrix(1 0 0 1 20.5 62)">conditions</text>
+              <text transform="matrix(1 0 0 1 70 55)">Meteorological</text>
+              <text transform="matrix(1 0 0 1 81 62)">drought</text>
+              <text transform="matrix(1 0 0 1 130 55)">Agricultural</text>
+              <text transform="matrix(1 0 0 1 136 62)">drought</text>
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
             
           <g class="hidden" id="step-aa02">
@@ -1313,6 +1327,16 @@
             <use xlink:href="#shadeMask-d"/>
             <use xlink:href="#healthy_sunflower"/>
             <use xlink:href="#woodcut_texture"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 24 55)">Normal</text>
+              <text transform="matrix(1 0 0 1 20.5 62)">conditions</text>
+              <text transform="matrix(1 0 0 1 70 55)">Meteorological</text>
+              <text transform="matrix(1 0 0 1 81 62)">drought</text>
+              <text transform="matrix(1 0 0 1 130 55)">Agricultural</text>
+              <text transform="matrix(1 0 0 1 136 62)">drought</text>
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
 
           <g class="hidden" id="step-aa03">
@@ -1334,6 +1358,16 @@
             <use xlink:href="#shadeMask-d"/>
             <use xlink:href="#sad_sunflower"/>
             <use xlink:href="#woodcut_texture"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 24 55)">Normal</text>
+              <text transform="matrix(1 0 0 1 20.5 62)">conditions</text>
+              <text transform="matrix(1 0 0 1 70 55)">Meteorological</text>
+              <text transform="matrix(1 0 0 1 81 62)">drought</text>
+              <text transform="matrix(1 0 0 1 130 55)">Agricultural</text>
+              <text transform="matrix(1 0 0 1 136 62)">drought</text>
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
 
           <g class="hidden" id="step-aa04">
@@ -1354,13 +1388,23 @@
             <use xlink:href="#dead_sunflower"/>
             <path id="dryRiver" class="riverBlue" d="M99.4,237.5c-.4-3-.9-6-1.6-9.2-4.6-21.2-3.2-27.5-14.6-48.6-16.5-30.6-2.5-40.2-2.5-40.2l-5.8,.4s-5.4,3.1-6.2,18.9,17.5,34.6,12.9,71.7c-.2,2-.7,4.4-1.2,6.9,6.5-.3,13-.5,19,.2Z"/>
             <use xlink:href="#woodcut_texture"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 24 55)">Normal</text>
+              <text transform="matrix(1 0 0 1 20.5 62)">conditions</text>
+              <text transform="matrix(1 0 0 1 70 55)">Meteorological</text>
+              <text transform="matrix(1 0 0 1 81 62)">drought</text>
+              <text transform="matrix(1 0 0 1 130 55)">Agricultural</text>
+              <text transform="matrix(1 0 0 1 136 62)">drought</text>
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
 
           <g class="hidden" id="step-a">
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
-              <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+              <rect x="149.4" y="34.3" fill="url(#droughtGradient)" width="17" height="172.8"/>
             </g>
             <use xlink:href="#daily streamflow mask"/>
             <use xlink:href="#daily streamflow"/>
@@ -1368,12 +1412,16 @@
             <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
             <use xlink:href="#inset_d"/>
             <use xlink:href="#focalCircle-d"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
           <g class="hidden" id="step-b">
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
-              <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
+              <rect x="149.4" y="34.3" fill="url(#droughtGradient)" width="17" height="172.8"/>
             </g>
             <use xlink:href="#fixed threshold"/>
             <use xlink:href="#daily streamflow mask"/>
@@ -1404,6 +1452,10 @@
               <use xlink:href="#inset_d"/>
               <use xlink:href="#focalCircle-d"/>
             </g>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
           <g class="hidden" id="step-c">
             <use xlink:href="#axis"/>
@@ -1413,6 +1465,10 @@
             <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
             <use xlink:href="#inset_d"/>
             <use xlink:href="#focalCircle-d"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
           <g class="hidden" id="step-d">
             <use xlink:href="#axis"/>
@@ -1424,14 +1480,18 @@
             <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
             <use xlink:href="#inset_d"/>
             <use xlink:href="#focalCircle-d"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
           <g class="hidden" id="step-e">
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
               <rect x="178.1" y="216.6" width="39.2" height="7.1"/>
-              <rect x="149.4" y="34.3" class="fade" width="17" height="172.8"/>
-              <rect x="178.1" y="34.3" class="fade" width="39.2" height="172.8"/>
+              <rect x="149.4" y="34.3" fill="url(#droughtGradient)" width="17" height="172.8"/>
+              <rect x="178.1" y="34.3" fill="url(#droughtGradient)" width="39.2" height="172.8"/>
             </g>
             <use xlink:href="#fixed threshold"/>
             <text transform="matrix(1 0 0 1 31.81 198.53)" class="threshtext">Drought threshold</text>
@@ -1441,6 +1501,10 @@
           <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
             <use xlink:href="#inset_d"/>
             <use xlink:href="#focalCircle-d"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
           <g class="hidden" id="step-f">
             <use xlink:href="#axis"/>
@@ -1459,6 +1523,10 @@
             </g>
             <use xlink:href="#inset_d"/>
             <use xlink:href="#focalCircle-d"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
           <g class="hidden" id="step-g">
             <use xlink:href="#axis"/>
@@ -1487,6 +1555,10 @@
             </g>
             <use xlink:href="#inset_d"/>
             <use xlink:href="#focalCircle-d"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
           <g class="hidden" id="step-h">
             <use xlink:href="#axis"/>
@@ -1505,6 +1577,10 @@
             </g>
             <use xlink:href="#inset_d"/>
             <use xlink:href="#focalCircle-d"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
           <g class="hidden" id="step-i">
             <use xlink:href="#axis"/>
@@ -1513,10 +1589,10 @@
               <rect x="39.7" y="216.6" width="5.2" height="7.1"/>
               <rect x="73.6" y="216.6" width="9.2" height="7.1"/>
               <rect x="149.4" y="216.6"  width="15.7" height="7.1"/>
-              <rect x="17.4" y="34.3" class="fade" width="11.8" height="172.8"/>
-              <rect x="39.7" y="34.3" class="fade" width="5.2" height="172.8"/>
-              <rect x="73.6" y="34.3" class="fade" width="9.2" height="172.8"/>
-              <rect x="149.4" y="34.3" class="fade" width="15.7" height="172.8"/>
+              <rect x="17.4" y="34.3" fill="url(#droughtGradient)" width="11.8" height="172.8"/>
+              <rect x="39.7" y="34.3" fill="url(#droughtGradient)" width="5.2" height="172.8"/>
+              <rect x="73.6" y="34.3" fill="url(#droughtGradient)" width="9.2" height="172.8"/>
+              <rect x="149.4" y="34.3" fill="url(#droughtGradient)" width="15.7" height="172.8"/>
             </g>
             <use xlink:href="#variable threshold"/>
             <g>
@@ -1527,21 +1603,25 @@
             </g>
             <use xlink:href="#inset_d"/>
             <use xlink:href="#focalCircle-d"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
           </g>
           <g class="hidden" id="step-j">
             <use xlink:href="#axis"/>
-            <use xlink:href="#stacked variable threshold"/>
 
             <g id="variable droughts" class="drought">
               <rect x="17.4" y="216.7" width="11.8" height="7"/>
               <rect x="39.7" y="216.7" width="5.2" height="7"/>
               <rect x="73.6" y="216.7" width="9.2" height="7"/>
               <rect x="149.4" y="216.7" width="15.7" height="7"/>
-              <rect x="17.4" y="126.8" class="fade" width="11.8" height="84.3"/>
-              <rect x="39.7" y="126.8" class="fade" width="5.2" height="84.3"/>
-              <rect x="73.6" y="126.8" class="fade" width="9.2" height="84.3"/>
-              <rect x="149.4" y="126.8" class="fade" width="15.7" height="84.3"/>
+              <rect x="17.4" y="126.8" fill="url(#droughtGradient)" width="11.8" height="84.3"/>
+              <rect x="39.7" y="126.8" fill="url(#droughtGradient)" width="5.2" height="84.3"/>
+              <rect x="73.6" y="126.8" fill="url(#droughtGradient)" width="9.2" height="84.3"/>
+              <rect x="149.4" y="126.8" fill="url(#droughtGradient)" width="15.7" height="84.3"/>
             </g>
+            <use xlink:href="#stacked variable threshold"/>
             <g id="daily_streamflow">
               <use xlink:href="#stacked streamflow bottom mask"/>
               <use xlink:href="#stacked streamflow bottom"/>
@@ -1556,13 +1636,13 @@
               <rect x="171.6" y="105.7" width="37.9" height="7"/>
               <rect x="210.8" y="105.7" width="17" height="7"/>
             </g>
-            <use xlink:href="#stacked fixed threshold"/>
             <g id="fixed droughts" class="drought">
               <rect x="149.4" y="105.7" width="17" height="7"/>
               <rect x="178.1" y="105.7" width="39.2" height="7"/>
-              <rect x="149.4" y="19.8" class="fade" width="17" height="80.3"/>
-              <rect x="178.1" y="19.8" class="fade" width="39.2" height="80.3"/>
+              <rect x="149.4" y="19.8" fill="url(#droughtGradient)" width="17" height="80.3"/>
+              <rect x="178.1" y="19.8" fill="url(#droughtGradient)" width="39.2" height="80.3"/>
             </g>
+            <use xlink:href="#stacked fixed threshold"/>
             <g id="daily_streamflow">
               <use xlink:href="#stacked streamflow top mask"/>
               <use xlink:href="#stacked streamflow top"/>
@@ -1571,6 +1651,16 @@
             </g>
             <use xlink:href="#inset_d"/>
             <use xlink:href="#focalCircle-d"/>
+            <g class="streamtext">
+              <text transform="matrix(1 0 0 1 188 55)">Streamflow</text>
+              <text transform="matrix(1 0 0 1 194 62)">drought</text>
+            </g>
+            <g class="threshtext">
+              <text transform="matrix(1 0 0 1 108 55)">Fixed threshold</text>
+              <text transform="matrix(1 0 0 1 124 62)">droughts</text>
+              <text transform="matrix(1 0 0 1 100.5 175)">Variable threshold</text>
+              <text transform="matrix(1 0 0 1 124 182)">droughts</text>
+            </g>
           </g>
           
         </svg>
