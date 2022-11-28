@@ -1673,6 +1673,26 @@
       >
         {{ frame.text }}
       </p>
+      <div class="navigationContainer">
+        <div class="bottomLayer">
+          <div 
+            v-for="frame in frames"
+            :key="frame.id"
+            :id="`step-${frame.id}`"
+            class="circleForm quietCircle"
+          > 
+          </div>
+        </div>
+        <div class="topLayer">
+          <div 
+            v-for="frame in frames"
+            :key="frame.id"
+            :id="`step-${frame.id}`"
+            class="circleForm activeCircle hidden"
+          > 
+          </div>
+        </div>
+      </div>
     </div>
     <!-- create a scrolling div for each frame -->
     <div id="scroll-container">
@@ -1684,7 +1704,7 @@
         </div>
     </div>
 
-    <div id="spacer" />
+    <div id="spacer"/>
     </div>
 </template>
 <script>
@@ -1710,7 +1730,7 @@ export default {
         margin: { top: 50, right: 50, bottom: 50, left: 50 },
 
         // show scroll trigger markers on the page?
-        marker_on: false,
+        marker_on: true,
 
         }
   },
@@ -1947,6 +1967,37 @@ $usgsBlue: #032a56;
   opacity: 0;
   transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
+.navigationContainer{ // grid container for the navigation indicating circles
+  display: grid;
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+.bottomLayer, .topLayer{ //stacks the nav circle divs on top of each other
+  grid-column: 1;
+  grid-row: 1;
+}
+.circleForm{ // circle shape and sizing
+  color: white;
+  width: 13px;
+  height: 13px;
+  display:inline-block;
+  border-radius: 50%;
+  margin:0 5px 0 0;
+}
+.activeCircle{ // color when active
+  background-color: #507282;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #507282;
+}
+.quietCircle{ // color when inactive
+  background-color: #ccc;
+  border: none;
+}
+
 
 .woodcutBlack {
   opacity: 0.8;
