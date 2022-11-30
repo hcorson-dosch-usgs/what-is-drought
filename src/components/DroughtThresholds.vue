@@ -1675,13 +1675,13 @@
       </p>
       <div class="navigationContainer">
         <div class="bottomLayer">
-          <div 
+          <button
             v-for="frame in frames"
             :key="frame.id"
-            :id="`step-${frame.id}`"
+            :id="`grayCircle-${frame.id}`"
             class="circleForm quietCircle"
           > 
-          </div>
+          </button>
         </div>
         <div class="topLayer">
           <div 
@@ -1692,6 +1692,15 @@
           > 
           </div>
         </div>
+        <div class="hiddenLayer">
+          <button
+            v-for="frame in frames"
+            :key="frame.id"
+            :id="`button-${frame.id}`"
+            class="circleForm hiddenCircle"
+            @click="scrollFxn"> 
+          </button>
+        </div>
       </div>
     </div>
     <!-- create a scrolling div for each frame -->
@@ -1699,6 +1708,7 @@
         <div
           v-for="frame in frames" 
           :key="frame.id"
+          :id="`scroll-to-${frame.id}`"
           :class="`scrolly scroll-step-${frame.id}`"
         >
         </div>
@@ -1711,6 +1721,7 @@
 import { store } from '../store/store.js'
 import { isMobile } from 'mobile-device-detect';
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // animated scroll events
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import scrollyText from "@/assets/text/scrollyText";  // step text
 export default {
   name: "DroughtThresholds",
@@ -1736,7 +1747,7 @@ export default {
   },
   mounted(){      
     // register plugins for global use
-      this.$gsap.registerPlugin(ScrollTrigger); 
+      this.$gsap.registerPlugin(ScrollTrigger, ScrollToPlugin); 
 
       // create the scrolling timeline
       let tl = this.$gsap.timeline(); 
@@ -1747,7 +1758,7 @@ export default {
           scrollTrigger: {  
             markers: this.marker_on,
             trigger: '.scroll-step-aa01',
-            start: "top 70%",
+            start: "top 65%",
             end: 99999,
             toggleClass: {targets: `.title-text`, className:"title-text--scrolled"}, // adds class to target when triggered
             toggleActions: "restart none none none" // onEnter onLeave ... ... restart none none none
@@ -1779,8 +1790,8 @@ export default {
           scrollTrigger: {
             markers: this.marker_on,
             trigger: `.${scrollClass}`,
-            start: "top 70%",
-            end: "bottom 70%",
+            start: "top 54%",
+            end: "bottom 54%",
             toggleClass: {targets: `#step-${scrollID}`, className:"visible"}, // adds class to target when triggered
             toggleActions: "restart reverse none reverse" 
             /*
@@ -1793,8 +1804,17 @@ export default {
         }) 
       })
 
+      
+
     },
     methods:{
+      scrollFxn(e) {
+        const scrollButton = e.target; // define target
+        const scrollID = scrollButton.id; // extract id as "button-x"
+        const scrollFrame = scrollID.split('-')[1]; // extract frame number "x"
+      // scroll to position of specified frame
+        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+scrollFrame});
+      },
       isMobile() {
               if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                   return true
@@ -1883,9 +1903,9 @@ $usgsBlue: #032a56;
 }
 // currently empty scroll-by divs used to trigger animation
 .scrolly{
-  height:60vh;
+  height:55vh;
   @media (min-width: 950px){
-    height:50vh;
+    height:55vh;
   }
 }
 .hydro-chart {
@@ -1975,7 +1995,7 @@ $usgsBlue: #032a56;
   transform: translate(-50%, -50%);
   margin: 0 auto;
 }
-.bottomLayer, .topLayer{ //stacks the nav circle divs on top of each other
+.bottomLayer, .topLayer, .hiddenLayer{ //stacks the nav circle divs on top of each other
   grid-column: 1;
   grid-row: 1;
 }
@@ -1997,8 +2017,10 @@ $usgsBlue: #032a56;
   background-color: #ccc;
   border: none;
 }
-
-
+.hiddenCircle{ //overlaid invisible buttons
+  background-color: transparent;
+  border: none;
+}
 .woodcutBlack {
   opacity: 0.8;
   fill: #202020; 
