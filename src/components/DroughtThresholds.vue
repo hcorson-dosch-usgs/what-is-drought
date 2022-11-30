@@ -1276,7 +1276,7 @@
             </linearGradient>
           </defs>
 
-          <g class="hidden" id="step-aa01">
+          <g class="hidden" id="step-a">
             <use xlink:href="#sun"/>
             <g class="grass"><use xlink:href="#grass"/></g>
             <use xlink:href="#river"/>
@@ -1308,7 +1308,7 @@
             </g>
           </g>
             
-          <g class="hidden" id="step-aa02">
+          <g class="hidden" id="step-b">
             <use xlink:href="#sun"/>
             <g class="dry_grass"><use xlink:href="#grass"/></g>
             <use xlink:href="#river"/>
@@ -1339,7 +1339,7 @@
             </g>
           </g>
 
-          <g class="hidden" id="step-aa03">
+          <g class="hidden" id="step-c">
             <use xlink:href="#sun"/>
             <g class="sad_grass"><use xlink:href="#grass"/></g>
             <use xlink:href="#river"/>
@@ -1370,7 +1370,7 @@
             </g>
           </g>
 
-          <g class="hidden" id="step-aa04">
+          <g class="hidden" id="step-d">
             <use xlink:href="#sun"/>
             <g class="dead_grass"><use xlink:href="#grass"/></g>
             <use xlink:href="#grass-texture"/>
@@ -1400,7 +1400,7 @@
             </g>
           </g>
 
-          <g class="hidden" id="step-a">
+          <g class="hidden" id="step-e">
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
@@ -1417,7 +1417,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-b">
+          <g class="hidden" id="step-f">
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
@@ -1429,7 +1429,7 @@
             <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
             <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
           </g>
-          <g class="hidden" id="step-b">
+          <g class="hidden" id="step-f">
             <circle class="inset"  cx="158.5" cy="110" r="57"/>
             <g>
               <polygon class="drought fade" points="132.3,118 134,118 138.3,118 142.5,118 146.8,118 151.1,118 155.3,118 159.6,118 163.8,118 
@@ -1457,7 +1457,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-c">
+          <g class="hidden" id="step-g">
             <use xlink:href="#axis"/>
             <use xlink:href="#daily streamflow mask"/>
             <use xlink:href="#daily streamflow"/>
@@ -1470,7 +1470,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-d">
+          <g class="hidden" id="step-h">
             <use xlink:href="#axis"/>
             <use xlink:href="#fixed threshold"/>
             <text transform="matrix(1 0 0 1 31.81 198.53)" class="threshtext">Drought threshold</text>
@@ -1485,7 +1485,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-e">
+          <g class="hidden" id="step-i">
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
@@ -1506,7 +1506,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-f">
+          <g class="hidden" id="step-j">
             <use xlink:href="#axis"/>
             <g id="average_streamflow">
               <use xlink:href="#average streamflow"/>
@@ -1528,7 +1528,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-g">
+          <g class="hidden" id="step-k">
             <use xlink:href="#axis"/>
             <g id="average_streamflow">
               <use xlink:href="#average streamflow"/>
@@ -1560,7 +1560,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-h">
+          <g class="hidden" id="step-l">
             <use xlink:href="#axis"/>
             <use xlink:href="#scaled variable threshold"/>
             <g id="average_streamflow">
@@ -1582,7 +1582,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-i">
+          <g class="hidden" id="step-m">
             <use xlink:href="#axis"/>
             <g id="variable_droughts" class="drought">
               <rect x="17.4" y="216.6" width="11.8" height="7.1"/>
@@ -1608,7 +1608,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-j">
+          <g class="hidden" id="step-n">
             <use xlink:href="#axis"/>
 
             <g id="variable droughts" class="drought">
@@ -1754,10 +1754,10 @@ export default {
 
       // things that go before containers
             // use class to set trigger
-         tl.to('.scroll-step-aa01', {
+         tl.to('.scroll-step-a', {
           scrollTrigger: {  
             markers: this.marker_on,
-            trigger: '.scroll-step-aa01',
+            trigger: '.scroll-step-a',
             start: "top 65%",
             end: 99999,
             toggleClass: {targets: `.title-text`, className:"title-text--scrolled"}, // adds class to target when triggered
