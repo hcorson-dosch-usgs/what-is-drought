@@ -1674,6 +1674,15 @@
         {{ frame.text }}
       </p>
       <div class="navigationContainer">
+        <!--button>
+          v-for="frame in frames"
+          :key="frame.id"
+          :id="`current-${frame.id}`"
+          class="navCircle leftGrid"
+          @click="prevFxn">
+          Next
+        </button-->
+        <button id="prev" class="navCircle leftGrid" @click="prevFxn">PREV</button>
         <div class="bottomLayer">
           <button
             v-for="frame in frames"
@@ -1701,6 +1710,7 @@
             @click="scrollFxn"> 
           </button>
         </div>
+        <button id="next" class="navCircle rightGrid" @click="nextFxn">NEXT</button>
       </div>
     </div>
     <!-- create a scrolling div for each frame -->
@@ -1752,6 +1762,8 @@ export default {
       // create the scrolling timeline
       let tl = this.$gsap.timeline(); 
 
+      
+
       // things that go before containers
             // use class to set trigger
          tl.to('.scroll-step-a', {
@@ -1769,7 +1781,7 @@ export default {
             onLeaveBack - scrolling up, start meets scroller-start
             */
           }
-        })  
+        }) 
 
 
 
@@ -1803,17 +1815,35 @@ export default {
           },
         }) 
       })
-
-      
-
     },
     methods:{
       scrollFxn(e) {
         const scrollButton = e.target; // define target
         const scrollID = scrollButton.id; // extract id as "button-x"
         const scrollFrame = scrollID.split('-')[1]; // extract frame number "x"
+        console.log(scrollID)
       // scroll to position of specified frame
         this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+scrollFrame});
+      },
+      prevFxn(e) {
+        const currentFrame = document.querySelector('.visible'); // get svg element that is visible
+        const currentFrameName = currentFrame.id; // full id name in format "step-x"
+        const currentFrameLetter = currentFrameName.split('-')[1]
+
+        const prevFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) - 1); // prev letter
+
+        //scroll to previous
+        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-" + prevFrameLetter})
+      },
+      nextFxn(e) {
+        const currentFrame = document.querySelector('.visible'); // get svg element that is visible
+        const currentFrameName = currentFrame.id; // full id name in format "step-x"
+        const currentFrameLetter = currentFrameName.split('-')[1]
+
+        const nextFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) + 1); // prev letter
+
+        //scroll to previous
+        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+nextFrameLetter})
       },
       isMobile() {
               if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -1994,10 +2024,23 @@ $usgsBlue: #032a56;
   bottom: 20px;
   transform: translate(-50%, -50%);
   margin: 0 auto;
+  align-items: start;
 }
 .bottomLayer, .topLayer, .hiddenLayer{ //stacks the nav circle divs on top of each other
+  grid-column: 2;
+  grid-row: 1;
+}
+.rightGrid{
+  grid-column: 3;
+  grid-row: 1;
+  margin:0 5px 0 0;
+  padding: 4px;
+}
+.leftGrid{
   grid-column: 1;
   grid-row: 1;
+  margin:0 5px 0 0;
+  padding: 4px;
 }
 .circleForm{ // circle shape and sizing
   color: white;
@@ -2020,6 +2063,14 @@ $usgsBlue: #032a56;
 .hiddenCircle{ //overlaid invisible buttons
   background-color: transparent;
   border: none;
+}
+.navCircle{
+  background-color: none;
+  color: black;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  font-size: 12px;
 }
 .woodcutBlack {
   opacity: 0.8;
