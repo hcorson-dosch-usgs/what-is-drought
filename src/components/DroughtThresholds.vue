@@ -1674,15 +1674,7 @@
         {{ frame.text }}
       </p>
       <div class="navigationContainer">
-        <!--button>
-          v-for="frame in frames"
-          :key="frame.id"
-          :id="`current-${frame.id}`"
-          class="navCircle leftGrid"
-          @click="prevFxn">
-          Next
-        </button-->
-        <button id="prev" class="navCircle leftGrid" @click="prevFxn">PREV</button>
+        <button id="prev" class="navCircle leftGrid" @click="prevFxn">&#60;</button>
         <div class="bottomLayer">
           <button
             v-for="frame in frames"
@@ -1710,7 +1702,7 @@
             @click="scrollFxn"> 
           </button>
         </div>
-        <button id="next" class="navCircle rightGrid" @click="nextFxn">NEXT</button>
+        <button id="next" class="navCircle rightGrid" @click="nextFxn">&#62;</button>
       </div>
     </div>
     <!-- create a scrolling div for each frame -->
@@ -1840,9 +1832,8 @@ export default {
         const currentFrameName = currentFrame.id; // full id name in format "step-x"
         const currentFrameLetter = currentFrameName.split('-')[1]
 
-        const nextFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) + 1); // prev letter
-
-        //scroll to previous
+        const nextFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) + 1); // next letter
+        //scroll to next
         this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+nextFrameLetter})
       },
       isMobile() {
@@ -1856,9 +1847,9 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-// handwriting font
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-$writeFont: 'Nanum Pen Script', cursive;
+// sans serif font
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
+$SourceSans: 'Source Sans Pro', sans-serif;
 $base: 0.6rem; //for chevron scroll animation
 // frames are stacked and class is added on an off w/ scroll trigger to bring to front
 $usgsBlue: #032a56;
@@ -2024,7 +2015,7 @@ $usgsBlue: #032a56;
   bottom: 20px;
   transform: translate(-50%, -50%);
   margin: 0 auto;
-  align-items: start;
+  align-items: center;
 }
 .bottomLayer, .topLayer, .hiddenLayer{ //stacks the nav circle divs on top of each other
   grid-column: 2;
@@ -2033,22 +2024,22 @@ $usgsBlue: #032a56;
 .rightGrid{
   grid-column: 3;
   grid-row: 1;
-  margin:0 5px 0 0;
-  padding: 4px;
+  margin: 0 2px 0 2px;
+  padding: 0px;
 }
 .leftGrid{
   grid-column: 1;
   grid-row: 1;
-  margin:0 5px 0 0;
-  padding: 4px;
+  margin: 0 2px 0 2px;
+  padding: 0;
 }
 .circleForm{ // circle shape and sizing
   color: white;
   width: 13px;
   height: 13px;
-  display:inline-block;
+  display: inline-block;
   border-radius: 50%;
-  margin:0 5px 0 0;
+  margin:0 2px 0 2px;
 }
 .activeCircle{ // color when active
   background-color: #507282;
@@ -2067,10 +2058,11 @@ $usgsBlue: #032a56;
 .navCircle{
   background-color: none;
   color: black;
-  width: 20px;
-  height: 20px;
+  width: 13px;
+  height: 13px;
   display: inline-block;
   font-size: 12px;
+  font-family: $SourceSans;
 }
 .woodcutBlack {
   opacity: 0.8;
