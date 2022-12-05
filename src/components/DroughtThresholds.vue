@@ -1674,13 +1674,13 @@
         {{ frame.text }}
       </p>
       <div class="navigationContainer">
-        <button id="prev" class="navCircle leftGrid" @click="prevFxn">&#60;</button>
+        <button id="prev" class="navCircle leftGrid hidden" @click="prevFxn">&#60;</button>
         <div class="bottomLayer">
           <button
             v-for="frame in frames"
             :key="frame.id"
             :id="`grayCircle-${frame.id}`"
-            class="circleForm quietCircle"
+            class="circleForm quietCircle hidden"
           > 
           </button>
         </div>
@@ -1702,7 +1702,7 @@
             @click="scrollFxn"> 
           </button>
         </div>
-        <button id="next" class="navCircle rightGrid" @click="nextFxn">&#62;</button>
+        <button id="next" class="navCircle rightGrid hidden" @click="nextFxn">&#62;</button>
       </div>
     </div>
     <!-- create a scrolling div for each frame -->
@@ -1743,7 +1743,7 @@ export default {
         margin: { top: 50, right: 50, bottom: 50, left: 50 },
 
         // show scroll trigger markers on the page?
-        marker_on: true,
+        marker_on: false,
 
         }
   },
@@ -1781,15 +1781,13 @@ export default {
       const containers = this.$gsap.utils.toArray(".scrolly");
 
       //  add scroll trigger to timeline for each step
-      containers.forEach((container) => {
-
+      containers.forEach((container, i) => {
         // get unique ID and class for frame. Scroll frame classes follow the pattern `scrolly scroll-step-${frame.id}`
         let classList = container.className
         let scrollClass = classList.split(' ')[1]
-        console.log(scrollClass.split('-')[2])
         let scrollID = scrollClass.split('-')[2] // ending of class is unique ID from scrollyText.js
-
-      // use class to set trigger
+        
+        // use class to set trigger
         tl.to(`.${scrollClass}`, {
           scrollTrigger: {
             markers: this.marker_on,
@@ -1806,6 +1804,58 @@ export default {
             */
           },
         }) 
+        if (i == 0) {
+          tl.to(`.${scrollClass}`, {
+            scrollTrigger: {
+              markers: this.marker_on,
+              trigger: `.${scrollClass}`,
+              start: "top 54%",
+              end: 99999,
+              toggleClass: {targets: ['.quietCircle', "#next"], className:"visible"}, // adds class to target when triggered
+              toggleActions: "restart none none reverse" 
+              /*
+              onEnter - scrolling down, start meets scroller-start
+              onLeave - scrolling down, end meets scroller-end
+              onEnterBack - scrolling up, end meets scroller-end
+              onLeaveBack - scrolling up, start meets scroller-start
+              */
+            },
+          })
+        }
+        if (i == 1) {
+          tl.to(`.${scrollClass}`, {
+            scrollTrigger: {
+              markers: this.marker_on,
+              trigger: `.${scrollClass}`,
+              start: "top 54%",
+              end: 99999,
+              toggleClass: {targets: "#prev", className:"visible"}, // adds class to target when triggered
+              toggleActions: "restart none none reverse" 
+              /*
+              onEnter - scrolling down, start meets scroller-start
+              onLeave - scrolling down, end meets scroller-end
+              onEnterBack - scrolling up, end meets scroller-end
+              onLeaveBack - scrolling up, start meets scroller-start
+              */
+            },
+          })
+        }
+        if (i == (containers.length-1)) {
+          tl.to(`.${scrollClass}`, {
+            scrollTrigger: {
+              markers: this.marker_on,
+              trigger: `.${scrollClass}`,
+              start: "top 54%",
+              end: "top 54%",
+              onEnter: () => {
+                document.querySelector("#next").classList.remove("visible");
+              },
+              onLeaveBack: () => {
+                document.querySelector("#next").classList.add("visible");
+              }
+            },
+          })
+        }
       })
     },
     methods:{
