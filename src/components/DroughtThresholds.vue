@@ -1276,7 +1276,7 @@
             </linearGradient>
           </defs>
 
-          <g class="hidden" id="step-aa01">
+          <g class="hidden" id="step-a">
             <use xlink:href="#sun"/>
             <g class="grass"><use xlink:href="#grass"/></g>
             <use xlink:href="#river"/>
@@ -1308,7 +1308,7 @@
             </g>
           </g>
             
-          <g class="hidden" id="step-aa02">
+          <g class="hidden" id="step-b">
             <use xlink:href="#sun"/>
             <g class="dry_grass"><use xlink:href="#grass"/></g>
             <use xlink:href="#river"/>
@@ -1339,7 +1339,7 @@
             </g>
           </g>
 
-          <g class="hidden" id="step-aa03">
+          <g class="hidden" id="step-c">
             <use xlink:href="#sun"/>
             <g class="sad_grass"><use xlink:href="#grass"/></g>
             <use xlink:href="#river"/>
@@ -1370,7 +1370,7 @@
             </g>
           </g>
 
-          <g class="hidden" id="step-aa04">
+          <g class="hidden" id="step-d">
             <use xlink:href="#sun"/>
             <g class="dead_grass"><use xlink:href="#grass"/></g>
             <use xlink:href="#grass-texture"/>
@@ -1400,7 +1400,7 @@
             </g>
           </g>
 
-          <g class="hidden" id="step-a">
+          <g class="hidden" id="step-e">
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
@@ -1417,7 +1417,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-b">
+          <g class="hidden" id="step-f">
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
@@ -1429,7 +1429,7 @@
             <text transform="matrix(1 0 0 1 56.64 60.68)" class="streamtext">Daily</text>
             <text transform="matrix(1 0 0 1 56.64 68.87)" class="streamtext">streamflow</text>
           </g>
-          <g class="hidden" id="step-b">
+          <g class="hidden" id="step-f">
             <circle class="inset"  cx="158.5" cy="110" r="57"/>
             <g>
               <polygon class="drought fade" points="132.3,118 134,118 138.3,118 142.5,118 146.8,118 151.1,118 155.3,118 159.6,118 163.8,118 
@@ -1457,7 +1457,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-c">
+          <g class="hidden" id="step-g">
             <use xlink:href="#axis"/>
             <use xlink:href="#daily streamflow mask"/>
             <use xlink:href="#daily streamflow"/>
@@ -1470,7 +1470,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-d">
+          <g class="hidden" id="step-h">
             <use xlink:href="#axis"/>
             <use xlink:href="#fixed threshold"/>
             <text transform="matrix(1 0 0 1 31.81 198.53)" class="threshtext">Drought threshold</text>
@@ -1485,7 +1485,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-e">
+          <g class="hidden" id="step-i">
             <use xlink:href="#axis"/>
             <g class="drought">
               <rect x="149.4" y="216.6" width="17" height="7.1"/>
@@ -1506,7 +1506,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-f">
+          <g class="hidden" id="step-j">
             <use xlink:href="#axis"/>
             <g id="average_streamflow">
               <use xlink:href="#average streamflow"/>
@@ -1528,7 +1528,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-g">
+          <g class="hidden" id="step-k">
             <use xlink:href="#axis"/>
             <g id="average_streamflow">
               <use xlink:href="#average streamflow"/>
@@ -1560,7 +1560,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-h">
+          <g class="hidden" id="step-l">
             <use xlink:href="#axis"/>
             <use xlink:href="#scaled variable threshold"/>
             <g id="average_streamflow">
@@ -1582,7 +1582,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-i">
+          <g class="hidden" id="step-m">
             <use xlink:href="#axis"/>
             <g id="variable_droughts" class="drought">
               <rect x="17.4" y="216.6" width="11.8" height="7.1"/>
@@ -1608,7 +1608,7 @@
               <text transform="matrix(1 0 0 1 194 62)">drought</text>
             </g>
           </g>
-          <g class="hidden" id="step-j">
+          <g class="hidden" id="step-n">
             <use xlink:href="#axis"/>
 
             <g id="variable droughts" class="drought">
@@ -1673,24 +1673,41 @@
       >
         {{ frame.text }}
       </p>
+      <div class="navigationContainer">
+          <button id="prev" class="circleForm navCircle hidden" @click="prevFxn">
+            <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-left' }">test</font-awesome-icon>
+          </button>
+          <button
+            v-for="frame in frames"
+            :key="frame.id"
+            :id="`button-${frame.id}`"
+            class="circleForm quietCircle hidden"
+            @click="scrollFxn"> 
+          </button>
+          <button id="next" class="circleForm navCircle hidden" @click="nextFxn">
+            <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-right' }">test</font-awesome-icon>
+          </button>
+      </div>
     </div>
     <!-- create a scrolling div for each frame -->
     <div id="scroll-container">
         <div
           v-for="frame in frames" 
           :key="frame.id"
+          :id="`scroll-to-${frame.id}`"
           :class="`scrolly scroll-step-${frame.id}`"
         >
         </div>
     </div>
 
-    <div id="spacer" />
+    <div id="spacer"/>
     </div>
 </template>
 <script>
 import { store } from '../store/store.js'
 import { isMobile } from 'mobile-device-detect';
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // animated scroll events
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import scrollyText from "@/assets/text/scrollyText";  // step text
 export default {
   name: "DroughtThresholds",
@@ -1716,18 +1733,20 @@ export default {
   },
   mounted(){      
     // register plugins for global use
-      this.$gsap.registerPlugin(ScrollTrigger); 
+      this.$gsap.registerPlugin(ScrollTrigger, ScrollToPlugin); 
 
       // create the scrolling timeline
       let tl = this.$gsap.timeline(); 
 
+      
+
       // things that go before containers
             // use class to set trigger
-         tl.to('.scroll-step-aa01', {
+         tl.to('.scroll-step-a', {
           scrollTrigger: {  
             markers: this.marker_on,
-            trigger: '.scroll-step-aa01',
-            start: "top 70%",
+            trigger: '.scroll-step-a',
+            start: "top 65%",
             end: 99999,
             toggleClass: {targets: `.title-text`, className:"title-text--scrolled"}, // adds class to target when triggered
             toggleActions: "restart none none none" // onEnter onLeave ... ... restart none none none
@@ -1738,7 +1757,7 @@ export default {
             onLeaveBack - scrolling up, start meets scroller-start
             */
           }
-        })  
+        }) 
 
 
 
@@ -1746,21 +1765,19 @@ export default {
       const containers = this.$gsap.utils.toArray(".scrolly");
 
       //  add scroll trigger to timeline for each step
-      containers.forEach((container) => {
-
+      containers.forEach((container, i) => {
         // get unique ID and class for frame. Scroll frame classes follow the pattern `scrolly scroll-step-${frame.id}`
         let classList = container.className
         let scrollClass = classList.split(' ')[1]
-        console.log(scrollClass.split('-')[2])
         let scrollID = scrollClass.split('-')[2] // ending of class is unique ID from scrollyText.js
-
-      // use class to set trigger
+        
+        // use class to set trigger
         tl.to(`.${scrollClass}`, {
           scrollTrigger: {
             markers: this.marker_on,
             trigger: `.${scrollClass}`,
-            start: "top 70%",
-            end: "bottom 70%",
+            start: "top 54%",
+            end: "bottom 54%",
             toggleClass: {targets: `#step-${scrollID}`, className:"visible"}, // adds class to target when triggered
             toggleActions: "restart reverse none reverse" 
             /*
@@ -1771,10 +1788,104 @@ export default {
             */
           },
         }) 
+        tl.to(`.${scrollClass}`, {
+          scrollTrigger: {
+            markers: this.marker_on,
+            trigger: `.${scrollClass}`,
+            start: "top 54%",
+            end: "bottom 54%",
+            toggleClass: {targets: `#button-${scrollID}`, className:"activeCircle"}, // adds class to target when triggered
+            toggleActions: "restart reverse none reverse" 
+            /*
+            onEnter - scrolling down, start meets scroller-start
+            onLeave - scrolling down, end meets scroller-end
+            onEnterBack - scrolling up, end meets scroller-end
+            onLeaveBack - scrolling up, start meets scroller-start
+            */
+          },
+        }) 
+        if (i == 0) {
+          tl.to(`.${scrollClass}`, {
+            scrollTrigger: {
+              markers: this.marker_on,
+              trigger: `.${scrollClass}`,
+              start: "top 54%",
+              end: 99999,
+              toggleClass: {targets: ['.quietCircle', "#next"], className:"visible"}, // adds class to target when triggered
+              toggleActions: "restart none none reverse" 
+              /*
+              onEnter - scrolling down, start meets scroller-start
+              onLeave - scrolling down, end meets scroller-end
+              onEnterBack - scrolling up, end meets scroller-end
+              onLeaveBack - scrolling up, start meets scroller-start
+              */
+            },
+          })
+        }
+        if (i == 1) {
+          tl.to(`.${scrollClass}`, {
+            scrollTrigger: {
+              markers: this.marker_on,
+              trigger: `.${scrollClass}`,
+              start: "top 54%",
+              end: 99999,
+              toggleClass: {targets: "#prev", className:"visible"}, // adds class to target when triggered
+              toggleActions: "restart none none reverse" 
+              /*
+              onEnter - scrolling down, start meets scroller-start
+              onLeave - scrolling down, end meets scroller-end
+              onEnterBack - scrolling up, end meets scroller-end
+              onLeaveBack - scrolling up, start meets scroller-start
+              */
+            },
+          })
+        }
+        if (i == (containers.length-1)) {
+          tl.to(`.${scrollClass}`, {
+            scrollTrigger: {
+              markers: this.marker_on,
+              trigger: `.${scrollClass}`,
+              start: "top 54%",
+              end: "top 54%",
+              onEnter: () => {
+                document.querySelector("#next").classList.remove("visible");
+              },
+              onLeaveBack: () => {
+                document.querySelector("#next").classList.add("visible");
+              }
+            },
+          })
+        }
       })
-
     },
     methods:{
+      scrollFxn(e) {
+        const scrollButton = e.target; // define target
+        const scrollID = scrollButton.id; // extract id as "button-x"
+        const scrollFrame = scrollID.split('-')[1]; // extract frame number "x"
+        console.log(scrollID)
+      // scroll to position of specified frame
+        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+scrollFrame});
+      },
+      prevFxn(e) {
+        const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
+        const currentFrameName = currentFrame.id; // full id name in format "step-x"
+        const currentFrameLetter = currentFrameName.split('-')[1]
+
+        const prevFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) - 1); // prev letter
+
+        //scroll to previous
+        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-" + prevFrameLetter})
+      },
+      nextFxn(e) {
+        const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
+        const currentFrameName = currentFrame.id; // full id name in format "step-x"
+        const currentFrameLetter = currentFrameName.split('-')[1]
+
+        const nextFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) + 1); // next letter
+        //scroll to next
+        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+nextFrameLetter})
+      },
       isMobile() {
               if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                   return true
@@ -1786,9 +1897,9 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-// handwriting font
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-$writeFont: 'Nanum Pen Script', cursive;
+// sans serif font
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
+$SourceSans: 'Source Sans Pro', sans-serif;
 $base: 0.6rem; //for chevron scroll animation
 // frames are stacked and class is added on an off w/ scroll trigger to bring to front
 $usgsBlue: #032a56;
@@ -1796,11 +1907,12 @@ $usgsBlue: #032a56;
 .grid-container{
   display: grid;
   grid-template-columns: 3fr 0.5fr;
-  grid-template-rows: auto 10em auto;
+  grid-template-rows: auto 10em auto 10em;
   grid-template-areas:
     "title chevron"
     "textbox textbox"
-    "chart chart";
+    "chart chart"
+    "navigation navigation";
   justify-content: center;
   margin: auto;
   width:95vw;
@@ -1812,10 +1924,11 @@ $usgsBlue: #032a56;
     width: 70vw;
     max-width: 1400px;
     grid-template-columns: minmax(100px, 400px) auto 1fr;
-    grid-template-rows: 0.5fr 3fr;
+    grid-template-rows: 0.5fr 3fr 0.2fr;
     grid-template-areas:
       "title title chevron"
       "textbox chart chart"
+      "navigation navigation navigation";
   }
 }
 .title-text {
@@ -1863,9 +1976,9 @@ $usgsBlue: #032a56;
 }
 // currently empty scroll-by divs used to trigger animation
 .scrolly{
-  height:60vh;
+  height:55vh;
   @media (min-width: 950px){
-    height:50vh;
+    height:55vh;
   }
 }
 .hydro-chart {
@@ -1947,7 +2060,45 @@ $usgsBlue: #032a56;
   opacity: 0;
   transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
+.navigationContainer{ // grid container for the navigation indicating circles
+  grid-area: navigation;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+.circleForm{ // circle shape and sizing
+  color: white;
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  border-radius: 50%;
+  margin:0 2px 0 2px;
+}
 
+.quietCircle{ // color when inactive
+  background-color: #ccc;
+  border: none;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ccc;
+}
+.activeCircle{ // color when active
+  background-color: #507282;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #507282;
+}
+.navCircle{
+  background-color: none;
+  color: black;
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  font-size: 12px;
+  font-family: $SourceSans;
+}
 .woodcutBlack {
   opacity: 0.8;
   fill: #202020; 
