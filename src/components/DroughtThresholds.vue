@@ -1674,10 +1674,9 @@
         {{ frame.text }}
       </p>
       <div class="navigationContainer">
-        <button id="next" class="navCircle leftGrid hidden" @click="prevFxn">
-          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-left' }">test</font-awesome-icon>
-        </button>
-        <div class="bottomLayer">
+          <button id="next" class="circleForm navCircle hidden" @click="prevFxn">
+            <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-left' }">test</font-awesome-icon>
+          </button>
           <button
             v-for="frame in frames"
             :key="frame.id"
@@ -1685,10 +1684,9 @@
             class="circleForm quietCircle hidden"
             @click="scrollFxn"> 
           </button>
-        </div>
-        <button id="next" class="navCircle rightGrid hidden" @click="nextFxn">
-          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-right' }">test</font-awesome-icon>
-        </button>
+          <button id="next" class="circleForm navCircle hidden" @click="nextFxn">
+            <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-right' }">test</font-awesome-icon>
+          </button>
       </div>
     </div>
     <!-- create a scrolling div for each frame -->
@@ -1781,6 +1779,22 @@ export default {
             start: "top 54%",
             end: "bottom 54%",
             toggleClass: {targets: `#step-${scrollID}`, className:"visible"}, // adds class to target when triggered
+            toggleActions: "restart reverse none reverse" 
+            /*
+            onEnter - scrolling down, start meets scroller-start
+            onLeave - scrolling down, end meets scroller-end
+            onEnterBack - scrolling up, end meets scroller-end
+            onLeaveBack - scrolling up, start meets scroller-start
+            */
+          },
+        }) 
+        tl.to(`.${scrollClass}`, {
+          scrollTrigger: {
+            markers: this.marker_on,
+            trigger: `.${scrollClass}`,
+            start: "top 54%",
+            end: "bottom 54%",
+            toggleClass: {targets: `#button-${scrollID}`, className:"activeCircle"}, // adds class to target when triggered
             toggleActions: "restart reverse none reverse" 
             /*
             onEnter - scrolling down, start meets scroller-start
@@ -2045,29 +2059,11 @@ $usgsBlue: #032a56;
   transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 .navigationContainer{ // grid container for the navigation indicating circles
-  display: grid;
   position: fixed;
   left: 50%;
   bottom: 20px;
   transform: translate(-50%, -50%);
   margin: 0 auto;
-  align-items: center;
-}
-.bottomLayer{ //stacks the nav circle divs on top of each other
-  grid-column: 2;
-  grid-row: 1;
-}
-.rightGrid{
-  grid-column: 3;
-  grid-row: 1;
-  margin: 0 2px 0 2px;
-  padding: 0px;
-}
-.leftGrid{
-  grid-column: 1;
-  grid-row: 1;
-  margin: 0 2px 0 2px;
-  padding: 0;
 }
 .circleForm{ // circle shape and sizing
   color: white;
@@ -2081,6 +2077,9 @@ $usgsBlue: #032a56;
 .quietCircle{ // color when inactive
   background-color: #ccc;
   border: none;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ccc;
 }
 .activeCircle{ // color when active
   background-color: #507282;
