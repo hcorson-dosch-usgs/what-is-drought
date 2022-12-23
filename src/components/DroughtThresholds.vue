@@ -1907,11 +1907,12 @@ $usgsBlue: #032a56;
 .grid-container{
   display: grid;
   grid-template-columns: 3fr 0.5fr;
-  grid-template-rows: auto 10em auto;
+  grid-template-rows: auto 10em auto 10em;
   grid-template-areas:
     "title chevron"
     "textbox textbox"
-    "chart chart";
+    "chart chart"
+    "navigation navigation";
   justify-content: center;
   margin: auto;
   width:95vw;
@@ -1923,10 +1924,11 @@ $usgsBlue: #032a56;
     width: 70vw;
     max-width: 1400px;
     grid-template-columns: minmax(100px, 400px) auto 1fr;
-    grid-template-rows: 0.5fr 3fr;
+    grid-template-rows: 0.5fr 3fr 0.2fr;
     grid-template-areas:
       "title title chevron"
       "textbox chart chart"
+      "navigation navigation navigation";
   }
 }
 .title-text {
@@ -2059,6 +2061,7 @@ $usgsBlue: #032a56;
   transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 .navigationContainer{ // grid container for the navigation indicating circles
+  grid-area: navigation;
   position: fixed;
   left: 50%;
   bottom: 20px;
