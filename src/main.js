@@ -20,6 +20,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faFlickr } from "@fortawesome/free-brands-svg-icons";
 import { faYoutubeSquare } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
 
 const vueImgConfig = {
@@ -36,6 +37,7 @@ library.add(faGithub);
 library.add(faFlickr);
 library.add(faYoutubeSquare);
 library.add(faInstagram);
+library.add(faArrowLeft, faArrowRight);
 
 Vue.config.productionTip = false;
 Vue.use(uswds);

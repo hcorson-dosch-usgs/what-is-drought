@@ -1674,7 +1674,9 @@
         {{ frame.text }}
       </p>
       <div class="navigationContainer">
-        <button id="prev" class="navCircle leftGrid hidden" @click="prevFxn">&#60;</button>
+        <button id="next" class="navCircle leftGrid hidden" @click="prevFxn">
+          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-left' }">test</font-awesome-icon>
+        </button>
         <div class="bottomLayer">
           <button
             v-for="frame in frames"
@@ -1702,7 +1704,9 @@
             @click="scrollFxn"> 
           </button>
         </div>
-        <button id="next" class="navCircle rightGrid hidden" @click="nextFxn">&#62;</button>
+        <button id="next" class="navCircle rightGrid hidden" @click="nextFxn">
+          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-right' }">test</font-awesome-icon>
+        </button>
       </div>
     </div>
     <!-- create a scrolling div for each frame -->
