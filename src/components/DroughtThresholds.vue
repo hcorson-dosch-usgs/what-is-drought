@@ -1681,26 +1681,8 @@
           <button
             v-for="frame in frames"
             :key="frame.id"
-            :id="`grayCircle-${frame.id}`"
-            class="circleForm quietCircle hidden"
-          > 
-          </button>
-        </div>
-        <div class="topLayer">
-          <div 
-            v-for="frame in frames"
-            :key="frame.id"
-            :id="`step-${frame.id}`"
-            class="circleForm activeCircle hidden"
-          > 
-          </div>
-        </div>
-        <div class="hiddenLayer">
-          <button
-            v-for="frame in frames"
-            :key="frame.id"
             :id="`button-${frame.id}`"
-            class="circleForm hiddenCircle"
+            class="circleForm quietCircle hidden"
             @click="scrollFxn"> 
           </button>
         </div>
@@ -2071,7 +2053,7 @@ $usgsBlue: #032a56;
   margin: 0 auto;
   align-items: center;
 }
-.bottomLayer, .topLayer, .hiddenLayer{ //stacks the nav circle divs on top of each other
+.bottomLayer{ //stacks the nav circle divs on top of each other
   grid-column: 2;
   grid-row: 1;
 }
@@ -2095,19 +2077,16 @@ $usgsBlue: #032a56;
   border-radius: 50%;
   margin:0 2px 0 2px;
 }
+
+.quietCircle{ // color when inactive
+  background-color: #ccc;
+  border: none;
+}
 .activeCircle{ // color when active
   background-color: #507282;
   border-style: solid;
   border-width: 2px;
   border-color: #507282;
-}
-.quietCircle{ // color when inactive
-  background-color: #ccc;
-  border: none;
-}
-.hiddenCircle{ //overlaid invisible buttons
-  background-color: transparent;
-  border: none;
 }
 .navCircle{
   background-color: none;
