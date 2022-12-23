@@ -2062,7 +2062,7 @@ $usgsBlue: #032a56;
 }
 .navigationContainer{ // grid container for the navigation indicating circles
   grid-area: navigation;
-  position: fixed;
+  position: absolute;
   left: 50%;
   bottom: 20px;
   transform: translate(-50%, -50%);
