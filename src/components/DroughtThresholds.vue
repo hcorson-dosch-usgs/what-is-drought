@@ -1674,7 +1674,7 @@
         {{ frame.text }}
       </p>
       <div class="navigationContainer">
-          <button id="next" class="circleForm navCircle hidden" @click="prevFxn">
+          <button id="prev" class="circleForm navCircle hidden" @click="prevFxn">
             <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-left' }">test</font-awesome-icon>
           </button>
           <button
