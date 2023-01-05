@@ -1669,6 +1669,7 @@
         v-for="frame in frames" 
         :key="frame.id"
         :id="`step-${frame.id}`"
+        v-html="frame.text"
         class="textBox hidden"
       >
         {{ frame.text }}

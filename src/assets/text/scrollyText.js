@@ -18,7 +18,7 @@ export default {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'c',
-          text: 'If meteorological drought continues, soil moisture becomes depleted and agricultural drought sets in. To keep crops and livestock healthy, farmers might use more water for irrigation. Extensive irrigation can impair water supplies and quality for local communities.'
+          text: 'If meteorological drought continues, soil moisture becomes depleted and agricultural drought sets in. To keep crops and livestock healthy, farmers might need to use more water for irrigation. Extensive irrigation can impair surface water supplies and quality for local communities.'
         },
         {
           // id is used to source image files with the same naming
@@ -30,7 +30,7 @@ export default {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'e',
-          text: 'Consider this Ohio streamgage site in the late summer of 1963. On August 15th there was a severe streamflow drought.'
+          text: 'Consider this <a href="https://waterdata.usgs.gov/monitoring-location/03221000" target="_blank">Ohio streamgage site</a> in the late summer of 1963. On August 15th there was a severe streamflow drought.'
         },
         {
           id: 'f',
@@ -46,7 +46,7 @@ export default {
         },
         {
           id: 'i',
-          text: 'Using a 10% fixed threshold identifies two streamflow drought events for 1963 in the dry season. Unusually low flow at this time of year can reduce hydropower production, impair water quality, and require reservoir releases to provide water to communities. Notice that even if streamflow goes over the threshold for a brief time (up to about 5 days), this is still one drought event'
+          text: 'Using a 10% fixed threshold identifies two streamflow drought events for 1963 in the dry season. Unusually low flow at this time of year can reduce hydropower production, impair water quality, and require reservoir releases to provide water to communities. Notice that even if streamflow goes over the threshold for a brief time (up to about 5 days), we consider this one drought event'
         },
         {
           id: 'j',
