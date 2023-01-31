@@ -6,7 +6,7 @@ export default {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'a',
-          text: 'Drought is increasing for regions worldwide, threatening our water security and affecting our daily lives. What starts with reduced rain and snowfall can progress to impacts on soil moisture and streamflow.'
+          text: 'Drought is increasing for regions worldwide, threatening our water security and affecting our daily lives. What starts with reduced rain and snowfall compared to normal conditions can progress to impacts on soil moisture and streamflow.'
         },
         {
           // id is used to source image files with the same naming
@@ -18,23 +18,23 @@ export default {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'c',
-          text: 'If meteorological drought continues, soil moisture becomes depleted and agricultural drought sets in. To keep crops and livestock healthy, farmers might need to use more water for irrigation. Extensive irrigation can impair surface water supplies and quality for local communities.'
+          text: 'If meteorological drought continues, soil moisture can become depleted and agricultural drought may set in. To keep crops and livestock healthy, farmers might need to use more water for irrigation. Extensive irrigation can impair surface water supplies and quality for local communities.'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'd',
-          text: 'As these conditions persist, less water moves into and through streams. Reduced streamflow has significant impact on plants, animals, and humans. When streamflow levels are unusually low, this is defined as streamflow drought. But what does "unusually low" really mean?'
+          text: 'As drought conditions persist, less water moves into and through streams. Reduced streamflow has significant impact on plants, animals, and humans. When streamflow levels are unusually low, this is defined as streamflow drought. But what does "unusually low" really mean?'
         },
         {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'e',
-          text: 'Consider this <a href="https://waterdata.usgs.gov/monitoring-location/03221000" target="_blank">Ohio streamgage site</a> in the late summer of 1963. On August 15th there was a severe streamflow drought.'
+          text: 'Consider this <a href="https://waterdata.usgs.gov/monitoring-location/03221000" target="_blank">Ohio streamgage site</a> (ID 03221000) in the late summer of 1963. On August 15th there was a severe streamflow drought.'
         },
         {
           id: 'f',
-          text: 'We can say that streamflow is "unusually low" whenever streamflow drops below a certain level or threshold. Here, that threshold was defined as 45 cubic feet per second (cfs). Why 45 cfs? There are two methods to choose that threshold, depending on the questions we are trying to answer.'
+          text: 'We can say that streamflow is "unusually low" whenever streamflow drops below a certain level or threshold. Here, that threshold is defined as 45 cubic feet per second (cfs). Why 45 cfs? There are two methods to choose that threshold (fixed and variable), depending on the questions we are trying to answer.'
         },
         {
           id: 'g',
@@ -42,7 +42,7 @@ export default {
         },
         {
           id: 'h',
-          text: 'When considering records across the whole year, streamflow levels that fall below a threshold of 45 cfs are in the lowest 10%. This fixed threshold of 45 cfs is constant from day-to-day and identifies these streamflow drought events during the dry season when the lowest streamflow levels typically occur.'
+          text: 'When considering records across the whole year, streamflow levels that fall below a threshold of 45 cfs are in the lowest 10%, indicating severe streamflow drought. This fixed threshold of 45 cfs is constant from day-to-day and identifies these streamflow drought events during the dry season when the lowest streamflow levels typically occur.'
         },
         {
           id: 'i',
@@ -66,7 +66,7 @@ export default {
         },
         {
           id: 'n',
-          text: 'By pairing the two methods, we get a more comprehensive understanding of streamflow drought. This complete picture of drought patterns can inform water management, guide drought prediction, and help us use water more sustainably throughout the year.'
+          text: 'By pairing the two thresholds, we get a more comprehensive understanding of streamflow drought. This complete picture of drought patterns can inform water management, guide drought prediction, and help us use water more sustainably throughout the year.'
         }
         ]
   };
