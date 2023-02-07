@@ -6,7 +6,7 @@ export default {
           // id is used to source image files with the same naming
           // and used to assign classes to scrolling text
           id: 'a',
-          text: 'Drought is increasing for regions worldwide, threatening our water security and affecting our daily lives. What starts with reduced rain and snowfall compared to normal conditions can progress to impacts on soil moisture and streamflow.'
+          text: 'Drought is increasing for some regions worldwide, threatening our water security and affecting our daily lives. What starts with reduced rain and snowfall compared to normal conditions can progress to impacts on soil moisture and streamflow.'
         },
         {
           // id is used to source image files with the same naming
