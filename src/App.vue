@@ -74,6 +74,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
 $SourceSans: 'Source Sans Pro', sans-serif;
 $textcolor: #333534;
+$darkGrey: #212122;
+// $familyMain: 'Public sans', sans-serif;
 // whole page except header fit within viewport - no scrolling
 #app {
   width: 100%;
@@ -152,6 +154,17 @@ input[type=button] {
     @media screen and (max-width: 600px) {
         padding: 10px;
     }  
+  }
+  .text-content h2 {
+    color: $darkGrey;
+    font-weight: 600;
+    text-align: left;
+    font-size: 1.3em;
+    margin-top: 5px;
+    line-height: 1.2;
+    @media screen and (max-width: 600px) {
+      font-size: 2em;
+    }
   }
   .flex-container {
     display: flex;
