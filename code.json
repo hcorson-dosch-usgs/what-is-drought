@@ -4,7 +4,7 @@
     "organization": "U.S. Geological Survey",
     "description": "what-is-drought",
     "version": "main",
-    "status": "Development",
+    "status": "Production",
     "permissions": {
       "usageType": "openSource",
       "licenses": [
@@ -19,21 +19,23 @@
     "disclaimerURL": "https://github.com/USGS-VIZLAB/what-is-drought/blob/main/DISCLAIMER.md",
     "repositoryURL": "https://github.com/USGS-VIZLAB/what-is-drought.git",
     "vcs": "git",
-    "laborHours": -1,
+    "laborHours": 100,
     "tags": [
       "R",
-      "USGS"
+      "USGS",
+      "Vue",
+      "Javascript"
     ],
     "languages": [
       "R",
       "Vue"
     ],
     "contact": {
-      "name": "aaarcher-usgs",
-      "email": "FILL ME IN"
+      "name": "Althea Archer",
+      "email": "aaarcher@usgs.gov"
     },
     "date": {
-      "metadataLastUpdated": "2023-03-03"
+      "metadataLastUpdated": "2023-04-13"
     }
   },
   {
