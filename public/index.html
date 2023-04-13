@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta content='text/html' charset="utf-8" http-equiv='Content-Type'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <%= process.env.VUE_APP_TIER !== '' ? '<meta name="robots" content="noindex,nofollow">' : '' %><!-- an empty string in this case means the 'prod' version of the application   -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-76090PESLN"></script>
@@ -11,31 +15,44 @@
 
       gtag('config', 'G-76090PESLN');
     </script>
+    <!-- VIZLAB DATA STREAM Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QV1JK700W8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QV1JK700W8');
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= process.env.VUE_APP_TIER !== '' ? '<meta name="robots" content="noindex,nofollow">' : '' %><!-- an empty string in this case means the 'prod' version of the application   -->
-      <!-- Primary Meta Tags -->
-      <title>
-        <%= VUE_APP_TIER %>
-          <%= VUE_APP_TITLE %>
-      </title>
-      <meta name="title" content="What is hydrological drought?">
-      <meta name="description" content="">
-      <!-- Open Graph / Facebook -->
-      <meta property="og:type" content="website">
-      <meta property="og:url" content="https://labs.waterdata.usgs.gov/visualizations/gw-conditions/index.html#/">
-      <meta property="og:title" content="What is hydrological drought?">
-      <meta property="og:description" content="">
-      <meta property="og:image" content="https://labs.waterdata.usgs.gov/visualizations/thumbnails/gw-conditions-og-peaks.png">
-      <!-- Twitter -->
-      <meta property="twitter:card" content="summary_large_image">
-      <meta property="twitter:url" content="https://labs.waterdata.usgs.gov/visualizations/gw-conditions/index.html#/">
-      <meta property="twitter:title" content="What is hydrological drought?">
-      <meta property="twitter:description" content="">
-      <meta property="twitter:image" content="https://labs.waterdata.usgs.gov/visualizations/thumbnails/gw-conditions-og-peaks.png">
+    <!-- Primary Meta Tags -->
+    <title>
+      <%= VUE_APP_TIER %>
+        <%= VUE_APP_TITLE %>
+    </title>
+    <meta name="title" content="What is streamflow drought?">
+    <meta name="description" content="">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://labs-beta.waterdata.usgs.gov/visualizations/what-is-drought/index.html#/">
+    <meta property="og:title" content="What is streamflow drought?">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://labs.waterdata.usgs.gov/visualizations/gifs/what-is-drought.gif">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:url" content="https://labs-beta.waterdata.usgs.gov/visualizations/what-is-drought/index.html#/">
+    <meta name="twitter:title" content="What is streamflow drought?">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site:id" content="@USGS_DataSci">
+    <meta name="twitter:image" content="https://labs.waterdata.usgs.gov/visualizations/gifs/what-is-drought.gif" />
+    <meta name="twitter:player" content="https://labs-beta.waterdata.usgs.gov/visualizations/what-is-drought/container.html#/">
+    <meta name="twitter:player:width" content="480">
+    <meta name="twitter:player:height" content="480">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-<script type='application/ld+json'>
+    <script type='application/ld+json'>
       { "@context": "http://www.schema.org",
         "@type": "WebSite", "name": "What is hydrological drought?",
         "url": "https://labs.waterdata.usgs.gov/visualizations/IRB-algal-blooms/index.html#/",
