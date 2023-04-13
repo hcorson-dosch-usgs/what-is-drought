@@ -1,0 +1,37 @@
+export default {
+    // do not delete section. delete individuals as needed. modify content as needed
+    // currently only 'fullName', 'firstName', 'initials', 'profile_link', and 'contribution' are used
+    primaryAuthors: [
+      {
+        firstName: 'Althea',
+        lastName: 'Archer',
+        fullName: 'Althea Archer',
+        initials: 'AA1',
+        profile_link: 'https://www.usgs.gov/staff-profiles/althea-archer',
+        role: 'lead developer',
+        contribution: 'led the design and development of the Vue website, drew the illustrations, and designed the charts'
+      }
+    ],
+    // do not delete section. delete any or all individuals as needed. modify content as needed
+    // currently only 'fullName', 'firstName', 'initials', 'profile_link', and 'contribution' are used
+    additionalAuthors: [
+      {
+        firstName: 'Hayley',
+        lastName: 'Corson-Dosch',
+        fullName: 'Hayley Corson-Dosch',
+        initials: 'HCD',
+        profile_link: 'https://www.usgs.gov/staff-profiles/hayley-corson-dosch',
+        role: 'contributor',
+        contribution: 'built the initial pipeline and reviewed code'
+      },
+      {
+        firstName: 'Cee',
+        lastName: 'Nell',
+        fullName: 'Cee Nell',
+        initials: 'CN',
+        profile_link: 'https://www.usgs.gov/staff-profiles/cee-nell',
+        role: 'supervisor',
+        contribution: 'acted in an avisory role and reviewed code'
+      }
+      ]
+};
