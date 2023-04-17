@@ -6,7 +6,7 @@ export default {
         firstName: 'Althea',
         lastName: 'Archer',
         fullName: 'Althea A. Archer',
-        initials: 'AA1',
+        initials: 'AAA',
         profile_link: 'https://www.usgs.gov/staff-profiles/althea-archer',
         role: 'lead developer',
         contribution: 'led the design and development of the Vue website, drew the illustrations, and made the charts'
