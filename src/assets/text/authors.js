@@ -5,7 +5,7 @@ export default {
       {
         firstName: 'Althea',
         lastName: 'Archer',
-        fullName: 'Althea Archer',
+        fullName: 'Althea A. Archer',
         initials: 'AA1',
         profile_link: 'https://www.usgs.gov/staff-profiles/althea-archer',
         role: 'lead developer',
