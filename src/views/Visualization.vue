@@ -2,6 +2,7 @@
   <div id="visualization">
     <DroughtThresholds />
     <References />
+    <authorship />
   </div>
 </template>
 
@@ -11,7 +12,8 @@ export default {
     name: 'Visualization',
     components: {
       DroughtThresholds: () => import( /* webpackPreload: true */ /*webpackChunkName: "section"*/ "./../components/DroughtThresholds"),
-     References: () => import( /*webpackChunkName: "References"*/ "./../components/References")
+      References: () => import( /*webpackChunkName: "References"*/ "./../components/References"),
+      authorship: () => import( /* webpackPreload: true */ /*webpackChunkName: "section"*/ "./../components/Authorship")
     },
     computed: {
     },
