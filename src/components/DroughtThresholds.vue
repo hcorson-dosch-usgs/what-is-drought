@@ -2574,7 +2574,7 @@
           :id="`button-${frame.id}`"
           :key="frame.id"
           :aria-label="`Section ${frame.id}: ${frame.text}`"
-          class="circleForm quietCircle hidden"
+          class="circleForm quietCircle visible"
           @click="scrollFxn"
         />
         <button
