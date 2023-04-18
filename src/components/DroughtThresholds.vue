@@ -4,17 +4,35 @@
       <h2 class="title-text">
         What is <span class="emph">streamflow</span> drought?
       </h2>
-      <div class="chevron" />
-      <div class="chevron" />
-      <div class="chevron" />
-      <div id="hydro-chart-container">
+      <div
+        class="chevron"
+        aria-hidden="true"
+        role="img"></div>
+      <div
+        class="chevron"
+        aria-hidden="true"
+        role="img"></div>
+      <div
+        class="chevron"
+        aria-hidden="true"
+        role="img"></div>
+      <div
+        id="hydro-chart-container"
+        aria-hidden="true"
+        aria-labelledby="chartTitle chartDesc"
+      >
         <svg
           id="svg"
           class="hydro-chart"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 240 240"
           preserveAspectRatio="xMidYMid meet"
+          tab-index="0"
+          role="img"
+          aria-labelledby="chartTitle chartDesc"
         >
+          <title id="chartTitle">Illustrative chart</title>
+          <desc id="chartDesc">This chart illustrates the ideas in the main text.</desc>
           <defs>
             <clipPath id="clippath-insetb">
               <circle
@@ -1356,7 +1374,7 @@
                 </g>
                 <circle
                   class="insetBorder"
-                  cx="35"
+                  cx="36"
                   cy="25"
                   r="22.9"
                 />
@@ -1376,7 +1394,33 @@
               width="52"
               height="60"
             />
+            <circle
+              id="focalCircle-a"
+              class="insetFocus"
+              cx="35"
+              cy="25"
+              r="22.9"
+            />
+            <rect
+              id="shadeMask-a"
+              class="insetMask"
+              x="9"
+              width="52"
+              height="60"
+            />
             
+            <g
+              id="woodcut_texture"
+              clip-path="url(#clippath-texture)"
+            >
+              <image
+                width="745"
+                height="606"
+                transform="scale(.40 .41)"
+                xlink:href="../assets/images/woodcut_texture.png"
+                opacity="0.5"
+              />
+            </g>
             <g
               id="woodcut_texture"
               clip-path="url(#clippath-texture)"
@@ -2535,6 +2579,7 @@
         :id="`step-${frame.id}`"
         :key="frame.id"
         class="textBox hidden"
+        aria-hidden="true"
         v-html="frame.text"
       >
         {{ frame.text }}
@@ -2543,6 +2588,7 @@
         <button
           id="prev"
           class="circleForm navCircle hidden"
+          aria-label="Previous section"
           @click="prevFxn"
         >
           <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-left' }">
@@ -2553,12 +2599,14 @@
           v-for="frame in frames"
           :id="`button-${frame.id}`"
           :key="frame.id"
-          class="circleForm quietCircle hidden"
+          :aria-label="`Section ${frame.id}: ${frame.text}`"
+          class="circleForm quietCircle visible"
           @click="scrollFxn"
         />
         <button
           id="next"
           class="circleForm navCircle hidden"
+          aria-label="Next section"
           @click="nextFxn"
         >
           <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-right' }">
@@ -2568,7 +2616,10 @@
       </div>
     </div>
     <!-- create a scrolling div for each frame -->
-    <div id="scroll-container">
+    <div
+      id="scroll-container"
+      aria-hidden="true"
+    >
       <div
         v-for="frame in frames" 
         :id="`scroll-to-${frame.id}`"
@@ -2653,8 +2704,8 @@ export default {
           scrollTrigger: {
             markers: this.marker_on,
             trigger: `.${scrollClass}`,
-            start: "top 54%",
-            end: "bottom 54%",
+            start: "top 41%",
+            end: "bottom 41%",
             toggleClass: {targets: `#step-${scrollID}`, className:"visible"}, // adds class to target when triggered
             toggleActions: "restart reverse none reverse" 
             /*
@@ -2669,8 +2720,8 @@ export default {
           scrollTrigger: {
             markers: this.marker_on,
             trigger: `.${scrollClass}`,
-            start: "top 54%",
-            end: "bottom 54%",
+            start: "top 41%",
+            end: "bottom 41%",
             toggleClass: {targets: `#button-${scrollID}`, className:"activeCircle"}, // adds class to target when triggered
             toggleActions: "restart reverse none reverse" 
             /*
@@ -2686,7 +2737,7 @@ export default {
             scrollTrigger: {
               markers: this.marker_on,
               trigger: `.${scrollClass}`,
-              start: "top 54%",
+              start: "top 41%",
               end: 99999,
               toggleClass: {targets: ['.quietCircle', "#next"], className:"visible"}, // adds class to target when triggered
               toggleActions: "restart none none reverse" 
@@ -2704,7 +2755,7 @@ export default {
             scrollTrigger: {
               markers: this.marker_on,
               trigger: `.${scrollClass}`,
-              start: "top 54%",
+              start: "top 41%",
               end: 99999,
               toggleClass: {targets: "#prev", className:"visible"}, // adds class to target when triggered
               toggleActions: "restart none none reverse" 
@@ -2722,8 +2773,8 @@ export default {
             scrollTrigger: {
               markers: this.marker_on,
               trigger: `.${scrollClass}`,
-              start: "top 54%",
-              end: "top 54%",
+              start: "top 41%",
+              end: "top 41%",
               onEnter: () => {
                 document.querySelector("#next").classList.remove("visible");
               },
@@ -2934,6 +2985,7 @@ $usgsBlue: #032a56;
 
 .hidden{
   visibility: hidden;
+  display: none;
   opacity: 0;
   transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
@@ -3093,8 +3145,18 @@ $usgsBlue: #032a56;
 
 .visible{
   visibility: visible;
+  display: inline;
+  position: static;
   opacity: 1;
-  transition: opacity 0.5s linear;
+  transition: fade 0.5s linear;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .emph {
   font-weight: 700;

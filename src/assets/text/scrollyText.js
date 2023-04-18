@@ -46,7 +46,7 @@ export default {
         },
         {
           id: 'i',
-          text: 'Using a 10% fixed threshold identifies two streamflow drought events for 1963 in the dry season. Unusually low flow at this time of year can reduce hydropower production, impair water quality, and require reservoir releases to provide water to communities. Notice that even if streamflow goes over the threshold for a brief time (up to about 5 days), we consider this one drought event'
+          text: 'Using a 10% fixed threshold identifies two streamflow drought events for 1963 in the dry season. Unusually low flow at this time of year can reduce hydropower production, impair water quality, and require reservoir releases to provide water to communities. Notice that even if streamflow goes over the threshold for a brief time (up to about 5 days), we consider this one drought event.'
         },
         {
           id: 'j',
