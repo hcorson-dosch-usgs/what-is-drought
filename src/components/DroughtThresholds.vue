@@ -3,7 +3,6 @@
     <div class="grid-container">
       <h2 class="title-text">
         What is <span class="emph">streamflow</span> drought?
-        What is <span class="emph">streamflow</span> drought?
       </h2>
       <div
         class="chevron"
@@ -1421,6 +1420,7 @@
                 xlink:href="../assets/images/woodcut_texture.png"
                 opacity="0.5"
               />
+            </g>
             <g
               id="woodcut_texture"
               clip-path="url(#clippath-texture)"
@@ -1434,10 +1434,6 @@
               />
             </g>
 
-            <polyline
-              id="daily streamflow"
-              class="streamflow"
-              points="10.9,138 12.2,141.3 13.5,142.3 14.8,148.9 16.1,149.9 17.4,160.3 18.8,163.8 20,164.8 
             <polyline
               id="daily streamflow"
               class="streamflow"
