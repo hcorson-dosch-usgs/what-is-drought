@@ -1374,7 +1374,7 @@
                 </g>
                 <circle
                   class="insetBorder"
-                  cx="35"
+                  cx="36"
                   cy="25"
                   r="22.9"
                 />
@@ -2678,8 +2678,8 @@ export default {
           scrollTrigger: {
             markers: this.marker_on,
             trigger: `.${scrollClass}`,
-            start: "top 54%",
-            end: "bottom 54%",
+            start: "top 41%",
+            end: "bottom 41%",
             toggleClass: {targets: `#step-${scrollID}`, className:"visible"}, // adds class to target when triggered
             toggleActions: "restart reverse none reverse" 
             /*
@@ -2694,8 +2694,8 @@ export default {
           scrollTrigger: {
             markers: this.marker_on,
             trigger: `.${scrollClass}`,
-            start: "top 54%",
-            end: "bottom 54%",
+            start: "top 41%",
+            end: "bottom 41%",
             toggleClass: {targets: `#button-${scrollID}`, className:"activeCircle"}, // adds class to target when triggered
             toggleActions: "restart reverse none reverse" 
             /*
@@ -2711,7 +2711,7 @@ export default {
             scrollTrigger: {
               markers: this.marker_on,
               trigger: `.${scrollClass}`,
-              start: "top 54%",
+              start: "top 41%",
               end: 99999,
               toggleClass: {targets: ['.quietCircle', "#next"], className:"visible"}, // adds class to target when triggered
               toggleActions: "restart none none reverse" 
@@ -2729,7 +2729,7 @@ export default {
             scrollTrigger: {
               markers: this.marker_on,
               trigger: `.${scrollClass}`,
-              start: "top 54%",
+              start: "top 41%",
               end: 99999,
               toggleClass: {targets: "#prev", className:"visible"}, // adds class to target when triggered
               toggleActions: "restart none none reverse" 
@@ -2747,8 +2747,8 @@ export default {
             scrollTrigger: {
               markers: this.marker_on,
               trigger: `.${scrollClass}`,
-              start: "top 54%",
-              end: "top 54%",
+              start: "top 41%",
+              end: "top 41%",
               onEnter: () => {
                 document.querySelector("#next").classList.remove("visible");
               },
