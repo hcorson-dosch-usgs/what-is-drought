@@ -2906,7 +2906,7 @@ $usgsBlue: #032a56;
 }
 // currently empty scroll-by divs used to trigger animation
 .scrolly{
-  height:55vh;
+  height:85vh;
   @media (min-width: 950px){
     height:55vh;
   }
