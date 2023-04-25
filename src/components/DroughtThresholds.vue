@@ -2835,7 +2835,7 @@ $usgsBlue: #032a56;
 .grid-container{
   display: grid;
   grid-template-columns: 3fr 0.5fr;
-  grid-template-rows: auto 10em auto 10em;
+  grid-template-rows: auto 10em auto 3em;
   grid-template-areas:
     "title chevron"
     "textbox textbox"
@@ -2847,7 +2847,7 @@ $usgsBlue: #032a56;
   position: sticky;
   left: 10px;
   top: 81px;
-  height: 88vh;
+  height: 86vh;
   @media (min-width: 950px){
     width: 70vw;
     max-width: 1400px;
@@ -2857,6 +2857,7 @@ $usgsBlue: #032a56;
       "title title chevron"
       "textbox chart chart"
       "navigation navigation navigation";
+      height: 88vh;
   }
 }
 .title-text {
@@ -2880,13 +2881,14 @@ $usgsBlue: #032a56;
   justify-self: center;
   height: 95%;
   width: 95%;
-  max-height: 60vh;
+  max-height: 40vh;
   display: flex;
     display: -webkit-flex;
     justify-content: space-between;
     -webkit-justify-content: space-between;
   @media (min-width: 950px){
     height: 60vh;
+    max-height: 60vh;
   }
 }
 .textBox {
@@ -2904,7 +2906,7 @@ $usgsBlue: #032a56;
 }
 // currently empty scroll-by divs used to trigger animation
 .scrolly{
-  height:55vh;
+  height:85vh;
   @media (min-width: 950px){
     height:55vh;
   }
@@ -2995,7 +2997,14 @@ $usgsBlue: #032a56;
   left: 50%;
   bottom: 20px;
   transform: translate(-50%, -50%);
+  top: 1em;
   margin: 0 auto;
+  width: 95vw;
+  align-self: center;
+  text-align: center;
+  @media (min-width: 950px){
+    width: auto;
+  }
 }
 .circleForm{ // circle shape and sizing
   color: white;
