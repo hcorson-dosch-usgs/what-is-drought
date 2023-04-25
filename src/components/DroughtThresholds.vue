@@ -453,6 +453,7 @@ $usgsBlue: #032a56;
   align-self: center;
   text-align: center;
   @media (min-width: 950px){
+    top: auto;
     width: auto;
   }
 }
