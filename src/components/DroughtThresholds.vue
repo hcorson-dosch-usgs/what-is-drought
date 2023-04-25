@@ -2582,7 +2582,6 @@
         aria-hidden="true"
         v-html="frame.text"
       >
-        {{ frame.text }}
       </p>
       <div class="navigationContainer">
         <button
