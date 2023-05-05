@@ -24,7 +24,8 @@
       "R",
       "USGS",
       "Vue",
-      "Javascript"
+      "Javascript",
+      "Vizlab"
     ],
     "languages": [
       "R",
@@ -35,43 +36,7 @@
       "email": "aaarcher@usgs.gov"
     },
     "date": {
-      "metadataLastUpdated": "2023-04-13"
-    }
-  },
-  {
-    "name": "",
-    "organization": "U.S. Geological Survey",
-    "description": "",
-    "version": "v0.0.0",
-    "status": "Ideation",
-    "permissions": {
-      "usageType": "openSource",
-      "licenses": [
-        {
-          "name": "Public Domain, CC0-1.0",
-          "URL": "LICENSE.md"
-        }
-      ]
-    },
-    "homepageURL": "",
-    "downloadURL": "",
-    "disclaimerURL": "",
-    "repositoryURL": "",
-    "vcs": "git",
-    "laborHours": 1,
-    "tags": [
-      "R",
-      "USGS"
-    ],
-    "languages": [
-      "R"
-    ],
-    "contact": {
-      "name": "",
-      "email": ""
-    },
-    "date": {
-      "metadataLastUpdated": "2022-10-16"
+      "metadataLastUpdated": "2023-05-05"
     }
   }
 ]
