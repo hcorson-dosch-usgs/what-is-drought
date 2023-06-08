@@ -7,15 +7,18 @@
       <div
         class="chevron"
         aria-hidden="true"
-        role="img"></div>
+        role="img"
+      />
       <div
         class="chevron"
         aria-hidden="true"
-        role="img"></div>
+        role="img"
+      />
       <div
         class="chevron"
         aria-hidden="true"
-        role="img"></div>
+        role="img"
+      />
       <div
         id="hydro-chart-container"
         aria-hidden="true"
@@ -30,8 +33,7 @@
         class="textBox hidden"
         aria-hidden="true"
         v-html="frame.text"
-      >
-      </p>
+      />
       <div class="navigationContainer">
         <button
           id="prev"
