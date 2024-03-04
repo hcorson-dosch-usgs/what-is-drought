@@ -109,12 +109,12 @@ export default {
 
     onMounted(() => {
       // create the scrolling timeline
-      let tl = this.$gsap.timeline(); 
+      let tl = gsap.timeline(); 
       // things that go before containers
             // use class to set trigger
             tl.to('.scroll-step-a', {
           scrollTrigger: {  
-            markers: this.marker_on,
+            markers: marker_on,
             trigger: '.scroll-step-a',
             start: "top 65%",
             end: 99999,
@@ -132,7 +132,7 @@ export default {
 
 
       // find all scrolly divs
-      const containers = this.$gsap.utils.toArray(".scrolly");
+      const containers = gsap.utils.toArray(".scrolly");
 
       //  add scroll trigger to timeline for each step
       containers.forEach((container, i) => {
@@ -144,7 +144,7 @@ export default {
         // use class to set trigger
         tl.to(`.${scrollClass}`, {
           scrollTrigger: {
-            markers: this.marker_on,
+            markers: marker_on,
             trigger: `.${scrollClass}`,
             start: "top 41%",
             end: "bottom 41%",
@@ -160,7 +160,7 @@ export default {
         }) 
         tl.to(`.${scrollClass}`, {
           scrollTrigger: {
-            markers: this.marker_on,
+            markers: marker_on,
             trigger: `.${scrollClass}`,
             start: "top 41%",
             end: "bottom 41%",
@@ -177,7 +177,7 @@ export default {
         if (i == 0) {
           tl.to(`.${scrollClass}`, {
             scrollTrigger: {
-              markers: this.marker_on,
+              markers: marker_on,
               trigger: `.${scrollClass}`,
               start: "top 41%",
               end: 99999,
@@ -195,7 +195,7 @@ export default {
         if (i == 1) {
           tl.to(`.${scrollClass}`, {
             scrollTrigger: {
-              markers: this.marker_on,
+              markers: marker_on,
               trigger: `.${scrollClass}`,
               start: "top 41%",
               end: 99999,
@@ -213,7 +213,7 @@ export default {
         if (i == (containers.length-1)) {
           tl.to(`.${scrollClass}`, {
             scrollTrigger: {
-              markers: this.marker_on,
+              markers: marker_on,
               trigger: `.${scrollClass}`,
               start: "top 41%",
               end: "top 41%",
@@ -262,6 +262,7 @@ export default {
 
     return {
       windowSizeStore,
+      marker_on,
       frames,
       w,h,margin,
       scrollFxn,
@@ -280,7 +281,7 @@ export default {
         const scrollFrame = scrollID.split('-')[1]; // extract frame number "x"
         console.log(scrollID)
       // scroll to position of specified frame
-        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+scrollFrame});
+        gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+scrollFrame});
       },
       prevFxn(e) {
         const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
@@ -290,7 +291,7 @@ export default {
         const prevFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) - 1); // prev letter
 
         //scroll to previous
-        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-" + prevFrameLetter})
+        gsap.to(window, {duration: 0, scrollTo:"#scroll-to-" + prevFrameLetter})
       },
       nextFxn(e) {
         const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
@@ -299,7 +300,7 @@ export default {
 
         const nextFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) + 1); // next letter
         //scroll to next
-        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+nextFrameLetter})
+        gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+nextFrameLetter})
       },
       isMobile() {
               if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
