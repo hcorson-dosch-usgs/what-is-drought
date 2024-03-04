@@ -82,47 +82,37 @@
   </div>
 </template>
 <script>
-import { store } from '../store/store.js'
+import { onMounted } from 'vue';
 import { isMobile } from 'mobile-device-detect';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // animated scroll events
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import scrollyText from "@/assets/text/scrollyText";  // step text
-import DroughtCharts from "@/components/Charts";
+import DroughtCharts from "./Charts.vue";
+import { useWindowSizeStore } from '../stores/WindowSizeStore.js'
+
+const publicPath = import.meta.env.BASE_URL;
+const mobileView = isMobile;
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 export default {
-  name: "DroughtThresholds",
-    components: {
-      DroughtCharts
-    },
-    props: {
-    },
-    data() {
-      return {
-        publicPath: process.env.BASE_URL, // allows the application to find the files when on different deployment roots
-        mobileView: isMobile, // test for mobile
-        frames: scrollyText.frames, // scrolling text
+  setup() {
+    const windowSizeStore = useWindowSizeStore();
+    const frames = scrollyText.frames;
+    const w = windowSizeStore.windowWidth;
+    const h = windowSizeStore.windowHeight;
+    const margin = { top: 50, right: 50, bottom: 50, left: 50 };
+    const marker_on = false;
 
-        // dimensions
-        w: store.state.windowWidth,
-        h: store.state.windowHeight,
-        margin: { top: 50, right: 50, bottom: 50, left: 50 },
 
-        // show scroll trigger markers on the page?
-        marker_on: false,
 
-        }
-  },
-  mounted(){      
-    // register plugins for global use
-      this.$gsap.registerPlugin(ScrollTrigger, ScrollToPlugin); 
-
+    onMounted(() => {
       // create the scrolling timeline
       let tl = this.$gsap.timeline(); 
-
-      
-
       // things that go before containers
             // use class to set trigger
-         tl.to('.scroll-step-a', {
+            tl.to('.scroll-step-a', {
           scrollTrigger: {  
             markers: this.marker_on,
             trigger: '.scroll-step-a',
@@ -237,7 +227,52 @@ export default {
           })
         }
       })
-    },
+
+    });
+
+    function scrollFxn(e) {
+        const scrollButton = e.target; // define target
+        const scrollID = scrollButton.id; // extract id as "button-x"
+        const scrollFrame = scrollID.split('-')[1]; // extract frame number "x"
+        console.log(scrollID)
+      // scroll to position of specified frame
+        gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+scrollFrame});
+      }
+
+    function prevFxn(e) {
+        const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
+        const currentFrameName = currentFrame.id; // full id name in format "step-x"
+        const currentFrameLetter = currentFrameName.split('-')[1]
+
+        const prevFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) - 1); // prev letter
+
+        //scroll to previous
+        gsap.to(window, {duration: 0, scrollTo:"#scroll-to-" + prevFrameLetter})
+      }
+
+      function nextFxn(e) {
+        const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
+        const currentFrameName = currentFrame.id; // full id name in format "step-x"
+        const currentFrameLetter = currentFrameName.split('-')[1]
+
+        const nextFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) + 1); // next letter
+        //scroll to next
+        gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+nextFrameLetter})
+      }
+
+    return {
+      windowSizeStore,
+      frames,
+      w,h,margin,
+      scrollFxn,
+      prevFxn,
+      nextFxn
+
+    };
+  },
+
+
+  
     methods:{
       scrollFxn(e) {
         const scrollButton = e.target; // define target
