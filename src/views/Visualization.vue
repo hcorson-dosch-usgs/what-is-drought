@@ -7,9 +7,9 @@
 </template>
 
 <script setup>
-import DroughtThresholds from '../components/DroughtThresholds.vue';
-import References from '../components/References.vue';
-import Authorship from '../components/Authorship.vue';
+import DroughtThresholds from '@/components/DroughtThresholds.vue';
+import References from '@/components/References.vue';
+import Authorship from '@/components/Authorship.vue';
 
 </script>
 

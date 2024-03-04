@@ -88,7 +88,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // animated scroll events
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import scrollyText from "@/assets/text/scrollyText";  // step text
-import DroughtCharts from "./Charts.vue";
+import DroughtCharts from "@/components/DroughtCharts.vue";
 import { useWindowSizeStore } from '../stores/WindowSizeStore.js'
 
 const publicPath = import.meta.env.BASE_URL;
@@ -97,6 +97,9 @@ const mobileView = isMobile;
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default {
+  components: {
+    DroughtCharts
+  },
   setup() {
     const windowSizeStore = useWindowSizeStore();
     const frames = scrollyText.frames;
@@ -267,7 +270,8 @@ export default {
       w,h,margin,
       scrollFxn,
       prevFxn,
-      nextFxn
+      nextFxn,
+      DroughtCharts
 
     };
   },
