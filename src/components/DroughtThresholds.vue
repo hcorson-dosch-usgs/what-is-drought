@@ -91,9 +91,6 @@ import scrollyText from "@/assets/text/scrollyText";  // step text
 import DroughtCharts from "@/components/DroughtCharts.vue";
 import { useWindowSizeStore } from '../stores/WindowSizeStore.js'
 
-const publicPath = import.meta.env.BASE_URL;
-const mobileView = isMobile;
-
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default {
@@ -107,8 +104,6 @@ export default {
     const h = windowSizeStore.windowHeight;
     const margin = { top: 50, right: 50, bottom: 50, left: 50 };
     const marker_on = false;
-
-
 
     onMounted(() => {
       // create the scrolling timeline
@@ -131,7 +126,6 @@ export default {
             */
           }
         }) 
-
 
 
       // find all scrolly divs

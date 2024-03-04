@@ -6,14 +6,13 @@ import VueUswds from "vue-uswds"
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+// arrow icons
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 // social icons
-import { faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
-import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faFlickr } from "@fortawesome/free-brands-svg-icons";
-import { faYoutubeSquare } from "@fortawesome/free-brands-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-library.add(faTwitterSquare, faFacebookSquare, faGithub, faFlickr, faYoutubeSquare, faInstagram);
+import { faTwitterSquare, faFacebookSquare, faGithub, faFlickr, faYoutubeSquare, faInstagram } from "@fortawesome/free-brands-svg-icons";
+
+library.add(faTwitterSquare, faFacebookSquare, faGithub, faFlickr, faYoutubeSquare, faInstagram, faArrowLeft, faArrowRight);
 
 import App from './App.vue'
 import router from './router'
