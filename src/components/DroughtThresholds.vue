@@ -41,9 +41,7 @@
           aria-label="Previous section"
           @click="prevFxn"
         >
-          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-left' }">
-            test
-          </font-awesome-icon>
+          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-left' }" />
         </button>
         <button
           v-for="frame in frames"
@@ -59,9 +57,7 @@
           aria-label="Next section"
           @click="nextFxn"
         >
-          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-right' }">
-            test
-          </font-awesome-icon>
+          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-right' }" />
         </button>
       </div>
     </div>
@@ -83,7 +79,6 @@
 </template>
 <script>
 import { onMounted } from 'vue';
-import { isMobile } from 'mobile-device-detect';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // animated scroll events
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -178,7 +173,7 @@ export default {
               trigger: `.${scrollClass}`,
               start: "top 41%",
               end: 99999,
-              toggleClass: {targets: ['.quietCircle', "#next"], className:"visible"}, // adds class to target when triggered
+              toggleClass: {targets: [".quietCircle, #next"], className:"visible"}, // adds class to target when triggered
               toggleActions: "restart none none reverse" 
               /*
               onEnter - scrolling down, start meets scroller-start
@@ -360,7 +355,7 @@ $usgsBlue: #032a56;
     padding: 5px 0 5px 0;
   }
 }
-#hydro-chart-container{
+#hydro-chart-container {
   font-size: 1.2rem;
   grid-area: chart; // names the grid child component
   align-self: center;
@@ -471,13 +466,13 @@ $usgsBlue: #032a56;
   }
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
   display: none;
   opacity: 0;
   transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
-.navigationContainer{ // grid container for the navigation indicating circles
+.navigationContainer { // grid container for the navigation indicating circles
   grid-area: navigation;
   position: absolute;
   left: 50%;
@@ -492,39 +487,42 @@ $usgsBlue: #032a56;
     top: auto;
     width: auto;
   }
-}
-.circleForm{ // circle shape and sizing
+} 
+.circleForm { // circle shape and sizing
   color: white;
   width: 13px;
   height: 13px;
+  max-width: 13px;
+  max-height: 13px;
   display: inline-block;
   border-radius: 50%;
   margin:0 2px 0 2px;
 }
 
-.quietCircle{ // color when inactive
+.quietCircle { // color when inactive
   background-color: #ccc;
   border: none;
   border-style: solid;
   border-width: 2px;
   border-color: #ccc;
 }
-.activeCircle{ // color when active
+.activeCircle { // color when active
   background-color: #507282;
   border-style: solid;
   border-width: 2px;
   border-color: #507282;
 }
-.navCircle{
-  background-color: none;
+.navCircle {
+  background-color: transparent;
   color: black;
+  border-width: 0;
   width: 13px;
-  height: 13px;
+  height: 15px;
   display: inline-block;
   font-size: 12px;
   font-family: $SourceSans;
 }
-.visible{
+.visible {
   visibility: visible;
   display: inline;
   position: static;
