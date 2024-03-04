@@ -60,7 +60,7 @@
           </span>
         </span>
         <span
-          v-if="showAditionalContributionStatement"
+          v-if="showAdditionalContributionStatement"
           id="additional-author-contribution"
         >
           <span
