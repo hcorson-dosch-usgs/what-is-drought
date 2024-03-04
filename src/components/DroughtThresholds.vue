@@ -494,7 +494,7 @@ $usgsBlue: #032a56;
   height: 13px;
   max-width: 13px;
   max-height: 13px;
-  display: inline-block;
+  //display: inline-block;
   border-radius: 50%;
   margin:0 2px 0 2px;
 }
