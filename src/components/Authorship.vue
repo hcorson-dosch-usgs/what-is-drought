@@ -104,15 +104,6 @@
     showAdditionalContributionStatement.value = additionalAuthors.length > 0;
   });
 
-  // test for mobile device
-  const checkIfMobile = () => {
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
 </script>
 <style>
   #author-container {
