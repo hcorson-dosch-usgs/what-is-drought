@@ -78,7 +78,6 @@
 </template>
 
 <script setup>
-  import { isMobile } from 'mobile-device-detect';
   import authors from "@/assets/text/authors";
   import { ref, onMounted } from 'vue';
 
@@ -86,9 +85,6 @@
   const publicPath = import.meta.env.BASE_URL;
   // Pull in title of page from Vue environment (set in .env)
   const appTitle = import.meta.env.VITE_APP_TITLE;
-  // test for mobile
-  const mobileView = isMobile;
-
 
   const primaryAuthors = authors.primaryAuthors;
   const additionalAuthors = authors.additionalAuthors;
