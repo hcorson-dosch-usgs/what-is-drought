@@ -30,21 +30,13 @@
   </div>
 </template>
 
-<script>
-    export default {
-        name: 'Error404',
-        props: {
-            title: {
-                type: String,
-                default: import.meta.env.VITE_APP_TITLE
-            }
-        }
-    }
+<script setup>
+  const title = import.meta.env.VITE_APP_TITLE;
 </script>
 
 <style scoped lang="scss">
   .main-content {
-    height: calc(100vh - 85.7px - 40px - 94px);
+    height: max(700px, calc(100vh - 85.7px - 40px - 95px)); /* page height - USGS header - prefooter code links - USGS footer */
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
