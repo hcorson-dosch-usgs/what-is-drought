@@ -19,20 +19,9 @@
   </section>
 </template>
 
-<script>
-import { ref } from 'vue';
-import referencesText from "@/assets/text/referencesText";
-
-export default {
-    name: 'References',
-    setup() {
-        // Use the ref function to make the text reactive
-        const text = ref(referencesText.referencesContent);
-
-        // Return the reactive properties to be used in the template
-        return { text };
-    }
-}
+<script setup>
+  import referencesText from "@/assets/text/referencesText";
+  const text = referencesText.referencesContent
 </script>
 
 <style scoped lang="scss">
