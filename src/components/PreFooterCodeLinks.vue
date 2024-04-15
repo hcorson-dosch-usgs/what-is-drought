@@ -15,7 +15,7 @@
       name: 'PreFooterCodeLinks',
       data() {
           return {
-              gitHubRepositoryLink: import.meta.env.VUE_APP_GITHUB_REPOSITORY_LINK,
+              gitHubRepositoryLink: import.meta.env.VITE_APP_GITHUB_REPOSITORY_LINK,
               projectTitle: import.meta.env.VITE_APP_TITLE
           }
       }
@@ -32,7 +32,6 @@
     background-color: #c2c4c5;
     margin: 0 auto;
     padding: 0.4rem;
-    border-bottom: 2px solid black;
     a {
       color: #090211;
       margin-left: 10px;
