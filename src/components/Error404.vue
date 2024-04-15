@@ -19,7 +19,6 @@
     </p>
     <router-link to="/">
       <button
-        v-ga="$ga.commands.trackName.bind(this, 'Button - 404', 'click', 'user went from error page to index')"
         class="usa-button--inverse"
       >
         {{ title }} main page
@@ -45,6 +44,7 @@
 
 <style scoped lang="scss">
   .main-content {
+    height: calc(100vh - 85.7px - 40px - 94px);
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;

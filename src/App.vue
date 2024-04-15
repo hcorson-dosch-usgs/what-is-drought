@@ -50,7 +50,7 @@ $darkGrey: #212122;
 // whole page except header fit within viewport - no scrolling
 #app {
   width: 100%;
-  height: calc(100vh + 85.7px); //85.7 is the height of the USGS header
+  height: calc(100vh); //85.7 is the height of the USGS header
 }
 
 // Type
