@@ -10,17 +10,8 @@
   </div>
 </template>
 
-<script>
-  export default {
-      name: 'PreFooterCodeLinks',
-      data() {
-          return {
-              gitHubRepositoryLink: import.meta.env.VITE_APP_GITHUB_REPOSITORY_LINK,
-              projectTitle: import.meta.env.VITE_APP_TITLE
-          }
-      }
-  }
-
+<script setup>
+  const gitHubRepositoryLink = import.meta.env.VITE_APP_GITHUB_REPOSITORY_LINK;
 </script>
 
 <style lang="scss">
