@@ -78,50 +78,49 @@
 </template>
 
 <script setup>
-import { isMobile } from 'mobile-device-detect';
-import authors from "@/assets/text/authors";
-import { ref, onMounted } from 'vue';
+  import { isMobile } from 'mobile-device-detect';
+  import authors from "@/assets/text/authors";
+  import { ref, onMounted } from 'vue';
 
-// allows the application to find the files when on different deployment roots
-const publicPath = import.meta.env.BASE_URL;
-// Pull in title of page from Vue environment (set in .env)
-const appTitle = import.meta.env.VITE_APP_TITLE;
-// test for mobile
-const mobileView = isMobile;
+  // allows the application to find the files when on different deployment roots
+  const publicPath = import.meta.env.BASE_URL;
+  // Pull in title of page from Vue environment (set in .env)
+  const appTitle = import.meta.env.VITE_APP_TITLE;
+  // test for mobile
+  const mobileView = isMobile;
 
 
-const primaryAuthors = authors.primaryAuthors;
-const additionalAuthors = authors.additionalAuthors;
-// Turn on or off attribution for all authors
-const showAuthors = ref(null);
-// If showAuthors is true, turn on or off attribution for additional authors
-const showAdditionalAuthors = ref(null);
-// If showAuthors is true, turn on or off contribution statements for ALL authors
-const showContributionStatements = ref(true);
-// If showAuthors is true and if showContributionStatements is true, turn on or off contribution statements for ADDITIONAL authors
-const showAdditionalContributionStatement = ref(null);
+  const primaryAuthors = authors.primaryAuthors;
+  const additionalAuthors = authors.additionalAuthors;
+  // Turn on or off attribution for all authors
+  const showAuthors = ref(null);
+  // If showAuthors is true, turn on or off attribution for additional authors
+  const showAdditionalAuthors = ref(null);
+  // If showAuthors is true, turn on or off contribution statements for ALL authors
+  const showContributionStatements = ref(true);
+  // If showAuthors is true and if showContributionStatements is true, turn on or off contribution statements for ADDITIONAL authors
+  const showAdditionalContributionStatement = ref(null);
 
-onMounted(() => {
-  console.log(appTitle);
-  showAuthors.value = primaryAuthors.length > 0;
-  showAdditionalAuthors.value = additionalAuthors.length > 0;
-  showAdditionalContributionStatement.value = additionalAuthors.length > 0;
-});
+  onMounted(() => {
+    console.log(appTitle);
+    showAuthors.value = primaryAuthors.length > 0;
+    showAdditionalAuthors.value = additionalAuthors.length > 0;
+    showAdditionalContributionStatement.value = additionalAuthors.length > 0;
+  });
 
-// test for mobile device
-const checkIfMobile = () => {
-  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
+  // test for mobile device
+  const checkIfMobile = () => {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
 </script>
 <style>
-#author-container {
-  height: auto;
-  padding: 10px 15px 10px 15px;
-}
+  #author-container {
+    height: auto;
+    padding: 10px 15px 10px 15px;
+  }
 </style>
