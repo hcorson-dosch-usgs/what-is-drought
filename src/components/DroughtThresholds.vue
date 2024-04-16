@@ -309,7 +309,7 @@ export default {
 // sans serif font
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
 $SourceSans: 'Source Sans Pro', sans-serif;
-$base: 0.6rem; //for chevron scroll animation
+$base: 1rem; //for chevron scroll animation
 // frames are stacked and class is added on an off w/ scroll trigger to bring to front
 $usgsBlue: #032a56;
 
