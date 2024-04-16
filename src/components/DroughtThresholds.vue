@@ -103,9 +103,10 @@ export default {
     onMounted(() => {
       // create the scrolling timeline
       let tl = gsap.timeline(); 
+
       // things that go before containers
-            // use class to set trigger
-            tl.to('.scroll-step-a', {
+      // use class to set trigger
+      tl.to('.scroll-step-a', {
           scrollTrigger: {  
             markers: marker_on,
             trigger: '.scroll-step-a',
