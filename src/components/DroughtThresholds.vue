@@ -41,9 +41,7 @@
           aria-label="Previous section"
           @click="prevFxn"
         >
-          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-left' }">
-            test
-          </font-awesome-icon>
+          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-left' }" />
         </button>
         <button
           v-for="frame in frames"
@@ -59,9 +57,7 @@
           aria-label="Next section"
           @click="nextFxn"
         >
-          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-right' }">
-            test
-          </font-awesome-icon>
+          <font-awesome-icon :icon="{ prefix: 'fas', iconName: 'arrow-right' }" />
         </button>
       </div>
     </div>
@@ -81,85 +77,96 @@
     <div id="spacer" />
   </div>
 </template>
-<script>
-import { store } from '../store/store.js'
-import { isMobile } from 'mobile-device-detect';
-import { ScrollTrigger } from "gsap/ScrollTrigger"; // animated scroll events
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import scrollyText from "@/assets/text/scrollyText";  // step text
-import DroughtCharts from "@/components/Charts";
-export default {
-  name: "DroughtThresholds",
-    components: {
-      DroughtCharts
-    },
-    props: {
-    },
-    data() {
-      return {
-        publicPath: process.env.BASE_URL, // allows the application to find the files when on different deployment roots
-        mobileView: isMobile, // test for mobile
-        frames: scrollyText.frames, // scrolling text
 
-        // dimensions
-        w: store.state.windowWidth,
-        h: store.state.windowHeight,
-        margin: { top: 50, right: 50, bottom: 50, left: 50 },
+<script setup>
+  import { onMounted } from 'vue';
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger"; // animated scroll events
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  import scrollyText from "@/assets/text/scrollyText";  // step text
+  import DroughtCharts from "@/components/DroughtCharts.vue";
 
-        // show scroll trigger markers on the page?
-        marker_on: false,
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+  const frames = scrollyText.frames;
+  const marker_on = false;
+
+  onMounted(() => {
+    // create the scrolling timeline
+    let tl = gsap.timeline(); 
+
+    // things that go before containers
+    // use class to set trigger
+    tl.to('.scroll-step-a', {
+        scrollTrigger: {  
+          markers: marker_on,
+          trigger: '.scroll-step-a',
+          start: "top 65%",
+          end: 99999,
+          toggleClass: {targets: `.title-text`, className:"title-text--scrolled"}, // adds class to target when triggered
+          toggleActions: "restart none none none" // onEnter onLeave ... ... restart none none none
+          /*
+          onEnter - scrolling down, start meets scroller-start
+          onLeave - scrolling down, end meets scroller-end
+          onEnterBack - scrolling up, end meets scroller-end
+          onLeaveBack - scrolling up, start meets scroller-start
+          */
         }
-  },
-  mounted(){      
-    // register plugins for global use
-      this.$gsap.registerPlugin(ScrollTrigger, ScrollToPlugin); 
+      }) 
 
-      // create the scrolling timeline
-      let tl = this.$gsap.timeline(); 
 
+    // find all scrolly divs
+    const containers = gsap.utils.toArray(".scrolly");
+
+    //  add scroll trigger to timeline for each step
+    containers.forEach((container, i) => {
+      // get unique ID and class for frame. Scroll frame classes follow the pattern `scrolly scroll-step-${frame.id}`
+      let classList = container.className
+      let scrollClass = classList.split(' ')[1]
+      let scrollID = scrollClass.split('-')[2] // ending of class is unique ID from scrollyText.js
       
-
-      // things that go before containers
-            // use class to set trigger
-         tl.to('.scroll-step-a', {
-          scrollTrigger: {  
-            markers: this.marker_on,
-            trigger: '.scroll-step-a',
-            start: "top 65%",
+      // use class to set trigger
+      tl.to(`.${scrollClass}`, {
+        scrollTrigger: {
+          markers: marker_on,
+          trigger: `.${scrollClass}`,
+          start: "top 41%",
+          end: "bottom 41%",
+          toggleClass: {targets: `#step-${scrollID}`, className:"visible"}, // adds class to target when triggered
+          toggleActions: "restart reverse none reverse" 
+          /*
+          onEnter - scrolling down, start meets scroller-start
+          onLeave - scrolling down, end meets scroller-end
+          onEnterBack - scrolling up, end meets scroller-end
+          onLeaveBack - scrolling up, start meets scroller-start
+          */
+        },
+      }) 
+      tl.to(`.${scrollClass}`, {
+        scrollTrigger: {
+          markers: marker_on,
+          trigger: `.${scrollClass}`,
+          start: "top 41%",
+          end: "bottom 41%",
+          toggleClass: {targets: `#button-${scrollID}`, className:"activeCircle"}, // adds class to target when triggered
+          toggleActions: "restart reverse none reverse" 
+          /*
+          onEnter - scrolling down, start meets scroller-start
+          onLeave - scrolling down, end meets scroller-end
+          onEnterBack - scrolling up, end meets scroller-end
+          onLeaveBack - scrolling up, start meets scroller-start
+          */
+        },
+      }) 
+      if (i == 0) {
+        tl.to(`.${scrollClass}`, {
+          scrollTrigger: {
+            markers: marker_on,
+            trigger: `.${scrollClass}`,
+            start: "top 41%",
             end: 99999,
-            toggleClass: {targets: `.title-text`, className:"title-text--scrolled"}, // adds class to target when triggered
-            toggleActions: "restart none none none" // onEnter onLeave ... ... restart none none none
-            /*
-            onEnter - scrolling down, start meets scroller-start
-            onLeave - scrolling down, end meets scroller-end
-            onEnterBack - scrolling up, end meets scroller-end
-            onLeaveBack - scrolling up, start meets scroller-start
-            */
-          }
-        }) 
-
-
-
-      // find all scrolly divs
-      const containers = this.$gsap.utils.toArray(".scrolly");
-
-      //  add scroll trigger to timeline for each step
-      containers.forEach((container, i) => {
-        // get unique ID and class for frame. Scroll frame classes follow the pattern `scrolly scroll-step-${frame.id}`
-        let classList = container.className
-        let scrollClass = classList.split(' ')[1]
-        let scrollID = scrollClass.split('-')[2] // ending of class is unique ID from scrollyText.js
-        
-        // use class to set trigger
-        tl.to(`.${scrollClass}`, {
-          scrollTrigger: {
-            markers: this.marker_on,
-            trigger: `.${scrollClass}`,
-            start: "top 41%",
-            end: "bottom 41%",
-            toggleClass: {targets: `#step-${scrollID}`, className:"visible"}, // adds class to target when triggered
-            toggleActions: "restart reverse none reverse" 
+            toggleClass: {targets: [".quietCircle, #next"], className:"visible"}, // adds class to target when triggered
+            toggleActions: "restart none none reverse" 
             /*
             onEnter - scrolling down, start meets scroller-start
             onLeave - scrolling down, end meets scroller-end
@@ -167,15 +174,17 @@ export default {
             onLeaveBack - scrolling up, start meets scroller-start
             */
           },
-        }) 
+        })
+      }
+      if (i == 1) {
         tl.to(`.${scrollClass}`, {
           scrollTrigger: {
-            markers: this.marker_on,
+            markers: marker_on,
             trigger: `.${scrollClass}`,
             start: "top 41%",
-            end: "bottom 41%",
-            toggleClass: {targets: `#button-${scrollID}`, className:"activeCircle"}, // adds class to target when triggered
-            toggleActions: "restart reverse none reverse" 
+            end: 99999,
+            toggleClass: {targets: "#prev", className:"visible"}, // adds class to target when triggered
+            toggleActions: "restart none none reverse" 
             /*
             onEnter - scrolling down, start meets scroller-start
             onLeave - scrolling down, end meets scroller-end
@@ -183,104 +192,64 @@ export default {
             onLeaveBack - scrolling up, start meets scroller-start
             */
           },
-        }) 
-        if (i == 0) {
-          tl.to(`.${scrollClass}`, {
-            scrollTrigger: {
-              markers: this.marker_on,
-              trigger: `.${scrollClass}`,
-              start: "top 41%",
-              end: 99999,
-              toggleClass: {targets: ['.quietCircle', "#next"], className:"visible"}, // adds class to target when triggered
-              toggleActions: "restart none none reverse" 
-              /*
-              onEnter - scrolling down, start meets scroller-start
-              onLeave - scrolling down, end meets scroller-end
-              onEnterBack - scrolling up, end meets scroller-end
-              onLeaveBack - scrolling up, start meets scroller-start
-              */
+        })
+      }
+      if (i == (containers.length-1)) {
+        tl.to(`.${scrollClass}`, {
+          scrollTrigger: {
+            markers: marker_on,
+            trigger: `.${scrollClass}`,
+            start: "top 41%",
+            end: "top 41%",
+            onEnter: () => {
+              document.querySelector("#next").classList.remove("visible");
             },
-          })
-        }
-        if (i == 1) {
-          tl.to(`.${scrollClass}`, {
-            scrollTrigger: {
-              markers: this.marker_on,
-              trigger: `.${scrollClass}`,
-              start: "top 41%",
-              end: 99999,
-              toggleClass: {targets: "#prev", className:"visible"}, // adds class to target when triggered
-              toggleActions: "restart none none reverse" 
-              /*
-              onEnter - scrolling down, start meets scroller-start
-              onLeave - scrolling down, end meets scroller-end
-              onEnterBack - scrolling up, end meets scroller-end
-              onLeaveBack - scrolling up, start meets scroller-start
-              */
-            },
-          })
-        }
-        if (i == (containers.length-1)) {
-          tl.to(`.${scrollClass}`, {
-            scrollTrigger: {
-              markers: this.marker_on,
-              trigger: `.${scrollClass}`,
-              start: "top 41%",
-              end: "top 41%",
-              onEnter: () => {
-                document.querySelector("#next").classList.remove("visible");
-              },
-              onLeaveBack: () => {
-                document.querySelector("#next").classList.add("visible");
-              }
-            },
-          })
-        }
-      })
-    },
-    methods:{
-      scrollFxn(e) {
-        const scrollButton = e.target; // define target
-        const scrollID = scrollButton.id; // extract id as "button-x"
-        const scrollFrame = scrollID.split('-')[1]; // extract frame number "x"
-        console.log(scrollID)
-      // scroll to position of specified frame
-        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+scrollFrame});
-      },
-      prevFxn(e) {
-        const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
-        const currentFrameName = currentFrame.id; // full id name in format "step-x"
-        const currentFrameLetter = currentFrameName.split('-')[1]
+            onLeaveBack: () => {
+              document.querySelector("#next").classList.add("visible");
+            }
+          },
+        })
+      }
+    })
 
-        const prevFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) - 1); // prev letter
+  });
 
-        //scroll to previous
-        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-" + prevFrameLetter})
-      },
-      nextFxn(e) {
-        const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
-        const currentFrameName = currentFrame.id; // full id name in format "step-x"
-        const currentFrameLetter = currentFrameName.split('-')[1]
+  function scrollFxn(e) {
+    const scrollButton = e.target; // define target
+    const scrollID = scrollButton.id; // extract id as "button-x"
+    const scrollFrame = scrollID.split('-')[1]; // extract frame number "x"
+    console.log(scrollID)
+    // scroll to position of specified frame
+    gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+scrollFrame});
+  }
 
-        const nextFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) + 1); // next letter
-        //scroll to next
-        this.$gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+nextFrameLetter})
-      },
-      isMobile() {
-              if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                  return true
-              } else {
-                  return false
-              }
-          }
-    }
-}
+  function prevFxn(e) {
+    const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
+    const currentFrameName = currentFrame.id; // full id name in format "step-x"
+    const currentFrameLetter = currentFrameName.split('-')[1]
+
+    const prevFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) - 1); // prev letter
+
+    //scroll to previous
+    gsap.to(window, {duration: 0, scrollTo:"#scroll-to-" + prevFrameLetter})
+  }
+
+  function nextFxn(e) {
+    const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
+    const currentFrameName = currentFrame.id; // full id name in format "step-x"
+    const currentFrameLetter = currentFrameName.split('-')[1]
+
+    const nextFrameLetter = String.fromCharCode(currentFrameLetter.charCodeAt(0) + 1); // next letter
+    //scroll to next
+    gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+nextFrameLetter})
+  }
 </script>
+
 <style scoped lang="scss">
 // sans serif font
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
 $SourceSans: 'Source Sans Pro', sans-serif;
-$base: 0.6rem; //for chevron scroll animation
+$base: 1rem; //for chevron scroll animation
 // frames are stacked and class is added on an off w/ scroll trigger to bring to front
 $usgsBlue: #032a56;
 
@@ -326,7 +295,7 @@ $usgsBlue: #032a56;
     padding: 5px 0 5px 0;
   }
 }
-#hydro-chart-container{
+#hydro-chart-container {
   font-size: 1.2rem;
   grid-area: chart; // names the grid child component
   align-self: center;
@@ -437,13 +406,13 @@ $usgsBlue: #032a56;
   }
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
   display: none;
   opacity: 0;
   transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
-.navigationContainer{ // grid container for the navigation indicating circles
+.navigationContainer { // grid container for the navigation indicating circles
   grid-area: navigation;
   position: absolute;
   left: 50%;
@@ -458,39 +427,45 @@ $usgsBlue: #032a56;
     top: auto;
     width: auto;
   }
-}
-.circleForm{ // circle shape and sizing
+} 
+.circleForm { // circle shape and sizing
   color: white;
   width: 13px;
   height: 13px;
-  display: inline-block;
+  max-width: 13px;
+  max-height: 13px;
+  //display: inline-block;
   border-radius: 50%;
   margin:0 2px 0 2px;
 }
 
-.quietCircle{ // color when inactive
+.quietCircle { // color when inactive
   background-color: #ccc;
   border: none;
   border-style: solid;
   border-width: 2px;
   border-color: #ccc;
 }
-.activeCircle{ // color when active
+.activeCircle { // color when active
   background-color: #507282;
   border-style: solid;
   border-width: 2px;
   border-color: #507282;
 }
-.navCircle{
-  background-color: none;
+.navCircle {
+  background-color: transparent;
   color: black;
+  border-width: 0;
   width: 13px;
-  height: 13px;
+  height: 15px;
   display: inline-block;
   font-size: 12px;
   font-family: $SourceSans;
 }
-.visible{
+button {
+  padding-inline: 0px;
+}
+.visible {
   visibility: visible;
   display: inline;
   position: static;

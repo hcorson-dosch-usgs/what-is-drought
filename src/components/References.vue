@@ -19,18 +19,10 @@
   </section>
 </template>
 
-<script>
-    import referencesText from "@/assets/text/referencesText";
-    export default {
-        name: 'References',
-        data() {
-            return {
-                text: referencesText.referencesContent
-            }
-        }
-    }
+<script setup>
+  import referencesText from "@/assets/text/referencesText";
+  const text = referencesText.referencesContent
 </script>
-/*Scope USWDS styles*/
-<style scoped src="../../node_modules/uswds/dist/css/uswds.min.css"></style>
+
 <style scoped lang="scss">
 </style>
