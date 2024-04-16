@@ -5,6 +5,7 @@
     <HeaderUSGS />
     <WorkInProgressWarning v-if="typeOfEnv === '-beta build-'" />
     <RouterView />
+    <PreFooterCodeLinks />
     <FooterUSGS />
   </div>
 </template>
@@ -16,6 +17,7 @@
   import HeaderUSWDSBanner from "./components/HeaderUSWDSBanner.vue";
   import HeaderUSGS from './components/HeaderUSGS.vue';
   import WorkInProgressWarning from "./components/WorkInProgressWarning.vue";
+  import PreFooterCodeLinks from "./components/PreFooterCodeLinks.vue";
   import FooterUSGS from './components/FooterUSGS.vue';
   import { useWindowSizeStore } from './stores/WindowSizeStore';
 
@@ -48,7 +50,7 @@ $darkGrey: #212122;
 // whole page except header fit within viewport - no scrolling
 #app {
   width: 100%;
-  height: calc(100vh + 85.7px); //85.7 is the height of the USGS header
+  height: calc(100vh); //85.7 is the height of the USGS header
 }
 
 // Type

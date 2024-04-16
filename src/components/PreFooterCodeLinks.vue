@@ -1,7 +1,7 @@
 <template>
   <div id="code-repository-link-container">
     <a
-      :href="gitHubRepositoryLink"
+      :href=gitHubRepositoryLink
       target="_blank"
       aria-label="github link"
     >See the code behind this visualization
@@ -10,17 +10,8 @@
   </div>
 </template>
 
-<script>
-  export default {
-      name: 'PreFooterCodeLinks',
-      data() {
-          return {
-              gitHubRepositoryLink: import.meta.env.VUE_APP_GITHUB_REPOSITORY_LINK,
-              projectTitle: import.meta.env.VITE_APP_TITLE
-          }
-      }
-  }
-
+<script setup>
+  const gitHubRepositoryLink = import.meta.env.VITE_APP_GITHUB_REPOSITORY_LINK;
 </script>
 
 <style lang="scss">
@@ -32,7 +23,6 @@
     background-color: #c2c4c5;
     margin: 0 auto;
     padding: 0.4rem;
-    border-bottom: 2px solid black;
     a {
       color: #090211;
       margin-left: 10px;
