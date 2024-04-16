@@ -85,15 +85,10 @@
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
   import scrollyText from "@/assets/text/scrollyText";  // step text
   import DroughtCharts from "@/components/DroughtCharts.vue";
-  import { useWindowSizeStore } from '../stores/WindowSizeStore.js'
 
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-  const windowSizeStore = useWindowSizeStore();
   const frames = scrollyText.frames;
-  const w = windowSizeStore.windowWidth;
-  const h = windowSizeStore.windowHeight;
-  const margin = { top: 50, right: 50, bottom: 50, left: 50 };
   const marker_on = false;
 
   onMounted(() => {
