@@ -522,6 +522,9 @@ $usgsBlue: #032a56;
   font-size: 12px;
   font-family: $SourceSans;
 }
+button {
+  padding-inline: 0px;
+}
 .visible {
   visibility: visible;
   display: inline;
