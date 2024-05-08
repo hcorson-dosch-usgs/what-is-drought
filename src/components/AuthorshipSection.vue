@@ -81,8 +81,6 @@
   import authors from "@/assets/text/authors";
   import { ref, onMounted } from 'vue';
 
-  // allows the application to find the files when on different deployment roots
-  const publicPath = import.meta.env.BASE_URL;
   // Pull in title of page from Vue environment (set in .env)
   const appTitle = import.meta.env.VITE_APP_TITLE;
 

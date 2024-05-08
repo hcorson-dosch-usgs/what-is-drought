@@ -1,15 +1,15 @@
 <template>
   <div id="visualization">
     <DroughtThresholds />
-    <References />
-    <Authorship />
+    <ReferencesSection />
+    <AuthorshipSection />
   </div>
 </template>
 
 <script setup>
 import DroughtThresholds from '@/components/DroughtThresholds.vue';
-import References from '@/components/References.vue';
-import Authorship from '@/components/Authorship.vue';
+import ReferencesSection from '@/components/ReferencesSection.vue';
+import AuthorshipSection from '@/components/AuthorshipSection.vue';
 
 </script>
 

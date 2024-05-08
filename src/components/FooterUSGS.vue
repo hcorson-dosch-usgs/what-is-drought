@@ -15,6 +15,7 @@
           <!--/ footer nav links -->      
         </div>
         <!-- /.footer-doi -->
+
         <hr>
 
       <!-- .footer-utl-links -->
@@ -35,7 +36,7 @@
           <li class="follow">Follow</li>
           <li class="twitter">
             <a href="https://twitter.com/usgs_datasci" target="_blank" aria-label="twitter link">
-              <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter-square' } " class="fa fa-twitter-square"><span class="only">Twitter</span></font-awesome-icon>
+              <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'square-x-twitter' } " class="fa fa-square-x-twitter"><span class="only">Twitter</span></font-awesome-icon>
             </a>
           </li>
           <li class="facebook">
@@ -84,5 +85,8 @@
 /* custom edit to get margins to match example */
 ul {
   margin-top: 15px;
+}
+ul.social {
+  margin-bottom: 1rem;
 }
 </style>

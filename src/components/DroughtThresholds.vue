@@ -223,7 +223,7 @@
     gsap.to(window, {duration: 0, scrollTo:"#scroll-to-"+scrollFrame});
   }
 
-  function prevFxn(e) {
+  function prevFxn() {
     const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
     const currentFrameName = currentFrame.id; // full id name in format "step-x"
     const currentFrameLetter = currentFrameName.split('-')[1]
@@ -234,7 +234,7 @@
     gsap.to(window, {duration: 0, scrollTo:"#scroll-to-" + prevFrameLetter})
   }
 
-  function nextFxn(e) {
+  function nextFxn() {
     const currentFrame = document.querySelector('#svg .visible'); // get svg element that is visible
     const currentFrameName = currentFrame.id; // full id name in format "step-x"
     const currentFrameLetter = currentFrameName.split('-')[1]

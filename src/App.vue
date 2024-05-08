@@ -50,7 +50,7 @@ $darkGrey: #212122;
 // whole page except header fit within viewport - no scrolling
 #app {
   width: 100%;
-  height: calc(100vh); //85.7 is the height of the USGS header
+  // height: calc(100vh); //85.7 is the height of the USGS header
 }
 
 // Type
@@ -114,9 +114,6 @@ input[type=button] {
     }
 
 // General Layout  
-  section {
-    padding: 3em 0 3em 0;
-  }
   .text-content {
     min-width: 300px;
     max-width: 700px;
