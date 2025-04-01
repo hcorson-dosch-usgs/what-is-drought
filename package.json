@@ -1,6 +1,10 @@
 {
   "name": "what-is-drought",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "How USGS water data can be used to characterize streamflow drought",
+  "main": "index.html",
+  "author": "USGS Vizlab",
+  "license": "Public Domain, CC0-1.0",
   "private": true,
   "scripts": {
     "dev": "vite --mode test_tier",
@@ -9,7 +13,7 @@
     "build-beta": "vite build --mode beta_tier",
     "build-prod": "vite build --mode prod_tier",
     "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.json --fix --ignore-path .gitignore",
+    "lint": "eslint --ext .vue,.js,.jsx,.cjs,.mjs --fix",
     "format": "prettier --write src/"
   },
   "dependencies": {
