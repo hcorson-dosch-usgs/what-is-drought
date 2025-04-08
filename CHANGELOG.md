@@ -15,16 +15,20 @@ Here we track upcoming changes.
  
 ### Fixed
  
-## [1.0.0] - 2024-11-07
+## [1.3.0] - 2025-04-07
  
 ### Added
 
-- Description of new feature
+- Change log
+- git templates
+- New favicon
  
 ### Changed
   
-- Description of change
+- Switched to domain at water.usgs.gov/vizlab
+- Updated README
+- Updated env vars
  
-### Fixed
+### Deleted
  
-- Description of fix
+- Old build files
