@@ -1,10 +1,10 @@
 # What is streamflow drought?
 
-> _A newer version of the software may be available. See https://code.usgs.gov/wma/vizlab/{app_title}/-/releases to view all releases._
+> _A newer version of the software may be available. See https://code.usgs.gov/wma/vizlab/what-is-drought/-/releases to view all releases._
 
 This repo uses R and javascript to build a data visualization website about how USGS streamgages can be used to characterize streamflow drought. 
 
-**The data visualization website can be viewed at [https://water.usgs.gov/vizlab/{app_title}](https://water.usgs.gov/vizlab/{app_title}).**
+**The data visualization website can be viewed at [https://water.usgs.gov/vizlab/what-is-drought](https://water.usgs.gov/vizlab/what-is-drought).**
 
 ## Building the website locally
 
@@ -14,14 +14,14 @@ To build the website locally you'll need `node.js` `v22.14.0` and `npm` `v10.9.2
 
 ## Citation
 
-B13.	Archer, A., Corson-Dosch, H., and Nell, C. June 1, 2023. What is streamflow drought? https://labs.waterdata.usgs.gov/visualizations/what-is-drought/index.html 
+Archer, A., Corson-Dosch, H., and Nell, C. June 1, 2023. What is streamflow drought? https://water.usgs.gov/vizlab/what-is-drought/
 
 ## Consulting subject matter experts
 John Hammond and Caelan Simeone consulted on the development of this website as subject matter experts.
 
 ## Additional information
-* We welcome contributions from the community. See the [guidelines for contributing](https://github.com/DOI-USGS/{app_title}/) to this repository on GitHub.
-* [Disclaimer](https://code.usgs.gov/wma/vizlab/{app_title}/-/blob/main/DISCLAIMER.md)
+* We welcome contributions from the community. See the [guidelines for contributing](https://github.com/DOI-USGS/what-is-drought/) to this repository on GitHub.
+* [Disclaimer](https://github.com/DOI-USGS/what-is-drought/blob/main/DISCLAIMER.md)
 * [License](https://code.usgs.gov/wma/vizlab/{app_title}/-/blob/main/LICENSE.md)
 
 
