@@ -4,7 +4,7 @@
 
 This repo uses R and javascript to build a data visualization website about how USGS streamgages can be used to characterize streamflow drought. 
 
-**The data visualization website can be viewed at [https://water.usgs.gov/vizlab/{app_title}](https://water.usgs.gov/vizlab/{app_title}).**
+**The data visualization website can be viewed at [https://water.usgs.gov/vizlab/what-is-drought](https://water.usgs.gov/vizlab/what-is-drought).**
 
 ## Building the website locally
 
