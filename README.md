@@ -14,7 +14,7 @@ To build the website locally you'll need `node.js` `v22.14.0` and `npm` `v10.9.2
 
 ## Citation
 
-B13.	Archer, A., Corson-Dosch, H., and Nell, C. June 1, 2023. What is streamflow drought? https://labs.waterdata.usgs.gov/visualizations/what-is-drought/index.html 
+Archer, A., Corson-Dosch, H., and Nell, C. June 1, 2023. What is streamflow drought? https://water.usgs.gov/vizlab/what-is-drought/
 
 ## Consulting subject matter experts
 John Hammond and Caelan Simeone consulted on the development of this website as subject matter experts.
