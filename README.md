@@ -20,7 +20,7 @@ Archer, A., Corson-Dosch, H., and Nell, C. June 1, 2023. What is streamflow drou
 John Hammond and Caelan Simeone consulted on the development of this website as subject matter experts.
 
 ## Additional information
-* We welcome contributions from the community. See the [guidelines for contributing](https://github.com/DOI-USGS/{app_title}/) to this repository on GitHub.
+* We welcome contributions from the community. See the [guidelines for contributing](https://github.com/DOI-USGS/what-is-drought/) to this repository on GitHub.
 * [Disclaimer](https://code.usgs.gov/wma/vizlab/{app_title}/-/blob/main/DISCLAIMER.md)
 * [License](https://code.usgs.gov/wma/vizlab/{app_title}/-/blob/main/LICENSE.md)
 
