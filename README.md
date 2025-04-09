@@ -22,7 +22,7 @@ John Hammond and Caelan Simeone consulted on the development of this website as 
 ## Additional information
 * We welcome contributions from the community. See the [guidelines for contributing](https://github.com/DOI-USGS/what-is-drought/) to this repository on GitHub.
 * [Disclaimer](https://github.com/DOI-USGS/what-is-drought/blob/main/DISCLAIMER.md)
-* [License](https://code.usgs.gov/wma/vizlab/{app_title}/-/blob/main/LICENSE.md)
+* [License](https://github.com/DOI-USGS/what-is-drought/blob/main/LICENSE.md)
 
 
 ### Set up ScienceBase credentials 
