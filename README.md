@@ -1,6 +1,6 @@
 # What is streamflow drought?
 
-> _A newer version of the software may be available. See https://code.usgs.gov/wma/vizlab/what-is-drought/-/releases to view all releases._
+> _A newer version of the software may be available. See https://github.com/DOI-USGS/what-is-drought/releases to view all releases._
 
 This repo uses R and javascript to build a data visualization website about how USGS streamgages can be used to characterize streamflow drought. 
 
