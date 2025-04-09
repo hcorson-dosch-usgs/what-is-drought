@@ -32,3 +32,7 @@ Here we track upcoming changes.
 ### Deleted
  
 - Old build files
+
+## [1.0.0] - 2023-05-08
+
+- Initial public release
