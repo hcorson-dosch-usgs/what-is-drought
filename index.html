@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Begin DAP Tag -->
-    <!-- See also: https://atthecore.usgs.gov/science-support/ocap-digital-services/web-applications -->
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TKQR8KP');</script>
-    <!-- End Google Tag Manager -->
-    <!-- End DAP Tag -->
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PHGTGNV');</script>
+    <!-- VIZLAB GTM CODE -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V443MQ3V1S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-V443MQ3V1S');
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
@@ -69,27 +63,14 @@
       },
       "audience": { "@context": "http://schema.org", "@type": "Audience", "audienceType": "General public"},
       "publisher": { "@context": "http://schema.org", "@type": "Organization", "legalName": "U.S. Geological Survey" },
-      "keywords": { "water, data viz, data visualization, streamflow, drought" }
+      "keywords": { "water, data viz, data visualization, streamflow, drought, scrollytelling, WDFN, streamgage" }
     </script>
+    <!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. -->
+    <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=USGS" id="_fed_an_ua_tag"></script>
   </head>
   <body>
-    <!-- Begin DAP Tag -->
-    <!-- See also: https://atthecore.usgs.gov/science-support/ocap-digital-services/web-applications -->
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe sandbox src="https://www.googletagmanager.com/ns.html?id=GTM-TKQR8KP"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <!-- End DAP Tag -->
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHGTGNV"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <noscript>
-      <strong>We're sorry but this application doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
-    <!-- End Google Tag Manager (noscript) -->
     <!-- USDWS js -->
     <script type="module" src="/node_modules/@uswds/uswds/dist/js/uswds.js"></script>
   </body>

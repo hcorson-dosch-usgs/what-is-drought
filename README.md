@@ -1,9 +1,29 @@
 # What is streamflow drought?
 
-## To run locally
-Clone the repo. In the directory, run `npm install` to install the required modules. This repository requires `npm v14.17.0` to run. If you are using a later version of `npm`, you may [try using `nvm` to manage multiple versions of npm](https://betterprogramming.pub/how-to-change-node-js-version-between-projects-using-nvm-3ad2416bda7e).
+> _A newer version of the software may be available. See https://github.com/DOI-USGS/what-is-drought/releases to view all releases._
 
-Once the dependencies have been installed, run `npm run serve` to run locally from your browser.
+This repo uses R and javascript to build a data visualization website about how USGS streamgages can be used to characterize streamflow drought. 
+
+**The data visualization website can be viewed at [https://water.usgs.gov/vizlab/what-is-drought](https://water.usgs.gov/vizlab/what-is-drought).**
+
+## Building the website locally
+
+Clone the repo. In the directory, run `npm install` to install the required modules. Once the dependencies have been installed, run `npm run dev` to run locally from your browser.
+
+To build the website locally you'll need `node.js` `v22.14.0` and `npm` `v10.9.2` or higher installed. To manage multiple versions of `npm`, you may [try using `nvm`](https://betterprogramming.pub/how-to-change-node-js-version-between-projects-using-nvm-3ad2416bda7e).
+
+## Citation
+
+Archer, A., Corson-Dosch, H., and Nell, C. June 1, 2023. What is streamflow drought? https://water.usgs.gov/vizlab/what-is-drought/
+
+## Consulting subject matter experts
+John Hammond and Caelan Simeone consulted on the development of this website as subject matter experts.
+
+## Additional information
+* We welcome contributions from the community. See the [guidelines for contributing](https://github.com/DOI-USGS/what-is-drought/) to this repository on GitHub.
+* [Disclaimer](https://github.com/DOI-USGS/what-is-drought/blob/main/DISCLAIMER.md)
+* [License](https://github.com/DOI-USGS/what-is-drought/blob/main/LICENSE.md)
+
 
 ### Set up ScienceBase credentials 
 
